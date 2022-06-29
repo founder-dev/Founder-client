@@ -2,6 +2,8 @@ import { useState } from "react";
 
 function App() {
 
+  const [nickname, setNickname] = useState("");
+  
   function kakaoLogin() {
     window.Kakao.Auth.login({
         scope: 'profile_nickname, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
@@ -14,6 +16,8 @@ function App() {
                 success: (res) => {
                     const kakao_account = res.kakao_account;
                     console.log(kakao_account.profile.nickname);
+                    setNickname(kakao_account.profile.nickname);
+                    console.log(nickname);
                     alert('로그인 성공');
                 }
             });
@@ -55,6 +59,7 @@ function secession() {
     <>
     <div>App</div>
     <button onClick={kakaoLogin}>카카오로그인</button>
+    <div>{nickname}</div>
     <button onClick={kakaoLogout}>카카오로그아웃</button>
     <button onClick={secession}>회원탈퇴</button>
     </>
