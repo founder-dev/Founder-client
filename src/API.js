@@ -10,14 +10,14 @@ import axios from 'axios';
   
   //필요한 API만들기
   export const PersonalInfo = async (token) =>
-    await API.get('/mypage', {
+    await instance.get('/mypage', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
 
   export const newReview = async (data) =>
-    await axios.post('/item/review', data);
+    await instance.post('/item/review', data);
   
   //다른 파일에서 사용예시
   const myPage = async () => {
