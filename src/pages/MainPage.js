@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import Modal from '../components/Modal';
+import SignUpModal from '../styles/SignUpModal';
 
-const MainPage =()=>{ 
-    const [modalOpen, setModalOpen] = useState(false);
+const MainPage = () => {
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <div>
@@ -13,8 +14,7 @@ const MainPage =()=>{
       >
         Open
       </button>
-
-      {modalOpen && <Modal setOpenModal={setModalOpen} />}
+      {modalOpen && <Modal setOpenModal={setModalOpen} type="SurveyModal" />}
     </div>
   );
 };

@@ -19,8 +19,7 @@ const Background = styled.div`
   position: fixed;
   width: 100%;
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.15);
   animation: modal-bg-show 1s;
   @keyframes modal-bg-show {
     from {
@@ -37,7 +36,7 @@ const ModalBlock = styled.div`
   top: 6.5rem;
   border-radius: 10px;
   padding: 1.5rem;
-  background-color: black;
+  background-color: blue;
   width: 60rem;
   @media (max-width: 1120px) {
     width: 50rem;
@@ -65,7 +64,7 @@ const Contents = styled.div`
   align-items: center;
 `;
 
-const ModalFrame = ({ setOpenModal }) => {
+const SignUpModal = ({ setOpenModal }) => {
   return (
     <Container>
       <Background />
@@ -84,4 +83,4 @@ const ModalFrame = ({ setOpenModal }) => {
   );
 };
 
-export default ModalFrame;
+export default SignUpModal;
