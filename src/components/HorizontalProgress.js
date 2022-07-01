@@ -13,7 +13,6 @@ const Container = styled.div`
   width: 100%;
   background: #ccc;
   position: fixed;
-  width: 100%;
 `;
 
 const Progress = styled.div`

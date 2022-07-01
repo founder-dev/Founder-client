@@ -1,7 +1,8 @@
 import MainPage from './pages/MainPage';
+import MagazinePage from './pages/MagazinePage';
 
 function App() {
-  return <MainPage />;
+  return <MagazinePage />;
 }
 
 export default App;
