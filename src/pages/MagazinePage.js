@@ -13,11 +13,11 @@ const MagazinePage = () => {
       <WidthWrapper>
         <Wrapper>
           <MagazineCardWrapper>
-            <Topic>브랜드스토리</Topic>
+            <Topic>브랜드 스토리</Topic>
             <MagazineCard />
           </MagazineCardWrapper>
           <CurationWrapper>
-            <Topic>데일리큐레이션</Topic>
+            <Topic>데일리 큐레이션</Topic>
             <MagazineCard />
           </CurationWrapper>
           <RecommendationWrapper>

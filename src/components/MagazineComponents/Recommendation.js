@@ -6,7 +6,7 @@ const Recommendation = () => {
   return (
     <CardContainer>
       <Image src={Protein} />
-      <SubText>달콤 요거트 프롬 그릭데이</SubText>
+      <SubText>산양 초유 프로틴 정기구독</SubText>
     </CardContainer>
   );
 };
