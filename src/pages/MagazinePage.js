@@ -1,14 +1,14 @@
 import React from 'react';
 import PageTitleBar from '../components/PageTitleBar';
 import TopBar from '../components/TopBar';
-import BrandStoryCard from '../components/BrandStoryCard';
+import MagazineCard from '../components/MagazineCard';
 
 const MagazinePage = () => {
   return (
     <>
       <TopBar />
       <PageTitleBar title={'Magazine'} />
-      <BrandStoryCard />
+      <MagazineCard />
     </>
   );
 };
