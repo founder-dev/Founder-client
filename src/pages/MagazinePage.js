@@ -1,15 +1,14 @@
 import React from 'react';
 import PageTitleBar from '../components/PageTitleBar';
 import TopBar from '../components/TopBar';
-import styled from 'styled-components';
-import MagazineCard from '../components/MagazineCard';
+import BrandStoryCard from '../components/BrandStoryCard';
 
 const MagazinePage = () => {
   return (
     <>
       <TopBar />
       <PageTitleBar title={'Magazine'} />
-      <MagazineCard />
+      <BrandStoryCard />
     </>
   );
 };
