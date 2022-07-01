@@ -1,7 +1,7 @@
 import React from 'react';
 import PageTitleBar from '../components/PageTitleBar';
 import TopBar from '../components/TopBar';
-import MagazineCard from '../components/MagazineCard';
+import MagazineCard from '../components/MagazineComponents/MagazineCard';
 
 const MagazinePage = () => {
   return (
