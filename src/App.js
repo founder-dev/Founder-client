@@ -6,14 +6,18 @@ function App() {
     window.Kakao.Auth.login({
         scope: 'profile_nickname, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
         success: function(response) {
-          console.log(response.access_token);
-            localStorage.setItem('accesstoken',(response.access_token));  // 로그인 성공하면 사용자 엑세스 토큰 sessionStorage에 저장
+          console.log("accesstoken: "+ response.access_token);
+          console.log("refreshtoken: "+response.refresh_token);
+
+            localStorage.setItem('accesstoken',(response.access_token));  // 로그인 성공하면 사용자 엑세스 토큰 로컬Storage에 저장
             
             window.Kakao.API.request({ // 사용자 정보 가져오기 
                 url: '/v2/user/me',
                 success: (res) => {
                     const kakao_account = res.kakao_account;
+                    console.log(kakao_account);
                     console.log(kakao_account.profile.nickname);
+                    console.log(`${(kakao_account.email)[0]}*****`); //이메일에서 아이디만 뽑아오기
                     alert('로그인 성공');
                 }
             });
