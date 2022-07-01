@@ -1,18 +1,16 @@
 import React, { useState } from 'react';
 import Modal from '../components/Modal';
-import HorizontalProgress from '../components/HorizontalProgress';
+import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSurveyDone, setIsSurveyDone] = useState(false);
-  const { scroll } = useDetectScroll();
 
   if (isLoggedIn === false)
     return (
       <>
-        <HorizontalProgress scroll={scroll} />
         <div>
           <button
             onClick={() => {

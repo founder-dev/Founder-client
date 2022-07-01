@@ -1,6 +1,5 @@
 import React from 'react';
-import BrandStory from '../assets/MagazinePageAssets/BrandStory.png';
-import TeaTime from '../assets/MagazinePageAssets/TeaTime.png';
+import BrandStory from '../../assets/MagazinePageAssets/BrandStory.png';
 import styled from 'styled-components';
 
 const MagazineCard = () => {
@@ -14,9 +13,6 @@ const MagazineCard = () => {
           기타리스트로 음악씬에 먼저 이름을 알린 후 담담한 본인만의 감성으로 큰
           사랑을 받고 있는 싱어송라이터
         </SubText>
-      </CardContainer>
-      <CardContainer>
-        <Image src={TeaTime} />
       </CardContainer>
     </>
   );
@@ -35,8 +31,7 @@ const CardContainer = styled.div`
   background-color: white;
   width: 430px;
   height: 712px;
-  margin-top: 36px;
-  margin-bottom: 20px;
+  margin-bottom: 56px;
 `;
 
 const Chip = styled.div`
