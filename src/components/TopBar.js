@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import coolicon from '../assets/TopBarAssets/coolicon.png';
+import TopBarButton from './TopBarButton';
 
 const Container = styled.div`
   display: flex;
@@ -57,6 +58,7 @@ const TopBar = () => {
       <CategoryText>카테고리</CategoryText>
       <img src={coolicon} />
       <MagazineText>매거진</MagazineText>
+      <TopBarButton />
     </Container>
   );
 };

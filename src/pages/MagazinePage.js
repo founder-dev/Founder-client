@@ -47,7 +47,7 @@ const RecommendationWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 1440px;
-  justify-content: center;
+  justify-content: space-between;
 `;
 
 const WidthWrapper = styled.div`
