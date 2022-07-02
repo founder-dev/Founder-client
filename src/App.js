@@ -1,10 +1,13 @@
 import { useState } from "react";
+import KakaoLoginHandler from "./KaKaoLoginHandlerPage";
+import LoginPage from "./LoginPage";
+import {Routes,Route} from 'react-router-dom';
 
 function App() {
 
-  function kakaoLogin() {
+  /*function kakaoLogin() {
     window.Kakao.Auth.login({
-        scope: 'profile_nickname, account_email', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
+        scope: 'profile_nickname, account_email, gender', //동의항목 페이지에 있는 개인정보 보호 테이블의 활성화된 ID값을 넣습니다.
         success: function(response) {
           console.log("accesstoken: "+ response.access_token);
           console.log("refreshtoken: "+response.refresh_token);
@@ -17,7 +20,8 @@ function App() {
                     const kakao_account = res.kakao_account;
                     console.log(kakao_account);
                     console.log(kakao_account.profile.nickname);
-                    console.log(`${(kakao_account.email)[0]}*****`); //이메일에서 아이디만 뽑아오기
+                    console.log(`${(kakao_account.email)[0]}*****`);
+                    console.log(`${(kakao_account.gender)}`); //이메일에서 아이디만 뽑아오기
                     alert('로그인 성공');
                 }
             });
@@ -55,12 +59,14 @@ function secession() {
   });
 };
 
+*/ //프론트 내에서만 카카오 로그인을 구현하고 싶을때
+
   return (
     <>
-    <div>App</div>
-    <button onClick={kakaoLogin}>카카오로그인</button>
-    <button onClick={kakaoLogout}>카카오로그아웃</button>
-    <button onClick={secession}>회원탈퇴</button>
+    <Routes>
+    <Route path="/" element ={<LoginPage/>}></Route>
+    <Route path="/kakao" element ={<KakaoLoginHandler/>}></Route>
+    </Routes>
     </>
   );
 }
