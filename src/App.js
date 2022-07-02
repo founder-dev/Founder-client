@@ -4,7 +4,7 @@ import MagazineDetailPage from './pages/MagazineDetailPage';
 import ItemDetailPage from './pages/ItemDetailPage';
 
 function App() {
-  return <ItemDetailPage />;
+  return <MainPage />;
 }
 
 /* 카카오 로그인 버튼 공식 디자인

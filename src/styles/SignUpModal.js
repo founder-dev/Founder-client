@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import Image from '../assets/SignUpAssets/SignUpModal.png';
 import Close from '../assets/SignUpAssets/CloseButton.png';
 import KaKaoLogin from '../assets/SignUpAssets/KaKaoLogin.png';
+import Founder from '../assets/SignUpAssets/Founder.png';
+import FounderModel from '../assets/SignUpAssets/FounderModel.png';
+import LifeStyle from '../assets/SignUpAssets/LifeStyle.png';
 
 const Container = styled.div`
   position: absolute;
@@ -34,24 +36,50 @@ const Background = styled.div`
   }
 `;
 
-const ModalImage = styled.img`
-  width : 1000px;
-  height : 600px;
-`
 const Wrapper = styled.div`
-width:1000px;
-height:600px;
-position : relative;
+  width:1000px;
+  height:600px;
+  position : relative;
+`
+const Thumbnail = styled.img`
+
+position : absolute;
+top : 52px;
+left : 41.05px;
+
+`
+const Logo = styled.img`
+
+position : absolute;
+top : 134.69px;
+left : 45.7px;
+`
+const Model = styled.img`
+
+position : absolute;
+right: 0.8px;
+top: 0px;
+
+`
+const Text = styled.div`
+
+position : absolute;
+font-size : 24px;
+top : 353px;
+left : 49px;
+font-family: 'Pretendard';
+font-weight: medium;
+
 `
 const ModalBlock = styled.div`
   position: absolute;
   top: 6.5rem;
+  height: 600px;
   border-radius: 10px;
-  padding: 1.5rem;
-  background-color: none;
-  width: 60rem;
+  background-color: white;
+  width: 1000px;
   @media (max-width: 1120px) {
-    width: 50rem;
+    width: 37.5rem;
   }
   @media (max-width: 50rem) {
     width: 80%;
@@ -98,8 +126,11 @@ const SignUpModal = ({ setOpenModal }) => {
       <Background/>
       <ModalBlock>
         <Wrapper>
-        <ModalImage src ={Image}/>
         <Contents>
+          <Thumbnail src ={LifeStyle}/>
+          <Logo src ={Founder}/>
+          <Model src ={FounderModel}/>
+          <Text>로그인 혹은 회원가입</Text>
           <LoginButton>kakaoLogin</LoginButton>
           <CloseButton
             onClick={() => {

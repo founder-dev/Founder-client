@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Survey from '../assets/SurveyAssets/Survey.png';
 
 const Container = styled.div`
   position: absolute;
@@ -33,10 +34,8 @@ const Background = styled.div`
 
 const ModalBlock = styled.div`
   position: absolute;
-  top: 6.5rem;
   border-radius: 10px;
-  padding: 1.5rem;
-  background-color: blue;
+  background-color: none;
   width: 60rem;
   @media (max-width: 1120px) {
     width: 50rem;
@@ -58,29 +57,44 @@ const ModalBlock = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  position : relative;
+
+`
+const GoSurvey = styled.button`
+  position : absolute;
+  bottom : 118.4px;
+  right : 589.5px;
+  border : 0;
+  outline : 0;
+  background-color : white;
+  cursor : pointer;
+`
 const Contents = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const SignUpModal = ({ setOpenModal }) => {
+const SurveyModal = ({ setOpenModal }) => {
   return (
     <Container>
       <Background />
       <ModalBlock>
+        <Wrapper>
         <Contents>
-          <button
+          <GoSurvey
             onClick={() => {
               setOpenModal(false);
             }}
           >
-            X
-          </button>
+            지금당장시작하기
+          </GoSurvey>
         </Contents>
+        </Wrapper>
       </ModalBlock>
     </Container>
   );
 };
 
-export default SignUpModal;
+export default SurveyModal;
