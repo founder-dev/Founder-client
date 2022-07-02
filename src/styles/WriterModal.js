@@ -96,7 +96,6 @@ const WriterModal = ({ setOpenModal }) => {
     */
   }
 
-  }
   
   return (
     <Container>
@@ -138,6 +137,6 @@ const WriterModal = ({ setOpenModal }) => {
       </ModalBlock>
     </Container>
   );
-};
+}
 
 export default WriterModal;
