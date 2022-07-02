@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Survey from '../assets/SurveyAssets/Survey.png';
 
 const Container = styled.div`
   position: absolute;
@@ -34,8 +33,10 @@ const Background = styled.div`
 
 const ModalBlock = styled.div`
   position: absolute;
+  top: 6.5rem;
   border-radius: 10px;
-  background-color: none;
+  padding: 1.5rem;
+  background-color: blue;
   width: 60rem;
   @media (max-width: 1120px) {
     width: 50rem;
@@ -60,6 +61,7 @@ const ModalBlock = styled.div`
 const Wrapper = styled.div`
   position : relative;
 
+
 `
 const GoSurvey = styled.button`
   position : absolute;
@@ -83,13 +85,13 @@ const SurveyModal = ({ setOpenModal }) => {
       <ModalBlock>
         <Wrapper>
         <Contents>
-          <GoSurvey
+          <button
             onClick={() => {
               setOpenModal(false);
             }}
           >
-            지금당장시작하기
-          </GoSurvey>
+            x
+          </button>
         </Contents>
         </Wrapper>
       </ModalBlock>

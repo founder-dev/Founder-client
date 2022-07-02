@@ -2,9 +2,10 @@ import MainPage from './pages/MainPage';
 import MagazinePage from './pages/MagazinePage';
 import MagazineDetailPage from './pages/MagazineDetailPage';
 import ItemDetailPage from './pages/ItemDetailPage';
+import MyPage from './pages/MyPage';
 
 function App() {
-  return <MainPage />;
+  return <MyPage />;
 }
 
 /* 카카오 로그인 버튼 공식 디자인
