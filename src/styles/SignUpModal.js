@@ -77,20 +77,20 @@ const Contents = styled.div`
 `;
 
 const CloseButton = styled.button`
-position : absolute;
-top : 40.01px;
-right : 40px;
-border : 0;
-outline : 0;
-background-color : white;
-cursor : pointer;
+  position : absolute;
+  top : 40.01px;
+  right : 40px;
+  border : 0;
+  outline : 0;
+  background-color : white;
+  cursor : pointer;
 `;
 
 const LoginButton = styled.button`
-position : absolute;
-background-color : none;
-left : 48px;
-bottom : 136px;
+  position : absolute;
+  background-color : none;
+  left : 48px;
+  bottom : 136px;
 `
 const SignUpModal = ({ setOpenModal }) => {
   return (

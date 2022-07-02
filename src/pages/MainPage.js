@@ -9,7 +9,7 @@ import { Logo } from '../components/FounderLogo';
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   const [isSurveyDone, setIsSurveyDone] = useState(false);
 
     return (
