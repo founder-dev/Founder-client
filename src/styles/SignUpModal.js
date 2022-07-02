@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import Image from '../assets/SignUpAssets/SignUpModal.png';
+import Close from '../assets/SignUpAssets/CloseButton.png';
+import KaKaoLogin from '../assets/SignUpAssets/KaKaoLogin.png';
 
 const Container = styled.div`
   position: absolute;
@@ -31,12 +34,21 @@ const Background = styled.div`
   }
 `;
 
+const ModalImage = styled.img`
+  width : 1000px;
+  height : 600px;
+`
+const Wrapper = styled.div`
+width:1000px;
+height:600px;
+position : relative;
+`
 const ModalBlock = styled.div`
   position: absolute;
   top: 6.5rem;
   border-radius: 10px;
   padding: 1.5rem;
-  background-color: black;
+  background-color: none;
   width: 60rem;
   @media (max-width: 1120px) {
     width: 50rem;
@@ -64,20 +76,39 @@ const Contents = styled.div`
   align-items: center;
 `;
 
+const CloseButton = styled.button`
+position : absolute;
+top : 40.01px;
+right : 40px;
+border : 0;
+outline : 0;
+background-color : white;
+cursor : pointer;
+`;
+
+const LoginButton = styled.button`
+position : absolute;
+background-color : none;
+left : 48px;
+bottom : 136px;
+`
 const SignUpModal = ({ setOpenModal }) => {
   return (
     <Container>
-      <Background />
+      <Background/>
       <ModalBlock>
+        <Wrapper>
+        <ModalImage src ={Image}/>
         <Contents>
-          <button
+          <LoginButton>kakaoLogin</LoginButton>
+          <CloseButton
             onClick={() => {
               setOpenModal(false);
             }}
-          >
-            X
-          </button>
+          ><img src ={Close}/>
+          </CloseButton>
         </Contents>
+        </Wrapper>
       </ModalBlock>
     </Container>
   );

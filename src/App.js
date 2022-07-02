@@ -3,7 +3,7 @@ import MagazinePage from './pages/MagazinePage';
 import MagazineDetailPage from './pages/MagazineDetailPage';
 
 function App() {
-  return <MagazinePage />;
+  return <MainPage />;
 }
 
 /* 카카오 로그인 버튼 공식 디자인
