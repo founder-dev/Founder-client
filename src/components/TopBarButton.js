@@ -52,7 +52,7 @@ const SurveyButton = styled.button`
   margin-right: 24px;
 `;
 
-const Text = styled.text`
+const Text = styled.div`
   color: black;
   font-size: 16px;
   font-family: 'Pretendard';

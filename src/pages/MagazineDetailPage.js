@@ -1,22 +1,30 @@
 import React from 'react';
 import TopBar from '../components/TopBar';
 import styled from 'styled-components';
+import MagazineImage from '../assets/MagazineDetailPageAssets/MagazineImage.png';
+import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
+import useDetectScroll from '../hooks/useDetectScroll';
 
 const MagazineDetailPage = () => {
+  const { scroll } = useDetectScroll();
+
   return (
     <>
       <TopBar />
       <TitleWrapper>
-        <MagazineTitle />
+        <MagazineTitle>파운더와 함께하는 간단한 한 끼</MagazineTitle>
       </TitleWrapper>
+      <HorizontalProgress scroll={scroll} />
       <WidthWrapper>
-        <Wrapper></Wrapper>
+        <Wrapper>
+          <img src={MagazineImage} />
+        </Wrapper>
       </WidthWrapper>
     </>
   );
 };
 
-export default MagazinePage;
+export default MagazineDetailPage;
 
 const MagazineTitle = styled.div`
   display: flex;
