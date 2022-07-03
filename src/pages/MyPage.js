@@ -3,6 +3,10 @@ import PageTitleBar from '../components/PageTitleBar';
 import styled from 'styled-components';
 import { useState } from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';
+import Illust from '../assets/MyPageAssets/Login.png';
+import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
+import KaKaoCode from '../components/KakaoCode';
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction : column;
@@ -15,7 +19,7 @@ const WidthWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
-  padding-left : 480px;
+  margin-left : 480px;
 `;
 
 const Name = styled.div`
@@ -28,7 +32,6 @@ const Name = styled.div`
 
   padding-top: 67px;
   text-align : center;
-  width: 1440px;
 `;
 
 const MyName = styled.div`
@@ -61,6 +64,7 @@ const Id = styled.span`
 
   width : ${props => props.width || '42px'};
   padding-top : ${props => props.top || '37.25px'};
+  margin-right : 200px;
 
 `;
 
@@ -93,11 +97,51 @@ const Button = styled.button`
 
   cursor : pointer;
 
-`
+`;
 const Logo = styled.img`
    width : 480px;
    margin-top : 60px;
-`
+`;
+
+const Login = styled.div`
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 800;
+  font-size: 36px;
+  line-height: 48px;
+/* identical to box height, or 133% */
+
+  display: flex;
+  align-items: center;
+
+  margin-top : 7px;
+`;
+
+const Illustration = styled.img`
+  width : 248px;
+  height : 230px;
+
+  margin-left : 200px;
+`;
+
+const KaKaoButton = styled.button`
+padding: 0;
+width: 300px;
+height: 44px;
+line-height: 44px;
+background-color : white;
+border: 1px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: bold;
+text-align: center;
+cursor: pointer;
+&:hover{
+    box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.2)
+}
+margin-top : 23px;
+margin-left : 70px;
+`;
 
 const MyPage = () => {
 
@@ -106,9 +150,9 @@ const MyPage = () => {
     const [id, setId] = useState("UserId");
     const [gender, setGender] = useState("Men");
 
+    
     return(
       <>
-        <div>
         <TopBar/>
         <PageTitleBar title={'MyPage'}/>
         <WidthWrapper>
@@ -127,20 +171,21 @@ const MyPage = () => {
           <MyId top = "8px">{gender}</MyId>
           </Info>
           <Button>로그아웃</Button>
-          <Logo src ={Founder}/>
+          
           </>
           :
           <>
             <Id width ="200px">아직 파운더 회원이 아닌신가요?</Id>
+            <Login>로그인 하기</Login>
+            <Illustration src ={Illust}/>
+            <KaKaoButton onClick={KaKaoCode}><img src ={Kakaologin}/></KaKaoButton>
           </>
-
         }
+        <Logo src ={Founder}/>
         </Wrapper>
         </WidthWrapper>
-        </div>
-        
       </>
     )
-}
+} 
 
 export default MyPage;

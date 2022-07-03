@@ -94,9 +94,9 @@ const WriterModal = ({ setOpenModal }) => {
     /* headers: {
     "Content-Type": `multipart/form-data; `,
     */
+
   }
 
-  
   return (
     <Container>
       <Background />
@@ -111,7 +111,6 @@ const WriterModal = ({ setOpenModal }) => {
           </button>
           <div>후기 작성하기</div>
           <div>아이템,가격 나올 예정 </div>
-          <button>startRate</button>
           <form>
             <input
             type = 'text'

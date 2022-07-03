@@ -41,9 +41,9 @@ const MainPage = () => {
               setModalOpen(true);
             }}
           >
-            survey
+            후기작성모달오픈
           </button>
-          {modalOpen && <Modal setOpenModal={setModalOpen} type="SurveyModal" />}
+          {modalOpen && <Modal setOpenModal={setModalOpen} type="WriterModal" />}
         </div>
         }
 
