@@ -42,6 +42,7 @@ const MyName = styled.div`
   line-height: 48px;
   padding-bottom : 29px;
   display: flex;
+  padding-top : 66px;
 
 `;
 
@@ -145,11 +146,11 @@ margin-left : 70px;
 
 const MyPage = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(false); //recoil 적용
+    const [isLoggedIn, setIsLoggedIn] = useState(true); //recoil 적용
     const [username , setUsername] = useState("User");
     const [id, setId] = useState("UserId");
     const [gender, setGender] = useState("Men");
-
+    const [email, setEmail] = useState("MyEmail@.com");
     
     return(
       <>
@@ -159,7 +160,6 @@ const MyPage = () => {
         <Wrapper>
           {isLoggedIn === true ?
           <>
-          <Name>성함</Name>
           <MyName>{username}</MyName>
           <Border/>
           <Info>
@@ -169,6 +169,10 @@ const MyPage = () => {
           <Info>
           <Id top = "16px">성별</Id>
           <MyId top = "8px">{gender}</MyId>
+          </Info>
+          <Info>
+          <Id top = "16px">이메일</Id>
+          <MyId top = "8px">{email}</MyId>
           </Info>
           <Button>로그아웃</Button>
           
