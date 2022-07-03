@@ -1,5 +1,5 @@
 import React from 'react';
-import BrandStory from '../../assets/MagazinePageAssets/BrandStory.png';
+import BrandStory from '../../assets/MagazinePageAssets/brandStory.png';
 import styled from 'styled-components';
 
 const MagazineCard = () => {

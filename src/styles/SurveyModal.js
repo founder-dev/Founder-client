@@ -58,29 +58,45 @@ const ModalBlock = styled.div`
   }
 `;
 
+const Wrapper = styled.div`
+  position : relative;
+
+
+`
+const GoSurvey = styled.button`
+  position : absolute;
+  bottom : 118.4px;
+  right : 589.5px;
+  border : 0;
+  outline : 0;
+  background-color : white;
+  cursor : pointer;
+`
 const Contents = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const SignUpModal = ({ setOpenModal }) => {
+const SurveyModal = ({ setOpenModal }) => {
   return (
     <Container>
       <Background />
       <ModalBlock>
+        <Wrapper>
         <Contents>
           <button
             onClick={() => {
               setOpenModal(false);
             }}
           >
-            X
+            x
           </button>
         </Contents>
+        </Wrapper>
       </ModalBlock>
     </Container>
   );
 };
 
-export default SignUpModal;
+export default SurveyModal;

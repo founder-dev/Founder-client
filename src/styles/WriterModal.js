@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -64,7 +64,39 @@ const Contents = styled.div`
   align-items: center;
 `;
 
-const SignUpModal = ({ setOpenModal }) => {
+const WriterModal = ({ setOpenModal }) => {
+
+  const [starRate , setStarRate] = useState("");
+  const [review, setReview] = useState("");
+  const [photo, setPhoto] = useState("");
+  const [preview, setPreview] = useState("");
+  
+  //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정 
+
+  const inputReview = (e)=>{
+    setReview(e.target.value);
+    console.log(review);
+  }
+
+  const uploadPhoto = (e) =>{
+    setPhoto(e.target.files);
+    console.log(photo);
+    setPreview(URL.createObjectURL(e.target.files[0])); //대표이미지만
+    console.log(preview);
+  }
+
+  const handleSubmit = (e) => {
+    const formdata = new FormData();
+    formdata.append('photo', photo);
+    formdata.append('starRate', starRate);
+    formdata.append('review', review);
+    //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
+    /* headers: {
+    "Content-Type": `multipart/form-data; `,
+    */
+  }
+
+  
   return (
     <Container>
       <Background />
@@ -77,10 +109,34 @@ const SignUpModal = ({ setOpenModal }) => {
           >
             X
           </button>
+          <div>후기 작성하기</div>
+          <div>아이템,가격 나올 예정 </div>
+          <button>startRate</button>
+          <form>
+            <input
+            type = 'text'
+            value = {review}
+            onChange={inputReview}
+            />
+             {photo && (
+             <img
+             alt="sample"
+             src={preview}
+             style={{ margin: "auto"}}
+             />)
+             } 
+            <input
+           type ='file'
+           accept='image/*'
+           multiple
+           onChange={uploadPhoto}
+           />
+           <button onClick={handleSubmit}>작성완료</button>
+            </form>
         </Contents>
       </ModalBlock>
     </Container>
   );
-};
+}
 
-export default SignUpModal;
+export default WriterModal;

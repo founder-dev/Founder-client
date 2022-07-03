@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import MagazinePageTitle from '../assets/MagazinePageAssets/MagazinePageTitle.png';
+import MyPageTitle from '../assets/MyPageAssets/MyPage.png';
 
 const Container = styled.div`
   display: flex;
@@ -21,6 +22,12 @@ const PageTitleBar = ({ title }) => {
         <img src={MagazinePageTitle} />
       </Container>
     );
+  else if(title === 'MyPage')
+    return (
+    <Container>
+      <img src={MyPageTitle} />
+    </Container>
+  );
 };
 
 export default PageTitleBar;

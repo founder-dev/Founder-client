@@ -1,16 +1,25 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import icon from '../assets/TopBarAssets/icon.png';
+import Modal from '../components/Modal';
 
 const TopBarButton = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSurveyDone, setIsSurveyDone] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
   if (isLoggedIn === false) {
     return (
-      <LoginButton>
+      <>
+      <LoginButton onClick={() => {
+        setModalOpen(true);
+      }}>
         <Text>로그인</Text>
       </LoginButton>
+      {modalOpen && (
+            <Modal setOpenModal={setModalOpen} type="SignUpModal" />
+          )}
+      </>
     );
   }
   if (isLoggedIn === true && isSurveyDone === false) {
