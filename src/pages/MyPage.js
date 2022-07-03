@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';
 import Illust from '../assets/MyPageAssets/Login.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
+import KaKaoCode from '../components/KakaoCode';
 
 const Wrapper = styled.div`
   display: flex;
@@ -149,6 +150,7 @@ const MyPage = () => {
     const [id, setId] = useState("UserId");
     const [gender, setGender] = useState("Men");
 
+    
     return(
       <>
         <TopBar/>
@@ -176,7 +178,7 @@ const MyPage = () => {
             <Id width ="200px">아직 파운더 회원이 아닌신가요?</Id>
             <Login>로그인 하기</Login>
             <Illustration src ={Illust}/>
-            <KaKaoButton><img src ={Kakaologin}/></KaKaoButton>
+            <KaKaoButton onClick={KaKaoCode}><img src ={Kakaologin}/></KaKaoButton>
           </>
         }
         <Logo src ={Founder}/>
@@ -184,6 +186,6 @@ const MyPage = () => {
         </WidthWrapper>
       </>
     )
-}
+} 
 
 export default MyPage;

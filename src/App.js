@@ -3,9 +3,18 @@ import MagazinePage from './pages/MagazinePage';
 import MagazineDetailPage from './pages/MagazineDetailPage';
 import ItemDetailPage from './pages/ItemDetailPage';
 import MyPage from './pages/MyPage';
+import { Routes, Route } from 'react-router-dom';
+import KaKaoLoginHandlerPage from './pages/KakaoLoginHandlerPage';
 
 function App() {
-  return <MyPage />;
+  return (
+  <>
+  <Routes>
+    <Route path="/kakao" element ={<KaKaoLoginHandlerPage/>}/>
+    <Route path = "/"  element ={<MyPage/>}/>
+  </Routes>
+  </>
+  );
 }
 
 /* 카카오 로그인 버튼 공식 디자인
