@@ -1,7 +1,39 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import coolicon from '../assets/TopBarAssets/coolicon.png';
 import TopBarButton from './TopBarButton';
+import { useRecoilState } from 'recoil';
+import { menuOpenState } from '../recoil';
+
+const TopBar = () => {
+  const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
+
+  return (
+    <Container>
+      <HomeText>홈</HomeText>
+
+      <CategoryText>카테고리</CategoryText>
+      <img
+        src={coolicon}
+        onMouseOver={() => setMenuOpen(true)}
+        onMouseOut={() => setMenuOpen(false)}
+      />
+      {menuOpen ? (
+        <DropdownMenu onMouseOver={() => setMenuOpen(true)}>
+          <Menu>식품</Menu>
+          <Menu>음료</Menu>
+          <Menu>생필품</Menu>
+          <Menu>건강</Menu>
+        </DropdownMenu>
+      ) : null}
+
+      <MagazineText>매거진</MagazineText>
+      <TopBarButton />
+    </Container>
+  );
+};
+
+export default TopBar;
 
 const Container = styled.div`
   display: flex;
@@ -51,16 +83,23 @@ const MagazineText = styled.div`
   margin-left: 56px;
 `;
 
-const TopBar = () => {
-  return (
-    <Container>
-      <HomeText>홈</HomeText>
-      <CategoryText>카테고리</CategoryText>
-      <img src={coolicon} />
-      <MagazineText>매거진</MagazineText>
-      <TopBarButton />
-    </Container>
-  );
-};
+const DropdownMenu = styled.ul`
+  display: block;
+  width: 280px;
+  height: 240px;
+  background-color: black;
+  position: absolute;
+  transform: translateY(160px);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+`;
 
-export default TopBar;
+const Menu = styled.li`
+  margin-top: 20px;
+  width: 280px;
+  height: 80px;
+  color: black;
+  font-size: 16px;
+  font-family: 'Pretendard';
+`;
