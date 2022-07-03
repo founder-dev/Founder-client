@@ -1,7 +1,40 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useState, useRef } from 'react';
+import styled, { css } from 'styled-components';
 import coolicon from '../assets/TopBarAssets/coolicon.png';
 import TopBarButton from './TopBarButton';
+import { useRecoilState } from 'recoil';
+import { menuOpenState } from '../recoil';
+
+const TopBar = () => {
+  const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
+
+  return (
+    <Container>
+      <HomeText>홈</HomeText>
+
+      <CategoryText>카테고리</CategoryText>
+      <DropButton menuOpen = {menuOpen}
+        src={coolicon}
+        onMouseEnter={() => 
+          setMenuOpen(true)
+        }
+      />
+      {menuOpen ? (
+        <DropdownMenu onMouseLeave={() => setMenuOpen(false)}>
+          <Menu>식품</Menu>
+          <Menu>음료</Menu>
+          <Menu>생필품</Menu>
+          <Menu>건강</Menu>
+        </DropdownMenu>
+      ) : null}
+
+      <MagazineText>매거진</MagazineText>
+      <TopBarButton />
+    </Container>
+  );
+};
+
+export default TopBar;
 
 const Container = styled.div`
   display: flex;
@@ -51,16 +84,44 @@ const MagazineText = styled.div`
   margin-left: 56px;
 `;
 
-const TopBar = () => {
-  return (
-    <Container>
-      <HomeText>홈</HomeText>
-      <CategoryText>카테고리</CategoryText>
-      <img src={coolicon} />
-      <MagazineText>매거진</MagazineText>
-      <TopBarButton />
-    </Container>
-  );
-};
+const DropButton = styled.img`
+ cursor : pointer;
+ ${props =>
+  props.menuOpen ?
+  css`
+    transform: rotate( -180deg );`
+   : `transform: rotate( 0 );`}   
+`;
 
-export default TopBar;
+const DropdownMenu = styled.ul`
+  display: block;
+  width: 280px;
+  height: 240px;
+  background-color: white;
+  position: absolute;
+  transform: translateY(160px);
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding-left:0px;
+`;
+
+const Menu = styled.li`
+  padding-top: 20px;
+  padding-left:40px;
+  width: 240px;
+  height: 80px;
+  color: black;
+  font-size: 16px;
+  font-family: 'Pretendard';
+  font-style: normal;
+
+  cursor : pointer;
+  :hover{
+    background-color : #FAFAFA;
+    font-size: 16px;
+    font-family: 'Pretendard';
+    font-style: normal;
+    font-weight: 700;
+  }
+`;

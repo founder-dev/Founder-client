@@ -33,7 +33,6 @@ const MainPage = () => {
           )}
         </div>
         } 
-
         { isLoggedIn === true && isSurveyDone === false &&
           <div> 
           <button
@@ -46,7 +45,6 @@ const MainPage = () => {
           {modalOpen && <Modal setOpenModal={setModalOpen} type="WriterModal" />}
         </div>
         }
-
         { isLoggedIn === true && isSurveyDone === true &&
           null
         }
