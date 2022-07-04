@@ -56,6 +56,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 1440px;
   flex-direction: column;
+  padding-top : 150px;
 `;
 
 const ItemTitle = styled.div`

@@ -17,6 +17,9 @@ const Container = styled.div`
   border-bottom-height: 1px;
   border-bottom-color: black;
   border-bottom-style: solid;
+
+  margin-top: 80px;
+  position : fixed;
 `;
 
 const PageTitleBar = ({ title }) => {

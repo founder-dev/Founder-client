@@ -53,6 +53,8 @@ const Container = styled.div`
   width: 100%;
   height: 80px;
   background-color: white;
+
+  position : fixed;
 `;
 
 const HomeText = styled.div`
