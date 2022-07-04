@@ -5,8 +5,16 @@ import MagazineCard from '../components/MagazineComponents/MagazineCard';
 import Recommendation from '../components/MagazineComponents/Recommendation';
 import styled from 'styled-components';
 import Tag from '../components/Tag';
+import data from '../assets/Magazinedata.json';
 
 const MagazinePage = () => {
+
+  const Story = data.filter((items) => items.magazine_type === "파운더 스토리"); //data set
+  
+
+  const Curation = data.filter((items) => items.magazine_type === "데일리 큐레이션");
+  const Brand = data.map((items) => items.brand);
+  console.log(Brand);
   return (
     <>
       <TopBar />
@@ -15,16 +23,35 @@ const MagazinePage = () => {
         <Wrapper>
           <MagazineCardWrapper>
             <Topic>브랜드 스토리</Topic>
-            <MagazineCard />
-            <MagazineCard />
+            {Story.map(({ title, text ,magazine_tag_arr} , i) => 
+            (
+            <MagazineCard 
+            title={title} 
+            text ={text} 
+            tag={magazine_tag_arr} 
+            key ={i}/>
+            ))
+            }
           </MagazineCardWrapper>
+          
           <CurationWrapper>
             <Topic>데일리 큐레이션</Topic>
-            <MagazineCard />
+            {Curation.map(({ title, text ,magazine_tag_arr} , i) => 
+            (
+            <MagazineCard 
+            title={title} 
+            text ={text} 
+            tag={magazine_tag_arr} 
+            key ={i}
+            curationHeight = "455px"
+            imageHeight = "320px"/>
+            ))
+            }
           </CurationWrapper>
+
           <RecommendationWrapper>
-            <Topic>추천 상품</Topic>
-            <Recommendation />
+            <Topic>추천 브랜드</Topic>
+            <Recommendation Brand={Brand}/>
           </RecommendationWrapper>
         </Wrapper>
       </WidthWrapper>
@@ -50,6 +77,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 1440px;
   justify-content: space-between;
+  padding-top : 150px;
 `;
 
 const WidthWrapper = styled.div`
