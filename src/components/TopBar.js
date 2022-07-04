@@ -5,11 +5,13 @@ import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../recoil';
 import {color, fontsize, fontWeight} from '../lib/theme';
+
 import { Link } from 'react-router-dom';
 
 const TopBar = () => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
-  
+  console.log(color.grey[1]);
+
   return (
     <Container>
       <HomeText>홈</HomeText>
