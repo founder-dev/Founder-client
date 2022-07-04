@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import MagazinePageTitle from '../assets/MagazinePageAssets/MagazinePageTitle.png';
 import MyPageTitle from '../assets/MyPageAssets/MyPage.png';
+import BeverageTitle from '../assets/CategoryIntroPageAssets/Beverage.png';
+import FoodTitle from '../assets/CategoryIntroPageAssets/Food.png';
+import GoodsTitle from '../assets/CategoryIntroPageAssets/Goods.png';
+import HealthTitle from '../assets/CategoryIntroPageAssets/Health.png';
 
 const Container = styled.div`
   display: flex;
@@ -22,12 +26,36 @@ const PageTitleBar = ({ title }) => {
         <img src={MagazinePageTitle} />
       </Container>
     );
-  else if(title === 'MyPage')
+  else if (title === 'Food')
     return (
-    <Container>
-      <img src={MyPageTitle} />
-    </Container>
-  );
+      <Container>
+        <img src={FoodTitle} />
+      </Container>
+    );
+  else if (title === 'Health')
+    return (
+      <Container>
+        <img src={HealthTitle} />
+      </Container>
+    );
+  else if (title === 'Beverage')
+    return (
+      <Container>
+        <img src={BeverageTitle} />
+      </Container>
+    );
+  else if (title === 'Goods')
+    return (
+      <Container>
+        <img src={GoodsTitle} />
+      </Container>
+    );
+  else if (title === 'MyPage')
+    return (
+      <Container>
+        <img src={MyPageTitle} />
+      </Container>
+    );
 };
 
 export default PageTitleBar;

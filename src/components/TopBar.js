@@ -5,27 +5,35 @@ import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../recoil';
 import {color, fontsize, fontWeight} from '../lib/theme';
+import { Link } from 'react-router-dom';
 
 const TopBar = () => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
-  console.log(color.grey[1]);
+  
   return (
     <Container>
       <HomeText>홈</HomeText>
 
       <CategoryText>카테고리</CategoryText>
-      <DropButton menuOpen = {menuOpen}
+      <DropButton
+        menuOpen={menuOpen}
         src={coolicon}
-        onMouseEnter={() => 
-          setMenuOpen(true)
-        }
+        onMouseEnter={() => setMenuOpen(true)}
       />
       {menuOpen ? (
         <DropdownMenu onMouseLeave={() => setMenuOpen(false)}>
-          <Menu>식품</Menu>
-          <Menu>음료</Menu>
-          <Menu>생필품</Menu>
-          <Menu>건강</Menu>
+          <Link to={`/food`}>
+            <Menu>식품</Menu>
+          </Link>
+          <Link to={`/beverage`}>
+            <Menu>음료</Menu>
+          </Link>
+          <Link to={`/goods`}>
+            <Menu>생필품</Menu>
+          </Link>
+          <Link to={`/health`}>
+            <Menu>건강</Menu>
+          </Link>
         </DropdownMenu>
       ) : null}
 
@@ -83,12 +91,13 @@ const MagazineText = styled.div`
 `;
 
 const DropButton = styled.img`
- cursor : pointer;
- ${props =>
-  props.menuOpen ?
-  css`
-    transform: rotate( -180deg );`
-   : `transform: rotate( 0 );`}   
+  cursor: pointer;
+  ${(props) =>
+    props.menuOpen
+      ? css`
+          transform: rotate(-180deg);
+        `
+      : `transform: rotate( 0 );`}
 `;
 
 const DropdownMenu = styled.ul`
@@ -101,12 +110,12 @@ const DropdownMenu = styled.ul`
   display: flex;
   flex-direction: column;
   list-style: none;
-  padding-left:0px;
+  padding-left: 0px;
 `;
 
 const Menu = styled.li`
   padding-top: 20px;
-  padding-left:40px;
+  padding-left: 40px;
   width: 240px;
   height: 80px;
   cursor : pointer;
@@ -114,4 +123,5 @@ const Menu = styled.li`
     background-color : ${color.grey[1]};
     font-weight: ${fontWeight[2]};
   }
+  background-color : white;
 `;

@@ -1,0 +1,169 @@
+[
+  {
+    "itemType": "Food",
+    "itemTitle": "샐러드",
+    "itemName": "샐러드 구독권5",
+    "price": "5000원",
+    "rating": 5,
+    "custom": true,
+    "schedule": "weekly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "샐러드",
+    "itemName": "샐러드 구독권4",
+    "price": "4000원",
+    "rating": 4,
+    "custom": false,
+    "schedule": "weekly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "샐러드",
+    "itemName": "샐러드 구독권3",
+    "price": "3000원",
+    "rating": 3,
+    "custom": true,
+    "schedule": "monthly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "샐러드",
+    "itemName": "샐러드 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly",
+    "description" : "건강한 샐러드 아침"
+  },
+
+  {
+    "itemType": "Food",
+    "itemTitle": "요거트",
+    "itemName": "요거트 구독권5",
+    "price": "5000원",
+    "rating": 5,
+    "custom": true,
+    "schedule": "weekly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "요거트",
+    "itemName": "요거트 구독권4",
+    "price": "4000원",
+    "rating": 4,
+    "custom": false,
+    "schedule": "weekly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "요거트",
+    "itemName": "요거트 구독권3",
+    "price": "3000원",
+    "rating": 3,
+    "custom": true,
+    "schedule": "monthly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "요거트",
+    "itemName": "요거트 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly",
+    "description" : "신선한 요거트"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "시리얼",
+    "itemName": "시리얼 구독권5",
+    "price": "5000원",
+    "rating": 5,
+    "custom": true,
+    "schedule": "weekly",
+    "description" : "맛있는 시리얼"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "시리얼",
+    "itemName": "시리얼 구독권4",
+    "price": "4000원",
+    "rating": 4,
+    "custom": false,
+    "schedule": "weekly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "시리얼",
+    "itemName": "시리얼 구독권3",
+    "price": "3000원",
+    "rating": 3,
+    "custom": true,
+    "schedule": "monthly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "시리얼",
+    "itemName": "시리얼 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly",
+    "description" : "건강한 샐러드 아침"
+  },
+  {
+    "itemType": "Health",
+    "itemTitle": "프로틴",
+    "itemName": "프로틴 구독권1",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Health",
+    "itemTitle": "프로틴",
+    "itemName": "프로틴 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Health",
+    "itemTitle": "프로틴",
+    "itemName": "프로틴 구독권3",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Health",
+    "itemTitle": "유산균",
+    "itemName": "유산균 구독권4",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Health",
+    "itemTitle": "유산균",
+    "itemName": "유산균 구독권5",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  }
+
+]
