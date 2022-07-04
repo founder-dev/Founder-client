@@ -12,6 +12,7 @@ const CategoryIntroPage = ({ title }) => {
   console.log(Description);
   return (
     <>
+    
       <TopBar />
       <PageTitleBar title={title} />
       <WidthWrapper>
@@ -32,7 +33,7 @@ const CategoryIntroPage = ({ title }) => {
               />
             ))}
             </GridWrapper>
-            
+
             <div>{title} 브랜드 이미지들 들어갈 예정</div>
             </>
             ))}
