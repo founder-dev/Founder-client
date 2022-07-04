@@ -5,15 +5,25 @@ import ItemDetailPage from './pages/ItemDetailPage';
 import MyPage from './pages/MyPage';
 import { Routes, Route } from 'react-router-dom';
 import KaKaoLoginHandlerPage from './pages/KakaoLoginHandlerPage';
+import CategoryIntroPage from './pages/CategoryIntroPage';
 
 function App() {
   return (
-  <>
-  <Routes>
-    <Route path="/kakao" element ={<KaKaoLoginHandlerPage/>}/>
-    <Route path = "/"  element ={<MyPage/>}/>
-  </Routes>
-  </>
+    <>
+      <Routes>
+        <Route path="/kakao" element={<KaKaoLoginHandlerPage />} />
+        <Route path="/" element={<MyPage />} />
+        <Route path="/food" element={<CategoryIntroPage title={'Food'} />} />
+        <Route
+          path="/beverage"
+          element={<CategoryIntroPage title={'Beverage'} />}
+        />
+        <Route
+          path="/health"
+          element={<CategoryIntroPage title={'Health'} />}
+        />
+      </Routes>
+    </>
   );
 }
 
