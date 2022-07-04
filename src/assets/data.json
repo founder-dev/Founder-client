@@ -1,0 +1,111 @@
+[
+  {
+    "itemType": "Food",
+    "itemTitle": "salad",
+    "itemName": "샐러드 구독권5",
+    "price": "5000원",
+    "rating": 5,
+    "custom": true,
+    "schedule": "weekly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "salad",
+    "itemName": "샐러드 구독권4",
+    "price": "4000원",
+    "rating": 4,
+    "custom": false,
+    "schedule": "weekly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "salad",
+    "itemName": "샐러드 구독권3",
+    "price": "3000원",
+    "rating": 3,
+    "custom": true,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "salad",
+    "itemName": "샐러드 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+
+  {
+    "itemType": "Food",
+    "itemTitle": "protein",
+    "itemName": "protein 구독권5",
+    "price": "5000원",
+    "rating": 5,
+    "custom": true,
+    "schedule": "weekly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "protein",
+    "itemName": "protein 구독권4",
+    "price": "4000원",
+    "rating": 4,
+    "custom": false,
+    "schedule": "weekly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "protein",
+    "itemName": "protein 구독권3",
+    "price": "3000원",
+    "rating": 3,
+    "custom": true,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "protein",
+    "itemName": "protein 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "beverage",
+    "itemName": "beverage 구독권5",
+    "price": "5000원",
+    "rating": 5,
+    "custom": true,
+    "schedule": "weekly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "beverage",
+    "itemName": "beverage 구독권4",
+    "price": "4000원",
+    "rating": 4,
+    "custom": false,
+    "schedule": "weekly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "beverage",
+    "itemName": "beverage 구독권3",
+    "price": "3000원",
+    "rating": 3,
+    "custom": true,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "beverage",
+    "itemName": "beverage 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  }
+]
