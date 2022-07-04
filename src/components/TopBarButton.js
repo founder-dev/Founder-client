@@ -10,9 +10,11 @@ const TopBarButton = () => {
   const [isSurveyDone, setIsSurveyDone] = useRecoilState(surveyState);
   const [modalOpen, setModalOpen] = useState(false);
 
-  if (isLoggedIn === false) {
-    return (
-      <>
+  return (
+  <>
+  {
+    isLoggedIn === false && 
+    <>
       <LoginButton onClick={() => {
         setModalOpen(true);
       }}>
@@ -22,23 +24,22 @@ const TopBarButton = () => {
             <Modal setOpenModal={setModalOpen} type="SignUpModal" />
           )}
       </>
-    );
-  }
-  if (isLoggedIn === true && isSurveyDone === false) {
-    return (
+      }
+    
+ { isLoggedIn === true && isSurveyDone === false &&
       <>
       <SurveyButton>
         <Text>설문조사 하러가기</Text>
       </SurveyButton>
       <Image src={icon} />
       </>
-    );
+ }
+ { isLoggedIn === true && isSurveyDone === true &&
+     <Image src={icon} />
   }
-  if (isLoggedIn === true && isSurveyDone === true) {
-    return <Image src={icon} />;
-  }
-};
-
+  </>
+);
+}
 export default TopBarButton;
 
 const LoginButton = styled.button`

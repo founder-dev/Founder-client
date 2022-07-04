@@ -1,6 +1,7 @@
 import React from 'react';
 import BrandStory from '../../assets/MagazinePageAssets/brandStory.png';
 import styled from 'styled-components';
+import { color } from '../../lib/theme';
 
 const MagazineCard = () => {
   return (
@@ -40,11 +41,11 @@ const Chip = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: grey;
+  background-color: ${color.grey[2]};
   width: 66px;
   height: 32px;
   padding: 4px 12px;
-  border-radius: 4px;
+  border-radius: 2px;
 `;
 
 const CardTitle = styled.div`

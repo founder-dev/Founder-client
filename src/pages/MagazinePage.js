@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar';
 import MagazineCard from '../components/MagazineComponents/MagazineCard';
 import Recommendation from '../components/MagazineComponents/Recommendation';
 import styled from 'styled-components';
+import Tag from '../components/Tag';
 
 const MagazinePage = () => {
   return (
@@ -14,6 +15,7 @@ const MagazinePage = () => {
         <Wrapper>
           <MagazineCardWrapper>
             <Topic>브랜드 스토리</Topic>
+            <MagazineCard />
             <MagazineCard />
           </MagazineCardWrapper>
           <CurationWrapper>

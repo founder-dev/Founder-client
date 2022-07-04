@@ -2,17 +2,18 @@ export const color ={
     grey:[
         "",
         "#FAFAFA",
-        "E9E9E9",
+        "#E9E9E9",
         "#D4D4D4",
         "#8888",
         "#6666",
-        "4444",
-        "2222",
+        "#4444",
+        "#2222",
     ]
 };
 
 export const fontsize =[
     "",
+    "12px",
     "16px",
     "20px",
     "24px",
