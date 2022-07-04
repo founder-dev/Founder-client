@@ -23,7 +23,6 @@ const WidthWrapper = styled.div`
 `;
 
 const Name = styled.div`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -35,7 +34,6 @@ const Name = styled.div`
 `;
 
 const MyName = styled.div`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 800;
   font-size: 36px;
@@ -57,7 +55,6 @@ const Info = styled.div`
 
 `;
 const Id = styled.span`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -70,7 +67,6 @@ const Id = styled.span`
 `;
 
 const MyId = styled.span`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -105,7 +101,6 @@ const Logo = styled.img`
 `;
 
 const Login = styled.div`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 800;
   font-size: 36px;
