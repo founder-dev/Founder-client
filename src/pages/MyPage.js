@@ -6,6 +6,8 @@ import Founder from '../assets/MyPageAssets/FounderImage.png';
 import Illust from '../assets/MyPageAssets/Login.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
 import KaKaoCode from '../components/KakaoCode';
+import { loginState } from '../recoil';
+import { useRecoilState } from 'recoil';
 
 const Wrapper = styled.div`
   display: flex;
@@ -141,7 +143,7 @@ margin-left : 70px;
 
 const MyPage = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true); //recoil 적용
+    const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
     const [username , setUsername] = useState("User");
     const [id, setId] = useState("UserId");
     const [gender, setGender] = useState("Men");
