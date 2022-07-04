@@ -10,7 +10,6 @@ import { Link } from 'react-router-dom';
 
 const TopBar = () => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
-  console.log(color.grey[1]);
 
   return (
     <Container>

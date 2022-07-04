@@ -6,11 +6,13 @@ import FounderLogo from '../assets/MainPageAssets/logo.png';
 import styled from 'styled-components';
 import TopBar from '../components/TopBar';
 import { Logo } from '../components/FounderLogo';
+import { useRecoilState } from 'recoil';
+import { loginState, surveyState } from '../recoil';
 
 const MainPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-  const [isSurveyDone, setIsSurveyDone] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState);
+  const [isSurveyDone, setIsSurveyDone] = useRecoilState(surveyState);
 
     return (
       <>
