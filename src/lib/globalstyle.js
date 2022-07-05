@@ -12,6 +12,11 @@ const GlobalStyle =  createGlobalStyle`
     color : #272727;
    }
 
+   a{
+      text-decoration : none;
+      color : black;
+   }
+
 `;
 
 export default GlobalStyle;

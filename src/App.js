@@ -6,6 +6,7 @@ import MyPage from './pages/MyPage';
 import { Routes, Route } from 'react-router-dom';
 import KaKaoLoginHandlerPage from './pages/KakaoLoginHandlerPage';
 import CategoryIntroPage from './pages/CategoryIntroPage';
+import SurveyPage from './pages/SurveyPage';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Routes>
         <Route path="/kakao" element={<KaKaoLoginHandlerPage />} />
         <Route path="/" element={<MagazinePage />} />
+        <Route path="/mypage" element={<MyPage />} />
         <Route path="/food" element={<CategoryIntroPage title={'Food'} />} />
         <Route
           path="/beverage"
