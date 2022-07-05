@@ -41,7 +41,7 @@ const MyName = styled.div`
   font-weight: 800;
   font-size: 36px;
   line-height: 48px;
-  padding-bottom : 29px;
+  padding-bottom : 40px;
   display: flex;
   padding-top : 66px;
 
@@ -55,28 +55,25 @@ const Border = styled.div`
 const Info = styled.div`
    display : flex;
    flex-direction : row;
+   margin-bottom : 8px;
 
 `;
 const Id = styled.span`
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 20px;
+  line-height: 36px;
 
-  width : ${props => props.width || '42px'};
-  padding-top : ${props => props.top || '37.25px'};
-  margin-right : 200px;
+  width : ${props => props.width || '52px'};
+  margin-right : 52px;
 
 `;
 
 const MyId = styled.span`
   font-style: normal;
   font-weight: 700;
-  font-size: 16px;
-  line-height: 32px;
-
-  padding-top : ${props => props.top || '33px'};
-  padding-left : 42px;
+  font-size: 20px;
+  line-height: 36px;
 
 `;
 
@@ -91,7 +88,7 @@ const Button = styled.button`
   font-size: 16px;
   line-height: 24px;
 
-  margin-top : 115px;
+  margin-top : 132px;
   width : 480px;
   height : 60px;
 
@@ -100,7 +97,7 @@ const Button = styled.button`
 `;
 const Logo = styled.img`
    width : 480px;
-   margin-top : 60px;
+   margin-top : 30px;
 `;
 
 const Login = styled.div`
@@ -138,14 +135,14 @@ cursor: pointer;
 &:hover{
     box-shadow: 0 0px 15px 0 rgba(0, 0, 0, 0.2)
 }
-margin-top : 23px;
+margin-top : 184px;
 margin-left : 70px;
 `;
 
 const MyPage = () => {
 
     const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
-    const [username , setUsername] = useState("User");
+    const [username , setUsername] = useState("Username");
     const [id, setId] = useState("UserId");
     const [gender, setGender] = useState("Men");
     const [email, setEmail] = useState("MyEmail@.com");
@@ -159,27 +156,26 @@ const MyPage = () => {
           {isLoggedIn === true ?
           <>
           <MyName>{username}</MyName>
-          <Border/>
           <Info>
           <Id>아이디</Id>
           <MyId>{id}</MyId>
           </Info>
           <Info>
           <Id top = "16px">성별</Id>
-          <MyId top = "8px">{gender}</MyId>
+          <MyId>{gender}</MyId>
           </Info>
           <Info>
           <Id top = "16px">이메일</Id>
-          <MyId top = "8px">{email}</MyId>
+          <MyId>{email}</MyId>
           </Info>
           <Button>로그아웃</Button>
           
           </>
           :
           <>
-            <Id width ="200px">아직 파운더 회원이 아닌신가요?</Id>
-            <Login>로그인 하기</Login>
-            <Illustration src ={Illust}/>
+            <MyName width ="468px">더 나은 서비스를 위해 가입하세요</MyName>
+            <Id width = "433px">지금 로그인하고 파운더만의 설문조사에 참여하세요.</Id>
+            <Id width = "433px">89가지 제품 중 가장 필요한 제품을 추천해드려요.</Id>
             <KaKaoButton onClick={KaKaoCode}><img src ={Kakaologin}/></KaKaoButton>
           </>
         }
