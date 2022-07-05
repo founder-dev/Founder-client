@@ -55,6 +55,7 @@ const Container = styled.div`
   background-color: white;
 
   position : fixed;
+  z-index: 2;
 `;
 
 const HomeText = styled.div`
