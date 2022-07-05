@@ -7,9 +7,16 @@ import customSticker from '../assets/ProductCardAssets/customSticker.png';
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   return (
     <ProductCardContainer>
-      <Sticker src={sticker} />
-      {custom ? <CustomSticker src={customSticker} /> : null}
-      <Image src={itemImage} />
+      <ImageWrapper>
+        <Image src={itemImage} />
+        <Sticker src={sticker} />
+        {custom ? (
+          <>
+            <CustomSticker src={customSticker} />
+            <Schedule>{schedule}</Schedule>
+          </>
+        ) : null}
+      </ImageWrapper>
       <ProductCardTitle>{itemName}</ProductCardTitle>
       <Price>{price}</Price>
     </ProductCardContainer>
@@ -19,22 +26,39 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
 export default ProductCard;
 
 const ProductCardContainer = styled.div`
-  background-color: pink;
+  background-color: gray;
   border-radius: 4px;
   width: 376px;
   height: 470px;
 `;
 
-const Image = styled.img``;
+const Image = styled.img`
+  margin-top: 12px;
+`;
 
-const CustomSticker = styled.img`
-  position: absolute;
-  transform: translateX(100px);
+const ImageWrapper = styled.div`
+  position: relative;
 `;
 
 const Sticker = styled.img`
   position: absolute;
-  transform: translateY(40px);
+  top: 20px;
+  right: 26px;
+`;
+
+const CustomSticker = styled.img`
+  position: absolute;
+  top: 120px;
+  right: 22px;
+`;
+
+const Schedule = styled.div`
+  position: absolute;
+  top: 60px;
+  right: 45px;
+  color: pink;
+  font-size: 16px;
+  font-family: 'Pretendard';
 `;
 
 const ProductCardTitle = styled.div`

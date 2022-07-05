@@ -9,8 +9,7 @@ const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title);
   const Title = [...new Set(results.map((items) => items.itemTitle))];
   const subTitle = [...new Set(results.map((items) => items.subTitle))];
-  const Description = [...new Set(results.map((items) => items.description))];
-  console.log(Description);
+
   return (
     <>
       <TopBar />
@@ -107,7 +106,7 @@ const BrandsContainer = styled.div`
   background-color: gray;
 `;
 
-const BrandName = styled.text`
+const BrandName = styled.div`
   color: black;
   font-size: 18px;
   font-family: 'Pretendard';
