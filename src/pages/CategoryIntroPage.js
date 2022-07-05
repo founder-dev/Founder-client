@@ -41,6 +41,9 @@ const CategoryIntroPage = ({ title }) => {
                       )}
                   </GridWrapper>
                   <BrandsTitle>{title} 브랜드</BrandsTitle>
+                  <BrandsContainer>
+                    <BrandName>브랜드이름</BrandName>
+                  </BrandsContainer>
                 </>
               ))}
             </>
@@ -89,22 +92,24 @@ const GridWrapper = styled.div`
   column-gap: 36px;
   row-gap: 60px;
 `;
-
-const description = styled.div``;
-
-const RecommendationWrapper = styled.div``;
-
-const Topic = styled.div`
-  color: black;
-  font-size: 32px;
-  font-family: 'Pretendard';
-  font-weight: bold;
-`;
-
 const BrandsTitle = styled.div`
   margin-top: 120px;
   color: black;
   font-size: 28px;
+  font-family: 'Pretendard';
+  font-weight: bold;
+`;
+const BrandsContainer = styled.div`
+  margin-top: 24px;
+  margin-bottom: 120px;
+  width: 208px;
+  height: 203px;
+  background-color: gray;
+`;
+
+const BrandName = styled.text`
+  color: black;
+  font-size: 18px;
   font-family: 'Pretendard';
   font-weight: bold;
 `;
