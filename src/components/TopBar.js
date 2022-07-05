@@ -4,6 +4,8 @@ import coolicon from '../assets/TopBarAssets/coolicon.png';
 import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../recoil';
+import {color, fontsize, fontWeight} from '../lib/theme';
+
 import { Link } from 'react-router-dom';
 
 const TopBar = () => {
@@ -51,6 +53,8 @@ const Container = styled.div`
   width: 100%;
   height: 80px;
   background-color: white;
+
+  position : fixed;
 `;
 
 const HomeText = styled.div`
@@ -61,8 +65,7 @@ const HomeText = styled.div`
   background-color: white;
   color: black;
   font-size: 20px;
-  font-weight: bold;
-  font-family: 'Pretendard';
+  font-weight: ${fontWeight[2]};
   margin-right: 78px;
 `;
 
@@ -74,8 +77,7 @@ const CategoryText = styled.div`
   background-color: white;
   color: black;
   font-size: 20px;
-  font-weight: bold;
-  font-family: 'Pretendard';
+  font-weight: ${fontWeight[2]};
   margin-right: 8px;
 `;
 
@@ -87,8 +89,7 @@ const MagazineText = styled.div`
   background-color: white;
   color: black;
   font-size: 20px;
-  font-weight: bold;
-  font-family: 'Pretendard';
+  font-weight: ${fontWeight[2]};
   margin-left: 56px;
 `;
 
@@ -120,17 +121,10 @@ const Menu = styled.li`
   padding-left: 40px;
   width: 240px;
   height: 80px;
-  color: black;
-  font-size: 16px;
-  font-family: 'Pretendard';
-  font-style: normal;
-
-  cursor: pointer;
-  :hover {
-    background-color: #fafafa;
-    font-size: 16px;
-    font-family: 'Pretendard';
-    font-style: normal;
-    font-weight: 700;
+  cursor : pointer;
+  :hover{
+    background-color : ${color.grey[1]};
+    font-weight: ${fontWeight[2]};
   }
+  background-color : white;
 `;

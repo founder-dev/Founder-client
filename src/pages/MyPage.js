@@ -6,12 +6,15 @@ import Founder from '../assets/MyPageAssets/FounderImage.png';
 import Illust from '../assets/MyPageAssets/Login.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
 import KaKaoCode from '../components/KakaoCode';
+import { loginState } from '../recoil';
+import { useRecoilState } from 'recoil';
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction : column;
   width: 1440px;
   justify-content: space-between;
+  padding-top : 150px;
   
 `;
 
@@ -23,7 +26,6 @@ const WidthWrapper = styled.div`
 `;
 
 const Name = styled.div`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -35,7 +37,6 @@ const Name = styled.div`
 `;
 
 const MyName = styled.div`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 800;
   font-size: 36px;
@@ -57,7 +58,6 @@ const Info = styled.div`
 
 `;
 const Id = styled.span`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -70,7 +70,6 @@ const Id = styled.span`
 `;
 
 const MyId = styled.span`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 700;
   font-size: 16px;
@@ -105,7 +104,6 @@ const Logo = styled.img`
 `;
 
 const Login = styled.div`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 800;
   font-size: 36px;
@@ -146,7 +144,7 @@ margin-left : 70px;
 
 const MyPage = () => {
 
-    const [isLoggedIn, setIsLoggedIn] = useState(true); //recoil 적용
+    const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
     const [username , setUsername] = useState("User");
     const [id, setId] = useState("UserId");
     const [gender, setGender] = useState("Men");

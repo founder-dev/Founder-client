@@ -2,11 +2,15 @@ import React from 'react';
 import Protein from '../../assets/MagazinePageAssets/Protein.png';
 import styled from 'styled-components';
 
-const Recommendation = () => {
+const Recommendation = ({Brand}) => {
   return (
     <CardContainer>
+      {Brand.map((brand,i) => brand != undefined && (
+      <>
       <Image src={Protein} />
-      <SubText>산양 초유 프로틴 정기구독</SubText>
+      <SubText>{brand}</SubText>
+      </>
+      ))}
     </CardContainer>
   );
 };
@@ -23,8 +27,10 @@ const CardContainer = styled.div`
   justify-content: center;
   background-color: white;
   width: 216px;
-  height: 204px;
+  height: 170px;
   margin-bottom: 24px;
+
+  margin-top:150px;
 `;
 
 const SubText = styled.div`

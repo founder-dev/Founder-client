@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import icon from '../assets/TopBarAssets/icon.png';
 import Modal from '../components/Modal';
+import { loginState, surveyState } from '../recoil';
 
 const TopBarButton = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [isSurveyDone, setIsSurveyDone] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState);
+  const [isSurveyDone, setIsSurveyDone] = useRecoilState(surveyState);
   const [modalOpen, setModalOpen] = useState(false);
 
-  if (isLoggedIn === false) {
-    return (
-      <>
+  return (
+  <>
+  {
+    isLoggedIn === false && 
+    <>
       <LoginButton onClick={() => {
         setModalOpen(true);
       }}>
@@ -20,21 +24,22 @@ const TopBarButton = () => {
             <Modal setOpenModal={setModalOpen} type="SignUpModal" />
           )}
       </>
-    );
-  }
-  if (isLoggedIn === true && isSurveyDone === false) {
-    return (
+      }
+    
+ { isLoggedIn === true && isSurveyDone === false &&
+      <>
       <SurveyButton>
         <Text>설문조사 하러가기</Text>
-        <Image src={icon} />
       </SurveyButton>
-    );
+      <Image src={icon} />
+      </>
+ }
+ { isLoggedIn === true && isSurveyDone === true &&
+     <Image src={icon} />
   }
-  if (isLoggedIn === true && isSurveyDone === true) {
-    return <Image src={icon} />;
-  }
-};
-
+  </>
+);
+}
 export default TopBarButton;
 
 const LoginButton = styled.button`
@@ -68,5 +73,8 @@ const Text = styled.div`
 `;
 
 const Image = styled.img`
-  margin-right: 52px;
+  margin-right: 24px;
+  width : 32px;
+  height : 32px;
+
 `;
