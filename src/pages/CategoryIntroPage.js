@@ -7,28 +7,44 @@ import data from '../assets/data.json';
 
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title);
-  const items = results.filter((items) => items.itemTitle === 'salad');
-
+  const Title = [...new Set(results.map((items) => items.itemTitle))];
+  const subTitle = [...new Set(results.map((items) => items.subTitle))];
+  const Description = [...new Set(results.map((items) => items.description))];
+  console.log(Description);
   return (
     <>
       <TopBar />
       <PageTitleBar title={title} />
       <WidthWrapper>
         <Wrapper>
-          <ItemTitle>샐러드</ItemTitle>
+          {Title.map((title, m) => (
+            <>
+              <ItemTitle>{title}</ItemTitle>
+              {subTitle.map((subTitle, m) => (
+                <>
+                  <SubTitle>{subTitle}</SubTitle>
 
-          <GridWrapper>
-            {items.map(({ itemName, price, rating, custom, schedule }, i) => (
-              <ProductCard
-                itemName={itemName}
-                price={price}
-                rating={rating}
-                custom={custom}
-                schedule={schedule}
-                key={i}
-              />
-            ))}
-          </GridWrapper>
+                  <GridWrapper>
+                    {results
+                      .filter((items) => items.itemTitle === title)
+                      .map(
+                        ({ itemName, price, rating, custom, schedule }, i) => (
+                          <ProductCard
+                            itemName={itemName}
+                            price={price}
+                            rating={rating}
+                            custom={custom}
+                            schedule={schedule}
+                            key={i}
+                          />
+                        )
+                      )}
+                  </GridWrapper>
+                  <div>{title} 브랜드 이미지들 들어갈 예정</div>
+                </>
+              ))}
+            </>
+          ))}
         </Wrapper>
       </WidthWrapper>
     </>
@@ -47,12 +63,22 @@ const Wrapper = styled.div`
   display: flex;
   width: 1440px;
   flex-direction: column;
+  padding-top: 150px;
 `;
 
 const ItemTitle = styled.div`
   margin-top: 48px;
   color: black;
   font-size: 36px;
+  font-family: 'Pretendard';
+  font-weight: bold;
+`;
+
+const SubTitle = styled.div`
+  margin-top: 8px;
+  margin-bottom: 48px;
+  color: black;
+  font-size: 28px;
   font-family: 'Pretendard';
   font-weight: bold;
 `;
