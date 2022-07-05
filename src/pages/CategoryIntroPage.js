@@ -40,7 +40,7 @@ const CategoryIntroPage = ({ title }) => {
                         )
                       )}
                   </GridWrapper>
-                  <div>{title} 브랜드 이미지들 들어갈 예정</div>
+                  <BrandsTitle>{title} 브랜드</BrandsTitle>
                 </>
               ))}
             </>
@@ -97,6 +97,14 @@ const RecommendationWrapper = styled.div``;
 const Topic = styled.div`
   color: black;
   font-size: 32px;
+  font-family: 'Pretendard';
+  font-weight: bold;
+`;
+
+const BrandsTitle = styled.div`
+  margin-top: 120px;
+  color: black;
+  font-size: 28px;
   font-family: 'Pretendard';
   font-weight: bold;
 `;
