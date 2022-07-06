@@ -7,22 +7,6 @@ import FoodTitle from '../assets/CategoryIntroPageAssets/Food.png';
 import GoodsTitle from '../assets/CategoryIntroPageAssets/Goods.png';
 import HealthTitle from '../assets/CategoryIntroPageAssets/Health.png';
 
-const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 72px;
-  background-color: white;
-  border-bottom-height: 1px;
-  border-bottom-color: black;
-  border-bottom-style: solid;
-
-  margin-top: 80px;
-  position : fixed;
-  z-index: 1;
-`;
-
 const PageTitleBar = ({ title }) => {
   if (title === 'Magazine')
     return (
@@ -63,3 +47,19 @@ const PageTitleBar = ({ title }) => {
 };
 
 export default PageTitleBar;
+
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 72px;
+  background-color: white;
+  border-bottom-height: 1px;
+  border-bottom-color: black;
+  border-bottom-style: solid;
+
+  margin-top: 80px;
+  position: fixed;
+  z-index: 1;
+`;
