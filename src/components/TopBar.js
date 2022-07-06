@@ -4,16 +4,18 @@ import coolicon from '../assets/TopBarAssets/coolicon.png';
 import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../recoil';
-import {color, fontsize, fontWeight} from '../lib/theme';
+import { color, fontsize, fontWeight } from '../lib/theme';
 
 import { Link } from 'react-router-dom';
 
-const TopBar = () => {
+const TopBar = ({LogoHeight}) => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
 
   return (
-    <Container>
-      <HomeText>홈</HomeText>
+    <Container LogoHeight ={LogoHeight}>
+      <Link to={`/`}>
+        <HomeText>홈</HomeText>
+      </Link>
 
       <CategoryText>카테고리</CategoryText>
       <DropButton
@@ -38,7 +40,9 @@ const TopBar = () => {
         </DropdownMenu>
       ) : null}
 
+      <Link to={`/magazinepage`}>
       <MagazineText>매거진</MagazineText>
+      </Link>
       <TopBarButton />
     </Container>
   );
@@ -53,8 +57,8 @@ const Container = styled.div`
   width: 100%;
   height: 80px;
   background-color: white;
-
-  position : fixed;
+  margin-top : ${(props) =>props.LogoHeight || "0px"};
+  position: fixed;
   z-index: 2;
 `;
 
@@ -122,10 +126,10 @@ const Menu = styled.li`
   padding-left: 40px;
   width: 240px;
   height: 80px;
-  cursor : pointer;
-  :hover{
-    background-color : ${color.grey[1]};
+  cursor: pointer;
+  :hover {
+    background-color: ${color.grey[1]};
     font-weight: ${fontWeight[2]};
   }
-  background-color : white;
+  background-color: white;
 `;
