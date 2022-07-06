@@ -16,6 +16,7 @@ function App() {
         <Route path="/" element={<MainPage />} />
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/magazinepage" element={<MagazinePage />} />
+        <Route path="/surveypage" element={<SurveyPage />} />
         <Route path="/food" element={<CategoryIntroPage title={'Food'} />} />
         <Route
           path="/beverage"
