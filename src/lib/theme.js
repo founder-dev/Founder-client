@@ -5,7 +5,7 @@ export const color ={
         "#E9E9E9",
         "#D4D4D4",
         "#8888",
-        "#6666",
+        "#666666",
         "#4444",
         "#2222",
     ]
@@ -22,7 +22,7 @@ export const fontsize =[
 ];
 
 export const fontWeight =[
-    "",
+    "500",
     "600", //medium
     "700", //bold
     "800", //extrabold

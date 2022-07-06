@@ -10,8 +10,6 @@ import data from '../assets/Magazinedata.json';
 const MagazinePage = () => {
 
   const Story = data.filter((items) => items.magazine_type === "파운더 스토리"); //data set
-  
-
   const Curation = data.filter((items) => items.magazine_type === "데일리 큐레이션");
   const Brand = data.map((items) => items.brand);
   console.log(Brand);

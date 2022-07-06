@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
 import icon from '../assets/TopBarAssets/icon.png';
@@ -28,10 +29,14 @@ const TopBarButton = () => {
     
  { isLoggedIn === true && isSurveyDone === false &&
       <>
+      <Link to={`/surveypage`}>
       <SurveyButton>
         <Text>설문조사 하러가기</Text>
       </SurveyButton>
+      </Link>
+      <Link to={`/mypage`}>
       <Image src={icon} />
+      </Link>
       </>
  }
  { isLoggedIn === true && isSurveyDone === true &&
@@ -64,6 +69,7 @@ const SurveyButton = styled.button`
   width: 171px;
   height: 40px;
   margin-right: 24px;
+  cursor : pointer;
 `;
 
 const Text = styled.div`
