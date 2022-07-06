@@ -41,7 +41,7 @@ const CardContainer = styled.div`
 const Chip = styled.div`
   margin-top: 16px;
   display: flex;
-  flex-direction: column;
+
   align-items: center;
   justify-content: center;
   background-color: ${color.grey[2]};
@@ -73,5 +73,4 @@ const SubText = styled.div`
 
 const ChipWrapper = styled.div`
   display: flex;
-  flex-direction: column;
 `;
