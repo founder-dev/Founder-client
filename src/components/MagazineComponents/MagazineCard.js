@@ -3,21 +3,19 @@ import BrandStory from '../../assets/MagazinePageAssets/brandStory.png';
 import styled from 'styled-components';
 import { color } from '../../lib/theme';
 
-const MagazineCard = ({title, text ,tag ,curationHeight ,imageHeight}) => {
+const MagazineCard = ({ title, text, tag, curationHeight, imageHeight }) => {
   console.log(tag);
   return (
     <>
-      <CardContainer height ={curationHeight}>
-        <Image src={BrandStory} height ={imageHeight}/>
+      <CardContainer height={curationHeight}>
+        <Image src={BrandStory} height={imageHeight} />
         <ChipWrapper>
-        <Chip># {tag[0]}</Chip>
-        <Chip># {tag[1]}</Chip>
-        <Chip># {tag[2]}</Chip>
+          <Chip># {tag[0]}</Chip>
+          <Chip># {tag[1]}</Chip>
+          <Chip># {tag[2]}</Chip>
         </ChipWrapper>
         <CardTitle>{title}</CardTitle>
-        <SubText>
-          {text}
-        </SubText>
+        <SubText>{text}</SubText>
       </CardContainer>
     </>
   );
@@ -27,7 +25,7 @@ export default MagazineCard;
 
 const Image = styled.img`
   border-radius: 4px;
-  height : ${props => props.height || '560px'};
+  height: ${(props) => props.height || '560px'};
 `;
 
 const CardContainer = styled.div`
@@ -36,7 +34,7 @@ const CardContainer = styled.div`
   justify-content: center;
   background-color: white;
   width: 430px;
-  height: ${props => props.height || '712px'};
+  height: ${(props) => props.height || '712px'};
   margin-bottom: 56px;
 `;
 
@@ -52,7 +50,7 @@ const Chip = styled.div`
   padding: 4px 12px;
   border-radius: 2px;
 
-  margin-right : 12px;
+  margin-right: 12px;
 `;
 
 const CardTitle = styled.div`
@@ -74,7 +72,6 @@ const SubText = styled.div`
 `;
 
 const ChipWrapper = styled.div`
-  display : flex; 
-  flex -direction : column;
-
+  display: flex;
+  flex-direction: column;
 `;
