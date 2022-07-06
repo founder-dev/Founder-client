@@ -18,7 +18,7 @@ const MainPage = () => {
   return (
     <>
       <Logo src={FounderLogo} />
-      <TopBar />
+      <TopBar LogoHeight= {"80px"}/>
 
       <WidthWrapper>
         <Wrapper>
@@ -65,6 +65,7 @@ export default MainPage;
 const Banner = styled.img`
   width: 1440px;
   height: 322px;
+  margin-top : 150px;
 `;
 
 const WidthWrapper = styled.div`
@@ -84,7 +85,6 @@ const ItemTitle = styled.div`
   margin-top: 48px;
   color: black;
   font-size: 36px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;
 
@@ -93,7 +93,6 @@ const SubTitle = styled.div`
   margin-bottom: 48px;
   color: black;
   font-size: 28px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;
 
@@ -107,7 +106,6 @@ const BrandsTitle = styled.div`
   margin-top: 120px;
   color: black;
   font-size: 28px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;
 const BrandsContainer = styled.div`
@@ -121,6 +119,5 @@ const BrandsContainer = styled.div`
 const BrandName = styled.div`
   color: black;
   font-size: 18px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;
