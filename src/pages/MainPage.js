@@ -18,7 +18,7 @@ const MainPage = () => {
   return (
     <>
       <Logo src={FounderLogo} />
-      <TopBar />
+      <TopBar LogoHeight= {"80px"}/>
 
       <WidthWrapper>
         <Wrapper>
@@ -65,6 +65,7 @@ export default MainPage;
 const Banner = styled.img`
   width: 1440px;
   height: 322px;
+  margin-top : 150px;
 `;
 
 const WidthWrapper = styled.div`
