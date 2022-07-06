@@ -5,6 +5,8 @@ import KaKaoLogin from '../assets/SignUpAssets/KaKaoLogin.png';
 import Founder from '../assets/SignUpAssets/Founder.png';
 import FounderModel from '../assets/SignUpAssets/FounderModel.png';
 import LifeStyle from '../assets/SignUpAssets/LifeStyle.png';
+import { fontWeight, color } from '../lib/theme';
+import KaKaoCode from '../components/KakaoCode';
 
 const Container = styled.div`
   position: absolute;
@@ -51,8 +53,9 @@ left : 41.05px;
 const Logo = styled.img`
 
 position : absolute;
-top : 134.69px;
-left : 45.7px;
+top : 137px;
+left : 300px;
+padding-bottom : 23px;
 `
 const Model = styled.img`
 
@@ -64,18 +67,20 @@ top: 0px;
 const Text = styled.div`
 
 position : absolute;
-font-size : 24px;
-top : 353px;
-left : 49px;
-font-family: 'Pretendard';
-font-weight: medium;
+font-size : 20px;
+font-weight: ${fontWeight[0]};
+left: 284px;
+top: 226px;
+width: 433px;
+height: 72px;
+line-height: 36px;
 
 `
 const ModalBlock = styled.div`
   position: absolute;
-  top: 6.5rem;
+  top: 2.5rem;
   height: 600px;
-  border-radius: 10px;
+  border-radius: 4px;
   background-color: white;
   width: 1000px;
   @media (max-width: 1120px) {
@@ -110,6 +115,8 @@ const CloseButton = styled.button`
   right : 40px;
   border : 0;
   outline : 0;
+  width: 16px;
+  height: 16px;
   background-color : white;
   cursor : pointer;
 `;
@@ -117,9 +124,26 @@ const CloseButton = styled.button`
 const LoginButton = styled.button`
   position : absolute;
   background-color : none;
-  left : 48px;
-  bottom : 136px;
-`
+  left: 260px;
+  top: 382px;
+  cursor : pointer;
+  padding : 0;
+  padding-bottom:0;
+  border: none;
+  height : 68px;
+`;
+
+const Guide = styled.div`
+  position: absolute;
+  width: 301px;
+  height: 24px;
+  left: 349px;
+  top: 466px;
+  font-weight: ${fontWeight[0]};
+  line-height: 24px;
+  color : ${color.grey[5]};
+
+`;
 const SignUpModal = ({ setOpenModal }) => {
   return (
     <Container>
@@ -127,16 +151,16 @@ const SignUpModal = ({ setOpenModal }) => {
       <ModalBlock>
         <Wrapper>
         <Contents>
-          <Thumbnail src ={LifeStyle}/>
           <Logo src ={Founder}/>
-          <Model src ={FounderModel}/>
-          <Text>로그인 혹은 회원가입</Text>
-          <LoginButton>kakaoLogin</LoginButton>
+          <Text>지금 로그인하고 파운더만의 설문조사에 참여하세요.
+             89가지 제품 중 가장 필요한 제품을 큐레이션 해드려요.</Text>
+          <LoginButton onClick={KaKaoCode}><img src ={KaKaoLogin}/></LoginButton>
+          <Guide>서비스 이용을 위해 이메일과 이름을 수집합니다.</Guide>
           <CloseButton
             onClick={() => {
               setOpenModal(false);
             }}
-          ><img src ={Close}/>
+          ><img src ={Close}  alt=""/>
           </CloseButton>
         </Contents>
         </Wrapper>
