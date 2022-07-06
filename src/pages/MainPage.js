@@ -85,7 +85,6 @@ const ItemTitle = styled.div`
   margin-top: 48px;
   color: black;
   font-size: 36px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;
 
@@ -94,7 +93,6 @@ const SubTitle = styled.div`
   margin-bottom: 48px;
   color: black;
   font-size: 28px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;
 
@@ -108,7 +106,6 @@ const BrandsTitle = styled.div`
   margin-top: 120px;
   color: black;
   font-size: 28px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;
 const BrandsContainer = styled.div`
@@ -122,6 +119,5 @@ const BrandsContainer = styled.div`
 const BrandName = styled.div`
   color: black;
   font-size: 18px;
-  font-family: 'Pretendard';
   font-weight: bold;
 `;

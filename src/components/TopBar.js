@@ -40,7 +40,9 @@ const TopBar = ({LogoHeight}) => {
         </DropdownMenu>
       ) : null}
 
+      <Link to={`/magazinepage`}>
       <MagazineText>매거진</MagazineText>
+      </Link>
       <TopBarButton />
     </Container>
   );
