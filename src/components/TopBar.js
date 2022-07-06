@@ -4,7 +4,7 @@ import coolicon from '../assets/TopBarAssets/coolicon.png';
 import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../recoil';
-import {color, fontsize, fontWeight} from '../lib/theme';
+import { color, fontsize, fontWeight } from '../lib/theme';
 
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,9 @@ const TopBar = () => {
 
   return (
     <Container>
-      <HomeText>홈</HomeText>
+      <Link to={`/`}>
+        <HomeText>홈</HomeText>
+      </Link>
 
       <CategoryText>카테고리</CategoryText>
       <DropButton
@@ -53,9 +55,6 @@ const Container = styled.div`
   width: 100%;
   height: 80px;
   background-color: white;
-
-  position : fixed;
-  z-index: 2;
 `;
 
 const HomeText = styled.div`
@@ -122,10 +121,10 @@ const Menu = styled.li`
   padding-left: 40px;
   width: 240px;
   height: 80px;
-  cursor : pointer;
-  :hover{
-    background-color : ${color.grey[1]};
+  cursor: pointer;
+  :hover {
+    background-color: ${color.grey[1]};
     font-weight: ${fontWeight[2]};
   }
-  background-color : white;
+  background-color: white;
 `;

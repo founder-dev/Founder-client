@@ -16,10 +16,10 @@ const CategoryIntroPage = ({ title }) => {
       <PageTitleBar title={title} />
       <WidthWrapper>
         <Wrapper>
-          {Title.map((title, m) => (
+          {Title.map((title) => (
             <>
               <ItemTitle>{title}</ItemTitle>
-              {subTitle.map((subTitle, m) => (
+              {subTitle.map((subTitle) => (
                 <>
                   <SubTitle>{subTitle}</SubTitle>
 
@@ -65,7 +65,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 1440px;
   flex-direction: column;
-  padding-top: 150px;
+  padding: 150px 120px 0px 120px;
 `;
 
 const ItemTitle = styled.div`
