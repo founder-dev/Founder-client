@@ -12,6 +12,7 @@ const SurveyPart = ({selected, selectAnswer, Question}) =>{
     */
     const answer = Surveydata[Question].answer;
     const answerNum = Surveydata[Question].answerNum;
+
     return(
     <>
     {selected[Question] && 
@@ -19,7 +20,7 @@ const SurveyPart = ({selected, selectAnswer, Question}) =>{
     <div>{Surveydata[Question].question}</div>
     {
         answer.map((item,i)=>(
-        <button onClick={selectAnswer} id = {answerNum[i]} value ={item}>{item}</button>
+        <button onClick={selectAnswer(Question)} id = {answerNum[i]} value ={item}>{item}</button>
         ))
     }
     <div>{answerValue[Question]}</div>

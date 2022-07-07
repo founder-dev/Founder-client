@@ -9,7 +9,7 @@ const Survey = () =>{
     const[value, setValue] = useState(["",""]);  //답한 answer value
     const[answer, setAnswer] = useState(""); //답한 answer 번호
     const[id, setId] = useState(1); //현재 진행되고 있는 질문 번호
-    const [selected, setSelected] =useState([true,false,false,false,false,false,false,false,false]);
+    const [selected, setSelected] =useState([true,false,false,false,false,false,false,false,false,false]);
 
     /*const answerValue =[
         " "," "," ",
@@ -31,18 +31,18 @@ const Survey = () =>{
         },
     ];
     */
-    function selectAnswer(e){
+    const selectAnswer = num => e =>{
 
         setId(id);
         setValue(e.target.value);
         
-        answerSet[id-1].question_num = String(id);
-        answerSet[id-1].answer_num = String(e.target.id);
-        answerValue[id-1] = e.target.value;
+        answerSet[num].question_num = String(num);
+        answerSet[num].answer_num = String(e.target.id);
+        answerValue[num] = e.target.value;
 
         console.log(answerSet);
         console.log(answerValue);
-        selected[id] = true;
+        selected[num+1] = true;
         setId(id+1);
     };
 
@@ -53,8 +53,14 @@ const Survey = () =>{
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={1}/>
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={2}/>
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={3}/>
-
-
+        <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={4}/>
+        <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={5}/>
+        <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={6}/>
+        <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={7}/>
+        {
+            selected[8] && 
+            <><button>제출완료</button></>
+        }
         </>
     );
 

@@ -7,7 +7,7 @@ export const menuOpenState = atom({
 
 export const loginState = atom({
   key: 'loginState',
-  default : false,
+  default : true,
 });
 
 export const surveyState = atom({
