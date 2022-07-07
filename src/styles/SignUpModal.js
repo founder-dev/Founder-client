@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import Close from '../assets/SignUpAssets/CloseButton.png';
 import KaKaoLogin from '../assets/SignUpAssets/KaKaoLogin.png';
-import Founder from '../assets/SignUpAssets/Founder.png';
+import Founder from '../assets/SharedAssets/Founder.png';
 import FounderModel from '../assets/SignUpAssets/FounderModel.png';
 import LifeStyle from '../assets/SignUpAssets/LifeStyle.png';
 import { fontWeight, color } from '../lib/theme';
