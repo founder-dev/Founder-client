@@ -11,8 +11,13 @@ export const color ={
     ],
     main:[
         "",
-        "#007DFE"
+        "#272727",
+        "#007DFE",
+        "#FFE214"
     ],
+    white:[
+        '#FFFFFF'
+    ]
 };
 
 export const fontsize =[
@@ -29,5 +34,6 @@ export const fontWeight =[
     "500",
     "600", //medium
     "700", //bold
-    "800", //extrabold
+    "800",
+    "400" //extrabold
 ];

@@ -8,10 +8,10 @@ const SurveyPage = () =>{
 
     return(
         <>
-        <Image src={Founder}/>
-        <Image src={ChatBot} left ="401.37px" width="201.97px"/>
         <WidthWrapper>
         <Wrapper>
+        <Image src={Founder}/>
+        <Image src={ChatBot} left ="401.37px" width="201.97px"/>
         <Survey/>
         </Wrapper>
         </WidthWrapper>
@@ -29,6 +29,7 @@ const Image = styled.img`
   top: 51px;
   width: ${(props)=>props.width || "257px"};
   height: 42px;
+  padding-bottom : 68px;
 `;
 
 const Wrapper = styled.div`

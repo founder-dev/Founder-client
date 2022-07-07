@@ -3,6 +3,8 @@ import Surveydata from '../../assets/Survey.json';
 import answerSet from '../../assets/answerSet.json';
 import answerValue from '../../assets/answerValue.json';
 import SurveyPart from "./SurveyPart";
+import styled from "styled-components";
+import { color } from "../../lib/theme";
 
 const Survey = () =>{
 
@@ -52,6 +54,8 @@ const Survey = () =>{
     
     return(
         <>
+        <StartText>안녕하세요 파운더 설문조사에 오신 걸 환영해요!</StartText>
+        <StartText top ="8px" width ="490px">주어진 질문에 버튼을 눌러 설문조사에 참여해주세요.</StartText>
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={0}/>
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={1}/>
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={2}/>
@@ -71,3 +75,32 @@ const Survey = () =>{
 }
 
 export default Survey;
+
+const StartText = styled.div`
+  margin-top : ${(props)=>(props.top) || "160px"};
+  align-items: center;
+  gap: 10px;
+  display : flex;
+  justify-content : center;
+
+  padding: 12px 16px 12px 16px;
+  width: ${(props) =>(props.width) || "450px"};
+  height: 30px;
+  background: ${color.main[2]};
+  border-radius: 4px 24px 24px 24px;
+
+flex: none;
+order: 0;
+flex-grow: 0;
+
+font-weight: 400;
+font-size: 24px;
+line-height: 36px;
+
+letter-spacing: -0.408px;
+
+/* Label Color / Dark / Primary */
+
+color: #FFFFFF;
+
+`;
