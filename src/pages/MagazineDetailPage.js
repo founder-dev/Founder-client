@@ -11,17 +11,25 @@ const MagazineDetailPage = () => {
   return (
     <>
       <TopBar />
-      <Header />
-      <HorizontalProgress scroll={scroll} />
+      <Header>
+        <HeaderTitle>파운더 사용 설명서</HeaderTitle>
+        <HorizontalProgress scroll={scroll} />
+      </Header>
+
       <WidthWrapper>
         <Wrapper>
+          <img src={MagazineImage} />
           <TitleWrapper>
-            <img src={MagazineImage} />
-            <Title>파운더 사용 설명서</Title>
-            <KeyWords>설문조사 | 카테고리 | 매거진 </KeyWords>
+            <TitleInfo>
+              <Title>파운더 사용 설명서</Title>
+              <KeyWords>설문조사 | 카테고리 | 매거진 </KeyWords>
+            </TitleInfo>
           </TitleWrapper>
-          <Editor>김하린</Editor>
-          <Date>2022.03.16</Date>
+
+          <DetailWrapper>
+            <Editor>editor. 김하린</Editor>
+            <Date>2022.03.16</Date>
+          </DetailWrapper>
           <ArticleWrapper>
             <ParagraphWrapper>
               <SubTitle>파운더와 함께하는 현물 구독</SubTitle>
@@ -43,60 +51,77 @@ const MagazineDetailPage = () => {
 export default MagazineDetailPage;
 
 const Header = styled.div`
-  position: absolute;
-  width: 1440px;
+  position: fixed;
+  width: 100%;
   height: 82px;
-  left: 0px;
   top: 80px;
+  background-color: white;
+`;
+
+const HeaderTitle = styled.div`
+  font-family: 'Pretendard';
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: black;
+  z-index: 2;
+  margin-top: 16px;
+  margin-bottom: 12px;
 `;
 
 const TitleWrapper = styled.div`
+  position: relative;
+`;
+
+const TitleInfo = styled.div`
   position: absolute;
-  width: 1336px;
+  width: 100%;
   height: 164px;
-  left: 52px;
-  top: 396px;
+  top: -173px;
 
   background: rgba(0, 0, 0, 0.3);
 `;
 
 const Title = styled.div`
-  width: 266px;
-  height: 36px;
-
   font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
   font-size: 36px;
-  line-height: 100%;
-
+  font-weight: 700;
   text-align: center;
 
-  color: #ffffff;
+  color: white;
+
+  z-index: 2;
+  margin-top: 41px;
+  margin-bottom: 21px;
 `;
 
 const KeyWords = styled.div`
-  width: 266px;
-  height: 36px;
-
   font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 36px;
-  line-height: 100%;
+  font-size: 20px;
 
   text-align: center;
 
   color: #ffffff;
 `;
 
-const Editor = styled.div`
-  position: absolute;
-  height: 16px;
-  left: 8.33%;
-  right: 85.35%;
-  top: 580px;
+const DetailWrapper = styled.div`
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 211px;
+  margin-left: 120px;
+  margin-bottom: 84px;
+`;
 
+const Date = styled.div`
+  font-family: 'Pretendard';
+  font-weight: 400;
+  font-size: 16px;
+
+  color: #878888;
+`;
+const Editor = styled.div`
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
@@ -106,63 +131,34 @@ const Editor = styled.div`
   color: #000000;
 `;
 
-const Date = styled.div`
-  position: absolute;
-  height: 16px;
-  left: 17.43%;
-  right: 77.01%;
-  top: 580px;
-
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 100%;
-
-  color: #878888;
-`;
-
 const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 0px;
   gap: 156px;
-
-  position: absolute;
-  width: 1200px;
-  height: 3060.77px;
-  left: 120px;
-  top: 680px;
+  margin-left: 120px;
+  width: 960px;
+  margin-left: 240px;
 `;
 
 const SubTitle = styled.div`
   font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
+  font-weight: bold;
   font-size: 32px;
-  line-height: 44px;
 
   color: #272727;
 
-  flex: none;
-  order: 0;
-  flex-grow: 0;
+  margin-bottom: 48px;
 `;
 
 const Text = styled.div`
   font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 400;
   font-size: 20px;
-  line-height: 180%;
 
   color: #000000;
 
   margin-bottom: 156px;
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 `;
 
 const ParagraphWrapper = styled.div`
@@ -171,8 +167,8 @@ const ParagraphWrapper = styled.div`
 
 const Wrapper = styled.div`
   display: flex;
+  flex-direction: column;
   width: 1440px;
-  justify-content: center;
 `;
 
 const WidthWrapper = styled.div`

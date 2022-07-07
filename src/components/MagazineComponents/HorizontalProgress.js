@@ -10,13 +10,14 @@ const HorizontalProgress = ({ scroll }) => {
 };
 
 const Container = styled.div`
+  margin-top: 15px;
   width: 100%;
   background: #ccc;
   position: fixed;
 `;
 
 const Progress = styled.div`
-  height: 8px;
+  height: 4px;
   background: blue;
   width: 0%;
 `;
