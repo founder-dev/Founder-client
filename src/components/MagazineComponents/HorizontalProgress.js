@@ -10,7 +10,6 @@ const HorizontalProgress = ({ scroll }) => {
 };
 
 const Container = styled.div`
-  margin-top: 15px;
   width: 100%;
   background: #ccc;
   position: fixed;

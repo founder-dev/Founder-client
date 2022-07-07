@@ -67,8 +67,8 @@ const HeaderTitle = styled.div`
   text-align: center;
   color: black;
   z-index: 2;
-  margin-top: 23px;
-  margin-bottom: 23px;
+  margin-top: 31px;
+  margin-bottom: 31px;
 `;
 
 const TitleWrapper = styled.div`
@@ -79,7 +79,7 @@ const TitleInfo = styled.div`
   position: absolute;
   width: 100%;
   height: 164px;
-  top: -173px;
+  top: -164px;
 
   background: rgba(0, 0, 0, 0.3);
 `;
@@ -171,6 +171,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 1440px;
+  padding-top: 162px;
 `;
 
 const WidthWrapper = styled.div`
