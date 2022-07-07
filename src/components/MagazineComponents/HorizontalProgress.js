@@ -16,7 +16,7 @@ const Container = styled.div`
 `;
 
 const Progress = styled.div`
-  height: 8px;
+  height: 4px;
   background: blue;
   width: 0%;
 `;
