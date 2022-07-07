@@ -94,7 +94,7 @@ const AnswerItem = styled.div`
   flex-grow: 0;
 
   font-weight: ${fontWeight[4]};
-  font-size: ${fontsize[4]}
+  font-size: ${fontsize[4]};
   line-height: 36px;
 
 `;
