@@ -58,7 +58,7 @@ const MagazineDetailPage = () => {
               </BrandInfoWrapper>
 
               <BrandButton>
-                브랜드 홈 방문하기
+                <ButtonText>브랜드 홈 방문하기</ButtonText>
                 <BrandArrow src={Arrow} />
               </BrandButton>
             </BrandHome>
@@ -173,8 +173,6 @@ const BrandHome = styled.div`
   margin-top: 56px;
   margin-bottom: 156px;
 
-  padding: 0px 25px 0px 36px;
-
   background: #fafafa;
   border-radius: 4px;
 
@@ -186,16 +184,14 @@ const BrandInfoWrapper = styled.div`
 `;
 
 const BrandLogo = styled.img`
-  margin: 20px 32px 0px 0px;
+  margin: 20px 32px 0px 32px;
   position: absolute;
-  top: 10px;
 `;
 
 const TextWrapper = styled.div`
   position: absolute;
   align-items: column;
   width: 683px;
-  top: 26px;
   left: 160px;
 `;
 
@@ -203,6 +199,8 @@ const BrandName = styled.div`
   font-family: 'Pretendard';
   font-weight: 700;
   font-size: 28px;
+  height: 40px;
+  margin-top: 26px;
 `;
 
 const BrandDetail = styled.div`
@@ -211,28 +209,33 @@ const BrandDetail = styled.div`
   font-size: 20px;
   margin-top: 4px;
   margin-bottom: 26px;
+  height: 36px;
 `;
 
 const BrandButton = styled.div`
   width: 240px;
   height: 54px;
   position: absolute;
-  top: 26px;
+  top: 52px;
   left: 935px;
   border-radius: 4px;
   border: 1px;
   border-style: solid;
-  font-family: 'Pretendard';
-  font-weight: 500;
-  font-size: 16px;
-  padding: 13px 21.01px 13px 21.1px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
+const ButtonText = styled.div`
+  font-family: 'Pretendard';
+  font-weight: 500;
+  font-size: 16px;
+  margin: 13px 21.01px 13px 21.1px;
+`;
+
 const BrandArrow = styled.img`
-  margin: 15.94px 0px 14.83px 30.77px;
+  margin: 15.94px 21.01px 14.83px 30.77px;
 `;
 
 const SubTitle = styled.div`
