@@ -8,7 +8,11 @@ export const color ={
         "#666666",
         "#4444",
         "#2222",
-    ]
+    ],
+    main:[
+        "",
+        "#007DFE"
+    ],
 };
 
 export const fontsize =[
