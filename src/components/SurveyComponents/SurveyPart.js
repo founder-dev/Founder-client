@@ -2,7 +2,7 @@
 import Surveydata from '../../assets/Survey.json';
 import answerValue from '../../assets/answerValue.json';
 
-const SurveyPart = ({selected, selectAnswer, Question}) =>{
+const SurveyPart = ({selected, selectAnswer, Question ,beforeQuestion}) =>{
     
     /*
     <button onClick={selectAnswer} id = "1" value ={Surveydata[Question].answer1}>{Surveydata[Question].answer1}</button>
@@ -19,8 +19,8 @@ const SurveyPart = ({selected, selectAnswer, Question}) =>{
     <>
     <div>{Surveydata[Question].question}</div>
     {
-        answer.map((item,i)=>(
-        <button onClick={selectAnswer(Question)} id = {answerNum[i]} value ={item}>{item}</button>
+        answer.map((item, i)=>(
+        <button key ={item.id} onClick={selectAnswer(Question)} id = {answerNum[i]} value ={item}>{item}</button>
         ))
     }
     <div>{answerValue[Question]}</div>

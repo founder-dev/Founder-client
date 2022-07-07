@@ -46,6 +46,9 @@ const Survey = () =>{
         setId(id+1);
     };
 
+    function beforeQuestion (num){
+       selected[num] = false;
+    };
     
     return(
         <>
