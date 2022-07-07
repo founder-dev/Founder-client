@@ -56,17 +56,19 @@ const Header = styled.div`
   height: 82px;
   top: 80px;
   background-color: white;
+  z-index: 3;
 `;
 
 const HeaderTitle = styled.div`
   font-family: 'Pretendard';
+  font-weight: 700;
   font-size: 20px;
-  font-weight: bold;
+  line-height: 100%;
   text-align: center;
   color: black;
   z-index: 2;
-  margin-top: 16px;
-  margin-bottom: 12px;
+  margin-top: 23px;
+  margin-bottom: 23px;
 `;
 
 const TitleWrapper = styled.div`
