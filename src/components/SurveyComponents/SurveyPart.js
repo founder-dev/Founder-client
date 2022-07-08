@@ -2,8 +2,7 @@ import styled from 'styled-components';
 import Surveydata from '../../assets/Survey.json';
 import answerValue from '../../assets/answerValue.json';
 import { color, fontWeight, fontsize } from '../../lib/theme';
-
-
+import {useRef, useCallback} from "react";
 
 const SurveyPart = ({selected, selectAnswer, Question ,beforeQuestion}) =>{
     
@@ -96,5 +95,4 @@ const AnswerItem = styled.div`
   font-weight: ${fontWeight[4]};
   font-size: ${fontsize[4]};
   line-height: 36px;
-
 `;
