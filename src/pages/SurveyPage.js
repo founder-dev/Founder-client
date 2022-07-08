@@ -3,20 +3,19 @@ import Survey from "../components/SurveyComponents/Survey";
 import { WidthWrapper } from "../components/WidthWrapper";
 import Founder from '../assets/SharedAssets/Founder.png';
 import ChatBot from '../assets/SurveyAssets/Chatbot.png';
-import {useRef, useCallback} from 'react';
+import {useRef, useCallback, useEffect} from 'react';
 const SurveyPage = () =>{
 
-  const surveyRef = useRef(null);
+  const surveyRef = useRef();
 
-    const ScrollEvent = useCallback(()=>{
+    const ScrollEvent = useEffect(()=>{
         if(surveyRef.current)
-        surveyRef.current.scrolltoView({
+       {console.log(surveyRef.current);
+        surveyRef.current.scrollTo({
             top: surveyRef.current.scrollHeight,
             behavior: "smooth",
-        })
-    },[]); //자동 스크롤
-
-    ScrollEvent();
+        })}
+    }); //자동 스크롤
 
     return(
         <WidthWrapper>
