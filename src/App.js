@@ -15,7 +15,7 @@ function App() {
       <Routes>
         <Route path="/kakao" element={<KaKaoLoginHandlerPage />} />
 
-        <Route path="/" element={<SurveyIntroPage />} />
+        <Route path="/" element={<MainPage />} />
 
         <Route path="/mypage" element={<MyPage />} />
         <Route path="/magazinepage" element={<MagazinePage />} />
