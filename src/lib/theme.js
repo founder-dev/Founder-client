@@ -7,7 +7,7 @@ export const color ={
         "#8888",
         "#666666",
         "#4444",
-        "#2222",
+        "#2222222",
     ],
     main:[
         "",
@@ -22,12 +22,12 @@ export const color ={
 
 export const fontsize =[
     "",
-    "12px",
-    "16px",
-    "20px",
-    "24px",
-    "32px",
-    "36px",    
+    "12px", //1
+    "16px", //2
+    "20px", //3
+    "24px", //4
+    "32px", //5
+    "36px", //6
 ];
 
 export const fontWeight =[

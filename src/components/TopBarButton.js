@@ -29,7 +29,7 @@ const TopBarButton = () => {
     
  { isLoggedIn === true && isSurveyDone === false &&
       <>
-      <Link to={`/surveypage`}>
+      <Link to={`/surveyintropage`}>
       <SurveyButton>
         <Text>설문조사 하러가기</Text>
       </SurveyButton>
