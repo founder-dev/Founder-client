@@ -6,7 +6,7 @@ import ProductCard from '../components/ProductCard';
 import data from '../assets/data.json';
 
 const CategoryIntroPage = ({ title }) => {
-  const results = data.filter((items) => items.itemType === title);
+  const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 서브 타이틀 데이터를 따로 전달함
   const Title = [...new Set(results.map((items) => items.itemTitle))];
   const subTitle = [...new Set(results.map((items) => items.subTitle))];
 

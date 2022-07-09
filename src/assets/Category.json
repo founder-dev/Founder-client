@@ -1,0 +1,14 @@
+[
+	{
+		"type_name" : "샐러드",
+		"type_desc" : "하루 한 끼 든든한 샐러드",
+		"type_tag_arr" : "건강,한끼,아침",
+		"order" : "1"
+	},
+	{
+		"type_name" : "우유",
+		"type_desc" : "고소한 하루를 블라블라",
+		"type_tag_arr" : "건강,고소,아침",
+		"order" : "2"
+	}
+]
