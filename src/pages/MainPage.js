@@ -12,7 +12,7 @@ import ProductCard from '../components/ProductCard';
 const MainPage = () => {
   const title = 'Food';
   const results = data.filter((items) => items.itemType === title);
-  const Title = [...new Set(results.map((items) => items.itemTitle))];
+  const Title = [...new Set(results.map((items) => items.itemTitle))]; //백엔드에서는 title,subtitle data만 따로 전달함
   const subTitle = [...new Set(results.map((items) => items.subTitle))];
 
   return (
