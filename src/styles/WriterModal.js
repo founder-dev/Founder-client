@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
+import { color, fontsize, fontWeight } from '../lib/theme';
+
 const Container = styled.div`
   position: absolute;
   width: 100%;
@@ -98,9 +100,11 @@ const WriterModal = ({ setOpenModal }) => {
         >
           제품 사진을 촬영/업로드해 주세요.
         </Instruction>
-
+        <form>
         <ItemBoxWrapper>
-          <UploadPhoto src={PhotoIcon} />
+          <UploadPhoto for ="uploadPhoto"/>
+          <input
+          id ="uploadPhoto" type="file" accept="image/*" multiple ="multiple" onChange={uploadPhoto} style={{display:"none"}}/>
           <ItemBox>
             <ItemName>룩트 그릭 요거트</ItemName>
             <DetailWrapper>
@@ -153,6 +157,16 @@ const WriterModal = ({ setOpenModal }) => {
           <Tag>♥떫어요</Tag>
           <Tag>♥비려요</Tag>
         </TagBox>
+        <InputText
+        type="text" 
+        value={review} 
+        onChange={inputReview} 
+        maxLength = "300"
+        size="100"
+        >
+        </InputText>
+        <LengthText>{review.length} / 300자</LengthText>
+        </form>
       </ModalBlock>
     </Container>
   );
@@ -214,8 +228,12 @@ const ItemBoxWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const UploadPhoto = styled.img`
-  margin-right: 32px;
+const UploadPhoto = styled.label`
+  margin-right: 23px;
+  background-image: url(${PhotoIcon});
+  cursor : pointer;
+  width : 120px;
+  height : 120px;
 `;
 
 const ItemBox = styled.div`
@@ -296,15 +314,61 @@ const Tag = styled.button`
   width: 120px;
   height: 40px;
 
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: ${fontWeight[0]};
+  font-size: ${fontsize[2]};
+  color : ${color.grey[7]};
+  line-height: 24px;
   border: 1px solid #222222;
   border-radius: 40px;
   background-color: white;
-
+  
   flex: none;
   order: 0;
   flex-grow: 0;
 `;
 
+const InputText = styled.textarea`
+  box-sizing: border-box;
+  padding : 19px 25px 33px 18px;
+  resize: none;
+  position: absolute;
+  width: 1078px;
+  height: 164px;
+  left: 61px;
+  top: 671px;
+
+/* Grey- 3 */
+
+  font-family: 'Pretendard';
+  border: 1px solid ${color.grey[3]};
+  border-radius: 4px;
+
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+
+`;
+
+const LengthText = styled.div`
+  position: absolute;
+  width: 119px;
+  height: 24px;
+  left: 1002px;
+  top: 799px;
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  text-align: right;
+
+/* Grey- 4 */
+
+color: ${color.grey[4]};
+
+`;
 /*<form>
           <input type="text" value={review} onChange={inputReview} />
           {photo && (
