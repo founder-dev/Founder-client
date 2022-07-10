@@ -29,7 +29,7 @@ const CategoryIntroPage = ({ title }) => {
                       .filter((items) => items.itemTitle === title)
                       .map(
                         ({ itemName, price, rating, custom, schedule }, i) => (
-                          <Link  to={`/productdetailpage`}>
+                          <Link  to={`/itemdetail`}>
                           <ProductCard
                             itemName={itemName}
                             price={price}
