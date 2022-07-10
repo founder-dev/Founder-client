@@ -81,9 +81,8 @@ const Survey = () =>{
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={4} />
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={5} />
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={6} />
-        <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={7} />
         {
-            selected[8] && 
+            selected[7] && 
             <>
             <StartText top ="16px">설문조사가 완료되었습니다</StartText>
             <StartText top ="8px">취향에 맞는 홈 서비스를 추천해드립니다.</StartText>
