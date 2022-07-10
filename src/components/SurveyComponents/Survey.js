@@ -53,11 +53,12 @@ const Survey = () =>{
        selected[num] = false;
     };
     
-    const surveyRef = useRef();
+    /* const surveyRef = useRef();
 
     const ScrollEvent = ()=>{
         if(surveyRef.current)
         {
+            console.log(surveyRef.current);
             surveyRef.current.scrollTo({
             top: surveyRef.current.scrollHeight,
             behavior: "smooth",
@@ -65,13 +66,14 @@ const Survey = () =>{
     };
     }; //메세지리스트가 변할때만 스크롤에 대한 렌더링
 
-    useEffect(()=>{ScrollEvent()});
+    ScrollEvent(); */
     
     function Reload(){
         window.location.reload();
     }
+
     return(
-        <SurveyWrapper ref={surveyRef}>
+        <SurveyWrapper>
         <StartText>안녕하세요 파운더 설문조사에 오신 걸 환영해요!</StartText>
         <StartText top ="8px" width ="490px">주어진 질문에 버튼을 눌러 설문조사에 참여해주세요.</StartText>
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={0} />
