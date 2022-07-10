@@ -32,6 +32,7 @@ function App() {
         />
         <Route path="/goods" element={<CategoryIntroPage title={'Goods'} />} />
         <Route path="/brandstory" element={<MagazineDetailPage />} />
+        <Route path="/itemdetail" element={<ItemDetailPage />} />
       </Routes>
     </>
   );
