@@ -39,7 +39,7 @@ const Survey = () =>{
         setId(id);
         setValue(e.target.value);
         
-        answerSet[num].question_num = String(num);
+        answerSet[num].question_num = String(num+1);
         answerSet[num].answer_num = String(e.target.id);
         answerValue[num] = e.target.value;
 
