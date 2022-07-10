@@ -2,8 +2,10 @@ import TopBar from '../../src/components/TopBar';
 import styled from 'styled-components';
 import { WidthWrapper, Wrapper } from '../components/WidthWrapper';
 import { color , fontsize, fontWeight} from '../lib/theme';
+import ItemDetail from '../assets/ItemDetail.json';
 
 function ProductDetailPage(){
+  //ItemDetail.json 파일 만들어서 가져오기
     return(
         <WidthWrapper>
         <Wrapper>
