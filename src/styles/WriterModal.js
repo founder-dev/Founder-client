@@ -260,7 +260,7 @@ const TagBox = styled.div`
   width: 780px;
   height: 92px;
   margin: 13px 0px 0px 61px;
-  white-space: normal;
+  flex-wrap: wrap;
 `;
 
 const Tag = styled.button`
