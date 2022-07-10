@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
+import Custom from '../assets/ItemDetailPageAssets/Custom.png';
+import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 const Container = styled.div`
   position: absolute;
   width: 100%;
@@ -79,6 +81,8 @@ const WriterModal = ({ setOpenModal }) => {
     <Container>
       <Background />
       <ModalBlock>
+        <ScheduleSticker src={WeeklyMonthly} />
+        <CustomSticker src={Custom} />
         <CancleButton
           onClick={() => {
             setOpenModal(false);
@@ -155,6 +159,22 @@ const WriterModal = ({ setOpenModal }) => {
 };
 
 export default WriterModal;
+
+const ScheduleSticker = styled.img`
+  position: absolute;
+  width: 102px;
+  height: 102px;
+  left: 986px;
+  top: 114px;
+`;
+
+const CustomSticker = styled.img`
+  position: absolute;
+  width: 111.96px;
+  height: 50.68px;
+  left: 1040px;
+  top: 190px;
+`;
 
 const Title = styled.div`
   font-family: 'Pretendard';
