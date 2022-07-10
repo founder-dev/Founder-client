@@ -8,42 +8,50 @@ import { color, fontsize, fontWeight } from '../lib/theme';
 
 import { Link } from 'react-router-dom';
 
-const TopBar = ({LogoHeight}) => {
+const TopBar = ({ LogoHeight }) => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
 
   return (
-    <Container LogoHeight ={LogoHeight}>
-      <Link to={`/`}>
-        <HomeText>홈</HomeText>
-      </Link>
+    <Container LogoHeight={LogoHeight}>
+      <Wrapper>
+        <IconWrapper>
+          <MainMenu>
+            <Link to={`/`}>
+              <HomeText>홈</HomeText>
+            </Link>
 
-      <CategoryText>카테고리</CategoryText>
-      <DropButton
-        menuOpen={menuOpen}
-        src={coolicon}
-        onMouseEnter={() => setMenuOpen(true)}
-      />
-      {menuOpen ? (
-        <DropdownMenu onMouseLeave={() => setMenuOpen(false)}>
-          <Link to={`/food`}>
-            <Menu>식품</Menu>
-          </Link>
-          <Link to={`/beverage`}>
-            <Menu>음료</Menu>
-          </Link>
-          <Link to={`/goods`}>
-            <Menu>생필품</Menu>
-          </Link>
-          <Link to={`/health`}>
-            <Menu>건강</Menu>
-          </Link>
-        </DropdownMenu>
-      ) : null}
+            <CategoryText>카테고리</CategoryText>
+            <DropButton
+              menuOpen={menuOpen}
+              src={coolicon}
+              onMouseEnter={() => setMenuOpen(true)}
+            />
+            {menuOpen ? (
+              <DropdownMenu onMouseLeave={() => setMenuOpen(false)}>
+                <Link to={`/food`}>
+                  <Menu>식품</Menu>
+                </Link>
+                <Link to={`/beverage`}>
+                  <Menu>음료</Menu>
+                </Link>
+                <Link to={`/goods`}>
+                  <Menu>생필품</Menu>
+                </Link>
+                <Link to={`/health`}>
+                  <Menu>건강</Menu>
+                </Link>
+              </DropdownMenu>
+            ) : null}
 
-      <Link to={`/magazinepage`}>
-      <MagazineText>매거진</MagazineText>
-      </Link>
-      <TopBarButton />
+            <Link to={`/magazinepage`}>
+              <MagazineText>매거진</MagazineText>
+            </Link>
+          </MainMenu>
+          <SideMenu>
+            <TopBarButton />
+          </SideMenu>
+        </IconWrapper>
+      </Wrapper>
     </Container>
   );
 };
@@ -53,13 +61,42 @@ export default TopBar;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   width: 100%;
   height: 80px;
   background-color: white;
-  margin-top : ${(props) =>props.LogoHeight || "0px"};
+  margin-top: ${(props) => props.LogoHeight || '0px'};
   position: fixed;
   z-index: 2;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 1440px;
+`;
+
+const MainMenu = styled.div`
+  width: 299px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+`;
+
+const SideMenu = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const IconWrapper = styled.div`
+  width: 797px;
+  height: 32px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 24px 52px 24px 0px;
 `;
 
 const HomeText = styled.div`
@@ -99,6 +136,8 @@ const MagazineText = styled.div`
 `;
 
 const DropButton = styled.img`
+  width: 17px;
+  height: 10px;
   cursor: pointer;
   ${(props) =>
     props.menuOpen
