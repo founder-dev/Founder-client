@@ -4,6 +4,7 @@ import TopBar from '../components/TopBar';
 import styled from 'styled-components';
 import ProductCard from '../components/ProductCard';
 import data from '../assets/data.json';
+import { Link } from 'react-router-dom';
 
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 서브 타이틀 데이터를 따로 전달함
@@ -28,6 +29,7 @@ const CategoryIntroPage = ({ title }) => {
                       .filter((items) => items.itemTitle === title)
                       .map(
                         ({ itemName, price, rating, custom, schedule }, i) => (
+                          <Link  to={`/productdetailpage`}>
                           <ProductCard
                             itemName={itemName}
                             price={price}
@@ -36,6 +38,7 @@ const CategoryIntroPage = ({ title }) => {
                             schedule={schedule}
                             key={i}
                           />
+                          </Link>
                         )
                       )}
                   </GridWrapper>
