@@ -5,3 +5,10 @@ export const WidthWrapper = styled.div`
   width: 100%;
   justify-content: center;
 `;
+
+export const Wrapper = styled.div`
+  display: flex;
+  width: 1440px;
+  flex-direction: column;
+  padding: 0px 120px 0px 120px;
+`;
