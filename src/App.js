@@ -8,7 +8,6 @@ import KaKaoLoginHandlerPage from './pages/KakaoLoginHandlerPage';
 import CategoryIntroPage from './pages/CategoryIntroPage';
 import SurveyPage from './pages/SurveyPage';
 import SurveyIntroPage from './pages/SurveyIntroPage';
-import ProductDetailPage from './pages/ProductDetailpage';
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Route path="/magazinepage" element={<MagazinePage />} />
         <Route path="/surveyintropage" element={<SurveyIntroPage />} />
         <Route path="/surveypage" element={<SurveyPage />} />
-        <Route path="/productdetailpage" element={<ProductDetailPage />}/>
         <Route path="/food" element={<CategoryIntroPage title={'Food'} />} />
         <Route
           path="/beverage"
