@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import  styled,{css} from 'styled-components';
 import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
@@ -53,8 +53,9 @@ const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useState('');
-  const [tag, setTag] = useState([]);
+  var tag = [];
   const [tagLength, setTagLength]  = useState(true);
+  const [selected, setSelected] = useState([false,false,false,false,false,false,false,false,false,false,false]);
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
   const inputReview = (e) => {
@@ -81,22 +82,22 @@ const WriterModal = ({ setOpenModal }) => {
   };
 
   const handleTagLength= () => {
-    if(tag.length >= 4)
+    if(tag.length >= 2)
   {
     setTagLength(false);
+    
   }
   };
 
-  function createTag (g){
-    setTag(tag => [...tag,g]);
-  }
-  const selectTag = (e) => {
+  const selectTag = num => e => {
+    
     e.preventDefault();
     handleTagLength();
+    console.log(selected[num]);
     console.log(e.target.value);
-    var selected = e.target.value;
-    createTag({selected});
+    tag = [...tag, e.target.value];
     console.log(tag);
+    console.log(tag.length);
 
   };
 
@@ -165,17 +166,17 @@ const WriterModal = ({ setOpenModal }) => {
         </Instruction>
 
         <TagBox>
-          <Tag value ="고소해요" onClick={selectTag}>♥고소해요</Tag>
-          <Tag value ="달콤해요" onClick={selectTag}>♥달콤해요</Tag>
-          <Tag value ="시큼해요" onClick={selectTag}>♥시큼해요</Tag>
-          <Tag value ="촉촉해요" onClick={selectTag}>♥촉촉해요</Tag>
-          <Tag value ="퍽퍽해요" onClick={selectTag}>♥퍽퍽해요</Tag>
-          <Tag value ="매콤해요" onClick={selectTag}>♥매콤해요</Tag>
-          <Tag value ="부드러워요" onClick={selectTag}>♥부드러워요</Tag>
-          <Tag value ="짭짤해요" onClick={selectTag}>♥짭짤해요</Tag>
-          <Tag value ="써요" onClick={selectTag}>♥써요</Tag>
-          <Tag value ="떫어요" onClick={selectTag}>♥떫어요</Tag>
-          <Tag value ="비려요" onClick={selectTag}>♥비려요</Tag>
+          <Tag value ="고소해요" onClick={selectTag(0)} disabled = {selected[0]}>♥고소해요</Tag>
+          <Tag value ="달콤해요" onClick={selectTag(1)} disabled = {selected[1]}>♥달콤해요</Tag>
+          <Tag value ="시큼해요" onClick={selectTag(2)} disabled = {selected[2]}>♥시큼해요</Tag>
+          <Tag value ="촉촉해요" onClick={selectTag(3)} disabled = {selected[3]}>♥촉촉해요</Tag>
+          <Tag value ="퍽퍽해요" onClick={selectTag(4)} disabled = {selected[4]}>♥퍽퍽해요</Tag>
+          <Tag value ="매콤해요" onClick={selectTag(5)} disabled = {selected[5]}>♥매콤해요</Tag>
+          <Tag value ="부드러워요" onClick={selectTag(6)} disabled = {selected[6]}>♥부드러워요</Tag>
+          <Tag value ="짭짤해요" onClick={selectTag(7)} disabled = {selected[7]}>♥짭짤해요</Tag>
+          <Tag value ="써요" onClick={selectTag(8)} disabled = {selected[8]}>♥써요</Tag>
+          <Tag value ="떫어요" onClick={selectTag(9)} disabled = {selected[9]}>♥떫어요</Tag>
+          <Tag value ="비려요" onClick={selectTag(10)} disabled = {selected[10]}>♥비려요</Tag>
         </TagBox>
         
         <InputText
@@ -184,8 +185,7 @@ const WriterModal = ({ setOpenModal }) => {
         onChange={inputReview} 
         maxLength = "300"
         size="100"
-        >
-        </InputText>
+        />
         <LengthText>{review.length} / 300자</LengthText>
 
         </form>
@@ -241,6 +241,7 @@ const Instruction = styled.div`
 
   color: ${(props) => props.color};
 `;
+
 
 const ItemBoxWrapper = styled.div`
   width: 1068px;
@@ -344,12 +345,17 @@ const Tag = styled.button`
   line-height: 24px;
   border: 1px solid #222222;
   border-radius: 40px;
-  background-color: white;
-  
   flex: none;
   order: 0;
   flex-grow: 0;
+  ${(props) =>
+    props.disabled
+      ? css`
+      background-color:  red;
+        `
+      : `background-color: white;`}
 `;
+  
 
 const InputText = styled.textarea`
   box-sizing: border-box;
@@ -358,9 +364,8 @@ const InputText = styled.textarea`
   position: absolute;
   width: 1078px;
   height: 164px;
+  margin-top : 48px;
   left: 61px;
-  top: 671px;
-
 /* Grey- 3 */
 
   font-family: 'Pretendard';
@@ -378,7 +383,7 @@ const LengthText = styled.div`
   width: 119px;
   height: 24px;
   left: 1002px;
-  top: 799px;
+  top: 750px;
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
