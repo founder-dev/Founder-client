@@ -66,8 +66,9 @@ const Container = styled.div`
   height: 80px;
   background-color: white;
   margin-top: ${(props) => props.LogoHeight || '0px'};
-  position: fixed;
+  position: sticky;
   z-index: 2;
+  top:0;
 `;
 
 const Wrapper = styled.div`
