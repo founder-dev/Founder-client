@@ -4,6 +4,7 @@ import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
+import Rating from '../components/Rating';
 
 const Container = styled.div`
   position: absolute;
@@ -101,71 +102,70 @@ const WriterModal = ({ setOpenModal }) => {
           제품 사진을 촬영/업로드해 주세요.
         </Instruction>
         <form>
-        <ItemBoxWrapper>
-          <UploadPhoto for ="uploadPhoto"/>
-          <input
-          id ="uploadPhoto" type="file" accept="image/*" multiple ="multiple" onChange={uploadPhoto} style={{display:"none"}}/>
-          <ItemBox>
-            <ItemName>룩트 그릭 요거트</ItemName>
-            <DetailWrapper>
-              <DetailBox>
-                <DetailGray>배송주기</DetailGray>
-                <DetailBlack>주간/월간</DetailBlack>
-              </DetailBox>
-              <DetailBox>
-                <DetailGray>최저가</DetailGray>
-                <DetailBlack>44,380원</DetailBlack>
-              </DetailBox>
-            </DetailWrapper>
-          </ItemBox>
-        </ItemBoxWrapper>
+          <ItemBoxWrapper>
+            <UploadPhoto for="uploadPhoto" />
+            <input
+              id="uploadPhoto"
+              type="file"
+              accept="image/*"
+              multiple="multiple"
+              onChange={uploadPhoto}
+              style={{ display: 'none' }}
+            />
+            <ItemBox>
+              <ItemName>룩트 그릭 요거트</ItemName>
+              <DetailWrapper>
+                <DetailBox>
+                  <DetailGray>배송주기</DetailGray>
+                  <DetailBlack>주간/월간</DetailBlack>
+                </DetailBox>
+                <DetailBox>
+                  <DetailGray>최저가</DetailGray>
+                  <DetailBlack>44,380원</DetailBlack>
+                </DetailBox>
+              </DetailWrapper>
+            </ItemBox>
+          </ItemBoxWrapper>
 
-        <Instruction
-          weight={500}
-          margin={'48px 0px 0px 61px'}
-          color={(34, 34, 34, 1)}
-        >
-          구독 서비스의 총 별점을 남겨주세요.
-        </Instruction>
+          <Instruction
+            weight={500}
+            margin={'48px 0px 0px 61px'}
+            color={(34, 34, 34, 1)}
+          >
+            구독 서비스의 총 별점을 남겨주세요.
+          </Instruction>
 
-        <Instruction
-          weight={500}
-          margin={'12px 0px 0px 61px'}
-          color={(34, 34, 34, 1)}
-        >
-          ★★★★☆ 좋아요
-        </Instruction>
+          <Rating />
 
-        <Instruction
-          weight={500}
-          margin={'55px 0px 0px 61px'}
-          color={(255, 63, 63, 1)}
-        >
-          3개 이하의 태그를 골라주세요.
-        </Instruction>
+          <Instruction
+            weight={500}
+            margin={'55px 0px 0px 61px'}
+            color={(255, 63, 63, 1)}
+          >
+            3개 이하의 태그를 골라주세요.
+          </Instruction>
 
-        <TagBox>
-          <Tag>♥고소해요</Tag>
-          <Tag>♥달콤해요</Tag>
-          <Tag>♥시큼해요</Tag>
-          <Tag>♥촉촉해요</Tag>
-          <Tag>♥퍽퍽해요</Tag>
-          <Tag>♥매콤해요</Tag>
-          <Tag>♥부드러워요</Tag>
-          <Tag>♥짭짤해요</Tag>
-          <Tag>♥써요</Tag>
-          <Tag>♥떫어요</Tag>
-          <Tag>♥비려요</Tag>
-        </TagBox>
-        <InputText
-        type="text" 
-        value={review} 
-        onChange={inputReview} 
-        maxLength = "300"
-        size="100"
-        >
-        </InputText>
-        <LengthText>{review.length} / 300자</LengthText>
+          <TagBox>
+            <Tag>♥고소해요</Tag>
+            <Tag>♥달콤해요</Tag>
+            <Tag>♥시큼해요</Tag>
+            <Tag>♥촉촉해요</Tag>
+            <Tag>♥퍽퍽해요</Tag>
+            <Tag>♥매콤해요</Tag>
+            <Tag>♥부드러워요</Tag>
+            <Tag>♥짭짤해요</Tag>
+            <Tag>♥써요</Tag>
+            <Tag>♥떫어요</Tag>
+            <Tag>♥비려요</Tag>
+          </TagBox>
+          <InputText
+            type="text"
+            value={review}
+            onChange={inputReview}
+            maxLength="300"
+            size="100"
+          ></InputText>
+          <LengthText>{review.length} / 300자</LengthText>
         </form>
       </ModalBlock>
     </Container>
@@ -231,9 +231,9 @@ const ItemBoxWrapper = styled.div`
 const UploadPhoto = styled.label`
   margin-right: 23px;
   background-image: url(${PhotoIcon});
-  cursor : pointer;
-  width : 120px;
-  height : 120px;
+  cursor: pointer;
+  width: 120px;
+  height: 120px;
 `;
 
 const ItemBox = styled.div`
@@ -318,12 +318,12 @@ const Tag = styled.button`
   font-style: normal;
   font-weight: ${fontWeight[0]};
   font-size: ${fontsize[2]};
-  color : ${color.grey[7]};
+  color: ${color.grey[7]};
   line-height: 24px;
   border: 1px solid #222222;
   border-radius: 40px;
   background-color: white;
-  
+
   flex: none;
   order: 0;
   flex-grow: 0;
@@ -331,7 +331,7 @@ const Tag = styled.button`
 
 const InputText = styled.textarea`
   box-sizing: border-box;
-  padding : 19px 25px 33px 18px;
+  padding: 19px 25px 33px 18px;
   resize: none;
   position: absolute;
   width: 1078px;
@@ -339,7 +339,7 @@ const InputText = styled.textarea`
   left: 61px;
   top: 671px;
 
-/* Grey- 3 */
+  /* Grey- 3 */
 
   font-family: 'Pretendard';
   border: 1px solid ${color.grey[3]};
@@ -348,7 +348,6 @@ const InputText = styled.textarea`
   font-weight: 500;
   font-size: 16px;
   line-height: 24px;
-
 `;
 
 const LengthText = styled.div`
@@ -364,10 +363,9 @@ const LengthText = styled.div`
   line-height: 24px;
   text-align: right;
 
-/* Grey- 4 */
+  /* Grey- 4 */
 
-color: ${color.grey[4]};
-
+  color: ${color.grey[4]};
 `;
 /*<form>
           <input type="text" value={review} onChange={inputReview} />
