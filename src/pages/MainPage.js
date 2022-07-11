@@ -20,7 +20,7 @@ const MainPage = () => {
       <WidthWrapper>
         <Wrapper>
       <Logo src={FounderLogo} />
-      <TopBar LogoHeight= {"0px"}/>
+      <TopBar position={"sticky"} />
           <Banner src={MainBanner} />
           {Title.map((title, m) => (
             <>

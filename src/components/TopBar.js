@@ -8,11 +8,11 @@ import { color, fontsize, fontWeight } from '../lib/theme';
 
 import { Link } from 'react-router-dom';
 
-const TopBar = ({ LogoHeight }) => {
+const TopBar = ({ position }) => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
 
   return (
-    <Container LogoHeight={LogoHeight}>
+    <Container position={position}>
       <Wrapper>
         <IconWrapper>
           <MainMenu>
@@ -66,7 +66,7 @@ const Container = styled.div`
   height: 80px;
   background-color: white;
   margin-top: ${(props) => props.LogoHeight || '0px'};
-  position: sticky;
+  position: ${(props) => props.position || "fixed"};
   z-index: 2;
   top:0;
 `;
