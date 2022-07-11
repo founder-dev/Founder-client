@@ -1,11 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle =  createGlobalStyle`
-   html{
-    font-family: 'Pretendard';
-
-   }
-
+   
    body{
     font-family: 'Pretendard';
     font-size : 16px;

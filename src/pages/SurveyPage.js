@@ -7,12 +7,12 @@ import {useRef, useCallback, useEffect} from 'react';
 
 const SurveyPage = () =>{
 
-  /*const surveyRef = useRef();
-
+   /*const surveyRef = useRef();
+   
     const ScrollEvent = ()=>{
         if(surveyRef.current)
        {
-        console.log(surveyRef.current);
+        console.log(surveyRef.current.focus());
         surveyRef.current.scrollTo({
             top: surveyRef.current.scrollHeight,
             behavior: "smooth",

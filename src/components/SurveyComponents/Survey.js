@@ -53,7 +53,7 @@ const Survey = () =>{
        selected[num] = false;
     };
     
-    /* const surveyRef = useRef();
+    /*const surveyRef = useRef();
 
     const ScrollEvent = ()=>{
         if(surveyRef.current)

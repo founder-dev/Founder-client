@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import  styled,{css} from 'styled-components';
 import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
+import TagSelect from '../components/WriterModalComponents/TagSelect';
 
 const Container = styled.div`
   position: absolute;
@@ -53,6 +54,7 @@ const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useState('');
+  const [tagLength, setTagLength]  = useState(true);
 
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
@@ -79,6 +81,7 @@ const WriterModal = ({ setOpenModal }) => {
     */
   };
 
+  
   return (
     <Container>
       <Background />
@@ -119,7 +122,7 @@ const WriterModal = ({ setOpenModal }) => {
             </DetailWrapper>
           </ItemBox>
         </ItemBoxWrapper>
-
+ 
         <Instruction
           weight={500}
           margin={'48px 0px 0px 61px'}
@@ -127,7 +130,6 @@ const WriterModal = ({ setOpenModal }) => {
         >
           구독 서비스의 총 별점을 남겨주세요.
         </Instruction>
-
         <Instruction
           weight={500}
           margin={'12px 0px 0px 61px'}
@@ -141,31 +143,19 @@ const WriterModal = ({ setOpenModal }) => {
           margin={'55px 0px 0px 61px'}
           color={(255, 63, 63, 1)}
         >
-          3개 이하의 태그를 골라주세요.
+        {tagLength ? "1개 이상의 태그를 골라주세요." : "3개 이하의 태그를 골라주세요."}  
         </Instruction>
-
-        <TagBox>
-          <Tag>♥고소해요</Tag>
-          <Tag>♥달콤해요</Tag>
-          <Tag>♥시큼해요</Tag>
-          <Tag>♥촉촉해요</Tag>
-          <Tag>♥퍽퍽해요</Tag>
-          <Tag>♥매콤해요</Tag>
-          <Tag>♥부드러워요</Tag>
-          <Tag>♥짭짤해요</Tag>
-          <Tag>♥써요</Tag>
-          <Tag>♥떫어요</Tag>
-          <Tag>♥비려요</Tag>
-        </TagBox>
+        <TagSelect setTagLength={setTagLength}/>
+        
         <InputText
         type="text" 
         value={review} 
         onChange={inputReview} 
         maxLength = "300"
         size="100"
-        >
-        </InputText>
+        />
         <LengthText>{review.length} / 300자</LengthText>
+
         </form>
       </ModalBlock>
     </Container>
@@ -219,6 +209,7 @@ const Instruction = styled.div`
 
   color: ${(props) => props.color};
 `;
+
 
 const ItemBoxWrapper = styled.div`
   width: 1068px;
@@ -289,46 +280,6 @@ font-size: 16px;
 rgba(102, 102, 102, 1);
 `;
 
-const TagBox = styled.div`
-  display: flex;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 12px;
-
-  width: 780px;
-  height: 92px;
-  margin: 13px 0px 0px 61px;
-  flex-wrap: wrap;
-`;
-
-const Tag = styled.button`
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 20px;
-  gap: 8px;
-
-  width: 120px;
-  height: 40px;
-
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: ${fontWeight[0]};
-  font-size: ${fontsize[2]};
-  color : ${color.grey[7]};
-  line-height: 24px;
-  border: 1px solid #222222;
-  border-radius: 40px;
-  background-color: white;
-  
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-`;
-
 const InputText = styled.textarea`
   box-sizing: border-box;
   padding : 19px 25px 33px 18px;
@@ -336,9 +287,8 @@ const InputText = styled.textarea`
   position: absolute;
   width: 1078px;
   height: 164px;
+  margin-top : 48px;
   left: 61px;
-  top: 671px;
-
 /* Grey- 3 */
 
   font-family: 'Pretendard';
@@ -356,7 +306,7 @@ const LengthText = styled.div`
   width: 119px;
   height: 24px;
   left: 1002px;
-  top: 799px;
+  top: 750px;
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;

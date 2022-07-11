@@ -244,4 +244,5 @@ const ReviewText = styled.text`
   font-weight: 500;
   font-size: 20px;
   color: #222222;
+  cursor : pointer;
 `;
