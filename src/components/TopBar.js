@@ -61,7 +61,7 @@ export default TopBar;
 const Container = styled.div`
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
   height: 80px;
   background-color: white;
@@ -73,6 +73,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 1440px;
+  justify-content: flex-end;
 `;
 
 const MainMenu = styled.div`
