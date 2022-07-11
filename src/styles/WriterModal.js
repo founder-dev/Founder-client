@@ -53,7 +53,8 @@ const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useState('');
-
+  const [tag, setTag] = useState([]);
+  const [tagLength, setTagLength]  = useState(true);
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
   const inputReview = (e) => {
@@ -77,6 +78,26 @@ const WriterModal = ({ setOpenModal }) => {
     /* headers: {
     "Content-Type": `multipart/form-data; `,
     */
+  };
+
+  const handleTagLength= () => {
+    if(tag.length >= 4)
+  {
+    setTagLength(false);
+  }
+  };
+
+  function createTag (g){
+    setTag(tag => [...tag,g]);
+  }
+  const selectTag = (e) => {
+    e.preventDefault();
+    handleTagLength();
+    console.log(e.target.value);
+    var selected = e.target.value;
+    createTag({selected});
+    console.log(tag);
+
   };
 
   return (
@@ -119,7 +140,7 @@ const WriterModal = ({ setOpenModal }) => {
             </DetailWrapper>
           </ItemBox>
         </ItemBoxWrapper>
-
+ 
         <Instruction
           weight={500}
           margin={'48px 0px 0px 61px'}
@@ -127,7 +148,6 @@ const WriterModal = ({ setOpenModal }) => {
         >
           구독 서비스의 총 별점을 남겨주세요.
         </Instruction>
-
         <Instruction
           weight={500}
           margin={'12px 0px 0px 61px'}
@@ -141,22 +161,23 @@ const WriterModal = ({ setOpenModal }) => {
           margin={'55px 0px 0px 61px'}
           color={(255, 63, 63, 1)}
         >
-          3개 이하의 태그를 골라주세요.
+        {tagLength ? "1개 이상의 태그를 골라주세요." : "3개 이하의 태그를 골라주세요."}  
         </Instruction>
 
         <TagBox>
-          <Tag>♥고소해요</Tag>
-          <Tag>♥달콤해요</Tag>
-          <Tag>♥시큼해요</Tag>
-          <Tag>♥촉촉해요</Tag>
-          <Tag>♥퍽퍽해요</Tag>
-          <Tag>♥매콤해요</Tag>
-          <Tag>♥부드러워요</Tag>
-          <Tag>♥짭짤해요</Tag>
-          <Tag>♥써요</Tag>
-          <Tag>♥떫어요</Tag>
-          <Tag>♥비려요</Tag>
+          <Tag value ="고소해요" onClick={selectTag}>♥고소해요</Tag>
+          <Tag value ="달콤해요" onClick={selectTag}>♥달콤해요</Tag>
+          <Tag value ="시큼해요" onClick={selectTag}>♥시큼해요</Tag>
+          <Tag value ="촉촉해요" onClick={selectTag}>♥촉촉해요</Tag>
+          <Tag value ="퍽퍽해요" onClick={selectTag}>♥퍽퍽해요</Tag>
+          <Tag value ="매콤해요" onClick={selectTag}>♥매콤해요</Tag>
+          <Tag value ="부드러워요" onClick={selectTag}>♥부드러워요</Tag>
+          <Tag value ="짭짤해요" onClick={selectTag}>♥짭짤해요</Tag>
+          <Tag value ="써요" onClick={selectTag}>♥써요</Tag>
+          <Tag value ="떫어요" onClick={selectTag}>♥떫어요</Tag>
+          <Tag value ="비려요" onClick={selectTag}>♥비려요</Tag>
         </TagBox>
+        
         <InputText
         type="text" 
         value={review} 
@@ -166,6 +187,7 @@ const WriterModal = ({ setOpenModal }) => {
         >
         </InputText>
         <LengthText>{review.length} / 300자</LengthText>
+
         </form>
       </ModalBlock>
     </Container>
