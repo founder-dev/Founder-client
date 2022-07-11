@@ -4,6 +4,7 @@ import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
+import TagSelect from '../components/WriterModalComponents/TagSelect';
 
 const Container = styled.div`
   position: absolute;
@@ -53,9 +54,8 @@ const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useState('');
-  var tag = [];
   const [tagLength, setTagLength]  = useState(true);
-  const [selected, setSelected] = useState([false,false,false,false,false,false,false,false,false,false,false]);
+
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
   const inputReview = (e) => {
@@ -81,26 +81,7 @@ const WriterModal = ({ setOpenModal }) => {
     */
   };
 
-  const handleTagLength= () => {
-    if(tag.length >= 2)
-  {
-    setTagLength(false);
-    
-  }
-  };
-
-  const selectTag = num => e => {
-    
-    e.preventDefault();
-    handleTagLength();
-    console.log(selected[num]);
-    console.log(e.target.value);
-    tag = [...tag, e.target.value];
-    console.log(tag);
-    console.log(tag.length);
-
-  };
-
+  
   return (
     <Container>
       <Background />
@@ -164,20 +145,7 @@ const WriterModal = ({ setOpenModal }) => {
         >
         {tagLength ? "1개 이상의 태그를 골라주세요." : "3개 이하의 태그를 골라주세요."}  
         </Instruction>
-
-        <TagBox>
-          <Tag value ="고소해요" onClick={selectTag(0)} disabled = {selected[0]}>♥고소해요</Tag>
-          <Tag value ="달콤해요" onClick={selectTag(1)} disabled = {selected[1]}>♥달콤해요</Tag>
-          <Tag value ="시큼해요" onClick={selectTag(2)} disabled = {selected[2]}>♥시큼해요</Tag>
-          <Tag value ="촉촉해요" onClick={selectTag(3)} disabled = {selected[3]}>♥촉촉해요</Tag>
-          <Tag value ="퍽퍽해요" onClick={selectTag(4)} disabled = {selected[4]}>♥퍽퍽해요</Tag>
-          <Tag value ="매콤해요" onClick={selectTag(5)} disabled = {selected[5]}>♥매콤해요</Tag>
-          <Tag value ="부드러워요" onClick={selectTag(6)} disabled = {selected[6]}>♥부드러워요</Tag>
-          <Tag value ="짭짤해요" onClick={selectTag(7)} disabled = {selected[7]}>♥짭짤해요</Tag>
-          <Tag value ="써요" onClick={selectTag(8)} disabled = {selected[8]}>♥써요</Tag>
-          <Tag value ="떫어요" onClick={selectTag(9)} disabled = {selected[9]}>♥떫어요</Tag>
-          <Tag value ="비려요" onClick={selectTag(10)} disabled = {selected[10]}>♥비려요</Tag>
-        </TagBox>
+        <TagSelect setTagLength={setTagLength}/>
         
         <InputText
         type="text" 
@@ -311,51 +279,6 @@ font-size: 16px;
 
 rgba(102, 102, 102, 1);
 `;
-
-const TagBox = styled.div`
-  display: flex;
-  align-items: flex-start;
-  padding: 0px;
-  gap: 12px;
-
-  width: 780px;
-  height: 92px;
-  margin: 13px 0px 0px 61px;
-  flex-wrap: wrap;
-`;
-
-const Tag = styled.button`
-  box-sizing: border-box;
-
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 20px;
-  gap: 8px;
-
-  width: 120px;
-  height: 40px;
-
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: ${fontWeight[0]};
-  font-size: ${fontsize[2]};
-  color : ${color.grey[7]};
-  line-height: 24px;
-  border: 1px solid #222222;
-  border-radius: 40px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
-  ${(props) =>
-    props.disabled
-      ? css`
-      background-color:  red;
-        `
-      : `background-color: white;`}
-`;
-  
 
 const InputText = styled.textarea`
   box-sizing: border-box;
