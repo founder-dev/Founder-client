@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { fontWeight, color, fontsize } from '../../lib/theme';
 import {useRecoilState} from 'recoil';
 import { TagState } from '../../recoil';
+import React from 'react';
 
 function TagSelect({ setTagLength }) {
   const [tagArray, setTagArray] = useRecoilState(TagState);
@@ -25,20 +26,20 @@ function TagSelect({ setTagLength }) {
     e.preventDefault();
     var selectedTag = selected.filter((items) => items === true);
 
-    if(selectedTag.length  < 3 && selected[num] === false)
-      {
+    if(selectedTag.length  < 3 && selected[num] === false){
         setSelected([
         ...selected.slice(0, num),
         !selected[num],
         ...selected.slice(num + 1),
       ]);
+
       setTagArray((tagArray) => [...tagArray, e.target.value]); 
       }
 
-    else if(selectedTag.length  === 3 && selected[num] === false)
-    {
+    else if(selectedTag.length  === 3 && selected[num] === false){
       setTagLength(false);
     }
+
     else if(selectedTag.length  <= 3 && selected[num] === true)
     {
       setTagLength(true);
@@ -49,10 +50,10 @@ function TagSelect({ setTagLength }) {
       ]);
       setTagArray(tagArray.filter((tags) => tags !== e.target.value));
     }
-      };
+    };
 
       console.log(tagArray);
-      
+
   return (
     <TagBox>
       <Tag value="고소해요" onClick={selectTag(0)} selected={selected[0]}>
@@ -92,7 +93,7 @@ function TagSelect({ setTagLength }) {
   );
 }
 
-export default TagSelect;
+export default React.memo(TagSelect);
 
 const TagBox = styled.div`
   display: flex;
