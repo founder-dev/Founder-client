@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
+import CancleButtonImage from '../assets/ItemDetailPageAssets/CancleButtonImage.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
@@ -57,13 +58,14 @@ const WriterModal = ({ setOpenModal }) => {
       <ModalBlock>
         <ScheduleSticker src={WeeklyMonthly} />
         <CustomSticker src={Custom} />
-        <CancleButton
+
+        <CancleImg
+          src={CancleButtonImage}
           onClick={() => {
             setOpenModal(false);
           }}
-        >
-          X
-        </CancleButton>
+        />
+
         <Title>후기 작성하기</Title>
         <Instruction
           weight={700}
@@ -229,7 +231,7 @@ const Title = styled.div`
   color: rgba(39, 39, 39, 1);
 `;
 
-const CancleButton = styled.button`
+const CancleImg = styled.img`
   position: absolute;
   top: 42px;
   right: 71px;
