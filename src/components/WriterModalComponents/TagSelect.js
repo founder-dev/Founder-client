@@ -6,8 +6,6 @@ import { TagState } from '../../recoil';
 
 function TagSelect({ setTagLength }) {
   const [tagArray, setTagArray] = useRecoilState(TagState);
-  var tag2 =[];
-  const [tag, setTag] = useState();
   const [selected, setSelected] = useState([
     false,
     false,
@@ -23,39 +21,38 @@ function TagSelect({ setTagLength }) {
   ]);
 
   const selectTag = (num) => (e) => {
+    
     e.preventDefault();
     var selectedTag = selected.filter((items) => items === true);
-  
-    if(selectedTag.length < 3 && selected[num] === false)
-    {
-      setTagArray((tagArray) => [...tagArray, e.target.value]); 
-      setTagLength(true);
-      setSelected([
+
+    if(selectedTag.length  < 3 && selected[num] === false)
+      {
+        setSelected([
         ...selected.slice(0, num),
         !selected[num],
         ...selected.slice(num + 1),
       ]);
-      
-      console.log(tagArray);
-    }
-    else if(selectedTag.length === 3 && selected[num] === false)
+      setTagArray((tagArray) => [...tagArray, e.target.value]); 
+      }
+
+    else if(selectedTag.length  === 3 && selected[num] === false)
     {
-      console.log(tagArray);
       setTagLength(false);
     }
-    else if(selectedTag.length === 3 && selected[num] === true)
+    else if(selectedTag.length  <= 3 && selected[num] === true)
     {
-      setTagArray(tagArray.filter((tags) => tags !== e.target.value));
       setTagLength(true);
-      
       setSelected([
         ...selected.slice(0, num),
         !selected[num],
         ...selected.slice(num + 1),
       ]);
+      setTagArray(tagArray.filter((tags) => tags !== e.target.value));
     }
-  };
+      };
 
+      console.log(tagArray);
+      
   return (
     <TagBox>
       <Tag value="고소해요" onClick={selectTag(0)} selected={selected[0]}>
