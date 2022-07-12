@@ -75,6 +75,7 @@ const WidthWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 1440px;
+  margin-top: 80px;
   flex-direction: column;
 `;
 
