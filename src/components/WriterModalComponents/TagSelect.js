@@ -37,12 +37,12 @@ function TagSelect({ setTagLength }) {
       }
 
     else if(selectedTag.length  === 3 && selected[num] === false){
-      setTagLength(false);
+      setTagLength(true);
     }
 
     else if(selectedTag.length  <= 3 && selected[num] === true)
     {
-      setTagLength(true);
+      setTagLength(false);
       setSelected([
         ...selected.slice(0, num),
         !selected[num],
@@ -52,7 +52,6 @@ function TagSelect({ setTagLength }) {
     }
     };
 
-      console.log(tagArray);
 
   return (
     <TagBox>
@@ -133,7 +132,9 @@ const Tag = styled.button`
   ${(props) =>
     props.selected
       ? css`
-          background-color: red;
+          color: #179DFF;
+          border: 1px solid #179DFF;
+          background-color: white;
         `
       : `background-color: white;`}
 `;

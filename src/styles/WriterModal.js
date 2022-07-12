@@ -7,14 +7,19 @@ import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
 import Rating from '../components/StarRating/Rating';
+import { useRecoilState } from 'recoil';
+import { TagState } from '../recoil';
 
 const WriterModal = ({ setOpenModal }) => {
   const [starRate, setStarRate] = useState('');
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useState('');
-  const [tagLength, setTagLength] = useState(true);
-
+  const [tagLength, setTagLength] = useState(false);
+  const [tagArray, setTagArray] = useRecoilState(TagState);
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const [isFood, setIsFood] = useState(true);
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
   const inputReview = (e) => {
@@ -32,16 +37,15 @@ const WriterModal = ({ setOpenModal }) => {
   const handleSubmit = (e) => {
     const formdata = new FormData();
     formdata.append('photo', photo);
-    formdata.append('starRate', starRate);
-    formdata.append('review', review);
+    formdata.append('star_rate', hoverRating);
+    formdata.append('review_text', review);
+    formdata.append('review_tag_arr', tagArray);
     //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
     /* headers: {
     "Content-Type": `multipart/form-data; `,
     */
   };
 
-  const [rating, setRating] = useState(0);
-  const [hoverRating, setHoverRating] = useState(0);
   const onMouseEnter = (index) => {
     setHoverRating(index);
   };
@@ -129,7 +133,8 @@ const WriterModal = ({ setOpenModal }) => {
               </HiddenText>
             ))}
           </RatingContainer>
-
+          {isFood && 
+          <>
           <Instruction
             weight={500}
             margin={'55px 0px 0px 61px'}
@@ -137,11 +142,12 @@ const WriterModal = ({ setOpenModal }) => {
             tagLength={tagLength}
           >
             {tagLength
-              ? '1개 이상의 태그를 골라주세요.'
-              : '3개 이하의 태그를 골라주세요.'}
+              ? '3개 이하의 태그를 골라주세요.'
+              : '1개 이상의 태그를 골라주세요.'}
           </Instruction>
           <TagSelect setTagLength={setTagLength} />
-
+          </>
+          }
           <InputText
             type="text"
             value={review}
@@ -248,7 +254,14 @@ const Instruction = styled.div`
 
   margin: ${(props) => props.margin}; 
 
-  color: ${(props) => props.color};
+  color: ${color.grey[7]};
+
+  ${(props) =>
+    props.tagLength
+      ? css`
+        color: #FF3F3F;
+        `
+      : `color: ${color.grey[7]};`}
 `;
 
 const ItemBoxWrapper = styled.div`
