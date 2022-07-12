@@ -4,6 +4,8 @@ export const WidthWrapper = styled.div`
   display: flex;
   width: 100%;
   justify-content: center;
+  height: 100%;
+  overflow: auto;
 `;
 
 export const Wrapper = styled.div`

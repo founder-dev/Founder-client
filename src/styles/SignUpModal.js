@@ -56,6 +56,8 @@ position : absolute;
 top : 137px;
 left : 300px;
 padding-bottom : 23px;
+width: 400px;
+height: 66px;
 `
 const Model = styled.img`
 
