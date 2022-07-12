@@ -5,49 +5,7 @@ import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
-
-const Container = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Background = styled.div`
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.15);
-  animation: modal-bg-show 1s;
-  @keyframes modal-bg-show {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-`;
-
-const ModalBlock = styled.div`
-  position: absolute;
-  width: 1200px;
-  height: 992px;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-
-  display: flex;
-  flex-direction: column;
-`;
+import Rating from '../components/StarRating/Rating';
 
 const WriterModal = ({ setOpenModal }) => {
   const [starRate, setStarRate] = useState('');
@@ -79,6 +37,18 @@ const WriterModal = ({ setOpenModal }) => {
     /* headers: {
     "Content-Type": `multipart/form-data; `,
     */
+  };
+
+  const [rating, setRating] = useState(0);
+  const [hoverRating, setHoverRating] = useState(0);
+  const onMouseEnter = (index) => {
+    setHoverRating(index);
+  };
+  const onMouseLeave = () => {
+    setHoverRating(0);
+  };
+  const onSaveRating = (index) => {
+    setRating(index);
   };
 
   return (
@@ -135,13 +105,28 @@ const WriterModal = ({ setOpenModal }) => {
           >
             구독 서비스의 총 별점을 남겨주세요.
           </Instruction>
-          <Instruction
-            weight={500}
-            margin={'12px 0px 0px 61px'}
-            color={(34, 34, 34, 1)}
-          >
-            ★★★★☆ 좋아요
-          </Instruction>
+          <RatingContainer>
+            <StarRating>
+              {[1, 2, 3, 4, 5].map((index) => {
+                return (
+                  <Rating
+                    index={index}
+                    rating={rating}
+                    hoverRating={hoverRating}
+                    onMouseEnter={onMouseEnter}
+                    onMouseLeave={onMouseLeave}
+                    onSaveRating={onSaveRating}
+                  />
+                );
+              })}
+            </StarRating>
+
+            {[1, 2, 3, 4, 5].map((num) => (
+              <HiddenText key={num} show={hoverRating === num}>
+                {textList[num - 1]}
+              </HiddenText>
+            ))}
+          </RatingContainer>
 
           <Instruction
             weight={500}
@@ -162,6 +147,9 @@ const WriterModal = ({ setOpenModal }) => {
             size="100"
           />
           <LengthText>{review.length} / 300자</LengthText>
+          <SubmitButtonWrapper>
+            <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
+          </SubmitButtonWrapper>
         </form>
       </ModalBlock>
     </Container>
@@ -169,6 +157,50 @@ const WriterModal = ({ setOpenModal }) => {
 };
 
 export default WriterModal;
+
+const Container = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const Background = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.15);
+  animation: modal-bg-show 1s;
+  @keyframes modal-bg-show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+`;
+
+const ModalBlock = styled.div`
+  position: absolute;
+  width: 1200px;
+  height: 992px;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+`;
 
 const ScheduleSticker = styled.img`
   position: absolute;
@@ -285,16 +317,47 @@ font-size: 16px;
 rgba(102, 102, 102, 1);
 `;
 
+const RatingContainer = styled.div`
+  display: flex;
+  margin-top: 12px;
+  margin-left: 61px;
+`;
+
+const StarRating = styled.div`
+  display: flex;
+  width: 189px;
+  height: 30.38px;
+`;
+
+const textList = [
+  '별로에요',
+  '그저 그래요',
+  '보통이에요',
+  '좋아요',
+  '아주 좋아요',
+];
+
+const HiddenText = styled.div`
+  margin-left: 21px;
+
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+
+  color: #222222;
+
+  ${({ show }) => (show ? `display:block` : `display:none`)}
+`;
+
 const InputText = styled.textarea`
   box-sizing: border-box;
   padding: 19px 25px 33px 18px;
   resize: none;
-  position: absolute;
   width: 1078px;
   height: 164px;
   margin-top: 48px;
-  left: 61px;
-  /* Grey- 3 */
+  margin-left: 61px;
 
   font-family: 'Pretendard';
   border: 1px solid ${color.grey[3]};
@@ -317,16 +380,29 @@ const LengthText = styled.div`
   font-size: 14px;
   line-height: 24px;
   text-align: right;
-
-  /* Grey- 4 */
-
   color: ${color.grey[4]};
 `;
-/*<form>
-          <input type="text" value={review} onChange={inputReview} />
-          {photo && (
-            <img alt="sample" src={preview} style={{ margin: 'auto' }} />
-          )}
-          <input type="file" accept="image/*" multiple onChange={uploadPhoto} />
-          <button onClick={handleSubmit}>작성완료</button>
-        </form> */
+
+const SubmitButtonWrapper = styled.div`
+  width: 100%-61px;
+  height: 68px;
+  margin: 39px 31px 0px 31px;
+  display: flex;
+  justify-content: center;
+`;
+
+const SubmitButton = styled.button`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 108px;
+  gap: 10px;
+  border-radius: 4px;
+
+  width: 480px;
+  height: 68px;
+  background-color: ${color.grey[1]};
+  color: ${color.grey[3]};
+  border: none;
+`;
