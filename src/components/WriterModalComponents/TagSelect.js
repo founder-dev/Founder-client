@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { fontWeight, color, fontsize } from '../../lib/theme';
 
 function TagSelect({ setTagLength }) {
@@ -18,22 +18,26 @@ function TagSelect({ setTagLength }) {
     false,
   ]);
 
-  const handleTagLength = () => {
-    if (tag.length >= 2) {
-      setTagLength(false);
-    }
-  };
-
   const selectTag = (num) => (e) => {
     e.preventDefault();
-    handleTagLength();
-    selected[num] = !selected[num];
-    console.log(selected[num]);
-    console.log(e.target.value);
-    console.log(e.target.style.backgroundcolor);
-    tag = [...tag, e.target.value];
-    console.log(tag);
-    console.log(tag.length);
+    var selectedTag = selected.filter((items) => items === true);
+    
+    if(selectedTag.length < 3)
+    {
+      setTagLength(true);
+      setSelected([
+        ...selected.slice(0, num),
+        !selected[num],
+        ...selected.slice(num + 1),
+      ]);
+      tag = [...tag, e.target.value];
+      console.log(e.target.value);
+      console.log(tag);
+    }
+    else if(selectedTag.length == 3 && selected[num] == false)
+    {
+      setTagLength(false);
+    }
   };
 
   return (

@@ -134,6 +134,7 @@ const WriterModal = ({ setOpenModal }) => {
             weight={500}
             margin={'55px 0px 0px 61px'}
             color={(255, 63, 63, 1)}
+            tagLength={tagLength}
           >
             {tagLength
               ? '1개 이상의 태그를 골라주세요.'
@@ -245,7 +246,7 @@ const Instruction = styled.div`
   font-weight: ${(props) => props.weight};
   font-size: 20px;
 
-  margin: ${(props) => props.margin};
+  margin: ${(props) => props.margin}; 
 
   color: ${(props) => props.color};
 `;
