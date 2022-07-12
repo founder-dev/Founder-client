@@ -1,9 +1,13 @@
 import styled, { css } from 'styled-components';
 import { useEffect, useState } from 'react';
 import { fontWeight, color, fontsize } from '../../lib/theme';
+import {useRecoilState} from 'recoil';
+import { TagState } from '../../recoil';
 
 function TagSelect({ setTagLength }) {
-  var tag = [];
+  const [tagArray, setTagArray] = useRecoilState(TagState);
+  var tag2 =[];
+  const [tag, setTag] = useState();
   const [selected, setSelected] = useState([
     false,
     false,
@@ -21,22 +25,34 @@ function TagSelect({ setTagLength }) {
   const selectTag = (num) => (e) => {
     e.preventDefault();
     var selectedTag = selected.filter((items) => items === true);
-    
-    if(selectedTag.length < 3)
+  
+    if(selectedTag.length < 3 && selected[num] === false)
     {
+      setTagArray((tagArray) => [...tagArray, e.target.value]); 
       setTagLength(true);
       setSelected([
         ...selected.slice(0, num),
         !selected[num],
         ...selected.slice(num + 1),
       ]);
-      tag = [...tag, e.target.value];
-      console.log(e.target.value);
-      console.log(tag);
+      
+      console.log(tagArray);
     }
-    else if(selectedTag.length == 3 && selected[num] == false)
+    else if(selectedTag.length === 3 && selected[num] === false)
     {
+      console.log(tagArray);
       setTagLength(false);
+    }
+    else if(selectedTag.length === 3 && selected[num] === true)
+    {
+      setTagArray(tagArray.filter((tags) => tags !== e.target.value));
+      setTagLength(true);
+      
+      setSelected([
+        ...selected.slice(0, num),
+        !selected[num],
+        ...selected.slice(num + 1),
+      ]);
     }
   };
 
