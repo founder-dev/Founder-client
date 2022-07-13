@@ -9,6 +9,7 @@ import KaKaoCode from '../components/KakaoCode';
 import { loginState } from '../recoil';
 import { useRecoilState } from 'recoil';
 import { WidthWrapper, Wrapper, MyName, Info ,Id , MyId, Button , KaKaoButton , Logo} from '../components/MyPageComponents/MyPagePresenter';
+import axios from "react";
 
 const MyPage = () => {
 
@@ -17,6 +18,27 @@ const MyPage = () => {
     const [id, setId] = useState("UserId");
     const [gender, setGender] = useState("Men");
     const [email, setEmail] = useState("MyEmail@.com");
+    
+    
+    /*if(isLoggedIn === true){
+      useEffect(() => {
+        const fetchLogin = async () => {
+          try {
+            const response = await axios.get(
+              'https://pounder/api/mypage/'
+            );
+            const userData = response.data;
+            setUsername(userData.name);
+            setId(userData.nickname);
+            setGender(userData.gender);
+            setEmail(userData.email);
+          } catch (e) {
+            console.log(e);
+          }
+        };
+        fetchLogin();
+      }, []); 
+    }*/
     
     return(
       <>
