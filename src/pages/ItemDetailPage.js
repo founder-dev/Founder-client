@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import styled ,{ css } from 'styled-components';
 import Modal from '../components/Modal';
 import TopBar from '../components/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
@@ -9,9 +9,13 @@ import { Wrapper, CategoryWrapper,  HigherCategory, Category, ItemWrapper,
   ItemInfo, ItemCategory, ItemName, DetailedInfo, DetailedInfoWrapper, Price, PriceWrapper, PurchaseButton,
   Schedule,Line, Guide, PurchaseText, BoughtText, ReviewButton, ReviewText
 } from '../components/ItemDetailComponents/ItemDetailPresenter';
+import {color,fontsize,fontWeight} from '../lib/theme';
+import ItemReview from '../components/ItemDetailComponents/ItemReview';
+
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const itemData =[];
+  const [isSelected, setIsSelected] = useState(true);
   /*
   /*useEffect(() => {
     const fetchItemDetail = async () => {
@@ -78,7 +82,16 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
-          <div>상세 정보</div>
+          <div>
+          <MenuBar onClick={() => setIsSelected(!isSelected)} isSelected={isSelected}>상세정보</MenuBar>
+          <MenuBar onClick={() => setIsSelected(!isSelected)} left ="28px" isSelected={!isSelected}>후기 모아보기</MenuBar>
+          </div>
+          {
+            isSelected ?
+            <div>상세정보컴포넌트</div>
+            : 
+            <ItemReview/>
+          }
         </Wrapper>
       </WidthWrapper>
     </>
@@ -87,3 +100,19 @@ const ItemDetailPage = () => {
 
 export default ItemDetailPage;
 
+const MenuBar = styled.span`
+   margin-left : ${(props)=>(props.left) || "632px"};
+   cursor : pointer;
+   font-weight: ${fontWeight[2]};
+   font-size: ${fontsize[3]};
+   line-height: 36px;
+   ${(props) =>
+    props.isSelected
+      ? css`
+        color: ${color.main[2]};
+        border-bottom : 3px solid;
+        `
+      : `
+        color: ${color.grey[3]};`
+      }
+`;
