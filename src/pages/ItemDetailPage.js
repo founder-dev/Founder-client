@@ -75,6 +75,7 @@ const WidthWrapper = styled.div`
 const Wrapper = styled.div`
   display: flex;
   width: 1440px;
+  margin-top: 80px;
   flex-direction: column;
 `;
 
@@ -244,4 +245,5 @@ const ReviewText = styled.text`
   font-weight: 500;
   font-size: 20px;
   color: #222222;
+  cursor : pointer;
 `;

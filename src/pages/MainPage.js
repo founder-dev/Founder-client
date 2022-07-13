@@ -18,11 +18,10 @@ const MainPage = () => {
 
   return (
     <>
-      <Logo src={FounderLogo} />
-      <TopBar LogoHeight={'80px'} />
-
       <WidthWrapper>
         <Wrapper>
+          <Logo src={FounderLogo} />
+          <TopBar position={'sticky'} />
           <Banner src={MainBanner} />
           {Title.map((title, m) => (
             <>
@@ -66,7 +65,6 @@ export default MainPage;
 const Banner = styled.img`
   width: 1440px;
   height: 322px;
-  margin-top: 150px;
 `;
 
 const WidthWrapper = styled.div`

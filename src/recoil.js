@@ -14,3 +14,8 @@ export const surveyState = atom({
   key : 'surveyState',
   default : false,
 });
+
+export const TagState = atom({
+  key : 'tagState',
+  default : [],
+})
