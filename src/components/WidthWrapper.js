@@ -5,7 +5,6 @@ export const WidthWrapper = styled.div`
   width: 100%;
   justify-content: center;
   height: 100%;
-  overflow: auto;
 `;
 
 export const Wrapper = styled.div`

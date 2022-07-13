@@ -4,10 +4,27 @@ import Modal from '../components/Modal';
 import TopBar from '../components/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
 import ArrowWhite from '../assets/ItemDetailPageAssets/ArrowWhite.png';
+import { WidthWrapper } from '../components/WidthWrapper';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
-
+  const itemData =[];
+  /*
+  /*useEffect(() => {
+    const fetchItemDetail = async () => {
+      try {
+        const response = await axios.get(
+          'https://pounder/api/product/detail/{pk}/'
+        );
+        itemData = response.data;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchItemDetail();
+  }, []); 
+  {itemData.product_name} //이런식으로 사용
+  */
   return (
     <>
       <TopBar />
@@ -58,6 +75,7 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
+          <div>상품 정보</div>
         </Wrapper>
       </WidthWrapper>
     </>
@@ -65,12 +83,6 @@ const ItemDetailPage = () => {
 };
 
 export default ItemDetailPage;
-
-const WidthWrapper = styled.div`
-  display: flex;
-  width: 100%;
-  justify-content: center;
-`;
 
 const Wrapper = styled.div`
   display: flex;
