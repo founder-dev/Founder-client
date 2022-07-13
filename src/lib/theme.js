@@ -31,9 +31,9 @@ export const fontsize =[
 ];
 
 export const fontWeight =[
-    "500",
-    "600", //medium
-    "700", //bold
-    "800",
+    "500", //0
+    "600", //1
+    "700", //2
+    "800", //3
     "400" //extrabold
 ];

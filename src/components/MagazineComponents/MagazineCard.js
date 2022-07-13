@@ -3,7 +3,7 @@ import BrandStory from '../../assets/MagazinePageAssets/brandStory.png';
 import styled from 'styled-components';
 import { color } from '../../lib/theme';
 
-const MagazineCard = ({ title, text, tag, curationHeight, imageHeight }) => {
+const MagazineCard = ({ title, text, tag, curationHeight, imageHeight , image }) => {
   console.log(tag);
   return (
     <>

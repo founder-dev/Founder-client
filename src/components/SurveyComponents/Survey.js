@@ -6,6 +6,7 @@ import SurveyPart from "./SurveyPart";
 import styled from "styled-components";
 import { color } from "../../lib/theme";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const Survey = () =>{
 
@@ -53,6 +54,31 @@ const Survey = () =>{
        selected[num] = false;
     };
     
+    function SubmitSurvey (){
+    
+       /* for(var i=0; i<answerSet.length;i++){
+    axios
+      .put(
+        'https://pounder/api/survey/',
+        { 
+            question_num: answerSet[i].question_num,
+            answer_num : answerSet[i].answer_num,
+        },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+        }*/
+    };
     /*const surveyRef = useRef();
 
     const ScrollEvent = ()=>{
@@ -89,7 +115,7 @@ const Survey = () =>{
             <StartText top ="16px">설문조사가 완료되었습니다</StartText>
             <StartText top ="8px">취향에 맞는 홈 서비스를 추천해드립니다.</StartText>
             <button onClick={Reload}>다시 하기</button>
-            <button>제출완료</button>
+            <button onClick={SubmitSurvey}>제출완료</button>
             </>
         }
         </SurveyWrapper>

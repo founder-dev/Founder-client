@@ -3,11 +3,10 @@ import { useEffect, useState } from 'react';
 import { fontWeight, color, fontsize } from '../../lib/theme';
 import {useRecoilState} from 'recoil';
 import { TagState } from '../../recoil';
+import React from 'react';
 
 function TagSelect({ setTagLength }) {
   const [tagArray, setTagArray] = useRecoilState(TagState);
-  var tag2 =[];
-  const [tag, setTag] = useState();
   const [selected, setSelected] = useState([
     false,
     false,
@@ -23,38 +22,36 @@ function TagSelect({ setTagLength }) {
   ]);
 
   const selectTag = (num) => (e) => {
+    
     e.preventDefault();
     var selectedTag = selected.filter((items) => items === true);
-  
-    if(selectedTag.length < 3 && selected[num] === false)
-    {
+
+    if(selectedTag.length  < 3 && selected[num] === false){
+        setSelected([
+        ...selected.slice(0, num),
+        !selected[num],
+        ...selected.slice(num + 1),
+      ]);
+
       setTagArray((tagArray) => [...tagArray, e.target.value]); 
+      }
+
+    else if(selectedTag.length  === 3 && selected[num] === false){
       setTagLength(true);
-      setSelected([
-        ...selected.slice(0, num),
-        !selected[num],
-        ...selected.slice(num + 1),
-      ]);
-      
-      console.log(tagArray);
     }
-    else if(selectedTag.length === 3 && selected[num] === false)
+
+    else if(selectedTag.length  <= 3 && selected[num] === true)
     {
-      console.log(tagArray);
       setTagLength(false);
-    }
-    else if(selectedTag.length === 3 && selected[num] === true)
-    {
-      setTagArray(tagArray.filter((tags) => tags !== e.target.value));
-      setTagLength(true);
-      
       setSelected([
         ...selected.slice(0, num),
         !selected[num],
         ...selected.slice(num + 1),
       ]);
+      setTagArray(tagArray.filter((tags) => tags !== e.target.value));
     }
-  };
+    };
+
 
   return (
     <TagBox>
@@ -95,7 +92,7 @@ function TagSelect({ setTagLength }) {
   );
 }
 
-export default TagSelect;
+export default React.memo(TagSelect);
 
 const TagBox = styled.div`
   display: flex;
@@ -135,7 +132,9 @@ const Tag = styled.button`
   ${(props) =>
     props.selected
       ? css`
-          background-color: red;
+          color: #179DFF;
+          border: 1px solid #179DFF;
+          background-color: white;
         `
       : `background-color: white;`}
 `;
