@@ -11,6 +11,25 @@ import useDetectScroll from '../hooks/useDetectScroll';
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
 
+  const magazineDetaildata = [];
+
+  /*useEffect(() => {
+    const fetchMagazineDetail = async () => {
+      try {
+        const response = await axios.get(
+          'https://pounder/api/magazine/{pk}/'
+        );
+        magazineDetaildata = response.data;
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchMagazineDetail();
+  }, []); 
+  
+  {magazineDetaildata.title} 이런식으로 쓰면됨
+  */
+  
   return (
     <>
       <TopBar />
