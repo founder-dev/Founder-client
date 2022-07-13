@@ -22,8 +22,8 @@ const SurveyPart = ({selected, selectAnswer, Question ,beforeQuestion}) =>{
     <QuestionItem width = {(Surveydata[Question].question.length)}>{Surveydata[Question].question}</QuestionItem>
     {
         answer.map((item, i)=>(
-        <SelectionWrapper>
-        <button key ={item.id} onClick={selectAnswer(Question)} id = {answerNum[i]} value ={item}>{item}</button>
+        <SelectionWrapper key ={item.id}>
+        <button onClick={selectAnswer(Question)} id = {answerNum[i]} value ={item}>{item}</button>
         </SelectionWrapper>
         ))
     }
