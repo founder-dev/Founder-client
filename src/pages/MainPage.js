@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import { loginState, surveyState } from '../recoil';
 import data from '../assets/data.json';
 import ProductCard from '../components/ProductCard';
+import BrandCard from '../components/BrandCard';
 
 const MainPage = () => {
   const title = 'Food';
@@ -19,8 +20,8 @@ const MainPage = () => {
     <>
       <WidthWrapper>
         <Wrapper>
-      <Logo src={FounderLogo} />
-      <TopBar position={"sticky"} />
+          <Logo src={FounderLogo} />
+          <TopBar position={'sticky'} />
           <Banner src={MainBanner} />
           {Title.map((title, m) => (
             <>
@@ -46,9 +47,9 @@ const MainPage = () => {
                       )}
                   </GridWrapper>
                   <BrandsTitle>{title} 브랜드</BrandsTitle>
-                  <BrandsContainer>
-                    <BrandName>브랜드이름</BrandName>
-                  </BrandsContainer>
+                  <BrandCardWrapper>
+                    <BrandCard brandName={'밀앤데일리'} />
+                  </BrandCardWrapper>
                 </>
               ))}
             </>
@@ -106,16 +107,10 @@ const BrandsTitle = styled.div`
   font-size: 28px;
   font-weight: bold;
 `;
-const BrandsContainer = styled.div`
-  margin-top: 24px;
-  margin-bottom: 120px;
-  width: 208px;
-  height: 203px;
-  background-color: gray;
-`;
 
-const BrandName = styled.div`
-  color: black;
-  font-size: 18px;
-  font-weight: bold;
+const BrandCardWrapper = styled.div`
+  margin-top: 24px;
+  margin-bottom: 130px;
+  display: flex;
+  flex-direction: row;
 `;

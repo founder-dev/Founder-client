@@ -26,7 +26,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
 export default ProductCard;
 
 const ProductCardContainer = styled.div`
-  background-color: gray;
+  background-color: rgba(246, 246, 244, 1);
   border-radius: 4px;
   width: 376px;
   height: 470px;
@@ -43,7 +43,7 @@ const ImageWrapper = styled.div`
 const Sticker = styled.img`
   position: absolute;
   top: 20px;
-  right: 26px;
+  right: 25px;
 `;
 
 const CustomSticker = styled.img`
@@ -66,14 +66,17 @@ const ProductCardTitle = styled.div`
   color: black;
   font-size: 24px;
   font-family: 'Pretendard';
+  margin-left: 28px;
 `;
 
 const Price = styled.div`
-  margin-top: 4px;
-  color: blue;
-  font-size: 28px;
-  font-weight: bold;
+  color: rgba(0, 125, 254, 1);
   font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  margin-top: 8px;
+  margin-left: 28px;
 `;
 
 const Rating = styled.div``;
