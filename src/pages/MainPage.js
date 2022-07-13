@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil';
 import { loginState, surveyState } from '../recoil';
 import data from '../assets/data.json';
 import ProductCard from '../components/ProductCard';
+import BrandCard from '../components/BrandCard';
 
 const MainPage = () => {
   const title = 'Food';
@@ -18,7 +19,7 @@ const MainPage = () => {
   return (
     <>
       <Logo src={FounderLogo} />
-      <TopBar LogoHeight= {"80px"}/>
+      <TopBar LogoHeight={'80px'} />
 
       <WidthWrapper>
         <Wrapper>
@@ -47,9 +48,9 @@ const MainPage = () => {
                       )}
                   </GridWrapper>
                   <BrandsTitle>{title} 브랜드</BrandsTitle>
-                  <BrandsContainer>
-                    <BrandName>브랜드이름</BrandName>
-                  </BrandsContainer>
+                  <BrandCardWrapper>
+                    <BrandCard brandName={'밀앤데일리'} />
+                  </BrandCardWrapper>
                 </>
               ))}
             </>
@@ -65,7 +66,7 @@ export default MainPage;
 const Banner = styled.img`
   width: 1440px;
   height: 322px;
-  margin-top : 150px;
+  margin-top: 150px;
 `;
 
 const WidthWrapper = styled.div`
@@ -108,16 +109,10 @@ const BrandsTitle = styled.div`
   font-size: 28px;
   font-weight: bold;
 `;
-const BrandsContainer = styled.div`
-  margin-top: 24px;
-  margin-bottom: 120px;
-  width: 208px;
-  height: 203px;
-  background-color: gray;
-`;
 
-const BrandName = styled.div`
-  color: black;
-  font-size: 18px;
-  font-weight: bold;
+const BrandCardWrapper = styled.div`
+  margin-top: 24px;
+  margin-bottom: 130px;
+  display: flex;
+  flex-direction: row;
 `;
