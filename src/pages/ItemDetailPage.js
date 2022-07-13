@@ -5,12 +5,12 @@ import TopBar from '../components/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
 import ArrowWhite from '../assets/ItemDetailPageAssets/ArrowWhite.png';
 import { WidthWrapper } from '../components/WidthWrapper';
-import { Wrapper, CategoryWrapper,  HigherCategory, Category, ItemWrapper, 
-  ItemInfo, ItemCategory, ItemName, DetailedInfo, DetailedInfoWrapper, Price, PriceWrapper, PurchaseButton,
-  Schedule,Line, Guide, PurchaseText, BoughtText, ReviewButton, ReviewText
+import { Wrapper, ItemWrapper, ItemInfo, PurchaseButton, Line, Guide, PurchaseText, BoughtText, ReviewButton, ReviewText
 } from '../components/ItemDetailComponents/ItemDetailPresenter';
 import {color,fontsize,fontWeight} from '../lib/theme';
 import ItemReview from '../components/ItemDetailComponents/ItemReview';
+import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCategory';
+import Item from '../components/ItemDetailComponents/Item';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -37,28 +37,11 @@ const ItemDetailPage = () => {
       <TopBar />
       <WidthWrapper>
         <Wrapper>
-          <CategoryWrapper>
-            <HigherCategory>식품</HigherCategory>
-            <HigherCategory>{'>'}</HigherCategory>
-            <HigherCategory>그릭 요거트</HigherCategory>
-            <HigherCategory>{'>'}</HigherCategory>
-            <Category>룩트 그릭 요거트</Category>
-          </CategoryWrapper>
+          <ItemDetailCategory/>
           <ItemWrapper>
             <img src={ItemImage} />
             <ItemInfo>
-              <ItemCategory>그릭 요거트</ItemCategory>
-              <ItemName>룩트 그릭 요거트</ItemName>
-              <DetailedInfoWrapper>
-                <DetailedInfo>최저가</DetailedInfo>
-                <DetailedInfo>배송 주기</DetailedInfo>
-              </DetailedInfoWrapper>
-
-              <PriceWrapper>
-                <Price>44,380 원</Price>
-                <Schedule>1주/2주/4주/6주/2달</Schedule>
-              </PriceWrapper>
-
+              <Item/>
               <Line />
               <Guide>
                 상품 문의와 자세한 정보를 원하신다면 판매 사이트를 방문해주세요.
