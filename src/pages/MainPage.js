@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import FounderLogo from '../assets/MainPageAssets/logo.png';
-import MainBanner from '../assets/MainPageAssets/MainBanner.png';
+import Banner from '../components/MainPageComponents/Banner';
 import styled from 'styled-components';
 import TopBar from '../components/TopBar';
 import { Logo } from '../components/FounderLogo';
@@ -22,7 +22,7 @@ const MainPage = () => {
         <Wrapper>
           <Logo src={FounderLogo} />
           <TopBar position={'sticky'} />
-          <Banner src={MainBanner} />
+          <Banner/>
           {Title.map((title, m) => (
             <>
               <ItemTitle>{title}</ItemTitle>
@@ -61,11 +61,6 @@ const MainPage = () => {
 };
 
 export default MainPage;
-
-const Banner = styled.img`
-  width: 1440px;
-  height: 322px;
-`;
 
 const WidthWrapper = styled.div`
   display: flex;

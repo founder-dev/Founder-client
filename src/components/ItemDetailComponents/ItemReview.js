@@ -1,7 +1,13 @@
+import ItemReviewCard from '../ItemDetailComponents/ItemReviewComponents/ItemReviewCard';
+
 function ItemReview(){
 
     return(
-        <div>후기모아보기컴포넌트</div>
+        <>
+        <div>총평점</div>
+        <div>후기사진모아보기</div>
+        <ItemReviewCard/>
+        </>
     )
 }
 

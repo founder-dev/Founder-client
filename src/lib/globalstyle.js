@@ -13,6 +13,10 @@ const GlobalStyle =  createGlobalStyle`
       color : black;
    }
 
+   button{
+      font-family: 'Pretendard';
+   }
+
 `;
 
 export default GlobalStyle;
