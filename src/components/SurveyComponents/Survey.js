@@ -7,6 +7,7 @@ import styled from "styled-components";
 import { color } from "../../lib/theme";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const Survey = () =>{
 
@@ -14,6 +15,8 @@ const Survey = () =>{
     const[answer, setAnswer] = useState(""); //답한 answer 번호
     const[id, setId] = useState(1); //현재 진행되고 있는 질문 번호
     const [selected, setSelected] =useState([true,false,false,false,false,false,false,false,false,false]);
+     
+    const navigate = useNavigate();
 
     /*const answerValue =[
         " "," "," ",
@@ -78,6 +81,8 @@ const Survey = () =>{
         console.log(error);
       });
         }*/
+
+      navigate(`/`);
     };
     /*const surveyRef = useRef();
 
