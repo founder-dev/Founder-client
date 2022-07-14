@@ -17,7 +17,7 @@ const Banner = () => {
         isLoggedIn ? 
         <>
         <Link to={`/surveyintropage`}>
-        <Button>설문조사하러 가기</Button>
+        <Button>설문조사에 참여하기</Button>
         </Link>
         </>
         :
