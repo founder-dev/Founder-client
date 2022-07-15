@@ -9,6 +9,7 @@ import { loginState, surveyState } from '../recoil';
 import data from '../assets/data.json';
 import ProductCard from '../components/ProductCard';
 import BrandCard from '../components/BrandCard';
+import { Container, GridWrapper } from '../components/GridLayout';
 
 const MainPage = () => {
   const title = 'Food';
@@ -23,6 +24,7 @@ const MainPage = () => {
           <Logo src={FounderLogo} />
           <TopBar position={'sticky'} />
           <Banner/>
+          <Container>
           {Title.map((title, m) => (
             <>
               <ItemTitle>{title}</ItemTitle>
@@ -54,6 +56,7 @@ const MainPage = () => {
               ))}
             </>
           ))}
+          </Container>
         </Wrapper>
       </WidthWrapper>
     </>
@@ -78,24 +81,18 @@ const Wrapper = styled.div`
 const ItemTitle = styled.div`
   margin-top: 48px;
   color: black;
-  font-size: 36px;
-  font-weight: bold;
+  font-size: 24px;
+  font-weight: 800;
 `;
 
 const SubTitle = styled.div`
   margin-top: 8px;
   margin-bottom: 48px;
   color: black;
-  font-size: 28px;
-  font-weight: bold;
+  font-size: 20px;
+  font-weight: 500;
 `;
 
-const GridWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 36px;
-  row-gap: 60px;
-`;
 const BrandsTitle = styled.div`
   margin-top: 120px;
   color: black;

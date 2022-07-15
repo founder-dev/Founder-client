@@ -64,7 +64,7 @@ const MagazinePage = () => {
             tag={tag_arr}
             image={main_img}  
             key ={i}
-            curationHeight = "455px"
+            curationHeight = "475px"
             imageHeight = "320px"/>
             ))
             }
@@ -84,15 +84,15 @@ const MagazinePage = () => {
 export default MagazinePage;
 
 const MagazineCardWrapper = styled.div`
-  margin-left: 120px;
+  margin-left: 245px;
 `;
 
 const CurationWrapper = styled.div`
-  margin: 0px 63px;
+  margin: 0px 46px;
 `;
 
 const RecommendationWrapper = styled.div`
-  margin-right: 120px;
+  margin-right: 245px;
 `;
 
 const Wrapper = styled.div`
@@ -109,9 +109,9 @@ const WidthWrapper = styled.div`
 `;
 
 const Topic = styled.div`
-  margin: 40px 0px 36px 0px;
+  margin: 70px 0px 22px 0px;
   color: black;
-  font-size: 32px;
-  font-family: 'Pretendard';
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
 `;

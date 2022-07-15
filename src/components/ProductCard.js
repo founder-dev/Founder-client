@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import itemImage from '../assets/ProductCardAssets/itemImage.png';
 import sticker from '../assets/ProductCardAssets/sticker.png';
 import customSticker from '../assets/ProductCardAssets/customSticker.png';
+import { fontWeight, fontsize } from '../lib/theme';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   return (
@@ -28,12 +29,14 @@ export default ProductCard;
 const ProductCardContainer = styled.div`
   background-color: rgba(246, 246, 244, 1);
   border-radius: 4px;
-  width: 376px;
-  height: 470px;
+  width: 288px;
+  height: 370px;
 `;
 
 const Image = styled.img`
   margin-top: 12px;
+  width: 288px;
+  height: 276px;
 `;
 
 const ImageWrapper = styled.div`
@@ -63,18 +66,16 @@ const Schedule = styled.div`
 
 const ProductCardTitle = styled.div`
   margin-top: 12px;
-  color: black;
-  font-size: 24px;
-  font-family: 'Pretendard';
+  font-size: 17px;
+  font-weight : ${fontWeight[0]};
   margin-left: 28px;
 `;
 
 const Price = styled.div`
   color: rgba(0, 125, 254, 1);
-  font-family: 'Pretendard';
   font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
+  font-weight: ${fontWeight[2]};
+  font-size: ${fontsize[3]};
   margin-top: 8px;
   margin-left: 28px;
 `;

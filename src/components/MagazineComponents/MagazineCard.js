@@ -24,8 +24,7 @@ const MagazineCard = ({ title, text, tag, curationHeight, imageHeight , image })
 export default MagazineCard;
 
 const Image = styled.img`
-  border-radius: 4px;
-  height: ${(props) => props.height || '560px'};
+  height: ${(props) => props.height || '441px'};
 `;
 
 const CardContainer = styled.div`
@@ -33,9 +32,9 @@ const CardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   background-color: white;
-  width: 430px;
-  height: ${(props) => props.height || '712px'};
-  margin-bottom: 56px;
+  width: 330px;
+  height: ${(props) => props.height || '620px'};
+  margin-bottom: 32px;
 `;
 
 const Chip = styled.div`
@@ -47,28 +46,32 @@ const Chip = styled.div`
   background-color: ${color.grey[2]};
   width: 66px;
   height: 32px;
-  padding: 4px 12px;
+  padding: 3px 9px;
   border-radius: 2px;
 
   margin-right: 12px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
 `;
 
 const CardTitle = styled.div`
   margin-top: 12px;
   background-color: white;
   color: black;
-  font-size: 28px;
-  font-weight: bold;
-  font-family: 'Pretendard';
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 32px;
 `;
 
 const SubText = styled.div`
   margin-top: 4px;
   justify-content: center;
   background-color: white;
-  color: black;
+  color: ${color.grey[5]};
+  font-weight: 500;
   font-size: 16px;
-  font-family: 'Pretendard';
+  line-height: 28px;
 `;
 
 const ChipWrapper = styled.div`
