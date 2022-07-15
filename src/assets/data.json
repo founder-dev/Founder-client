@@ -39,6 +39,26 @@
     "custom": false,
     "schedule": "monthly"
   },
+  {
+    "itemType": "Food",
+    "itemTitle": "yogurt",
+    "subTitle": "나의아침을책임져줘",
+    "itemName": "요거트 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Food",
+    "itemTitle": "milk",
+    "subTitle": "나의아침을책임져줘",
+    "itemName": "우유 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
 
   {
     "itemType": "Health",
@@ -115,6 +135,16 @@
     "itemTitle": "beverage",
     "subTitle": "음료",
     "itemName": "beverage 구독권2",
+    "price": "2000원",
+    "rating": 2,
+    "custom": false,
+    "schedule": "monthly"
+  },
+  {
+    "itemType": "Beverage",
+    "itemTitle": "coffeecapsul",
+    "subTitle": "음료",
+    "itemName": "coffeecapsul 구독권2",
     "price": "2000원",
     "rating": 2,
     "custom": false,

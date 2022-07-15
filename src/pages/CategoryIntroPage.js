@@ -6,12 +6,16 @@ import ProductCard from '../components/ProductCard';
 import data from '../assets/data.json';
 import { Link } from 'react-router-dom';
 import { Container, GridWrapper , ItemTitle, SubTitle} from '../components/GridLayout';
+import TitleData from '../assets/CategoryTitle.json';
 
 const CategoryIntroPage = ({ title }) => {
-  const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 서브 타이틀 데이터를 따로 전달함
-  const Title = [...new Set(results.map((items) => items.itemTitle))];
+  const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 물건 데이터를 따로 전달함
+  const Title = { title : [...new Set(results.map((items) => items.itemTitle))],
+                  subTitle : [...new Set(results.map((items) => items.subTitle))]
+  };
   const subTitle = [...new Set(results.map((items) => items.subTitle))];
-
+ 
+  const Titledata = TitleData.filter((items) => items.bigcategory === title); //api를 통해서 불러올 타이틀 이름(카테고리마다 다름)
   return (
     <>
       <TopBar />
@@ -19,16 +23,13 @@ const CategoryIntroPage = ({ title }) => {
       <WidthWrapper>
         <Wrapper>
           <Container>
-          {Title.map((title) => (
+          {Titledata.map(({id, type_name, type_desc}, i) => (
             <>
-              <ItemTitle>{title}</ItemTitle>
-              {subTitle.map((subTitle) => (
-                <>
-                  <SubTitle>{subTitle}</SubTitle>
-
+              <ItemTitle>{type_name}</ItemTitle>
+              <SubTitle>{type_desc}</SubTitle>
                   <GridWrapper>
                     {results
-                      .filter((items) => items.itemTitle === title)
+                      .filter((items) => items.itemTitle === type_name) //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
                       .map(
                         ({ itemName, price, rating, custom, schedule }, i) => (
                           <Link  to={`/itemdetail`}>
@@ -44,14 +45,12 @@ const CategoryIntroPage = ({ title }) => {
                         )
                       )}
                   </GridWrapper>
-                  <BrandsTitle>{title} 브랜드</BrandsTitle>
+                  <BrandsTitle>{type_name} 브랜드</BrandsTitle>
                   <BrandsContainer>
                     <BrandName>브랜드이름</BrandName>
                   </BrandsContainer>
                 </>
               ))}
-            </>
-          ))}
           </Container>
         </Wrapper>
       </WidthWrapper>
