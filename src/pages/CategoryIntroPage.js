@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import ProductCard from '../components/ProductCard';
 import data from '../assets/data.json';
 import { Link } from 'react-router-dom';
+import { Container, GridWrapper , ItemTitle, SubTitle} from '../components/GridLayout';
 
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 서브 타이틀 데이터를 따로 전달함
@@ -17,6 +18,7 @@ const CategoryIntroPage = ({ title }) => {
       <PageTitleBar title={title} />
       <WidthWrapper>
         <Wrapper>
+          <Container>
           {Title.map((title) => (
             <>
               <ItemTitle>{title}</ItemTitle>
@@ -50,6 +52,7 @@ const CategoryIntroPage = ({ title }) => {
               ))}
             </>
           ))}
+          </Container>
         </Wrapper>
       </WidthWrapper>
     </>
@@ -71,29 +74,6 @@ const Wrapper = styled.div`
   padding: 150px 120px 0px 120px;
 `;
 
-const ItemTitle = styled.div`
-  margin-top: 48px;
-  color: black;
-  font-size: 36px;
-  font-family: 'Pretendard';
-  font-weight: bold;
-`;
-
-const SubTitle = styled.div`
-  margin-top: 8px;
-  margin-bottom: 48px;
-  color: black;
-  font-size: 28px;
-  font-family: 'Pretendard';
-  font-weight: bold;
-`;
-
-const GridWrapper = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  column-gap: 36px;
-  row-gap: 60px;
-`;
 const BrandsTitle = styled.div`
   margin-top: 120px;
   color: black;
