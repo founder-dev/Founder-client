@@ -23,39 +23,42 @@ const MainPage = () => {
         <Wrapper>
           <Logo src={FounderLogo} />
           <TopBar position={'sticky'} />
-          <Banner/>
+          <Banner />
           <Container>
-          {Title.map((title, m) => (
-            <>
-              <ItemTitle>{title}</ItemTitle>
-              {subTitle.map((subTitle, m) => (
-                <>
-                  <SubTitle>{subTitle}</SubTitle>
+            {Title.map((title, m) => (
+              <>
+                <ItemTitle>{title}</ItemTitle>
+                {subTitle.map((subTitle, m) => (
+                  <>
+                    <SubTitle>{subTitle}</SubTitle>
 
-                  <GridWrapper>
-                    {results
-                      .filter((items) => items.itemTitle === title)
-                      .map(
-                        ({ itemName, price, rating, custom, schedule }, i) => (
-                          <ProductCard
-                            itemName={itemName}
-                            price={price}
-                            rating={rating}
-                            custom={custom}
-                            schedule={schedule}
-                            key={i}
-                          />
-                        )
-                      )}
-                  </GridWrapper>
-                  <BrandsTitle>{title} 브랜드</BrandsTitle>
-                  <BrandCardWrapper>
-                    <BrandCard brandName={'밀앤데일리'} />
-                  </BrandCardWrapper>
-                </>
-              ))}
-            </>
-          ))}
+                    <GridWrapper>
+                      {results
+                        .filter((items) => items.itemTitle === title)
+                        .map(
+                          (
+                            { itemName, price, rating, custom, schedule },
+                            i
+                          ) => (
+                            <ProductCard
+                              itemName={itemName}
+                              price={price}
+                              rating={rating}
+                              custom={custom}
+                              schedule={schedule}
+                              key={i}
+                            />
+                          )
+                        )}
+                    </GridWrapper>
+                    <BrandsTitle>{title} 브랜드</BrandsTitle>
+                    <BrandCardWrapper>
+                      <BrandCard brandName={'밀앤데일리'} />
+                    </BrandCardWrapper>
+                  </>
+                ))}
+              </>
+            ))}
           </Container>
         </Wrapper>
       </WidthWrapper>
@@ -76,6 +79,7 @@ const Wrapper = styled.div`
   width: 1440px;
   flex-direction: column;
   padding: 0px 120px 0px 120px;
+  align-items: center;
 `;
 
 const ItemTitle = styled.div`
