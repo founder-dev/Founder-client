@@ -12,7 +12,6 @@ import { TagState } from '../recoil';
 import { Container, Background } from '../components/ModalDesign';
 
 const WriterModal = ({ setOpenModal }) => {
-  const [starRate, setStarRate] = useState('');
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useState('');
@@ -21,6 +20,7 @@ const WriterModal = ({ setOpenModal }) => {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [isFood, setIsFood] = useState(true);
+  
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
   const inputReview = (e) => {
@@ -37,10 +37,11 @@ const WriterModal = ({ setOpenModal }) => {
 
   const handleSubmit = (e) => {
     const formdata = new FormData();
-    formdata.append('photo', photo);
+    formdata.append('reviewMedia', photo);
     formdata.append('star_rate', hoverRating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
+    formdata.append('review_main_img', preview);
     //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
     /* headers: {
     "Content-Type": `multipart/form-data; `,
@@ -82,6 +83,7 @@ const WriterModal = ({ setOpenModal }) => {
         <form>
           <ItemBoxWrapper>
             <UploadPhoto for="uploadPhoto" />
+            <img src={preview}></img>
             <input
               id="uploadPhoto"
               type="file"

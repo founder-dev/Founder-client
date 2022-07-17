@@ -1,0 +1,42 @@
+[
+    {
+        "id": 19,
+        "type_name": "Supplement",
+        "type_desc": "나이거필요해요",
+        "type_tag_arr": ".",
+        "order": 12,
+        "category": 4
+    },
+    {
+        "id": 21,
+        "type_name": "CarePack",
+        "type_desc": "내피부촉촉",
+        "type_tag_arr": ".",
+        "order": 13,
+        "category": 4
+    },
+    {
+        "id": 1,
+        "type_name": "Salad",
+        "type_desc": "건강하고 든든한 한 끼",
+        "type_tag_arr": "건강,식단용,아침",
+        "order": 3,
+        "category": 1
+    },
+    {
+        "id": 5,
+        "type_name": "FriedRice",
+        "type_desc": "밥밥",
+        "type_tag_arr": ".",
+        "order": 2,
+        "category": 1
+    },
+    {
+        "id": 12,
+        "type_name": "Tea",
+        "type_desc": "차차",
+        "type_tag_arr": ".",
+        "order": 9,
+        "category": 2
+    }
+]
