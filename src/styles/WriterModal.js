@@ -158,7 +158,7 @@ const WriterModal = ({ setOpenModal }) => {
             maxLength="300"
             size="100"
           />
-          <LengthText>{review.length} / 300자</LengthText>
+          <LengthText top = "570px">{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
             <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
           </SubmitButtonWrapper>
@@ -363,8 +363,7 @@ const LengthText = styled.div`
   width: 119px;
   height: 24px;
   left: 1002px;
-  top: 750px;
-  font-family: 'Pretendard';
+  top: ${(props)=>(props.top) || "750px"};
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
