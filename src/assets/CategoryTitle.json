@@ -2,7 +2,7 @@
     {
         "id": 1,
         "bigcategory" : "Food",
-        "type_name": "salad",
+        "type_name": "Salad",
         "type_desc": "건강하고 든든한 한 끼",
         "type_tag_arr": "건강,식단용,아침",
         "order": 3,
@@ -11,7 +11,7 @@
     {
         "id": 2,
         "bigcategory" : "Food",
-        "type_name": "yogurt",
+        "type_name": "Yogurt",
         "type_desc": "나의아침을책임져줘",
         "type_tag_arr": "건강,식단용,아침",
         "order": 14,
@@ -20,7 +20,7 @@
     {
         "id": 3,
         "bigcategory" : "Food",
-        "type_name": "milk",
+        "type_name": "Milk",
         "type_desc": "달콤새콤우유",
         "type_tag_arr": "건강,식단용,아침",
         "order": 14,
@@ -29,7 +29,7 @@
     {
         "id": 1,
         "bigcategory" : "Beverage",
-        "type_name": "beverage",
+        "type_name": "Beverage",
         "type_desc": "맛난음료",
         "type_tag_arr": "건강,식단용,아침",
         "order": 14,
@@ -38,7 +38,7 @@
     {
         "id": 2,
         "bigcategory" : "Beverage",
-        "type_name": "coffeecapsul",
+        "type_name": "Coffeecapsul",
         "type_desc": "맛난커피음료",
         "type_tag_arr": "건강,식단용,아침",
         "order": 14,
@@ -47,7 +47,7 @@
     {
         "id": 1,
         "bigcategory" : "Health",
-        "type_name": "protein",
+        "type_name": "Protein",
         "type_desc": "프로틴프로틴",
         "type_tag_arr": "건강,식단용,아침",
         "order": 14,

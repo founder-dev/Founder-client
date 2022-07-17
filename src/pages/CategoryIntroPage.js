@@ -5,8 +5,10 @@ import styled from 'styled-components';
 import ProductCard from '../components/ProductCard';
 import data from '../assets/data.json';
 import { Link } from 'react-router-dom';
-import { Container, GridWrapper , ItemTitle, SubTitle} from '../components/GridLayout';
+import { Container, GridWrapper , SubTitle} from '../components/GridLayout';
 import TitleData from '../assets/CategoryTitle.json';
+import ChangeEnglish from '../components/SharedComponents/ChangeEnglish';
+import ItemTitle from '../components/SharedComponents/ItemTitle';
 
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 물건 데이터를 따로 전달함
@@ -25,7 +27,7 @@ const CategoryIntroPage = ({ title }) => {
           <Container>
           {Titledata.map(({id, type_name, type_desc}, i) => (
             <>
-              <ItemTitle>{type_name}</ItemTitle>
+              <ItemTitle text ={type_name}/>
               <SubTitle>{type_desc}</SubTitle>
                   <GridWrapper>
                     {results

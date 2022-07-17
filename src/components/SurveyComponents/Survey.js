@@ -18,7 +18,7 @@ const Survey = () =>{
     const[id, setId] = useState(1); //현재 진행되고 있는 질문 번호
     const [selected, setSelected] =useState([true,false,false,false,false,false,false,false,false,false]);
     const [gender, setGender] = useRecoilState(GenderState);
-
+    const answerSend = answerSet;
     const navigate = useNavigate();
 
     /*const answerValue =[
@@ -69,13 +69,12 @@ const Survey = () =>{
     {
       setGender(false);
     }
-       /* for(var i=0; i<answerSet.length;i++){
-    axios
+
+    /*axios
       .put(
-        'https://pounder/api/survey/',
+        'http://127.0.0.1:8000/api/survey',
         { 
-            question_num: answerSet[i].question_num,
-            answer_num : answerSet[i].answer_num,
+          data : answerSend
         },
         {
           headers: {
@@ -89,10 +88,9 @@ const Survey = () =>{
 
       .catch((error) => {
         console.log(error);
-      });
-        }*/
+      }); */
 
-      navigate(`/`).reload();
+      navigate(`/`);
     };
     /*const surveyRef = useRef();
 
