@@ -151,8 +151,8 @@ const DropButton = styled.img`
 
 const DropdownMenu = styled.ul`
   display: block;
-  width: 280px;
-  height: 240px;
+  width: 240px;
+  height: 218px;
   background-color: white;
   position: absolute;
   transform: translateY(160px);
@@ -166,7 +166,7 @@ const Menu = styled.li`
   padding-top: 20px;
   padding-left: 40px;
   width: 240px;
-  height: 80px;
+  height: 50px;
   cursor: pointer;
   :hover {
     background-color: ${color.grey[1]};
