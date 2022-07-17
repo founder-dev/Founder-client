@@ -25,12 +25,12 @@ const MainPage = () => {
           <TopBar position={'sticky'} />
           <Banner />
           <Container>
-            {Title.map((title, m) => (
+            {subTitle.map((subTitle) => (
               <>
-                <ItemTitle>{title}</ItemTitle>
-                {subTitle.map((subTitle, m) => (
+                <SubTitle>{subTitle}</SubTitle>
+                {Title.map((title) => (
                   <>
-                    <SubTitle>{subTitle}</SubTitle>
+                    <ItemTitle>{title}</ItemTitle>
 
                     <GridWrapper>
                       {results
@@ -82,19 +82,19 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const ItemTitle = styled.div`
-  margin-top: 48px;
-  color: black;
-  font-size: 24px;
-  font-weight: 800;
-`;
-
 const SubTitle = styled.div`
-  margin-top: 8px;
-  margin-bottom: 48px;
+  margin-top: 52px;
   color: black;
   font-size: 20px;
   font-weight: 500;
+`;
+
+const ItemTitle = styled.div`
+  margin-top: 4px;
+  margin-bottom: 42.75px;
+  color: black;
+  font-size: 24px;
+  font-weight: 800;
 `;
 
 const BrandsTitle = styled.div`

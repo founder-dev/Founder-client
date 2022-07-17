@@ -4,6 +4,7 @@ import itemImage from '../assets/ProductCardAssets/itemImage.png';
 import sticker from '../assets/ProductCardAssets/sticker.png';
 import customSticker from '../assets/ProductCardAssets/customSticker.png';
 import Rated from '../components/StarRating/Rated';
+import { fontWeight, fontsize } from '../lib/theme';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   return (
@@ -32,12 +33,14 @@ export default ProductCard;
 const ProductCardContainer = styled.div`
   background-color: rgba(246, 246, 244, 1);
   border-radius: 4px;
-  width: 376px;
-  height: 470px;
+  width: 288px;
+  height: 370px;
 `;
 
 const Image = styled.img`
   margin-top: 12px;
+  width: 288px;
+  height: 276px;
 `;
 
 const ImageWrapper = styled.div`
@@ -46,14 +49,16 @@ const ImageWrapper = styled.div`
 
 const Sticker = styled.img`
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 11.94px;
+  right: 32.06px;
+  width: 78px;
+  height: 78px;
 `;
 
 const CustomSticker = styled.img`
   position: absolute;
-  top: 120px;
-  right: 22px;
+  top: 106.05px;
+  right: 27.92px;
 `;
 
 const Schedule = styled.div`
@@ -67,22 +72,23 @@ const Schedule = styled.div`
 
 const ProductCardTitle = styled.div`
   margin-top: 12px;
+  font-size: 17px;
+  font-weight: ${fontWeight[0]};
   color: black;
-  font-size: 24px;
   font-family: 'Pretendard';
-  margin-left: 28px;
+  margin-left: 21.47px;
 `;
 
 const PriceRatingWrapper = styled.div`
-  margin: 8px 24px 14px 28px;
+  margin: 4px 0px 11.8px 21.47px;
+  padding-right: 18px;
   display: flex;
   justify-content: space-between;
 `;
 
 const Price = styled.div`
   color: rgba(0, 125, 254, 1);
-  font-family: 'Pretendard';
   font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
+  font-weight: ${fontWeight[2]};
+  font-size: ${fontsize[3]};
 `;
