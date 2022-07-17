@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import PhotoIcon from '../assets/ItemDetailPageAssets/PhotoIcon.png';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import CancleButtonImage from '../assets/ItemDetailPageAssets/CancleButtonImage.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
@@ -8,25 +7,22 @@ import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
 import Rating from '../components/StarRating/Rating';
 import { useRecoilState } from 'recoil';
-import { TagState } from '../recoil';
+import { TagState , PreviewState } from '../recoil';
 import { Container, Background } from '../components/ModalDesign';
+import InputText from '../components/WriterModalComponents/InputText';
+import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
 
 const WriterModal = ({ setOpenModal }) => {
-  const [starRate, setStarRate] = useState('');
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
-  const [preview, setPreview] = useState('');
+  const [preview, setPreview] = useRecoilState(PreviewState);
   const [tagLength, setTagLength] = useState(false);
   const [tagArray, setTagArray] = useRecoilState(TagState);
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [isFood, setIsFood] = useState(true);
+  
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
-
-  const inputReview = (e) => {
-    setReview(e.target.value);
-    console.log(review);
-  };
 
   const uploadPhoto = (e) => {
     setPhoto(e.target.files);
@@ -37,10 +33,11 @@ const WriterModal = ({ setOpenModal }) => {
 
   const handleSubmit = (e) => {
     const formdata = new FormData();
-    formdata.append('photo', photo);
+    formdata.append('reviewMedia', photo);
     formdata.append('star_rate', hoverRating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
+    formdata.append('review_main_img', preview);
     //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
     /* headers: {
     "Content-Type": `multipart/form-data; `,
@@ -81,15 +78,7 @@ const WriterModal = ({ setOpenModal }) => {
         </Instruction>
         <form>
           <ItemBoxWrapper>
-            <UploadPhoto for="uploadPhoto" />
-            <input
-              id="uploadPhoto"
-              type="file"
-              accept="image/*"
-              multiple="multiple"
-              onChange={uploadPhoto}
-              style={{ display: 'none' }}
-            />
+            <UploadPhoto photo={photo} setPhoto={setPhoto}/>
             <ItemBox>
               <ItemName>룩트 그릭 요거트</ItemName>
               <DetailWrapper>
@@ -149,14 +138,8 @@ const WriterModal = ({ setOpenModal }) => {
           <TagSelect setTagLength={setTagLength} />
           </>
           }
-          <InputText
-            type="text"
-            value={review}
-            onChange={inputReview}
-            maxLength="300"
-            size="100"
-          />
-          <LengthText>{review.length} / 300자</LengthText>
+          <InputText review={review} setReview={setReview}/>
+          <LengthText top = {isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
             <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
           </SubmitButtonWrapper>
@@ -242,14 +225,6 @@ const ItemBoxWrapper = styled.div`
   margin: 11px 71px 0px 61px;
   display: flex;
   justify-content: space-between;
-`;
-
-const UploadPhoto = styled.label`
-  margin-right: 23px;
-  background-image: url(${PhotoIcon});
-  cursor: pointer;
-  width: 120px;
-  height: 120px;
 `;
 
 const ItemBox = styled.div`
@@ -338,37 +313,23 @@ const HiddenText = styled.div`
   ${({ show }) => (show ? `display:block` : `display:none`)}
 `;
 
-const InputText = styled.textarea`
-  box-sizing: border-box;
-  padding: 19px 25px 33px 18px;
-  resize: none;
-  width: 1078px;
-  height: 164px;
-  margin-top: 48px;
-  margin-left: 61px;
-
-  font-family: 'Pretendard';
-  border: 1px solid ${color.grey[3]};
-  border-radius: 4px;
-
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 24px;
-`;
-
 const LengthText = styled.div`
   position: absolute;
   width: 119px;
   height: 24px;
   left: 1002px;
-  top: 750px;
-  font-family: 'Pretendard';
-  font-style: normal;
+  
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
   text-align: right;
   color: ${color.grey[4]};
+  ${(props) =>
+    props.top
+      ? css`
+          top:750px;
+        `
+      : `top:570px;`}
 `;
 
 const SubmitButtonWrapper = styled.div`
