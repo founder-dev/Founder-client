@@ -7,13 +7,15 @@ import Backward from '../../assets/ItemDetailPageAssets/Backward.png';
 
 function ItemReview() {
   return (
-    <>
+    <ItemReviewWrapper>
       <ReviewInfoContainer>
         <OverallRating>
           <Text>총 평점</Text>
-          <Average>{4}</Average>
-          <Rated rated={4}></Rated>
-          <NumText>{`(총 55개의 구매평)`}</NumText>
+          <AlignCenter>
+            <Average>{4}</Average>
+            <Rated rating={4}></Rated>
+            <NumText>{`(총 55개의 구매평)`}</NumText>
+          </AlignCenter>
         </OverallRating>
         <RateBars />
         <PhotoReviewWrapper>
@@ -28,8 +30,10 @@ function ItemReview() {
           </PhotoWrapper>
         </PhotoReviewWrapper>
       </ReviewInfoContainer>
-      <ItemReviewCard />
-    </>
+      <ItemReviewCardGrid>
+        <ItemReviewCard />
+      </ItemReviewCardGrid>
+    </ItemReviewWrapper>
   );
 }
 
@@ -82,7 +86,7 @@ const ReviewPreviewPhoto = styled.img`
 
 const ReviewInfoContainer = styled.div`
   display: flex;
-  margin-left: 260px;
+
   margin-top: 47px;
 `;
 
@@ -97,10 +101,16 @@ const PhotoText = styled.div`
 const OverallRating = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   width: 117px;
   height: 120.09px;
   margin-right: 57px;
+`;
+
+const AlignCenter = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 const ForwardButton = styled.img`
@@ -113,4 +123,16 @@ const BackwardButton = styled.img`
   width: 36px;
   height: 36px;
   margin-left: 7px;
+`;
+
+const ItemReviewCardGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 56px;
+  row-gap: 54px;
+`;
+
+const ItemReviewWrapper = styled.div`
+  margin-left: 261px;
+  margin-bottom: 84.07px;
 `;
