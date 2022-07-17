@@ -5,13 +5,10 @@ import styled from 'styled-components';
 import ProductCard from '../components/ProductCard';
 import data from '../assets/data.json';
 import { Link } from 'react-router-dom';
-import {
-  Container,
-  GridWrapper,
-  ItemTitle,
-  SubTitle,
-} from '../components/GridLayout';
+import { Container, GridWrapper , SubTitle} from '../components/GridLayout';
 import TitleData from '../assets/CategoryTitle.json';
+import ItemTitle from '../components/SharedComponents/ItemTitle';
+import BrandTitle from '../components/SharedComponents/BrandTitle';
 import BrandCard from '../components/BrandCard';
 
 const CategoryIntroPage = ({ title }) => {
@@ -30,32 +27,34 @@ const CategoryIntroPage = ({ title }) => {
       <WidthWrapper>
         <Wrapper>
           <Container>
-            {Titledata.map(({ id, type_name, type_desc }, i) => (
-              <>
-                <ItemTitle>{type_name}</ItemTitle>
-                <SubTitle>{type_desc}</SubTitle>
-                <GridWrapper>
-                  {results
-                    .filter((items) => items.itemTitle === type_name) //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
-                    .map(({ itemName, price, rating, custom, schedule }, i) => (
-                      <Link to={`/itemdetail`}>
-                        <ProductCard
-                          itemName={itemName}
-                          price={price}
-                          rating={rating}
-                          custom={custom}
-                          schedule={schedule}
-                          key={i}
-                        />
-                      </Link>
-                    ))}
-                </GridWrapper>
-                <BrandsTitle>{type_name} 브랜드</BrandsTitle>
-                <BrandCardWrapper>
-                  <BrandCard brandName={'밀앤데일리'} />
-                </BrandCardWrapper>
-              </>
-            ))}
+          {Titledata.map(({id, type_name, type_desc}, i) => (
+            <>
+              <ItemTitle text ={type_name}/>
+              <SubTitle>{type_desc}</SubTitle>
+                  <GridWrapper>
+                    {results
+                      .filter((items) => items.itemTitle === type_name) //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
+                      .map(
+                        ({ itemName, price, rating, custom, schedule }, i) => (
+                          <Link  to={`/itemdetail`}>
+                          <ProductCard
+                            itemName={itemName}
+                            price={price}
+                            rating={rating}
+                            custom={custom}
+                            schedule={schedule}
+                            key={i}
+                          />
+                          </Link>
+                        )
+                      )}
+                  </GridWrapper>
+                  <BrandTitle text={type_name}/>
+                  <BrandsContainer>
+                    <BrandCard brandName={'밀앤데일리'} />
+                  </BrandsContainer>
+                </>
+              ))}
           </Container>
         </Wrapper>
       </WidthWrapper>
@@ -78,12 +77,12 @@ const Wrapper = styled.div`
   padding: 150px 120px 0px 120px;
 `;
 
-const BrandsTitle = styled.div`
-  margin-top: 120px;
-  color: black;
-  font-size: 28px;
-  font-family: 'Pretendard';
-  font-weight: bold;
+const BrandsContainer = styled.div`
+  margin-top: 24px;
+  margin-bottom: 120px;
+  width: 208px;
+  height: 203px;
+  background-color: gray;
 `;
 
 const BrandCardWrapper = styled.div`

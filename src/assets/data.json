@@ -1,7 +1,7 @@
 [
   {
     "itemType": "Food",
-    "itemTitle": "salad",
+    "itemTitle": "Salad",
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권5",
     "price": "5000원",
@@ -11,7 +11,7 @@
   },
   {
     "itemType": "Food",
-    "itemTitle": "salad",
+    "itemTitle": "Salad",
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권4",
     "price": "4000원",
@@ -21,7 +21,7 @@
   },
   {
     "itemType": "Food",
-    "itemTitle": "salad",
+    "itemTitle": "Salad",
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권3",
     "price": "3000원",
@@ -31,7 +31,7 @@
   },
   {
     "itemType": "Food",
-    "itemTitle": "salad",
+    "itemTitle": "Salad",
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권2",
     "price": "2000원",
@@ -41,7 +41,7 @@
   },
   {
     "itemType": "Food",
-    "itemTitle": "yogurt",
+    "itemTitle": "Yogurt",
     "subTitle": "나의아침을책임져줘",
     "itemName": "요거트 구독권2",
     "price": "2000원",
@@ -51,7 +51,7 @@
   },
   {
     "itemType": "Food",
-    "itemTitle": "milk",
+    "itemTitle": "Milk",
     "subTitle": "나의아침을책임져줘",
     "itemName": "우유 구독권2",
     "price": "2000원",
@@ -62,7 +62,7 @@
 
   {
     "itemType": "Health",
-    "itemTitle": "protein",
+    "itemTitle": "Protein",
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권5",
     "price": "5000원",
@@ -72,7 +72,7 @@
   },
   {
     "itemType": "Health",
-    "itemTitle": "protein",
+    "itemTitle": "Protein",
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권4",
     "price": "4000원",
@@ -82,7 +82,7 @@
   },
   {
     "itemType": "Health",
-    "itemTitle": "protein",
+    "itemTitle": "Protein",
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권3",
     "price": "3000원",
@@ -92,7 +92,7 @@
   },
   {
     "itemType": "Health",
-    "itemTitle": "protein",
+    "itemTitle": "Protein",
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권2",
     "price": "2000원",
@@ -102,7 +102,7 @@
   },
   {
     "itemType": "Beverage",
-    "itemTitle": "beverage",
+    "itemTitle": "Beverage",
     "subTitle": "음료",
     "itemName": "beverage 구독권5",
     "price": "5000원",
@@ -112,7 +112,7 @@
   },
   {
     "itemType": "Beverage",
-    "itemTitle": "beverage",
+    "itemTitle": "Beverage",
     "subTitle": "음료",
     "itemName": "beverage 구독권4",
     "price": "4000원",
@@ -122,7 +122,7 @@
   },
   {
     "itemType": "Beverage",
-    "itemTitle": "beverage",
+    "itemTitle": "Beverage",
     "subTitle": "음료",
     "itemName": "beverage 구독권3",
     "price": "3000원",
@@ -132,7 +132,7 @@
   },
   {
     "itemType": "Beverage",
-    "itemTitle": "beverage",
+    "itemTitle": "Beverage",
     "subTitle": "음료",
     "itemName": "beverage 구독권2",
     "price": "2000원",
@@ -142,7 +142,7 @@
   },
   {
     "itemType": "Beverage",
-    "itemTitle": "coffeecapsul",
+    "itemTitle": "Coffeecapsul",
     "subTitle": "음료",
     "itemName": "coffeecapsul 구독권2",
     "price": "2000원",

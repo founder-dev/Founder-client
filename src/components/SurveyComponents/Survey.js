@@ -8,6 +8,8 @@ import { color } from "../../lib/theme";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
+import { GenderState } from "../../recoil";
 
 const Survey = () =>{
 
@@ -15,7 +17,8 @@ const Survey = () =>{
     const[answer, setAnswer] = useState(""); //답한 answer 번호
     const[id, setId] = useState(1); //현재 진행되고 있는 질문 번호
     const [selected, setSelected] =useState([true,false,false,false,false,false,false,false,false,false]);
-     
+    const [gender, setGender] = useRecoilState(GenderState);
+    const answerSend = answerSet;
     const navigate = useNavigate();
 
     /*const answerValue =[
@@ -43,7 +46,7 @@ const Survey = () =>{
         setId(id);
         setValue(e.target.value);
         
-        answerSet[num].question_num = String(num+1);
+        answerSet[num].question_num = String(num);
         answerSet[num].answer_num = String(e.target.id);
         answerValue[num] = e.target.value;
 
@@ -59,13 +62,19 @@ const Survey = () =>{
     
     function SubmitSurvey (){
     
-       /* for(var i=0; i<answerSet.length;i++){
-    axios
+      if(answerSet[0].answer_num == 1){
+        setGender(true);
+    }
+    else
+    {
+      setGender(false);
+    }
+
+    /*axios
       .put(
-        'https://pounder/api/survey/',
+        'http://127.0.0.1:8000/api/survey',
         { 
-            question_num: answerSet[i].question_num,
-            answer_num : answerSet[i].answer_num,
+          data : answerSend
         },
         {
           headers: {
@@ -79,8 +88,7 @@ const Survey = () =>{
 
       .catch((error) => {
         console.log(error);
-      });
-        }*/
+      }); */
 
       navigate(`/`);
     };
@@ -114,8 +122,9 @@ const Survey = () =>{
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={4} />
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={5} />
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={6} />
+        <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={7} />
         {
-            selected[7] && 
+            selected[8] && 
             <>
             <StartText top ="16px">설문조사가 완료되었습니다</StartText>
             <StartText top ="8px">취향에 맞는 홈 서비스를 추천해드립니다.</StartText>

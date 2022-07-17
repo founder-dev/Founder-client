@@ -6,8 +6,8 @@ import Founder from '../assets/MyPageAssets/FounderImage.png';
 import Illust from '../assets/MyPageAssets/Login.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
 import KaKaoCode from '../components/KakaoCode';
-import { loginState } from '../recoil';
-import { useRecoilState } from 'recoil';
+import { GenderState, loginState } from '../recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { WidthWrapper, Wrapper, MyName, Info ,Id , MyId, Button , KaKaoButton , Logo} from '../components/MyPageComponents/MyPagePresenter';
 import axios from "react";
 
@@ -16,9 +16,9 @@ const MyPage = () => {
     const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
     const [username , setUsername] = useState("Username");
     const [id, setId] = useState("UserId");
-    const [gender, setGender] = useState("Men");
+    const gender = useRecoilValue(GenderState);
     const [email, setEmail] = useState("MyEmail@.com");
-    
+    console.log(gender);
     
     /*if(isLoggedIn === true){
       useEffect(() => {
@@ -30,7 +30,6 @@ const MyPage = () => {
             const userData = response.data;
             setUsername(userData.name);
             setId(userData.nickname);
-            setGender(userData.gender);
             setEmail(userData.email);
           } catch (e) {
             console.log(e);
@@ -55,7 +54,7 @@ const MyPage = () => {
           </Info>
           <Info>
           <Id top = "16px">성별</Id>
-          <MyId>{gender}</MyId>
+          <MyId>{gender ? "여성" : "남성"}</MyId>
           </Info>
           <Info>
           <Id top = "16px">이메일</Id>
