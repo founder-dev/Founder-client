@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import itemImage from '../assets/ProductCardAssets/itemImage.png';
 import sticker from '../assets/ProductCardAssets/sticker.png';
 import customSticker from '../assets/ProductCardAssets/customSticker.png';
+import Rated from '../components/StarRating/Rated';
 import { fontWeight, fontsize } from '../lib/theme';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
@@ -19,7 +20,10 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
         ) : null}
       </ImageWrapper>
       <ProductCardTitle>{itemName}</ProductCardTitle>
-      <Price>{price}</Price>
+      <PriceRatingWrapper>
+        <Price>{price}</Price>
+        <Rated rating={rating} />
+      </PriceRatingWrapper>
     </ProductCardContainer>
   );
 };
@@ -45,14 +49,16 @@ const ImageWrapper = styled.div`
 
 const Sticker = styled.img`
   position: absolute;
-  top: 20px;
-  right: 25px;
+  top: 11.94px;
+  right: 32.06px;
+  width: 78px;
+  height: 78px;
 `;
 
 const CustomSticker = styled.img`
   position: absolute;
-  top: 120px;
-  right: 22px;
+  top: 106.05px;
+  right: 27.92px;
 `;
 
 const Schedule = styled.div`
@@ -67,8 +73,17 @@ const Schedule = styled.div`
 const ProductCardTitle = styled.div`
   margin-top: 12px;
   font-size: 17px;
-  font-weight : ${fontWeight[0]};
-  margin-left: 28px;
+  font-weight: ${fontWeight[0]};
+  color: black;
+  font-family: 'Pretendard';
+  margin-left: 21.47px;
+`;
+
+const PriceRatingWrapper = styled.div`
+  margin: 4px 0px 11.8px 21.47px;
+  padding-right: 18px;
+  display: flex;
+  justify-content: space-between;
 `;
 
 const Price = styled.div`
@@ -76,8 +91,4 @@ const Price = styled.div`
   font-style: normal;
   font-weight: ${fontWeight[2]};
   font-size: ${fontsize[3]};
-  margin-top: 8px;
-  margin-left: 28px;
 `;
-
-const Rating = styled.div``;

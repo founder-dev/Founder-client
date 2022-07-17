@@ -7,17 +7,18 @@ import data from '../assets/data.json';
 import { Link } from 'react-router-dom';
 import { Container, GridWrapper , SubTitle} from '../components/GridLayout';
 import TitleData from '../assets/CategoryTitle.json';
-import ChangeEnglish from '../components/SharedComponents/ChangeEnglish';
 import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';
+import BrandCard from '../components/BrandCard';
 
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 물건 데이터를 따로 전달함
-  const Title = { title : [...new Set(results.map((items) => items.itemTitle))],
-                  subTitle : [...new Set(results.map((items) => items.subTitle))]
+  const Title = {
+    title: [...new Set(results.map((items) => items.itemTitle))],
+    subTitle: [...new Set(results.map((items) => items.subTitle))],
   };
   const subTitle = [...new Set(results.map((items) => items.subTitle))];
- 
+
   const Titledata = TitleData.filter((items) => items.bigcategory === title); //api를 통해서 불러올 타이틀 이름(카테고리마다 다름)
   return (
     <>
@@ -50,7 +51,7 @@ const CategoryIntroPage = ({ title }) => {
                   </GridWrapper>
                   <BrandTitle text={type_name}/>
                   <BrandsContainer>
-                    <BrandName>브랜드이름</BrandName>
+                    <BrandCard brandName={'밀앤데일리'} />
                   </BrandsContainer>
                 </>
               ))}
@@ -84,9 +85,9 @@ const BrandsContainer = styled.div`
   background-color: gray;
 `;
 
-const BrandName = styled.div`
-  color: black;
-  font-size: 18px;
-  font-family: 'Pretendard';
-  font-weight: bold;
+const BrandCardWrapper = styled.div`
+  margin-top: 24px;
+  margin-bottom: 130px;
+  display: flex;
+  flex-direction: row;
 `;
