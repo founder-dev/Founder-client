@@ -52,7 +52,6 @@ function TagSelect({ setTagLength }) {
     }
     };
 
-
   return (
     <TagBox>
       <Tag value="고소해요" onClick={selectTag(0)} selected={selected[0]}>

@@ -24,3 +24,8 @@ export const GenderState = atom({
   key : 'genderState',
   default : true,
 });
+
+export const PreviewState = atom({
+  key : 'previewState',
+  default : [],
+});
