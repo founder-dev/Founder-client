@@ -9,6 +9,7 @@ import { Container, GridWrapper , SubTitle} from '../components/GridLayout';
 import TitleData from '../assets/CategoryTitle.json';
 import ChangeEnglish from '../components/SharedComponents/ChangeEnglish';
 import ItemTitle from '../components/SharedComponents/ItemTitle';
+import BrandTitle from '../components/SharedComponents/BrandTitle';
 
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 물건 데이터를 따로 전달함
@@ -47,7 +48,7 @@ const CategoryIntroPage = ({ title }) => {
                         )
                       )}
                   </GridWrapper>
-                  <BrandsTitle>{type_name} 브랜드</BrandsTitle>
+                  <BrandTitle text={type_name}/>
                   <BrandsContainer>
                     <BrandName>브랜드이름</BrandName>
                   </BrandsContainer>
@@ -75,13 +76,6 @@ const Wrapper = styled.div`
   padding: 150px 120px 0px 120px;
 `;
 
-const BrandsTitle = styled.div`
-  margin-top: 120px;
-  color: black;
-  font-size: 28px;
-  font-family: 'Pretendard';
-  font-weight: bold;
-`;
 const BrandsContainer = styled.div`
   margin-top: 24px;
   margin-bottom: 120px;
