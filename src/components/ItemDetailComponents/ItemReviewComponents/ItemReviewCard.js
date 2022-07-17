@@ -3,11 +3,32 @@ import styled from 'styled-components';
 import Review from '../../../assets/Review.json';
 import { color } from '../../../lib/theme';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
+import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 
 const ItemReviewCard = () => {
+  const [sizes, setSizes] = useState({
+    cardHeight: '336.96px',
+    reviewHeight: '56px',
+  });
+
+  const changeView = () => {
+    if (sizes.reviewHeight == '56px') {
+      // 닫혀있는경우
+      setSizes({
+        cardHeight: 'auto',
+        reviewHeight: 'auto',
+      });
+    } // 열려있는경우
+    else
+      setSizes({
+        cardHeight: '336.96px',
+        reviewHeight: '56px',
+      });
+  };
+
   return (
     <>
-      <CardContainer>
+      <CardContainer sizes={sizes}>
         <DateWriterWrapper>
           <Date>2022.07.16.</Date>
           <Writer>abc****</Writer>
@@ -18,15 +39,22 @@ const ItemReviewCard = () => {
           <Tag></Tag>
           <Tag></Tag>
         </TagWrapper>
-        <ReviewPreview>
+        <ReviewPreview sizes={sizes}>
           늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다... 진짜
           참아요...늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다...
           진짜 참아요...
         </ReviewPreview>
-        <Writer>
-          더보기
-          <MoreButton src={DownArrow} />
-        </Writer>
+        {sizes.reviewHeight == '56px' ? (
+          <Writer>
+            더보기
+            <MoreButton src={DownArrow} onClick={changeView} />
+          </Writer>
+        ) : (
+          <Writer>
+            접기
+            <MoreButton src={UpArrow} onClick={changeView} />
+          </Writer>
+        )}
       </CardContainer>
     </>
   );
@@ -43,7 +71,7 @@ const CardContainer = styled.div`
   margin-top: 72px;
 
   width: 431.93px;
-  height: 336.96px;
+  height: ${(props) => props.sizes.cardHeight};
 
   background: #fafafa;
   border-radius: 3.06333px;
@@ -108,7 +136,7 @@ const Tag = styled.div`
 
 const ReviewPreview = styled.div`
   width: 333.9px;
-  height: 56px;
+  height: ${(props) => props.sizes.reviewHeight};
 
   font-family: 'Pretendard';
   font-style: normal;
