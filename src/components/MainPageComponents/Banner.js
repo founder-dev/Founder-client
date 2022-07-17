@@ -33,8 +33,8 @@ const BannerWrapper = styled.div`
   position: relative;
 `;
 const BannerImage = styled.img`
-  width: 1440px;
-  height: 322px;
+  width: 1441px;
+  height: 280px;
 `;
 
 const Button = styled.button`
@@ -46,10 +46,11 @@ const Button = styled.button`
   gap: 12px;
 
   position: absolute;
+
   width: 283px;
   height: 52px;
   right: 578px;
-  top: 303px;
+  top: 191px;
 
   background: #007dfe;
   border-radius: 4px;
