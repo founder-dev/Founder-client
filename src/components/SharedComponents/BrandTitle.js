@@ -14,6 +14,7 @@ export default BrandTitle;
 const BrandsTitle = styled.div`
   margin-top: 120px;
   color: black;
-  font-size: 28px;
-  font-weight: bold;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 31px;
 `;
