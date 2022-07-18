@@ -6,6 +6,7 @@ const GlobalStyle =  createGlobalStyle`
     font-family: 'Pretendard';
     font-size : 16px;
     color : #272727;
+    overflow-x:hidden;
    }
 
    a{

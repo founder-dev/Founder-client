@@ -92,9 +92,9 @@ const Survey = () =>{
 
       navigate(`/`);
     };
-    /*const surveyRef = useRef();
+    const surveyRef = useRef();
 
-    const ScrollEvent = ()=>{
+    const ScrollEvent = useEffect(()=>{
         if(surveyRef.current)
         {
             console.log(surveyRef.current);
@@ -103,16 +103,16 @@ const Survey = () =>{
             behavior: "smooth",
         })
     };
-    }; //메세지리스트가 변할때만 스크롤에 대한 렌더링
+    }); //메세지리스트가 변할때만 스크롤에 대한 렌더링
 
-    ScrollEvent(); */
+
     
     function Reload(){
         window.location.reload();
     }
 
     return(
-        <SurveyWrapper>
+        <SurveyWrapper ref={surveyRef}>
         <StartText>안녕하세요 파운더 설문조사에 오신 걸 환영해요!</StartText>
         <StartText top ="8px" width ="490px">주어진 질문에 버튼을 눌러 설문조사에 참여해주세요.</StartText>
         <SurveyPart selected ={selected} selectAnswer={selectAnswer} Question={0} />
@@ -170,5 +170,9 @@ color: #FFFFFF;
 `;
 
  const SurveyWrapper = styled.div`
-
+ overflow-x: hidden;
+ overflow-y: auto;
+ ::-webkit-scrollbar {
+   display: none;
+ }
  `;

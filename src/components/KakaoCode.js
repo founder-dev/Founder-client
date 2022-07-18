@@ -4,8 +4,8 @@ function KaKaoCode (){
    
   const kakaologin = async () => {
     try {
-      const response = await axios.post(
-        'http://ec2-3-39-168-192.ap-northeast-2.compute.amazonaws.com/api/auth/kakao/signin/'
+      const response = await axios.get(
+        'https://found-er.co.kr/api/auth/kakao/signin/'
       );
       console.log(response.data);
     } catch (e) {

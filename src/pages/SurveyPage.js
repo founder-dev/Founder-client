@@ -9,16 +9,16 @@ const SurveyPage = () =>{
 
    /*const surveyRef = useRef();
    
-    const ScrollEvent = ()=>{
+    const ScrollEvent = useEffect(()=>{
         if(surveyRef.current)
        {
-        console.log(surveyRef.current.focus());
+        console.log(surveyRef.current);
         surveyRef.current.scrollTo({
             top: surveyRef.current.scrollHeight,
             behavior: "smooth",
         })}
-    }; //자동 스크롤 */
-
+    },[Survey]); //자동 스크롤 */
+    
     return(
         <WidthWrapper>
         <Wrapper>
@@ -49,4 +49,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   padding: 0px 120px 0px 120px;
   position : relative;
+  overflow-y : hidden;
+
 `;
