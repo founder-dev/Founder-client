@@ -1,0 +1,14 @@
+{
+    "product_name":"그릭 요거트",
+    "product_main_img" : "https://s3.~~~",
+    "product_detail_img" : "https://s3.~~~",
+    "custom_flag" : true,
+    "delivery_cycle_main" : "주간",
+    "delivery_cycle_detail":"1주",
+    "min_price" : 10000,
+    "max_price" : 10000,
+    "star_rate_avg" : 4.5,
+    "std_price": 7.07,
+    "discount_flag": true,
+    "purchase_link":"https://naver.~~~~"
+}
