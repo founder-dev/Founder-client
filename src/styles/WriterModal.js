@@ -7,7 +7,7 @@ import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
 import Rating from '../components/StarRating/Rating';
 import { useRecoilState } from 'recoil';
-import { TagState , PreviewState } from '../recoil';
+import { TagState, PreviewState } from '../recoil';
 import { Container, Background } from '../components/ModalDesign';
 import InputText from '../components/WriterModalComponents/InputText';
 import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
@@ -21,7 +21,7 @@ const WriterModal = ({ setOpenModal }) => {
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
   const [isFood, setIsFood] = useState(true);
-  
+  const [sent, setSent] = useState(false);
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
   const uploadPhoto = (e) => {
@@ -38,6 +38,7 @@ const WriterModal = ({ setOpenModal }) => {
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
     formdata.append('review_main_img', preview);
+    setSent(true);
     //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
     /* headers: {
     "Content-Type": `multipart/form-data; `,
@@ -78,7 +79,7 @@ const WriterModal = ({ setOpenModal }) => {
         </Instruction>
         <form>
           <ItemBoxWrapper>
-            <UploadPhoto photo={photo} setPhoto={setPhoto}/>
+            <UploadPhoto photo={photo} setPhoto={setPhoto} />
             <ItemBox>
               <ItemName>룩트 그릭 요거트</ItemName>
               <DetailWrapper>
@@ -123,25 +124,27 @@ const WriterModal = ({ setOpenModal }) => {
               </HiddenText>
             ))}
           </RatingContainer>
-          {isFood && 
-          <>
-          <Instruction
-            weight={500}
-            margin={'55px 0px 0px 61px'}
-            color={(255, 63, 63, 1)}
-            tagLength={tagLength}
-          >
-            {tagLength
-              ? '3개 이하의 태그를 골라주세요.'
-              : '1개 이상의 태그를 골라주세요.'}
-          </Instruction>
-          <TagSelect setTagLength={setTagLength} />
-          </>
-          }
-          <InputText review={review} setReview={setReview}/>
-          <LengthText top = {isFood}>{review.length} / 300자</LengthText>
+          {isFood && (
+            <>
+              <Instruction
+                weight={500}
+                margin={'55px 0px 0px 61px'}
+                color={(255, 63, 63, 1)}
+                tagLength={tagLength}
+              >
+                {tagLength
+                  ? '3개 이하의 태그를 골라주세요.'
+                  : '1개 이상의 태그를 골라주세요.'}
+              </Instruction>
+              <TagSelect setTagLength={setTagLength} />
+            </>
+          )}
+          <InputText review={review} setReview={setReview} />
+          <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton onClick={handleSubmit}>작성완료</SubmitButton>
+            <SubmitButton onClick={handleSubmit} sent={sent}>
+              작성완료
+            </SubmitButton>
           </SubmitButtonWrapper>
         </form>
       </ModalBlock>
@@ -150,7 +153,6 @@ const WriterModal = ({ setOpenModal }) => {
 };
 
 export default WriterModal;
-
 
 const ModalBlock = styled.div`
   position: absolute;
@@ -207,14 +209,14 @@ const Instruction = styled.div`
   font-weight: ${(props) => props.weight};
   font-size: 20px;
 
-  margin: ${(props) => props.margin}; 
+  margin: ${(props) => props.margin};
 
   color: ${color.grey[7]};
 
   ${(props) =>
     props.tagLength
       ? css`
-        color: #FF3F3F;
+          color: #ff3f3f;
         `
       : `color: ${color.grey[7]};`}
 `;
@@ -318,7 +320,7 @@ const LengthText = styled.div`
   width: 119px;
   height: 24px;
   left: 1002px;
-  
+
   font-weight: 500;
   font-size: 14px;
   line-height: 24px;
@@ -327,7 +329,7 @@ const LengthText = styled.div`
   ${(props) =>
     props.top
       ? css`
-          top:750px;
+          top: 750px;
         `
       : `top:570px;`}
 `;
@@ -351,7 +353,8 @@ const SubmitButton = styled.button`
 
   width: 480px;
   height: 68px;
-  background-color: ${color.grey[1]};
+
+  background-color: ${(props) => (props.sent ? '#007DFE' : '#FAFAFA')};
   color: ${color.grey[3]};
   border: none;
 `;

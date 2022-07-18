@@ -7,9 +7,9 @@ import styled from 'styled-components';
 import Tag from '../components/Tag';
 import data from '../assets/Magazinedata.json';
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const MagazinePage = () => {
-
   const magazineData = [];
   /*useEffect(() => {
     const fetchMagazine = async () => {
@@ -25,8 +25,10 @@ const MagazinePage = () => {
     fetchMagazine();
   }, []); */
 
-  const Story = data.filter((story) => story.magazine_type === "파운더 스토리"); //magazineData 이름바꾸기
-  const Curation = data.filter((curation) => curation.magazine_type === "데일리 큐레이션");
+  const Story = data.filter((story) => story.magazine_type === '파운더 스토리'); //magazineData 이름바꾸기
+  const Curation = data.filter(
+    (curation) => curation.magazine_type === '데일리 큐레이션'
+  );
   const Brand = data.map((items) => items.brand);
   /*api 통신하면 브랜드 부분은 
   const brandName = Curation.map((brand) => brand.brand_name));
@@ -42,38 +44,37 @@ const MagazinePage = () => {
         <Wrapper>
           <MagazineCardWrapper>
             <Topic>브랜드 스토리</Topic>
-            {Story.map(({ title, intro_content ,tag_arr , main_img} , i) => 
-            (
-            <MagazineCard 
-            title={title} 
-            text ={intro_content} 
-            tag={tag_arr}
-            image={main_img} 
-            key ={i}/>
-            ))
-            }
+            {Story.map(({ title, intro_content, tag_arr, main_img }, i) => (
+              <Link to={`/brandstory`}>
+                <MagazineCard
+                  title={title}
+                  text={intro_content}
+                  tag={tag_arr}
+                  image={main_img}
+                  key={i}
+                />
+              </Link>
+            ))}
           </MagazineCardWrapper>
-          
+
           <CurationWrapper>
             <Topic>데일리 큐레이션</Topic>
-            {Curation.map(({ title, intro_content , tag_arr , main_img} , i) => 
-            (
-            <MagazineCard 
-            title={title} 
-            text ={intro_content} 
-            tag={tag_arr}
-            image={main_img}  
-            key ={i}
-            curationHeight = "475px"
-            imageHeight = "320px"/>
-            ))
-            }
+            {Curation.map(({ title, intro_content, tag_arr, main_img }, i) => (
+              <MagazineCard
+                title={title}
+                text={intro_content}
+                tag={tag_arr}
+                image={main_img}
+                key={i}
+                curationHeight="475px"
+                imageHeight="320px"
+              />
+            ))}
           </CurationWrapper>
 
           <RecommendationWrapper>
             <Topic>추천 브랜드</Topic>
-            <Recommendation 
-            Brand={Brand}/>
+            <Recommendation Brand={Brand} />
           </RecommendationWrapper>
         </Wrapper>
       </WidthWrapper>
@@ -99,7 +100,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 1440px;
   justify-content: space-between;
-  padding-top : 150px;
+  padding-top: 150px;
 `;
 
 const WidthWrapper = styled.div`
