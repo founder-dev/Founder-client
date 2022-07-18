@@ -10,7 +10,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   return (
     <ProductCardContainer>
       <ImageWrapper>
-        <Image src={itemImage} />
+        <Image src={itemImage} loading="lazy"/>
         <Sticker src={sticker} />
         {custom ? (
           <>

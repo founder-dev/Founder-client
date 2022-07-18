@@ -7,7 +7,7 @@ const BrandCard = ({ brandName }) => {
   return (
     <BrandCardContainer>
       <BrandLogoBackground src={BrandCircle}></BrandLogoBackground>
-      <BrandLogo src={Meally} />
+      <BrandLogo src={Meally} loading="lazy"/>
       <BrandName>{brandName}</BrandName>
     </BrandCardContainer>
   );
@@ -35,7 +35,6 @@ const BrandLogo = styled.img`
 
 const BrandName = styled.div`
   margin-top: 14px;
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 24px;
