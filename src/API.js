@@ -1,7 +1,7 @@
 import axios from 'axios';
 /*
     const instance = axios.create({
-    baseURL: 'https://founder/api',
+    baseURL: 'https://found-er.co.kr/api',
     headers: {
       'Content-Type': 'application/json',
     },
