@@ -1,28 +1,45 @@
 import styled from 'styled-components';
 import MainBanner from '../../assets/MainPageAssets/MainBanner.png';
-import { useRecoilValue } from 'recoil';
-import { loginState } from '../../recoil';
-import { color, fontsize, fontWeight } from '../../lib/theme';
-import { Link } from 'react-router-dom';
-import KaKaoCode from '../KakaoCode';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css"; 
+import BannerButton from './BannerButton';
+import SwiperCore, { Navigation, Pagination, Autoplay } from "swiper";
+import "swiper/css/pagination";
+import "./Pagination.css";
+
+SwiperCore.use([Pagination, Autoplay]);
 
 const Banner = () => {
-  const isLoggedIn = useRecoilValue(loginState);
+
+  const swiperProps = {
+    spaceBetween : 20,
+    slidesPerView : 1,
+    pagination: {
+      clickable: true,
+    },
+    autoplay :{
+       delay: 2500 
+    },
+  };
 
   return (
     <BannerWrapper>
-      <BannerImage src={MainBanner} />
-      {isLoggedIn ? (
-        <>
-          <Link to={`/surveyintropage`}>
-            <Button>설문조사에 참여하기</Button>
-          </Link>
-        </>
-      ) : (
-        <>
-          <Button onClick={KaKaoCode}>로그인 하러 가기</Button>
-        </>
-      )}
+      <StyledSwiper
+      {...swiperProps}
+    >
+        <SwiperSlide>
+          <BannerImage  src={MainBanner} />
+          <BannerButton/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <BannerImage  src={MainBanner} />
+          <BannerButton/>
+        </SwiperSlide>
+        <SwiperSlide>
+          <BannerImage  src={MainBanner} />
+          <BannerButton/>
+        </SwiperSlide>
+     </StyledSwiper>
     </BannerWrapper>
   );
 };
@@ -37,27 +54,7 @@ const BannerImage = styled.img`
   height: 280px;
 `;
 
-const Button = styled.button`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 8px 28px;
-  gap: 12px;
-
-  position: absolute;
-
-  width: 283px;
-  height: 52px;
-  right: 578px;
-  top: 191px;
-
-  background: #007dfe;
-  border-radius: 4px;
-
-  font-weight: ${fontWeight[0]};
-  font-size: ${fontsize[3]};
-  color: ${color.white};
-  border: none;
-  cursor: pointer;
+const StyledSwiper = styled(Swiper)`
+  width: 1441px;
+  height: 300px;
 `;
