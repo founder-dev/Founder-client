@@ -10,6 +10,7 @@ import data from '../assets/data.json';
 import ProductCard from '../components/ProductCard';
 import BrandCard from '../components/BrandCard';
 import { Container, GridWrapper } from '../components/GridLayout';
+import { Link } from 'react-router-dom';
 
 const MainPage = () => {
   const title = 'Food';
@@ -40,14 +41,16 @@ const MainPage = () => {
                             { itemName, price, rating, custom, schedule },
                             i
                           ) => (
-                            <ProductCard
-                              itemName={itemName}
-                              price={price}
-                              rating={rating}
-                              custom={custom}
-                              schedule={schedule}
-                              key={i}
-                            />
+                            <Link to={`/itemdetail`}>
+                              <ProductCard
+                                itemName={itemName}
+                                price={price}
+                                rating={rating}
+                                custom={custom}
+                                schedule={schedule}
+                                key={i}
+                              />
+                            </Link>
                           )
                         )}
                     </GridWrapper>
