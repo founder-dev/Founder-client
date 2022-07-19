@@ -1,9 +1,9 @@
+import { useState, useRef } from 'react';
 import styled from 'styled-components';
 import ItemReviewCard from '../ItemDetailComponents/ItemReviewComponents/ItemReviewCard';
 import Rated from '../StarRating/Rated';
 import RateBars from '../ItemDetailComponents/ItemReviewComponents/RateBars';
-import Forward from '../../assets/ItemDetailPageAssets/Forward.png';
-import Backward from '../../assets/ItemDetailPageAssets/Backward.png';
+import Slider from './Slider';
 
 function ItemReview() {
   return (
@@ -20,14 +20,7 @@ function ItemReview() {
         <RateBars />
         <PhotoReviewWrapper>
           <PhotoText>사진 후기 모아보기</PhotoText>
-          <PhotoWrapper>
-            <ForwardButton src={Forward}></ForwardButton>
-            <ReviewPreviewPhoto />
-            <ReviewPreviewPhoto />
-            <ReviewPreviewPhoto />
-            <ReviewPreviewPhoto />
-            <BackwardButton src={Backward}></BackwardButton>
-          </PhotoWrapper>
+          <Slider />
         </PhotoReviewWrapper>
       </ReviewInfoContainer>
       <ItemReviewCardGrid>
@@ -68,22 +61,6 @@ const PhotoReviewWrapper = styled.div`
   height: 144px;
 `;
 
-const PhotoWrapper = styled.div`
-  width: 433.35px;
-  height: 76.58px;
-
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-const ReviewPreviewPhoto = styled.img`
-  margin-top: 15.7px;
-  width: 76.58px;
-  height: 76.58px;
-  margin-right: 8px;
-`;
-
 const ReviewInfoContainer = styled.div`
   display: flex;
 
@@ -111,18 +88,6 @@ const AlignCenter = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-`;
-
-const ForwardButton = styled.img`
-  width: 36px;
-  height: 36px;
-  margin-right: 16.02px;
-`;
-
-const BackwardButton = styled.img`
-  width: 36px;
-  height: 36px;
-  margin-left: 7px;
 `;
 
 const ItemReviewCardGrid = styled.div`
