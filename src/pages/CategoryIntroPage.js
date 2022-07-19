@@ -83,7 +83,6 @@ const BrandsContainer = styled.div`
   margin-bottom: 120px;
   width: 208px;
   height: 203px;
-  background-color: gray;
 `;
 
 const BrandCardWrapper = styled.div`
