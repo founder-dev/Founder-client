@@ -66,9 +66,9 @@ const Container = styled.div`
   height: 80px;
   background-color: white;
   margin-top: ${(props) => props.LogoHeight || '0px'};
-  position: ${(props) => props.position || "fixed"};
+  position: ${(props) => props.position || 'fixed'};
   z-index: 2;
-  top:0;
+  top: 0;
 `;
 
 const Wrapper = styled.div`
@@ -150,12 +150,12 @@ const DropButton = styled.img`
 `;
 
 const DropdownMenu = styled.ul`
+  padding-top: 7.27px;
   display: block;
-  width: 240px;
   height: 218px;
   background-color: white;
   position: absolute;
-  transform: translateY(160px);
+  transform: translateY(150px);
   display: flex;
   flex-direction: column;
   list-style: none;
