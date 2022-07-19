@@ -2,7 +2,7 @@
   {
     "itemType": "Food",
     "itemTitle": "Salad",
-    "itemTag": { "tag1": "#아침식사", "tag2": "#건강", "tag3": "#간편" },
+    "itemTag": ["건강", "음식", "균형"],
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권5",
     "price": "5000원",
@@ -13,7 +13,7 @@
   {
     "itemType": "Food",
     "itemTitle": "Salad",
-    "itemTag": { "tag1": "#아침식사", "tag2": "#건강", "tag3": "#간편" },
+    "itemTag": ["건강", "음식", "균형"],
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권4",
     "price": "4000원",
@@ -24,7 +24,7 @@
   {
     "itemType": "Food",
     "itemTitle": "Salad",
-    "itemTag": { "tag1": "#아침식사", "tag2": "#건강", "tag3": "#간편" },
+    "itemTag": ["건강", "음식", "균형"],
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권3",
     "price": "3000원",
@@ -35,7 +35,7 @@
   {
     "itemType": "Food",
     "itemTitle": "Salad",
-    "typeTag": { "tag1": "#아침식사", "tag2": "#건강", "tag3": "#간편" },
+    "typeTag": ["건강", "음식", "균형"],
     "subTitle": "건강하고 든든한 한 끼",
     "itemName": "샐러드 구독권2",
     "price": "2000원",
@@ -46,7 +46,7 @@
   {
     "itemType": "Food",
     "itemTitle": "Yogurt",
-    "typeTag": { "tag1": "#아침식사", "tag2": "#건강", "tag3": "#간편" },
+    "typeTag": ["건강", "음식", "균형"],
     "subTitle": "나의아침을책임져줘",
     "itemName": "요거트 구독권2",
     "price": "2000원",
@@ -57,7 +57,7 @@
   {
     "itemType": "Food",
     "itemTitle": "Milk",
-    "typeTag": { "tag1": "#아침식사", "tag2": "#건강", "tag3": "#간편" },
+    "typeTag": ["건강", "음식", "균형"],
     "subTitle": "나의아침을책임져줘",
     "itemName": "우유 구독권2",
     "price": "2000원",
@@ -69,7 +69,7 @@
   {
     "itemType": "Health",
     "itemTitle": "Protein",
-    "typeTag": { "tag1": "#프로틴", "tag2": "#건강건강", "tag3": "#단백질" },
+    "typeTag": ["프로틴", "프로틴", "프로틴"],
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권5",
     "price": "5000원",
@@ -80,7 +80,7 @@
   {
     "itemType": "Health",
     "itemTitle": "Protein",
-    "typeTag": { "tag1": "#프로틴", "tag2": "#건강건강", "tag3": "#단백질" },
+    "typeTag": ["프로틴", "프로틴", "프로틴"],
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권4",
     "price": "4000원",
@@ -91,7 +91,7 @@
   {
     "itemType": "Health",
     "itemTitle": "Protein",
-    "typeTag": { "tag1": "#프로틴", "tag2": "#건강건강", "tag3": "#단백질" },
+    "typeTag": ["프로틴", "프로틴", "프로틴"],
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권3",
     "price": "3000원",
@@ -102,7 +102,7 @@
   {
     "itemType": "Health",
     "itemTitle": "Protein",
-    "typeTag": { "tag1": "#프로틴", "tag2": "#건강건강", "tag3": "#단백질" },
+    "typeTag": ["프로틴", "프로틴", "프로틴"],
     "subTitle": "튼튼한 근육을 위한 매일 단백질",
     "itemName": "protein 구독권2",
     "price": "2000원",
@@ -113,11 +113,7 @@
   {
     "itemType": "Beverage",
     "itemTitle": "Beverage",
-    "typeTag": {
-      "tag1": "#드링크",
-      "tag2": "#음료음료",
-      "tag3": "#음료드링크"
-    },
+    "typeTag": ["음료", "음료", "음료"],
     "subTitle": "음료",
     "itemName": "beverage 구독권5",
     "price": "5000원",
@@ -128,11 +124,7 @@
   {
     "itemType": "Beverage",
     "itemTitle": "Beverage",
-    "typeTag": {
-      "tag1": "#드링크",
-      "tag2": "#음료음료",
-      "tag3": "#음료드링크"
-    },
+    "typeTag": ["음료", "음료", "음료"],
     "subTitle": "음료",
     "itemName": "beverage 구독권4",
     "price": "4000원",
@@ -143,11 +135,7 @@
   {
     "itemType": "Beverage",
     "itemTitle": "Beverage",
-    "typeTag": {
-      "tag1": "#드링크",
-      "tag2": "#음료음료",
-      "tag3": "#음료드링크"
-    },
+    "typeTag": ["음료", "음료", "음료"],
     "subTitle": "음료",
     "itemName": "beverage 구독권3",
     "price": "3000원",
@@ -158,11 +146,7 @@
   {
     "itemType": "Beverage",
     "itemTitle": "Beverage",
-    "typeTag": {
-      "tag1": "#드링크",
-      "tag2": "#음료음료",
-      "tag3": "#음료드링크"
-    },
+    "typeTag": ["음료", "음료", "음료"],
     "subTitle": "음료",
     "itemName": "beverage 구독권2",
     "price": "2000원",
@@ -173,11 +157,7 @@
   {
     "itemType": "Beverage",
     "itemTitle": "Coffeecapsul",
-    "typeTag": {
-      "tag1": "#드링크",
-      "tag2": "#음료음료",
-      "tag3": "#음료드링크"
-    },
+    "typeTag": ["음료", "음료", "음료"],
     "subTitle": "음료",
     "itemName": "coffeecapsul 구독권2",
     "price": "2000원",
