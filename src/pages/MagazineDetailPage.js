@@ -29,7 +29,7 @@ const MagazineDetailPage = () => {
   
   {magazineDetaildata.title} 이런식으로 쓰면됨
   */
-  
+
   return (
     <>
       <TopBar />
@@ -93,7 +93,7 @@ export default MagazineDetailPage;
 const Header = styled.div`
   position: fixed;
   width: 100%;
-  height: 82px;
+  height: 38px;
   top: 80px;
   background-color: white;
   z-index: 3;
@@ -102,13 +102,13 @@ const Header = styled.div`
 const HeaderTitle = styled.div`
   font-family: 'Pretendard';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 100%;
   text-align: center;
   color: black;
   z-index: 2;
-  margin-top: 31px;
-  margin-bottom: 31px;
+  margin-top: 10px;
+  margin-bottom: 8px;
 `;
 
 const TitleWrapper = styled.div`
@@ -118,8 +118,8 @@ const TitleWrapper = styled.div`
 const TitleInfo = styled.div`
   position: absolute;
   width: 100%;
-  height: 164px;
-  top: -164px;
+  height: 172px;
+  top: -172px;
 
   background: rgba(0, 0, 0, 0.3);
 `;
@@ -127,19 +127,21 @@ const TitleInfo = styled.div`
 const Title = styled.div`
   font-family: 'Pretendard';
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
+  line-height: 48px;
 
   color: white;
 
   z-index: 2;
-  margin-top: 41px;
-  margin-bottom: 21px;
+  margin-top: 36px;
 `;
 
 const KeyWords = styled.div`
   font-family: 'Pretendard';
   font-size: 20px;
+  line-height: 36px;
+  font-weight: 500;
 
   text-align: center;
 
@@ -153,7 +155,6 @@ const DetailWrapper = styled.div`
   justify-content: space-between;
   width: 211px;
   margin-left: 120px;
-  margin-bottom: 8px;
 `;
 
 const Date = styled.div`
@@ -178,7 +179,6 @@ const ArticleWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0px;
-  gap: 156px;
   margin-left: 120px;
   width: 960px;
   margin-left: 240px;
@@ -189,7 +189,7 @@ const BrandHome = styled.div`
   width: 1200px;
   height: 132px;
 
-  margin-top: 56px;
+  margin-top: 80px;
   margin-bottom: 156px;
 
   background: #fafafa;
@@ -200,6 +200,7 @@ const BrandHome = styled.div`
 `;
 const BrandInfoWrapper = styled.div`
   position: relative;
+  margin-bottom: 72px;
 `;
 
 const BrandLogo = styled.img`
@@ -259,25 +260,27 @@ const BrandArrow = styled.img`
 
 const SubTitle = styled.div`
   font-family: 'Pretendard';
-  font-weight: bold;
-  font-size: 32px;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
 
   color: #272727;
 
-  margin-bottom: 48px;
+  margin-top: 84px;
+  margin-bottom: 46px;
 `;
 
 const Text = styled.text`
   font-family: 'Pretendard';
   font-size: 20px;
+  font-weight: 400;
 
   color: #000000;
 
-  margin-bottom: 156px;
+  margin-bottom: 80px;
 `;
 
 const ParagraphWrapper = styled.div`
-  margin-top: 76px;
   margin-bottom: 80px;
 `;
 
@@ -285,7 +288,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 1440px;
-  padding-top: 162px;
+  padding-top: 118px;
   padding-bottom: 235px;
 `;
 
