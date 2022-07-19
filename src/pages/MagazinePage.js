@@ -29,7 +29,7 @@ const MagazinePage = () => {
   const Curation = data.filter(
     (curation) => curation.magazine_type === '데일리 큐레이션'
   );
-  const Brand = data.map((items) => items.brand);
+  const Brand = data.filter((items) => items.magazine_type === '브랜드');
   /*api 통신하면 브랜드 부분은 
   const brandName = Curation.map((brand) => brand.brand_name));
   const brandLink = Curation.map((brand) => brand.brand_link));
@@ -66,15 +66,15 @@ const MagazinePage = () => {
                 tag={tag_arr}
                 image={main_img}
                 key={i}
-                curationHeight="475px"
-                imageHeight="320px"
               />
             ))}
           </CurationWrapper>
 
           <RecommendationWrapper>
             <Topic>추천 브랜드</Topic>
-            <Recommendation Brand={Brand} />
+            {Brand.map(({ title }, i) => (
+              <Recommendation title={title} key={i} />
+            ))}
           </RecommendationWrapper>
         </Wrapper>
       </WidthWrapper>

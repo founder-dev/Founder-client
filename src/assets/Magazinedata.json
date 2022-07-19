@@ -1,53 +1,55 @@
 [
-    {
-        "title" : "파운더와 함께하는 건강한 생활",
-		"tag_arr":["건강", "헬스", "균형"],
-		"author" : "김하린",
-		"created_at":"2022.07.23 16:24:14:02",
-		"magazine_type" : "파운더 스토리",
-		"magazine_main_img":"https://s3.~~",
-        "intro_content" : "기타리스트로 음악씬에 먼저 이름을 알린 후 담담한 본인만의 감성으로 큰 사랑을 받고 있는 싱어송라이터"
-    },
-    {
-        "title" : "우리가 현물 구독 서비스를 이용해야 하는 이유",
-		"tag_arr":["건강", "헬스", "균형"],
-		"author" : "김하린",
-		"created_at":"2022.07.23 16:24:14:02",
-		"magazine_type" : "파운더 스토리",
-		"magazine_main_img":"https://s3.~~",
-        "intro_content" : "파운더 현물 구독 서비스 이용해보세요"
-    },
-	{
-        "title" : "주기적으로 사야하는 사은품 귀찮아요",
-		"tag_arr":["건강", "헬스", "균형"],
-		"author" : "김하린",
-		"created_at":"2022.07.23 16:24:14:02",
-		"magazine_type" : "데일리 큐레이션",
-		"magazine_main_img":"https://s3.~~",
-        "intro_content" : "파운더 현물 구독 서비스 이용해보세요"
-    },
-	{
-        "title" : "파운더와 함께하는 간단한 한끼",
-		"tag_arr":["건강", "헬스", "균형"],
-		"author" : "김하린",
-		"created_at":"2022.07.23 16:24:14:02",
-		"magazine_type" : "데일리 큐레이션",
-		"magazine_main_img":"https://s3.~~",
-        "intro_content" : "파운더 현물 구독 서비스 이용해보세요"
-    },
-	{
-        "title" : "건강한 하루를 위한 운동",
-		"tag_arr":["건강", "헬스", "균형"],
-		"author" : "김하린",
-		"created_at":"2022.07.23 16:24:14:02",
-		"magazine_type" : "데일리 큐레이션",
-		"magazine_main_img":"https://s3.~~",
-        "intro_content" : "파운더 현물 구독 서비스 이용해보세요"
-    },
-	{
-        "brand" : "브랜드1"
-    },
-	{
-        "brand" : "브랜드2"
-    }
+  {
+    "title": "파운더와 함께하는 건강한 생활",
+    "tag_arr": ["건강", "헬스", "균형"],
+    "author": "김하린",
+    "created_at": "2022.07.23 16:24:14:02",
+    "magazine_type": "파운더 스토리",
+    "magazine_main_img": "https://s3.~~",
+    "intro_content": "클릭 몇 번으로 다양한 서비스들을 즐기고 있는 우리를 위해 손에 꼭 쥐어지는 현물 서비스로만 구성된 웹사이트 ‘Found:er’를 만나보세요!"
+  },
+  {
+    "title": "우리가 현물 구독 서비스를 이용해야 하는 이유",
+    "tag_arr": ["건강", "헬스", "균형"],
+    "author": "김하린",
+    "created_at": "2022.07.23 16:24:14:02",
+    "magazine_type": "파운더 스토리",
+    "magazine_main_img": "https://s3.~~",
+    "intro_content": "파운더 현물 구독 서비스 이용해보세요"
+  },
+  {
+    "title": "주기적으로 사야하는 사은품 귀찮아요",
+    "tag_arr": ["건강", "헬스", "간편식"],
+    "author": "김하린",
+    "created_at": "2022.07.23 16:24:14:02",
+    "magazine_type": "데일리 큐레이션",
+    "magazine_main_img": "https://s3.~~",
+    "intro_content": "파운더 현물 구독 서비스 이용해보세요"
+  },
+  {
+    "title": "파운더와 함께하는 간단한 한끼",
+    "tag_arr": ["건강", "헬스", "균형"],
+    "author": "김하린",
+    "created_at": "2022.07.23 16:24:14:02",
+    "magazine_type": "데일리 큐레이션",
+    "magazine_main_img": "https://s3.~~",
+    "intro_content": "파운더 현물 구독 서비스 이용해보세요"
+  },
+  {
+    "title": "건강한 하루를 위한 운동",
+    "tag_arr": ["건강", "헬스", "균형"],
+    "author": "김하린",
+    "created_at": "2022.07.23 16:24:14:02",
+    "magazine_type": "데일리 큐레이션",
+    "magazine_main_img": "https://s3.~~",
+    "intro_content": "파운더 현물 구독 서비스 이용해보세요"
+  },
+  {
+    "magazine_type": "브랜드",
+    "title": "브랜드1"
+  },
+  {
+    "magazine_type": "브랜드",
+    "title": "브랜드2"
+  }
 ]
