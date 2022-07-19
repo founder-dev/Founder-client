@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import CancleButtonImage from '../assets/ItemDetailPageAssets/CancleButtonImage.png';
@@ -11,8 +11,12 @@ import { TagState, PreviewState } from '../recoil';
 import { Container, Background } from '../components/ModalDesign';
 import InputText from '../components/WriterModalComponents/InputText';
 import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
+import Check from '../assets/ItemDetailPageAssets/CheckRate.png';
+import Warning from '../assets/ItemDetailPageAssets/Warning.png';
+import { Instruction } from '../components/WriterModalComponents/WriterModalPresenter';
 
 const WriterModal = ({ setOpenModal }) => {
+  
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useRecoilState(PreviewState);
@@ -24,26 +28,30 @@ const WriterModal = ({ setOpenModal }) => {
   const [sent, setSent] = useState(false);
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
-  const uploadPhoto = (e) => {
-    setPhoto(e.target.files);
-    console.log(photo);
-    setPreview(URL.createObjectURL(e.target.files[0])); //대표이미지만
-    console.log(preview);
-  };
-
   const handleSubmit = (e) => {
     const formdata = new FormData();
     formdata.append('reviewMedia', photo);
-    formdata.append('star_rate', hoverRating);
+    formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
     formdata.append('review_main_img', preview);
-    setSent(true);
     //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
     /* headers: {
     "Content-Type": `multipart/form-data; `,
     */
   };
+
+  console.log(tagArray.length);
+  
+  useEffect(()=>{
+    if(review != "" && rating > 0 && tagArray.length == 3 && tagArray[0] != "")
+    {
+      setSent(true);
+    }
+    else{
+      setSent(false);
+    }
+  });
 
   const onMouseEnter = (index) => {
     setHoverRating(index);
@@ -101,6 +109,12 @@ const WriterModal = ({ setOpenModal }) => {
             color={(34, 34, 34, 1)}
           >
             구독 서비스의 총 별점을 남겨주세요.
+          {
+            rating == 0 ? 
+            null
+            :
+            <CheckButton src={Check}/>
+          }
           </Instruction>
           <RatingContainer>
             <StarRating>
@@ -135,6 +149,17 @@ const WriterModal = ({ setOpenModal }) => {
                 {tagLength
                   ? '3개 이하의 태그를 골라주세요.'
                   : '1개 이상의 태그를 골라주세요.'}
+                 
+                 {
+                 tagArray[0] == null ?  
+                 null
+                 :
+                  tagLength 
+                  ? 
+                  <CheckButton src={Warning}/>
+                  :
+                  <CheckButton src={Check}/>
+                 }
               </Instruction>
               <TagSelect setTagLength={setTagLength} />
             </>
@@ -142,7 +167,7 @@ const WriterModal = ({ setOpenModal }) => {
           <InputText review={review} setReview={setReview} />
           <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton onClick={handleSubmit} sent={sent}>
+            <SubmitButton onClick={handleSubmit} disabled={!sent}>
               작성완료
             </SubmitButton>
           </SubmitButtonWrapper>
@@ -203,24 +228,6 @@ const CancleImg = styled.img`
   left: 1093px;
 `;
 
-const Instruction = styled.div`
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: ${(props) => props.weight};
-  font-size: 20px;
-
-  margin: ${(props) => props.margin};
-
-  color: ${color.grey[7]};
-
-  ${(props) =>
-    props.tagLength
-      ? css`
-          color: #ff3f3f;
-        `
-      : `color: ${color.grey[7]};`}
-`;
-
 const ItemBoxWrapper = styled.div`
   width: 1068px;
   height: 120px;
@@ -230,10 +237,9 @@ const ItemBoxWrapper = styled.div`
 `;
 
 const ItemBox = styled.div`
-width: 916px;
-
+width: 566px;
+height: 90px;
 padding: 26px 32px; 25px; 576px;
-
 border-radius: 4px;
 background-color: rgba(250, 250, 250, 1);
 `;
@@ -354,7 +360,13 @@ const SubmitButton = styled.button`
   width: 480px;
   height: 68px;
 
-  background-color: ${(props) => (props.sent ? '#007DFE' : '#FAFAFA')};
+  background-color: ${(props) => (props.disabled ? '#FAFAFA' : '#007DFE')};
   color: ${color.grey[3]};
   border: none;
+`;
+
+const CheckButton = styled.img`
+  padding-left: 8px;
+  width:20px;
+  height:19.2px;
 `;
