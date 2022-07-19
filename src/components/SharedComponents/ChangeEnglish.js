@@ -8,7 +8,7 @@ function ChangeEnglish({text}){
     else if(text == 'Milk') 
       {return "우유"}
     else
-    {return "이런젠장"};
+    {return "한글번역안됨"};
 }
 
 export default ChangeEnglish;
