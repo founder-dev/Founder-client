@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 import itemImage from '../assets/ProductCardAssets/itemImage.png';
-import sticker from '../assets/ProductCardAssets/sticker.png';
+import Weekly from '../assets/ProductCardAssets/Weekly.png';
+import Monthly from '../assets/ProductCardAssets/Monthly.png';
 import customSticker from '../assets/ProductCardAssets/customSticker.png';
 import Rated from '../components/StarRating/Rated';
 import { fontWeight, fontsize } from '../lib/theme';
@@ -10,12 +11,21 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   return (
     <ProductCardContainer>
       <ImageWrapper>
-        <Image src={itemImage} loading="lazy"/>
-        <Sticker src={sticker} />
+        <Image src={itemImage} loading="lazy" />
+
+        {schedule === 'weekly' ? (
+          <>
+            <Sticker src={Weekly} />
+          </>
+        ) : (
+          <>
+            <Sticker src={Monthly} />
+          </>
+        )}
+
         {custom ? (
           <>
             <CustomSticker src={customSticker} />
-            <Schedule>{schedule}</Schedule>
           </>
         ) : null}
       </ImageWrapper>
