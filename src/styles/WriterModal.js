@@ -230,10 +230,9 @@ const ItemBoxWrapper = styled.div`
 `;
 
 const ItemBox = styled.div`
-width: 916px;
-
+width: 566px;
+height: 90px;
 padding: 26px 32px; 25px; 576px;
-
 border-radius: 4px;
 background-color: rgba(250, 250, 250, 1);
 `;

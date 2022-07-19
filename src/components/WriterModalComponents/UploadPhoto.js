@@ -1,24 +1,29 @@
 import styled from "styled-components";
 import { useRecoilState ,useResetRecoilState } from "recoil";
 import { PreviewState } from "../../recoil";
-import PhotoIcon from '../../assets/ItemDetailPageAssets/PhotoIcon.png';
+import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
 
 function UploadPhoto({photo, setPhoto}){
     
     const [preview, setPreview] = useRecoilState(PreviewState); 
 
+    console.log(preview[0]);
     const uploadPhoto = (e) => {
         setPhoto(e.target.files);
         console.log(photo);
-        setPreview(URL.createObjectURL(e.target.files[0])); //대표이미지만
-        console.log(preview);
+        setPreview((preview) => [...preview,URL.createObjectURL(e.target.files[0])]); //대표이미지만
+        setPreview((preview) => [...preview,URL.createObjectURL(e.target.files[1])]);
+        setPreview((preview) => [...preview,URL.createObjectURL(e.target.files[2])]);
+        setPreview((preview) => [...preview,URL.createObjectURL(e.target.files[3])]);
       };
       
     return(
     <>
-    <Photo for="uploadPhoto" />
-    <img src={preview}></img>
-    <input
+      {
+        preview[0] == undefined ?
+       <>
+       <Photo for="uploadPhoto" />
+       <input
       id="uploadPhoto"
       type="file"
       accept="image/*"
@@ -26,7 +31,18 @@ function UploadPhoto({photo, setPhoto}){
       onChange={uploadPhoto}
       style={{ display: 'none' }}
       />
-    </>
+      </>
+      :
+    <>
+    <PreviewWrapper>
+    <Preview src={preview[0]}/>
+    <Preview src={preview[1]}/>
+    <Preview src={preview[2]}/>
+    <Preview src={preview[3]}/>
+    </PreviewWrapper>
+     </> 
+    }
+      </>
   )
 }
 
@@ -36,6 +52,22 @@ const Photo = styled.label`
   margin-right: 23px;
   background-image: url(${PhotoIcon});
   cursor: pointer;
-  width: 120px;
+  width: 540px;
+  height: 140px;
+`;
+
+const Preview = styled.img`
+  width: 100px;
+  height : 100px;
+  margin-right : 10px;
+`;
+
+const PreviewWrapper = styled.div`
+  width: 510px;
   height: 120px;
+  border: 1px solid #E9E9E9;
+  border-radius: 4px;
+  padding-left : 20px;
+  padding-top:16px;
+  margin-right : 24px;
 `;
