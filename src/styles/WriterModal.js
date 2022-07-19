@@ -11,7 +11,8 @@ import { TagState, PreviewState } from '../recoil';
 import { Container, Background } from '../components/ModalDesign';
 import InputText from '../components/WriterModalComponents/InputText';
 import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
-
+import Check from '../assets/ItemDetailPageAssets/CheckRate.png';
+import Warning from '../assets/ItemDetailPageAssets/Warning.png';
 const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
@@ -24,6 +25,7 @@ const WriterModal = ({ setOpenModal }) => {
   const [sent, setSent] = useState(false);
   //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
+  console.log(tagArray);
   const uploadPhoto = (e) => {
     setPhoto(e.target.files);
     console.log(photo);
@@ -34,7 +36,7 @@ const WriterModal = ({ setOpenModal }) => {
   const handleSubmit = (e) => {
     const formdata = new FormData();
     formdata.append('reviewMedia', photo);
-    formdata.append('star_rate', hoverRating);
+    formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
     formdata.append('review_main_img', preview);
@@ -101,6 +103,12 @@ const WriterModal = ({ setOpenModal }) => {
             color={(34, 34, 34, 1)}
           >
             구독 서비스의 총 별점을 남겨주세요.
+          {
+            rating == 0 ? 
+            null
+            :
+            <CheckButton src={Check}/>
+          }
           </Instruction>
           <RatingContainer>
             <StarRating>
@@ -135,6 +143,17 @@ const WriterModal = ({ setOpenModal }) => {
                 {tagLength
                   ? '3개 이하의 태그를 골라주세요.'
                   : '1개 이상의 태그를 골라주세요.'}
+                 
+                 {
+                 tagArray[0] == null ?  
+                 null
+                 :
+                  tagLength 
+                  ? 
+                  <CheckButton src={Warning}/>
+                  :
+                  <CheckButton src={Check}/>
+                 }
               </Instruction>
               <TagSelect setTagLength={setTagLength} />
             </>
@@ -142,7 +161,7 @@ const WriterModal = ({ setOpenModal }) => {
           <InputText review={review} setReview={setReview} />
           <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton onClick={handleSubmit} sent={sent}>
+            <SubmitButton onClick={handleSubmit} disabled={sent}>
               작성완료
             </SubmitButton>
           </SubmitButtonWrapper>
@@ -204,8 +223,6 @@ const CancleImg = styled.img`
 `;
 
 const Instruction = styled.div`
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: ${(props) => props.weight};
   font-size: 20px;
 
@@ -353,7 +370,13 @@ const SubmitButton = styled.button`
   width: 480px;
   height: 68px;
 
-  background-color: ${(props) => (props.sent ? '#007DFE' : '#FAFAFA')};
+  background-color: ${(props) => (props.disabled ? '#007DFE' : '#FAFAFA')};
   color: ${color.grey[3]};
   border: none;
+`;
+
+const CheckButton = styled.img`
+  padding-left: 8px;
+  width:20px;
+  height:19.2px;
 `;
