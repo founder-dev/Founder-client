@@ -2,6 +2,7 @@ import React from 'react';
 import BrandStory from '../../assets/MagazinePageAssets/brandStory.png';
 import styled from 'styled-components';
 import { color } from '../../lib/theme';
+import { ChipWrapper } from '../SharedComponents/ChipPresenter';
 
 const MagazineCard = ({ title, text, tag, curationHeight, imageHeight , image }) => {
   console.log(tag);
@@ -44,7 +45,7 @@ const Chip = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${color.grey[2]};
-  width: 66px;
+  width: auto;
   height: 32px;
   padding: 3px 9px;
   border-radius: 2px;
@@ -74,6 +75,3 @@ const SubText = styled.div`
   line-height: 28px;
 `;
 
-const ChipWrapper = styled.div`
-  display: flex;
-`;

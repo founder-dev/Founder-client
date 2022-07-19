@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import {color} from "../lib/theme";
 
 export const Container = styled.div`
   padding-left:260px;
@@ -25,4 +26,8 @@ export const SubTitle = styled.div`
   color: black;
   font-size: 20px;
   font-weight: 500;
+  color: ${color.grey[5]};
+
+  display : flex;
+  justify-content: space-between;
 `;
