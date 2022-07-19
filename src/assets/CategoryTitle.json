@@ -13,7 +13,7 @@
         "bigcategory" : "Food",
         "type_name": "Yogurt",
         "type_desc": "나의아침을책임져줘",
-        "type_tag_arr": "건강,식단용,아침",
+        "type_tag_arr": "아침식사,요거트,아침",
         "order": 14,
         "category": 1
     },
@@ -22,7 +22,7 @@
         "bigcategory" : "Food",
         "type_name": "Milk",
         "type_desc": "달콤새콤우유",
-        "type_tag_arr": "건강,식단용,아침",
+        "type_tag_arr": "건강,유산균,아침",
         "order": 14,
         "category": 1
     },
@@ -40,7 +40,7 @@
         "bigcategory" : "Beverage",
         "type_name": "Coffeecapsul",
         "type_desc": "맛난커피음료",
-        "type_tag_arr": "건강,식단용,아침",
+        "type_tag_arr": "건강,카페인,아침",
         "order": 14,
         "category": 1
     },
@@ -49,7 +49,7 @@
         "bigcategory" : "Health",
         "type_name": "Protein",
         "type_desc": "프로틴프로틴",
-        "type_tag_arr": "건강,식단용,아침",
+        "type_tag_arr": "건강,헬스짱,아침",
         "order": 14,
         "category": 1
     }
