@@ -20,24 +20,27 @@ const BrandCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  margin-right: 30px;
 `;
 
 const BrandLogoBackground = styled.img`
-  width: 208px;
-  height: 208px;
+  width: 160px;
+  height: 160px;
 `;
 
 const BrandLogo = styled.img`
   position: absolute;
-  top: 75px;
+  top: 60px;
   left: 34px;
+  width: 100px;
+  height: 40px;
 `;
 
 const BrandName = styled.div`
   margin-top: 14px;
-  font-style: normal;
   font-weight: 500;
-  font-size: 24px;
+  font-size: 20px;
+  line-height: 28px;
 
   display: flex;
   align-items: center;

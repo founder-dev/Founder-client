@@ -7,6 +7,8 @@ function ChangeEnglish({text}){
       {return "그릭요거트"}
     else if(text == 'Milk') 
       {return "우유"}
+    else if(text == 'FriedRice')
+      {return "볶음밥"}
     else
     {return "한글번역안됨"};
 }
