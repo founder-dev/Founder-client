@@ -30,11 +30,9 @@ export default BrandDetailPage;
 
 const Container = styled.div`
   align-items: center;
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  right: 0px;
-  bottom: 0px;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
 `;
 
 const Wrapper = styled.div`
@@ -42,9 +40,8 @@ const Wrapper = styled.div`
   display: flex;
   width: 100vw;
   height: 100vh;
-
-  flex-direction: column;
   background-image: url(${background});
+  flex-direction: column;
   background-size: cover;
   color: ${color.white};
 `;
