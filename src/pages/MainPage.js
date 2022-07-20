@@ -56,7 +56,9 @@ const MainPage = () => {
                     </GridWrapper>
                     <BrandsTitle>{title} 브랜드</BrandsTitle>
                     <BrandCardWrapper>
+                      <Link to={`/branddetail`}>
                       <BrandCard brandName={'밀앤데일리'} />
+                      </Link>
                     </BrandCardWrapper>
                   </>
                 ))}
