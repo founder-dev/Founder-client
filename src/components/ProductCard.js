@@ -13,7 +13,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
       <ImageWrapper>
         <Image src={itemImage} loading="lazy" />
 
-        {schedule === 'weekly' ? (
+        {schedule === 'Weekly' ? (
           <>
             <Sticker src={Weekly} />
           </>
@@ -69,15 +69,6 @@ const CustomSticker = styled.img`
   position: absolute;
   top: 106.05px;
   right: 27.92px;
-`;
-
-const Schedule = styled.div`
-  position: absolute;
-  top: 60px;
-  right: 45px;
-  color: pink;
-  font-size: 16px;
-  font-family: 'Pretendard';
 `;
 
 const ProductCardTitle = styled.div`

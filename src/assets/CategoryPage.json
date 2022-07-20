@@ -1,0 +1,263 @@
+{
+    "category": "Food",
+    "category_detail": [
+      {
+        "type": {
+          "id": 1,
+          "type_name": "FriedRice",
+          "type_desc": "아주맛있는볶음밥",
+          "type_tag_arr": "건강,아이맛있다,야금야금",
+          "order": 2,
+          "category": 1
+        },
+        "type_detail": {
+          "product": [
+            {
+              "id": 2,
+              "product_name": "볶음밥1",
+              "product_main_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "custom_flag": true,
+              "delivery_cycle_main": "Weekly",
+              "delivery_cycle_detail": "dddd",
+              "min_price": 33,
+              "max_price": 33,
+              "star_rate_avg": 5,
+              "volume": 333,
+              "pcs": 333,
+              "std_price": 333,
+              "discount_flag": false,
+              "purchase_link": "https://www.google.com/",
+              "main_product_flag": false,
+              "default_rec_flag": true,
+              "type": 1,
+              "brand": 1
+            },
+            {
+              "id": 3,
+              "product_name": "볶음밥2",
+              "product_main_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "custom_flag": false,
+              "delivery_cycle_main": "Weekly",
+              "delivery_cycle_detail": "dddd",
+              "min_price": 33,
+              "max_price": 33,
+              "star_rate_avg": 2,
+              "volume": 333,
+              "pcs": 333,
+              "std_price": 333,
+              "discount_flag": false,
+              "purchase_link": "https://www.google.com/",
+              "main_product_flag": false,
+              "default_rec_flag": true,
+              "type": 1,
+              "brand": 1
+            },
+            {
+                "id": 4,
+                "product_name": "볶음밥3",
+                "product_main_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "custom_flag": false,
+                "delivery_cycle_main": "monthly",
+                "delivery_cycle_detail": "dddd",
+                "min_price": 33,
+                "max_price": 33,
+                "star_rate_avg": 1,
+                "volume": 333,
+                "pcs": 333,
+                "std_price": 333,
+                "discount_flag": false,
+                "purchase_link": "https://www.google.com/",
+                "main_product_flag": false,
+                "default_rec_flag": true,
+                "type": 1,
+                "brand": 1
+              },
+              {
+                "id": 5,
+                "product_name": "볶음밥4",
+                "product_main_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "custom_flag": false,
+                "delivery_cycle_main": "monthly",
+                "delivery_cycle_detail": "dddd",
+                "min_price": 33,
+                "max_price": 33,
+                "star_rate_avg": 1,
+                "volume": 333,
+                "pcs": 333,
+                "std_price": 333,
+                "discount_flag": false,
+                "purchase_link": "https://www.google.com/",
+                "main_product_flag": false,
+                "default_rec_flag": true,
+                "type": 1,
+                "brand": 1
+              }
+          ],
+          "brand": [
+            {
+              "id": 1,
+              "brand_name": "보끔밥",
+              "brand_logo": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "brand_link": "https://lukt.co.kr/",
+              "brand_desc": "볶음밥 브랜드",
+              "brand_bg_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "magazine_content": null
+            },
+            {
+                "id": 2,
+                "brand_name": "보끔밥2",
+                "brand_logo": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "brand_link": "https://lukt.co.kr/",
+                "brand_desc": "볶음밥 브랜드",
+                "brand_bg_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "magazine_content": null
+              },
+              {
+                "id": 3,
+                "brand_name": "보끔밥3",
+                "brand_logo": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "brand_link": "https://lukt.co.kr/",
+                "brand_desc": "볶음밥 브랜드",
+                "brand_bg_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "magazine_content": null
+              },
+              {
+                "id": 4,
+                "brand_name": "보끔밥4",
+                "brand_logo": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "brand_link": "https://lukt.co.kr/",
+                "brand_desc": "볶음밥 브랜드",
+                "brand_bg_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "magazine_content": null
+              },
+              {
+                "id": 5,
+                "brand_name": "보끔밥5",
+                "brand_logo": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "brand_link": "https://lukt.co.kr/",
+                "brand_desc": "볶음밥 브랜드",
+                "brand_bg_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "magazine_content": null
+              }
+          ]
+        }
+      },
+      {
+        "type": {
+          "id": 2,
+          "type_name": "Salad",
+          "type_desc": "건강한아침좋아",
+          "type_tag_arr": "건강,아침,상쾌하다다다",
+          "order": 3,
+          "category": 1
+        },
+        "type_detail": {
+          "product": [
+            {
+                "id": 2,
+                "product_name": "샐러드1",
+                "product_main_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "custom_flag": false,
+                "delivery_cycle_main": "Weekly",
+                "delivery_cycle_detail": "dddd",
+                "min_price": 33,
+                "max_price": 33,
+                "star_rate_avg": 4,
+                "volume": 333,
+                "pcs": 333,
+                "std_price": 333,
+                "discount_flag": false,
+                "purchase_link": "https://www.google.com/",
+                "main_product_flag": false,
+                "default_rec_flag": true,
+                "type": 1,
+                "brand": 1
+              },
+              {
+                "id": 3,
+                "product_name": "샐러드2",
+                "product_main_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "custom_flag": true,
+                "delivery_cycle_main": "Weekly",
+                "delivery_cycle_detail": "dddd",
+                "min_price": 33,
+                "max_price": 33,
+                "star_rate_avg": 3,
+                "volume": 333,
+                "pcs": 333,
+                "std_price": 333,
+                "discount_flag": true,
+                "purchase_link": "https://www.google.com/",
+                "main_product_flag": false,
+                "default_rec_flag": true,
+                "type": 1,
+                "brand": 1
+              }
+          ],
+          "brand": [
+            {
+                "id": 1,
+                "brand_name": "샐러드브",
+                "brand_logo": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "brand_link": "https://lukt.co.kr/",
+                "brand_desc": "샐러드 브랜드",
+                "brand_bg_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+                "magazine_content": null
+              }
+          ]
+        }
+      },
+      {
+        "type": {
+          "id": 3,
+          "type_name": "Yogurt",
+          "type_desc": "맛난요거트냠냠",
+          "type_tag_arr": "요거트,이거최고다,야호",
+          "order": 4,
+          "category": 1
+        },
+        "type_detail": {
+          "product": [
+            {
+              "id": 1,
+              "product_name": "룩트 요거트",
+              "product_main_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/%EB%A3%A9%ED%8A%B8%20%EC%9A%94%EA%B1%B0%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/%EB%A3%A9%ED%8A%B8%20%EC%9A%94%EA%B1%B0%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "custom_flag": true,
+              "delivery_cycle_main": "Weekly",
+              "delivery_cycle_detail": "주1회",
+              "min_price": 15000,
+              "max_price": 17000,
+              "star_rate_avg": 0,
+              "volume": 130,
+              "pcs": 2,
+              "std_price": 50000,
+              "discount_flag": true,
+              "purchase_link": "https://www.naver.com/",
+              "main_product_flag": true,
+              "default_rec_flag": false,
+              "type": 3,
+              "brand": 1
+            }
+          ],
+          "brand": [
+            {
+              "id": 1,
+              "brand_name": "룩트",
+              "brand_logo": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "brand_link": "https://lukt.co.kr/",
+              "brand_desc": "요거트 브랜드",
+              "brand_bg_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/brand/%EB%A3%A9%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+              "magazine_content": null
+            }
+          ]
+        }
+      }
+    ]
+}
