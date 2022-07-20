@@ -5,22 +5,21 @@ import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../recoil';
 import { color, fontsize, fontWeight } from '../lib/theme';
-
 import { Link } from 'react-router-dom';
 
-const TopBar = ({ position }) => {
+const TopBar = ({ position, opacity, color }) => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
 
   return (
-    <Container position={position}>
+    <Container position={position} opacity={opacity}>
       <Wrapper>
         <IconWrapper>
           <MainMenu>
             <Link to={`/`}>
-              <HomeText>홈</HomeText>
+              <HomeText color={color}>홈</HomeText>
             </Link>
 
-            <CategoryText>카테고리</CategoryText>
+            <CategoryText color={color}>카테고리</CategoryText>
             <DropButton
               menuOpen={menuOpen}
               src={coolicon}
@@ -44,7 +43,7 @@ const TopBar = ({ position }) => {
             ) : null}
 
             <Link to={`/magazinepage`}>
-              <MagazineText>매거진</MagazineText>
+              <MagazineText color={color}>매거진</MagazineText>
             </Link>
           </MainMenu>
           <SideMenu>
@@ -64,7 +63,7 @@ const Container = styled.div`
   justify-content: center;
   width: 100%;
   height: 80px;
-  background-color: white;
+  background-color: ${(props) => props.opacity || 'white'};
   margin-top: ${(props) => props.LogoHeight || '0px'};
   position: ${(props) => props.position || 'fixed'};
   z-index: 2;
@@ -106,8 +105,7 @@ const HomeText = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  color: black;
+  color: ${(props) => props.color || 'black'};
   font-size: 20px;
   font-weight: ${fontWeight[2]};
   margin-right: 78px;
@@ -118,8 +116,7 @@ const CategoryText = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  color: black;
+  color: ${(props) => props.color || 'black'};
   font-size: 20px;
   font-weight: ${fontWeight[2]};
   margin-right: 8px;
@@ -130,8 +127,7 @@ const MagazineText = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
-  color: black;
+  color: ${(props) => props.color || 'black'};
   font-size: 20px;
   font-weight: ${fontWeight[2]};
   margin-left: 56px;
