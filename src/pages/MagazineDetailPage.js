@@ -33,6 +33,7 @@ const MagazineDetailPage = () => {
   return (
     <>
       <TopBar />
+
       <Header>
         <HeaderTitle>파운더 사용 설명서</HeaderTitle>
         <HorizontalProgress scroll={scroll} />
@@ -52,36 +53,38 @@ const MagazineDetailPage = () => {
             <Editor>editor. 김하린</Editor>
             <Date>2022.03.16</Date>
           </DetailWrapper>
-          <ArticleWrapper>
-            <ParagraphWrapper>
-              <SubTitle>파운더와 함께하는 현물 구독</SubTitle>
-              <Text>
-                우리는 일상생활 속에서 필요한 물품들에 대해 고정적인 취향이 자리
-                잡혀있을 때가 많아요. 우리의 경험을 바탕으로 어떤 물건이 나에게
-                가장 잘 맞는지 파악한 후 구매하곤 하죠. 이후에 사용한 경험이
-                만족스러웠다면 재구매로까지 이어지기도 합니다. 파운더는 이
-                과정을 단순화해주고자 합니다!
-              </Text>
-            </ParagraphWrapper>
-            <img src={CurationPhoto} />
+          <Centering>
+            <ArticleWrapper>
+              <ParagraphWrapper>
+                <SubTitle>파운더와 함께하는 현물 구독</SubTitle>
+                <Text>
+                  우리는 일상생활 속에서 필요한 물품들에 대해 고정적인 취향이
+                  자리 잡혀있을 때가 많아요. 우리의 경험을 바탕으로 어떤 물건이
+                  나에게 가장 잘 맞는지 파악한 후 구매하곤 하죠. 이후에 사용한
+                  경험이 만족스러웠다면 재구매로까지 이어지기도 합니다. 파운더는
+                  이 과정을 단순화해주고자 합니다!
+                </Text>
+              </ParagraphWrapper>
+              <img src={CurationPhoto} />
 
-            <BrandHome>
-              <BrandInfoWrapper>
-                <BrandLogo src={Logo} />
-                <TextWrapper>
-                  <BrandName>{`톤 28 (TOUN 28)`}</BrandName>
-                  <BrandDetail>
-                    플라스틱을 줄여 동물들을 살리는, 친환경 바를거리
-                  </BrandDetail>
-                </TextWrapper>
-              </BrandInfoWrapper>
+              <BrandHome>
+                <BrandInfoWrapper>
+                  <BrandLogo src={Logo} />
+                  <TextWrapper>
+                    <BrandName>{`톤 28 (TOUN 28)`}</BrandName>
+                    <BrandDetail>
+                      플라스틱을 줄여 동물들을 살리는, 친환경 바를거리
+                    </BrandDetail>
+                  </TextWrapper>
+                </BrandInfoWrapper>
 
-              <BrandButton>
-                <ButtonText>브랜드 홈 방문하기</ButtonText>
-                <BrandArrow src={Arrow} />
-              </BrandButton>
-            </BrandHome>
-          </ArticleWrapper>
+                <BrandButton>
+                  <ButtonText>브랜드 홈 방문하기</ButtonText>
+                  <BrandArrow src={Arrow} />
+                </BrandButton>
+              </BrandHome>
+            </ArticleWrapper>
+          </Centering>
         </Wrapper>
       </WidthWrapper>
     </>
@@ -174,14 +177,15 @@ const Editor = styled.div`
   color: #000000;
 `;
 
+const Centering = styled.div`
+  display: flex;
+  justify-content: center;
+  width: 1440px;
+`;
 const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  margin-left: 120px;
-  width: 960px;
-  margin-left: 240px;
+  width: 1200px;
 `;
 
 const BrandHome = styled.div`

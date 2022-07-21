@@ -15,42 +15,44 @@ const TopBar = ({ position, opacity, color, main }) => {
 
   return (
     <Container position={position} opacity={opacity} main={main}>
-      <Link to={`/`}>
-        <HomeText color={color}>홈</HomeText>
-      </Link>
+      <Wrapper>
+        <Link to={`/`}>
+          <HomeText color={color}>홈</HomeText>
+        </Link>
 
-      <TextButtonWrapper>
-        <CategoryText color={color}>카테고리</CategoryText>
-        <DropButton
-          menuOpen={menuOpen}
-          src={color ? whiteCoolicon : coolicon}
-          onMouseEnter={() => setMenuOpen(true)}
-        />
-      </TextButtonWrapper>
-      {menuOpen ? (
-        <DropdownMenu onMouseLeave={() => setMenuOpen(false)}>
-          <Link to={`/food`}>
-            <Menu>식품</Menu>
-          </Link>
-          <Link to={`/beverage`}>
-            <Menu>음료</Menu>
-          </Link>
-          <Link to={`/goods`}>
-            <Menu>생필품</Menu>
-          </Link>
-          <Link to={`/health`}>
-            <Menu>건강</Menu>
-          </Link>
-        </DropdownMenu>
-      ) : null}
+        <TextButtonWrapper>
+          <CategoryText color={color}>카테고리</CategoryText>
+          <DropButton
+            menuOpen={menuOpen}
+            src={color ? whiteCoolicon : coolicon}
+            onMouseEnter={() => setMenuOpen(true)}
+          />
+        </TextButtonWrapper>
+        {menuOpen ? (
+          <DropdownMenu onMouseLeave={() => setMenuOpen(false)}>
+            <Link to={`/food`}>
+              <Menu>식품</Menu>
+            </Link>
+            <Link to={`/beverage`}>
+              <Menu>음료</Menu>
+            </Link>
+            <Link to={`/goods`}>
+              <Menu>생필품</Menu>
+            </Link>
+            <Link to={`/health`}>
+              <Menu>건강</Menu>
+            </Link>
+          </DropdownMenu>
+        ) : null}
 
-      <Link to={`/magazinepage`}>
-        <MagazineText color={color} isLoggedIn={isLoggedIn}>
-          매거진
-        </MagazineText>
-      </Link>
+        <Link to={`/magazinepage`}>
+          <MagazineText color={color} isLoggedIn={isLoggedIn}>
+            매거진
+          </MagazineText>
+        </Link>
 
-      <TopBarButton color={color} />
+        <TopBarButton color={color} />
+      </Wrapper>
     </Container>
   );
 };
@@ -71,11 +73,19 @@ const Container = styled.div`
   border-bottom: ${(props) => (props.main ? '1px solid black' : 'none')};
 `;
 
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 1440px;
+  height: 80px;
+`;
+
 const HomeText = styled.div`
   color: ${(props) => props.color || 'black'};
   font-size: 16px;
   font-weight: ${fontWeight[2]};
-  margin-left: 590px;
+  margin-left: 36.875rem;
 `;
 
 const CategoryText = styled.div`
@@ -83,7 +93,7 @@ const CategoryText = styled.div`
   font-size: 16px;
   font-weight: ${fontWeight[2]};
   width: 56px;
-  margin-right: 6px;
+  margin-right: 0.375rem;
 `;
 
 const DropButton = styled.img`
@@ -105,7 +115,7 @@ const TextButtonWrapper = styled.div`
   color: ${(props) => props.color || 'black'};
   font-size: 16px;
   font-weight: ${fontWeight[2]};
-  margin-left: 80px;
+  margin-left: 5rem;
   width: 79px;
 `;
 
@@ -142,8 +152,8 @@ const MagazineText = styled.div`
   color: ${(props) => props.color || 'black'};
   font-size: 16px;
   font-weight: ${fontWeight[2]};
-  margin-left: 80px;
-  margin-right: ${(props) => (props.isLoggedIn ? '271px' : '419px')};
+  margin-left: 5rem;
+  margin-right: ${(props) => (props.isLoggedIn ? '16.938rem' : '26.188rem')};
 
   width: 42px;
 `;
