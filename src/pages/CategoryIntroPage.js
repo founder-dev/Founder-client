@@ -12,6 +12,7 @@ import BrandTitle from '../components/SharedComponents/BrandTitle';
 import BrandCard from '../components/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
 import Categorydata from '../assets/CategoryPage.json';
+import Tape from '../assets/CategoryIntroPageAssets/Tape.png';
 
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 물건 데이터를 따로 전달함
@@ -66,18 +67,17 @@ const CategoryIntroPage = ({ title }) => {
                     )}
                 </GridWrapper>
                 <BrandTitle text={type_name} />
-                <BrandsContainer>
-                  <BrandCardWrapper>
-                    {brands[i].map(({ brand_name, id }) => (
-                      <>
-                        <BrandCard brandName={brand_name} key={id} />
-                      </>
-                    ))}
-                  </BrandCardWrapper>
-                </BrandsContainer>
+                <BrandCardWrapper>
+                  {brands[i].map(({ brand_name, id }) => (
+                    <>
+                      <BrandCard brandName={brand_name} key={id} />
+                    </>
+                  ))}
+                </BrandCardWrapper>
               </>
             ))}
           </Container>
+          <TextTape src={Tape} />
         </Wrapper>
       </WidthWrapper>
     </>
@@ -99,16 +99,13 @@ const Wrapper = styled.div`
   padding: 150px 120px 0px 120px;
 `;
 
-const BrandsContainer = styled.div`
-  margin-top: 24px;
-  margin-bottom: 120px;
-  width: 208px;
-  height: 203px;
-`;
-
 const BrandCardWrapper = styled.div`
-  margin-top: 24px;
-  margin-bottom: 130px;
+  margin-top: 18.4px;
   display: flex;
   flex-direction: row;
+  margin-bottom: 79.82px;
+`;
+
+const TextTape = styled.img`
+  width: 100%;
 `;
