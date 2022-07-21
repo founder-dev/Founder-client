@@ -20,10 +20,10 @@ const MainPage = () => {
 
   return (
     <>
+      <Logo src={FounderLogo} />
+      <TopBar position={'sticky'} main={'main'} />
       <WidthWrapper>
         <Wrapper>
-          <Logo src={FounderLogo} />
-          <TopBar position={'sticky'} />
           <Banner />
           <Container>
             {subTitle.map((subTitle) => (

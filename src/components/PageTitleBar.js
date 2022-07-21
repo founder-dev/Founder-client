@@ -55,9 +55,7 @@ const Container = styled.div`
   width: 100%;
   height: 72px;
   background-color: white;
-  border-bottom-height: 1px;
-  border-bottom-color: black;
-  border-bottom-style: solid;
+  border-bottom: 1px solid black;
 
   margin-top: 80px;
   position: fixed;
