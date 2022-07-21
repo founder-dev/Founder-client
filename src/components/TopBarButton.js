@@ -42,7 +42,10 @@ const TopBarButton = ({ color }) => {
         </>
       )}
       {isLoggedIn === true && isSurveyDone === true && (
-        <Image src={color ? whiteIcon : icon} />
+        <>
+          <Blank />
+          <Image src={color ? whiteIcon : icon} />
+        </>
       )}
     </>
   );
@@ -87,4 +90,9 @@ const Image = styled.img`
   margin-right: 24px;
   width: 32px;
   height: 32px;
+`;
+const Blank = styled.div`
+  width: 171px;
+  height: 40px;
+  margin-right: 24px;
 `;
