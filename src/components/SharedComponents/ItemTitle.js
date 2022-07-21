@@ -5,6 +5,7 @@ function ItemTitle({text}){
      
     var Hangeul = ChangeEnglish(text={text});
 
+    console.log(text);
     return(
         <Title>{Hangeul}</Title>
     )

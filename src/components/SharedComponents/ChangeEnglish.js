@@ -1,4 +1,5 @@
 function ChangeEnglish({ text }) {
+  
   var dicText = {
     Salad: '샐러드',
     Yogurt: '그릭요거트',
