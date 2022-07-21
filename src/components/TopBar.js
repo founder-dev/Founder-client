@@ -107,7 +107,7 @@ const HomeText = styled.div`
   align-items: center;
   justify-content: center;
   color: ${(props) => props.color || 'black'};
-  font-size: 20px;
+  font-size: 16px;
   font-weight: ${fontWeight[2]};
   margin-right: 78px;
 `;
@@ -118,7 +118,7 @@ const CategoryText = styled.div`
   align-items: center;
   justify-content: center;
   color: ${(props) => props.color || 'black'};
-  font-size: 20px;
+  font-size: 16px;
   font-weight: ${fontWeight[2]};
   margin-right: 8px;
 `;
@@ -129,7 +129,7 @@ const MagazineText = styled.div`
   align-items: center;
   justify-content: center;
   color: ${(props) => props.color || 'black'};
-  font-size: 20px;
+  font-size: 16px;
   font-weight: ${fontWeight[2]};
   margin-left: 56px;
 `;

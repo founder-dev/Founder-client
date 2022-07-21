@@ -79,7 +79,7 @@ const SurveyButton = styled.button`
 
 const Text = styled.div`
   color: ${(props) => props.color || 'black'};
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Pretendard';
 `;
 
