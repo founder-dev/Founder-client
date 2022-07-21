@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Modal from '../components/Modal';
 import TopBar from '../components/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
+import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 
 import ArrowWhite from '../assets/ItemDetailPageAssets/ArrowWhite.png';
 import { WidthWrapper } from '../components/WidthWrapper';
@@ -50,7 +51,10 @@ const ItemDetailPage = () => {
         <Wrapper>
           <ItemDetailCategory />
           <ItemWrapper>
-            <Img src={ItemImage} />
+            <StickerdImage>
+              <Img src={ItemImage} />
+              <Sticker src={WeeklyMonthly} />
+            </StickerdImage>
             <ItemInfo>
               <Item />
 
@@ -120,9 +124,20 @@ const MenuBar = styled.span`
 const MenuBarContainer = styled.div`
   margin-top: 60px;
 `;
+const StickerdImage = styled.div`
+  width: 480px;
+  height: 480px;
+  margin-right: 72.4px;
+  position: relative;
+`;
 
 const Img = styled.img`
   width: 480px;
   height: 480px;
-  margin-right: 72.4px;
+`;
+
+const Sticker = styled.img`
+  position: absolute;
+  top: 19.14px;
+  right: 31.75px;
 `;
