@@ -68,7 +68,7 @@ const Container = styled.div`
   background-color: ${(props) => props.opacity || 'white'};
   margin-top: ${(props) => props.LogoHeight || '0px'};
   position: ${(props) => props.position || 'fixed'};
-  z-index: 2;
+  z-index: 4;
   top: 0;
   border-bottom: ${(props) => (props.main ? '1px solid black' : 'none')};
 `;
