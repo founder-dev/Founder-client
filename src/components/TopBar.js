@@ -9,12 +9,12 @@ import { color, fontsize, fontWeight } from '../lib/theme';
 import { Link } from 'react-router-dom';
 import { loginState } from '../recoil';
 
-const TopBar = ({ position, opacity, color }) => {
+const TopBar = ({ position, opacity, color, main }) => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState);
 
   return (
-    <Container position={position} opacity={opacity}>
+    <Container position={position} opacity={opacity} main={main}>
       <Link to={`/`}>
         <HomeText color={color}>홈</HomeText>
       </Link>
@@ -68,6 +68,7 @@ const Container = styled.div`
   position: ${(props) => props.position || 'fixed'};
   z-index: 2;
   top: 0;
+  border-bottom: ${(props) => (props.main ? '1px solid black' : 'none')};
 `;
 
 const HomeText = styled.div`
