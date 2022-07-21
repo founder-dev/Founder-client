@@ -17,6 +17,7 @@ const TopBarButton = ({ color }) => {
       {isLoggedIn === false && (
         <>
           <LoginButton
+            color={color}
             onClick={() => {
               setModalOpen(true);
             }}
@@ -76,7 +77,7 @@ const SurveyButton = styled.button`
   border-radius: 40px;
   width: 171px;
   height: 40px;
-  margin-right: 24px;
+  margin-right: 1.5rem;
   cursor: pointer;
 `;
 
@@ -87,12 +88,12 @@ const Text = styled.div`
 `;
 
 const Image = styled.img`
-  margin-right: 24px;
+  margin-right: 3.188rem;
   width: 32px;
   height: 32px;
 `;
 const Blank = styled.div`
   width: 171px;
   height: 40px;
-  margin-right: 24px;
+  margin-right: 1.5rem;
 `;
