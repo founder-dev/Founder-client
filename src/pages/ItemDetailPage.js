@@ -49,7 +49,7 @@ const ItemDetailPage = () => {
         <Wrapper>
           <ItemDetailCategory />
           <ItemWrapper>
-            <img src={ItemImage} />
+            <Img src={ItemImage} />
             <ItemInfo>
               <Item />
               <Line />
@@ -75,7 +75,7 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
-          <div>
+          <MenuBarContainer>
             <MenuBar
               onClick={() => setIsSelected(!isSelected)}
               isSelected={isSelected}
@@ -87,9 +87,9 @@ const ItemDetailPage = () => {
               left="28px"
               isSelected={!isSelected}
             >
-              후기 모아보기
+              구독 후기
             </MenuBar>
-          </div>
+          </MenuBarContainer>
           {isSelected ? <div>상세정보컴포넌트</div> : <ItemReview />}
         </Wrapper>
       </WidthWrapper>
@@ -113,4 +113,14 @@ const MenuBar = styled.span`
         `
       : `
         color: ${color.grey[3]};`}
+`;
+
+const MenuBarContainer = styled.div`
+  margin-top: 60px;
+`;
+
+const Img = styled.img`
+  width: 480px;
+  height: 480px;
+  margin-right: 72.4px;
 `;

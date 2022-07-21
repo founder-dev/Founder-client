@@ -1,14 +1,14 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Wrapper = styled.div`
   display: flex;
   width: 1440px;
-  margin-top: 80px;
+  justify-content: center;
   flex-direction: column;
 `;
 
 export const CategoryWrapper = styled.div`
-  margin: 82px 0px 0px 120px;
+  margin: 132px 0px 0px 260px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -30,9 +30,9 @@ font-weight: 500;
 `;
 
 export const ItemWrapper = styled.div`
-  margin: 40px 120px 60px 120px;
-  width: 1200px;
-  height: 618px;
+  margin: 40px 260px 60px 260px;
+  width: 920px;
+  height: 480px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -45,22 +45,22 @@ export const ItemInfo = styled.div`
 
 export const ItemCategory = styled.div`
   color: rgba(0, 125, 254, 1);
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'Pretendard';
   font-weight: 500;
-  padding-bottom: 4px;
+  padding-bottom: 2.63px;
 `;
 
 export const ItemName = styled.div`
   color: black;
-  font-size: 36px;
+  font-size: 28px;
   font-family: 'Pretendard';
   font-weight: 800;
 `;
 
 export const DetailedInfo = styled.div`
   color: rgba(136, 136, 136, 1);
-  font-size: 16px;
+  font-size: 12px;
   font-family: 'Pretendard';
   font-weight: 500;
 `;
@@ -70,36 +70,36 @@ export const DetailedInfoWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 292px;
-  height: 24px;
+  width: 222.67px;
+  height: 19px;
 `;
 
 export const PriceWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  width: 408px;
-  height: 48px;
+  width: 320px;
+  height: 37px;
 `;
 
 export const Price = styled.div`
   color: rgba(0, 125, 254, 1);
-  font-size: 36px;
+  font-size: 28px;
   font-family: 'Pretendard';
   font-weight: 800;
 
-  margin-right: 63px;
+  margin-right: 46.67px;
 `;
 
 export const Schedule = styled.div`
 color:rgba(39, 39, 39, 1)
-font-size: 20px;
+font-size: 16px;
 font-family: 'Pretendard';
 font-weight: 700;
 `;
 
 export const Line = styled.div`
-  width: 480px;
+  width: 368px;
   height: 2px;
   margin-top: 40px;
 
@@ -116,20 +116,20 @@ export const Guide = styled.div`
 `;
 
 export const PurchaseButton = styled.button`
-  margin-top: 62px;
-  margin-bottom: 66px;
-  height: 68px;
-  width: 480px;
+  margin-top: 48px;
+  margin-bottom: 56.28px;
+  width: 368px;
+  height: 52px;
   border-radius: 4px;
   background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 20px; 16px 20px;
+  padding: 8px 16px;
 `;
 
 export const PurchaseText = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   font-family: 'Pretendard';
   font-weight: 500;
 
@@ -137,7 +137,8 @@ export const PurchaseText = styled.div`
 `;
 
 export const BoughtText = styled.text`
-  width: 480px;
+  width: 116px;
+  height: 19px;
   display: flex;
   justify-content: center;
 
@@ -145,21 +146,21 @@ export const BoughtText = styled.text`
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
-  font-size: 16px;
+  font-size: 12px;
 
   text-align: center;
 `;
 
 export const ReviewButton = styled.button`
-  margin-top: 13px;
-  width: 480px;
-  height: 68px;
+  margin-top: 7.72px;
+  width: 368px;
+  height: 52px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 16px 108px;
-  gap: 10px;
+  padding: 16px 82px;
+  gap: 8px;
 
   background-color: white;
 
@@ -173,5 +174,5 @@ export const ReviewText = styled.text`
   font-weight: 500;
   font-size: 20px;
   color: #222222;
-  cursor : pointer;
+  cursor: pointer;
 `;
