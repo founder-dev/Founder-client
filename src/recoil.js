@@ -7,25 +7,25 @@ export const menuOpenState = atom({
 
 export const loginState = atom({
   key: 'loginState',
-  default : false,
+  default: true,
 });
 
 export const surveyState = atom({
-  key : 'surveyState',
-  default : false,
+  key: 'surveyState',
+  default: false,
 });
 
 export const TagState = atom({
-  key : 'tagState',
-  default : [],
+  key: 'tagState',
+  default: [],
 });
 
 export const GenderState = atom({
-  key : 'genderState',
-  default : true,
+  key: 'genderState',
+  default: true,
 });
 
 export const PreviewState = atom({
-  key : 'previewState',
-  default : [],
+  key: 'previewState',
+  default: [],
 });
