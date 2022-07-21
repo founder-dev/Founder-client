@@ -9,8 +9,12 @@ const BrandDetailPage = () => {
   return (
     <>
       <WidthWrapper>
-        <TopBar opacity={'rgba(0, 0, 0, 0)'} color={'white'} />
         <Wrapper>
+          <TopBar
+            position={'static'}
+            opacity={'rgba(0, 0, 0, 0.25)'}
+            color={'white'}
+          />
           <Container>
             <BrandTitle>Lukt</BrandTitle>
             <Description>
@@ -42,7 +46,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   position: relative;
   display: flex;
-  width: 100vw;
+  width: 1440px;
   height: 100vh;
   background-image: url(${background});
   flex-direction: column;
