@@ -1,6 +1,7 @@
 import TopBar from '../components/TopBar';
 import styled from 'styled-components';
 import background from '../assets/BrandDetailPageAssets/background.png';
+import brandArrow from '../assets/BrandDetailPageAssets/brandArrow.png';
 import { WidthWrapper } from '../components/WidthWrapper';
 import { color, fontWeight, fontsize } from '../lib/theme';
 
@@ -8,8 +9,12 @@ const BrandDetailPage = () => {
   return (
     <>
       <WidthWrapper>
-        <TopBar opacity={'rgba(0, 0, 0, 0)'} color={'white'} />
         <Wrapper>
+          <TopBar
+            position={'static'}
+            opacity={'rgba(0, 0, 0, 0.25)'}
+            color={'white'}
+          />
           <Container>
             <BrandTitle>Lukt</BrandTitle>
             <Description>
@@ -17,7 +22,10 @@ const BrandDetailPage = () => {
               브랜드입니다
             </Description>
             <a href={'https://naver.com'}>
-              <BrandButton>브랜드 홈 방문하기</BrandButton>
+              <BrandButton>
+                <ButtonText>브랜드 홈 방문하기</ButtonText>
+                <BrandArrow src={brandArrow} />
+              </BrandButton>
             </a>
           </Container>
         </Wrapper>
@@ -38,7 +46,7 @@ const Container = styled.div`
 const Wrapper = styled.div`
   position: relative;
   display: flex;
-  width: 100vw;
+  width: 1440px;
   height: 100vh;
   background-image: url(${background});
   flex-direction: column;
@@ -75,22 +83,30 @@ const BrandButton = styled.div`
   position: absolute;
   left: 38%;
   top: 80%;
+  display: flex;
+  align-items: center;
   justify-content: space-between;
-  width: 400px;
-  height: 30px;
+  width: 368px;
+  height: 52px;
   background: ${color.grey[7]};
-  /* Grey- 7 */
 
-  padding: 12px 16px;
   border: 0.765833px solid ${color.grey[7]};
   border-radius: 4px;
-  color: ${color.white};
-  font-weight: ${fontWeight[0]};
-  line-height: 28px;
 
   cursor: pointer;
 
   :hover {
     top: 79%;
   }
+`;
+
+const ButtonText = styled.div`
+  font-size: 16px;
+  line-height: 28px;
+  margin: 12px 0px 12px 16px;
+  color: white;
+`;
+
+const BrandArrow = styled.img`
+  margin: 16.81px 16px 16.81px 0px;
 `;

@@ -1,6 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import coolicon from '../assets/TopBarAssets/coolicon.png';
+import whiteCoolicon from '../assets/TopBarAssets/whiteCoolicon.png';
 import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../recoil';
@@ -22,7 +23,7 @@ const TopBar = ({ position, opacity, color }) => {
             <CategoryText color={color}>카테고리</CategoryText>
             <DropButton
               menuOpen={menuOpen}
-              src={coolicon}
+              src={color ? whiteCoolicon : coolicon}
               onMouseEnter={() => setMenuOpen(true)}
             />
             {menuOpen ? (
@@ -47,7 +48,7 @@ const TopBar = ({ position, opacity, color }) => {
             </Link>
           </MainMenu>
           <SideMenu>
-            <TopBarButton />
+            <TopBarButton color={color} />
           </SideMenu>
         </IconWrapper>
       </Wrapper>

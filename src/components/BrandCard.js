@@ -2,14 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import BrandCircle from '../assets/BrandCircle.png';
 import Meally from '../assets/Meally.png';
+import { Link } from 'react-router-dom';
 
 const BrandCard = ({ brandName }) => {
   return (
-    <BrandCardContainer>
-      <BrandLogoBackground src={BrandCircle}></BrandLogoBackground>
-      <BrandLogo src={Meally} loading="lazy"/>
-      <BrandName>{brandName}</BrandName>
-    </BrandCardContainer>
+    <Link to={`/branddetail`}>
+      <BrandCardContainer>
+        <BrandLogoBackground src={BrandCircle}></BrandLogoBackground>
+        <BrandLogo src={Meally} loading="lazy" />
+        <BrandName>{brandName}</BrandName>
+      </BrandCardContainer>
+    </Link>
   );
 };
 
