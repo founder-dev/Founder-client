@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import Modal from '../components/Modal';
 import TopBar from '../components/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
+
 import ArrowWhite from '../assets/ItemDetailPageAssets/ArrowWhite.png';
 import { WidthWrapper } from '../components/WidthWrapper';
 import {
@@ -52,6 +53,7 @@ const ItemDetailPage = () => {
             <Img src={ItemImage} />
             <ItemInfo>
               <Item />
+
               <Line />
               <Guide>
                 상품 문의와 자세한 정보를 원하신다면 판매 사이트를 방문해주세요.

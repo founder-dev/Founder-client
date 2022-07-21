@@ -90,6 +90,7 @@ const SubTitle = styled.div`
   color: black;
   font-size: 20px;
   font-weight: 500;
+  line-height: 32px;
 `;
 
 const ItemTitle = styled.div`
@@ -97,6 +98,7 @@ const ItemTitle = styled.div`
   margin-bottom: 42.75px;
   color: black;
   font-size: 24px;
+  line-height: 36px;
   font-weight: 800;
 `;
 

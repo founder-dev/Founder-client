@@ -20,6 +20,7 @@ export const HigherCategory = styled.div`
   font-family: 'Pretendard';
   font-weight: 500;
   margin-right: 11px;
+  line-height: 36px;
 `;
 
 export const Category = styled.div`
@@ -27,6 +28,7 @@ color:rgba(0, 0, 0, 1)
 font-size: 20px;
 font-family: 'Pretendard';
 font-weight: 500;
+line-height: 36px;
 `;
 
 export const ItemWrapper = styled.div`
@@ -41,6 +43,18 @@ export const ItemWrapper = styled.div`
 export const ItemInfo = styled.div`
   width: 480px;
   height: 618px;
+`;
+
+export const CustomLocator = styled.div`
+  width: 277.2px;
+  height: 67.63px;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+`;
+
+export const ItemNameWrapper = styled.div`
+  width: 203.71px;
 `;
 
 export const ItemCategory = styled.div`
@@ -58,6 +72,12 @@ export const ItemName = styled.div`
   font-weight: 800;
 `;
 
+export const Img = styled.img`
+  position: absolute;
+  left: 191.46px;
+  bottom: 23.58px;
+`;
+
 export const DetailedInfo = styled.div`
   color: rgba(136, 136, 136, 1);
   font-size: 12px;
@@ -66,7 +86,7 @@ export const DetailedInfo = styled.div`
 `;
 
 export const DetailedInfoWrapper = styled.div`
-  margin-top: 24px;
+  margin-top: 18.14px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -101,7 +121,7 @@ font-weight: 700;
 export const Line = styled.div`
   width: 368px;
   height: 2px;
-  margin-top: 40px;
+  margin-top: 30.39px;
 
   background-color: black;
 `;
@@ -140,7 +160,6 @@ export const BoughtText = styled.text`
   width: 116px;
   height: 19px;
   display: flex;
-  justify-content: center;
 
   color: rgba(0, 0, 0, 1);
   font-family: 'Pretendard';
@@ -148,7 +167,7 @@ export const BoughtText = styled.text`
   font-weight: 500;
   font-size: 12px;
 
-  text-align: center;
+  margin-left: 126px;
 `;
 
 export const ReviewButton = styled.button`

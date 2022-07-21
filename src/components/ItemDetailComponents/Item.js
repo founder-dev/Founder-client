@@ -1,22 +1,38 @@
-import { ItemCategory, ItemName, DetailedInfoWrapper, DetailedInfo, PriceWrapper, Price, Schedule} from "./ItemDetailPresenter";
+import {
+  CustomLocator,
+  ItemNameWrapper,
+  Img,
+  ItemCategory,
+  ItemName,
+  DetailedInfoWrapper,
+  DetailedInfo,
+  PriceWrapper,
+  Price,
+  Schedule,
+} from './ItemDetailPresenter';
+import ItemDetailCustom from '../../assets/ItemDetailPageAssets/ItemDetailCustom.png';
 
-const Item = ({data}) => {
-
-    return(
-        <>
-        <ItemCategory>그릭 요거트</ItemCategory>
-        <ItemName>룩트 그릭 요거트</ItemName>
-        <DetailedInfoWrapper>
+const Item = ({ data }) => {
+  return (
+    <>
+      <CustomLocator>
+        <ItemNameWrapper>
+          <ItemCategory>그릭 요거트</ItemCategory>
+          <ItemName>룩트 그릭 요거트</ItemName>
+          <Img src={ItemDetailCustom} />
+        </ItemNameWrapper>
+      </CustomLocator>
+      <DetailedInfoWrapper>
         <DetailedInfo>최저가</DetailedInfo>
         <DetailedInfo>배송 주기</DetailedInfo>
-        </DetailedInfoWrapper>
+      </DetailedInfoWrapper>
 
-        <PriceWrapper>
+      <PriceWrapper>
         <Price>44,380 원</Price>
         <Schedule>1주/2주/4주/6주/2달</Schedule>
-        </PriceWrapper>
-        </>
-    )
-}
+      </PriceWrapper>
+    </>
+  );
+};
 
 export default Item;
