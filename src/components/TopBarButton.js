@@ -53,7 +53,7 @@ const LoginButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: ${(props) => (props.color ? 'rgba(0, 0, 0, 0)' : 'white')};
   border: 1px solid;
   border-color: ${(props) => props.color || 'black'};
   border-radius: 40px;
@@ -66,7 +66,7 @@ const SurveyButton = styled.button`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: ${(props) => (props.color ? 'rgba(0, 0, 0, 0)' : 'black')};
+  background-color: ${(props) => (props.color ? 'rgba(0, 0, 0, 0)' : 'white')};
   border-width: 1px;
   border-style: solid;
   border-color: ${(props) => props.color || 'black'};
