@@ -35,7 +35,9 @@ const MagazineDetailPage = () => {
       <TopBar />
 
       <Header>
-        <HeaderTitle>파운더 사용 설명서</HeaderTitle>
+        <HeaderTitle>
+          여러분의 가치로운 소비를 위한 철학을 담은 브랜드 추천
+        </HeaderTitle>
         <HorizontalProgress scroll={scroll} />
       </Header>
 
@@ -44,8 +46,13 @@ const MagazineDetailPage = () => {
           <img src={MagazineImage} />
           <TitleWrapper>
             <TitleInfo>
-              <Title>파운더 사용 설명서</Title>
-              <KeyWords>설문조사 | 카테고리 | 매거진 </KeyWords>
+              <Title>
+                여러분의 가치로운 소비를 위한 철학을 담은 브랜드 추천
+              </Title>
+              <KeyWords>
+                <text>가치소비 |</text> <text>제로웨이스트 |</text>{' '}
+                <text>비건 | </text> <text>유기농</text>
+              </KeyWords>
             </TitleInfo>
           </TitleWrapper>
 
@@ -149,6 +156,9 @@ const KeyWords = styled.div`
   text-align: center;
 
   color: #ffffff;
+
+  margin-top: 16px;
+  gap: 12px;
 `;
 
 const DetailWrapper = styled.div`
@@ -186,6 +196,7 @@ const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
   width: 1200px;
+  justify-content: center;
 `;
 
 const BrandHome = styled.div`
@@ -286,10 +297,13 @@ const Text = styled.text`
 
 const ParagraphWrapper = styled.div`
   margin-bottom: 80px;
+  width: 920px;
+  margin-left: 140px;
 `;
 
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   width: 1440px;
   padding-top: 118px;
