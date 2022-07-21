@@ -1,16 +1,12 @@
+function ChangeEnglish({ text }) {
+  var dicText = {
+    Salad: '샐러드',
+    Yogurt: '그릭요거트',
+    Milk: '우유',
+    FriedRice: '볶음밥',
+  };
 
-function ChangeEnglish({text}){
-   
-  if(text == "Salad")
-      {return "샐러드"}
-    else if(text == 'Yogurt') 
-      {return "그릭요거트"}
-    else if(text == 'Milk') 
-      {return "우유"}
-    else if(text == 'FriedRice')
-      {return "볶음밥"}
-    else
-    {return "한글번역안됨"};
+  return dicText[text];
 }
 
 export default ChangeEnglish;
