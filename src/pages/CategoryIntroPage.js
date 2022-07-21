@@ -16,14 +16,17 @@ import Categorydata from '../assets/CategoryPage.json';
 const CategoryIntroPage = ({ title }) => {
   const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 물건 데이터를 따로 전달함
   const Titledata = TitleData.filter((items) => items.bigcategory === title); //api를 통해서 불러올 타이틀 이름(카테고리마다 다름)
-  
+
   //새롭게 만든 백엔드 데이터에 맞춘 new mapping!
   const type = Categorydata.category_detail.map((items) => items.type);
-  const items = Categorydata.category_detail.map((items) => items.type_detail.product);
-  const brands = Categorydata.category_detail.map((items) => items.type_detail.brand);
+  const items = Categorydata.category_detail.map(
+    (items) => items.type_detail.product
+  );
+  const brands = Categorydata.category_detail.map(
+    (items) => items.type_detail.brand
+  );
   console.log(items);
 
-  
   return (
     <>
       <TopBar />
@@ -31,36 +34,46 @@ const CategoryIntroPage = ({ title }) => {
       <WidthWrapper>
         <Wrapper>
           <Container>
-            {type.map(({ id, type_name, type_desc, type_tag_arr },i) => (
+            {type.map(({ id, type_name, type_desc, type_tag_arr }, i) => (
               <>
-                <ItemTitle text={type_name} key={id}/>
+                <ItemTitle text={type_name} key={id} />
                 <SubTitle>
-                  {type_desc} <TagArray tag={type_tag_arr} key={id}/>
+                  {type_desc} <TagArray tag={type_tag_arr} key={id} />
                 </SubTitle>
                 <GridWrapper>
                   {items[i] //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
-                    .map(({ product_name, std_price, star_rate_avg, custom_flag, delivery_cycle_main ,product_main_img}) => (
-                      <Link to={`/itemdetail`}>
-                        <ProductCard
-                          itemName={product_name}
-                          price={std_price}
-                          rating={star_rate_avg}
-                          custom={custom_flag}
-                          schedule={delivery_cycle_main}
-                          image={product_main_img}
-                          key={id}
-                        />
-                      </Link>
-                    ))}
+                    .map(
+                      ({
+                        product_name,
+                        std_price,
+                        star_rate_avg,
+                        custom_flag,
+                        delivery_cycle_main,
+                        product_main_img,
+                      }) => (
+                        <Link to={`/itemdetail`}>
+                          <ProductCard
+                            itemName={product_name}
+                            price={std_price}
+                            rating={star_rate_avg}
+                            custom={custom_flag}
+                            schedule={delivery_cycle_main}
+                            image={product_main_img}
+                            key={id}
+                          />
+                        </Link>
+                      )
+                    )}
                 </GridWrapper>
                 <BrandTitle text={type_name} />
                 <BrandsContainer>
-                <BrandCardWrapper>
-                {brands[i]
-                .map(({ brand_name, id}) => (
-                   <><BrandCard brandName={brand_name} key={id} /></> 
-                ))}
-                </BrandCardWrapper>
+                  <BrandCardWrapper>
+                    {brands[i].map(({ brand_name, id }) => (
+                      <>
+                        <BrandCard brandName={brand_name} key={id} />
+                      </>
+                    ))}
+                  </BrandCardWrapper>
                 </BrandsContainer>
               </>
             ))}
