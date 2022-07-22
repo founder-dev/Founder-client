@@ -103,7 +103,7 @@ export default MagazineDetailPage;
 const Header = styled.div`
   position: fixed;
   width: 100%;
-  height: 38px;
+  height: 56px;
   top: 80px;
   background-color: white;
   z-index: 3;
@@ -117,8 +117,8 @@ const HeaderTitle = styled.div`
   text-align: center;
   color: black;
   z-index: 2;
-  margin-top: 10px;
-  margin-bottom: 8px;
+  margin-top: 19px;
+  margin-bottom: 21px;
 `;
 
 const TitleWrapper = styled.div`
@@ -287,8 +287,10 @@ const SubTitle = styled.div`
 
 const Text = styled.text`
   font-family: 'Pretendard';
-  font-size: 20px;
+  font-style: normal;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 180%;
 
   color: #000000;
 
@@ -297,8 +299,8 @@ const Text = styled.text`
 
 const ParagraphWrapper = styled.div`
   margin-bottom: 80px;
-  width: 920px;
-  margin-left: 140px;
+  width: 700px;
+  margin-left: 250px;
 `;
 
 const Wrapper = styled.div`
