@@ -67,15 +67,11 @@ const QuestionItem = styled.div`
   border-radius: 4px 20px 20px 20px;
 
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 32px;
   letter-spacing: -0.354132px;
 
   color: ${color.white};
-
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 `;
 
 const SelectionWrapper = styled.div`
@@ -89,6 +85,7 @@ const AnswerItem = styled.div`
   align-items: center;
   padding: 12px 16px;
   gap: 8px;
+  text-align: center;
   float:right;
   display : flex;
   justify-content : center;
@@ -99,8 +96,4 @@ const AnswerItem = styled.div`
   font-size: 20px
   line-height: 32px;
   letter-spacing: -0.354132px;
-
-  flex: none;
-  order: 1;
-  flex-grow: 0;
 `;

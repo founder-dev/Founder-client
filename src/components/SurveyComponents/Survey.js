@@ -116,7 +116,7 @@ const Survey = () => {
 
   return (
     <SurveyWrapper ref={surveyRef}>
-      <StartText width="368px">
+      <StartText width="385px">
         안녕하세요 파운더 설문조사에 오신 걸 환영해요!
       </StartText>
 
@@ -181,18 +181,16 @@ const Survey = () => {
 export default Survey;
 
 const StartText = styled.div`
-  width: ${(props) => props.width || '401px'};
+  width: ${(props) => props.width || '418px'};
   margin-top: ${(props) => props.top || '162px'};
   align-items: center;
-  gap: 8.68px;
+  gap: 8px;
   display: flex;
+  justify-content: center;
 
   padding: 12px 16px;
   background: ${color.main[2]};
   border-radius: 4px 20px 20px 20px;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
 
   font-weight: 400;
   font-size: 20px;
@@ -201,6 +199,9 @@ const StartText = styled.div`
   letter-spacing: -0.354132px;
 
   color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
 `;
 
 const SurveyWrapper = styled.div`
