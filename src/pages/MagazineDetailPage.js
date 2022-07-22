@@ -104,7 +104,7 @@ const Header = styled.div`
   position: fixed;
   width: 100%;
   height: 38px;
-  top: 80px;
+  top: 56px;
   background-color: white;
   z-index: 3;
 `;
