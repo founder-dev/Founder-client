@@ -110,7 +110,6 @@ const Header = styled.div`
 `;
 
 const HeaderTitle = styled.div`
-  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
