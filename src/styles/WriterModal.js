@@ -104,6 +104,7 @@ const WriterModal = ({ setOpenModal }) => {
               </DetailWrapper>
             </ItemBox>
           </ItemBoxWrapper>
+          
           <Instruction
             weight={500}
             margin={'48px 0px 0px 61px'}

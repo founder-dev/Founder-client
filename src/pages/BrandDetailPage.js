@@ -69,7 +69,7 @@ const BrandTitle = styled.div`
 const Description = styled.div`
   position: absolute;
   left: 38%;
-  top: 44.84%;
+  top: 44%;
   margin-top: 80px;
   width: 350px;
   text-align: center;
