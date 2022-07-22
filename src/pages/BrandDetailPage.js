@@ -56,14 +56,13 @@ const Wrapper = styled.div`
 
 const BrandTitle = styled.div`
   position: absolute;
-  left: 36.76%;
+  left: 38%;
   right: 46.36%;
   top: 22.65%;
 
-  font-family: 'GT Haptik Trial';
   font-style: normal;
   font-weight: ${fontWeight[3]};
-  font-size: 200px;
+  font-size: 160px;
   line-height: 160px;
 `;
 
@@ -72,11 +71,11 @@ const Description = styled.div`
   left: 38%;
   top: 44.84%;
   margin-top: 80px;
-  width: 400px;
+  width: 350px;
   text-align: center;
   font-weight: ${fontWeight[0]};
-  font-size: ${fontsize[4]};
-  line-height: 36px;
+  font-size: ${fontsize[3]};
+  line-height: 28px;
 `;
 
 const BrandButton = styled.div`
@@ -94,10 +93,6 @@ const BrandButton = styled.div`
   border-radius: 4px;
 
   cursor: pointer;
-
-  :hover {
-    top: 79%;
-  }
 `;
 
 const ButtonText = styled.div`
