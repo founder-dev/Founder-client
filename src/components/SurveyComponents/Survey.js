@@ -116,10 +116,14 @@ const Survey = () => {
 
   return (
     <SurveyWrapper ref={surveyRef}>
-      <StartText>안녕하세요 파운더 설문조사에 오신 걸 환영해요!</StartText>
-      <StartText top="8px" width="490px">
+      <StartText width="385px">
+        안녕하세요 파운더 설문조사에 오신 걸 환영해요!
+      </StartText>
+
+      <StartText top="8px">
         주어진 질문에 버튼을 눌러 설문조사에 참여해주세요.
       </StartText>
+
       <SurveyPart
         selected={selected}
         selectAnswer={selectAnswer}
@@ -177,31 +181,27 @@ const Survey = () => {
 export default Survey;
 
 const StartText = styled.div`
-  margin-top: ${(props) => props.top || '160px'};
+  width: ${(props) => props.width || '418px'};
+  margin-top: ${(props) => props.top || '162px'};
   align-items: center;
-  gap: 10px;
+  gap: 8px;
   display: flex;
   justify-content: center;
 
-  padding: 12px 16px 12px 16px;
-  width: ${(props) => props.width || '450px'};
-  height: 30px;
+  padding: 12px 16px;
   background: ${color.main[2]};
-  border-radius: 4px 24px 24px 24px;
+  border-radius: 4px 20px 20px 20px;
 
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+
+  letter-spacing: -0.354132px;
+
+  color: #ffffff;
   flex: none;
   order: 0;
   flex-grow: 0;
-
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 36px;
-
-  letter-spacing: -0.408px;
-
-  /* Label Color / Dark / Primary */
-
-  color: #ffffff;
 `;
 
 const SurveyWrapper = styled.div`

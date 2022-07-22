@@ -64,7 +64,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80px;
+  height: 56px;
   background-color: ${(props) => props.opacity || 'white'};
   margin-top: ${(props) => props.LogoHeight || '0px'};
   position: ${(props) => props.position || 'fixed'};
@@ -78,7 +78,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 1440px;
-  height: 80px;
+  height: 56px;
 `;
 
 const HomeText = styled.div`
