@@ -15,7 +15,7 @@ const TopBarButton = ({ color }) => {
   return (
     <>
       {isLoggedIn === false && (
-        <>
+        <ButtonWrapper>
           <LoginButton
             color={color}
             onClick={() => {
@@ -27,11 +27,11 @@ const TopBarButton = ({ color }) => {
           {modalOpen && (
             <Modal setOpenModal={setModalOpen} type="SignUpModal" />
           )}
-        </>
+        </ButtonWrapper>
       )}
 
       {isLoggedIn === true && isSurveyDone === false && (
-        <>
+        <ButtonWrapper>
           <Link to={`/surveyintropage`}>
             <SurveyButton color={color}>
               <Text color={color}>설문조사 하러가기</Text>
@@ -40,7 +40,7 @@ const TopBarButton = ({ color }) => {
           <Link to={`/mypage`}>
             <Image src={color ? whiteIcon : icon} />
           </Link>
-        </>
+        </ButtonWrapper>
       )}
       {isLoggedIn === true && isSurveyDone === true && (
         <>
@@ -53,6 +53,10 @@ const TopBarButton = ({ color }) => {
 };
 export default TopBarButton;
 
+const ButtonWrapper = styled.div`
+  margin-right: 51px;
+  display: flex;
+`;
 const LoginButton = styled.button`
   display: flex;
   align-items: center;
@@ -61,8 +65,8 @@ const LoginButton = styled.button`
   border: 1px solid;
   border-color: ${(props) => props.color || 'black'};
   border-radius: 40px;
-  width: 98px;
-  height: 40px;
+  width: 85px;
+  height: 32px;
 `;
 
 const SurveyButton = styled.button`
@@ -75,8 +79,8 @@ const SurveyButton = styled.button`
   border-style: solid;
   border-color: ${(props) => props.color || 'black'};
   border-radius: 40px;
-  width: 171px;
-  height: 40px;
+  width: 149px;
+  height: 32px;
   margin-right: 1.5rem;
   cursor: pointer;
 `;
