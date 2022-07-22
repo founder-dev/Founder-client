@@ -5,7 +5,6 @@ import CancleButtonImage from '../assets/ItemDetailPageAssets/CancleButtonImage.
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
-import Rating from '../components/StarRating/Rating';
 import { useRecoilState } from 'recoil';
 import { TagState, PreviewState } from '../recoil';
 import { Container, Background } from '../components/ModalDesign';
@@ -14,6 +13,7 @@ import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
 import Check from '../assets/ItemDetailPageAssets/CheckRate.png';
 import Warning from '../assets/ItemDetailPageAssets/Warning.png';
 import { Instruction } from '../components/WriterModalComponents/WriterModalPresenter';
+import RatingContainer from '../components/WriterModalComponents/RatingContainer';
 
 const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
@@ -40,7 +40,7 @@ const WriterModal = ({ setOpenModal }) => {
     */
   };
 
-  console.log(tagArray.length);
+  console.log(rating);
 
   useEffect(() => {
     if (
@@ -54,16 +54,6 @@ const WriterModal = ({ setOpenModal }) => {
       setSent(false);
     }
   });
-
-  const onMouseEnter = (index) => {
-    setHoverRating(index);
-  };
-  const onMouseLeave = () => {
-    setHoverRating(0);
-  };
-  const onSaveRating = (index) => {
-    setRating(index);
-  };
 
   return (
     <Container>
@@ -104,7 +94,7 @@ const WriterModal = ({ setOpenModal }) => {
               </DetailWrapper>
             </ItemBox>
           </ItemBoxWrapper>
-          
+
           <Instruction
             weight={500}
             margin={'48px 0px 0px 61px'}
@@ -113,28 +103,14 @@ const WriterModal = ({ setOpenModal }) => {
             구독 서비스의 총 별점을 남겨주세요.
             {rating == 0 ? null : <CheckButton src={Check} />}
           </Instruction>
-          <RatingContainer>
-            <StarRating>
-              {[1, 2, 3, 4, 5].map((index) => {
-                return (
-                  <Rating
-                    index={index}
-                    rating={rating}
-                    hoverRating={hoverRating}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onSaveRating={onSaveRating}
-                  />
-                );
-              })}
-            </StarRating>
+          
+          <RatingContainer
+            rating={rating}
+            hoverRating={hoverRating}
+            setRating={setRating}
+            setHoverRating={setHoverRating}
+          />
 
-            {[1, 2, 3, 4, 5].map((num) => (
-              <HiddenText key={num} show={hoverRating === num}>
-                {textList[num - 1]}
-              </HiddenText>
-            ))}
-          </RatingContainer>
           {isFood && (
             <>
               <Instruction
@@ -284,39 +260,6 @@ font-weight: 500;
 font-size: 16px;
 
 rgba(102, 102, 102, 1);
-`;
-
-const RatingContainer = styled.div`
-  display: flex;
-  margin-top: 12px;
-  margin-left: 61px;
-`;
-
-const StarRating = styled.div`
-  display: flex;
-  width: 189px;
-  height: 30.38px;
-`;
-
-const textList = [
-  '별로에요',
-  '그저 그래요',
-  '보통이에요',
-  '좋아요',
-  '아주 좋아요',
-];
-
-const HiddenText = styled.div`
-  margin-left: 21px;
-
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-
-  color: #222222;
-
-  ${({ show }) => (show ? `display:block` : `display:none`)}
 `;
 
 const LengthText = styled.div`
