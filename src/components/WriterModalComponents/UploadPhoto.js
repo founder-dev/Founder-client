@@ -60,6 +60,7 @@ const Preview = styled.img`
   width: 100px;
   height : 100px;
   margin-right : 10px;
+  object-fit: cover;
 `;
 
 const PreviewWrapper = styled.div`

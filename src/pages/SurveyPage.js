@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import Survey from '../components/SurveyComponents/Survey';
 import { WidthWrapper } from '../components/WidthWrapper';
 import FounderSurvey from '../assets/SurveyAssets/FounderSurvey.png';
-import { useRef, useCallback, useEffect } from 'react';
 
 const SurveyPage = () => {
   return (
