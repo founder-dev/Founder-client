@@ -116,16 +116,15 @@ const TextButtonWrapper = styled.div`
   font-size: 16px;
   font-weight: ${fontWeight[2]};
   margin-left: 5rem;
-  width: 79px;
 `;
 
 const DropdownMenu = styled.ul`
-  padding-top: 7.27px;
+  margin-top: 0px;
   display: block;
   height: 218px;
   background-color: white;
   position: absolute;
-  transform: translateY(150px);
+  transform: translateY(145px);
   display: flex;
   flex-direction: column;
   list-style: none;

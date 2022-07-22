@@ -16,7 +16,6 @@ import Warning from '../assets/ItemDetailPageAssets/Warning.png';
 import { Instruction } from '../components/WriterModalComponents/WriterModalPresenter';
 
 const WriterModal = ({ setOpenModal }) => {
-  
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useRecoilState(PreviewState);
@@ -42,13 +41,16 @@ const WriterModal = ({ setOpenModal }) => {
   };
 
   console.log(tagArray.length);
-  
-  useEffect(()=>{
-    if(review != "" && rating > 0 && tagArray.length == 3 && tagArray[0] != "")
-    {
+
+  useEffect(() => {
+    if (
+      review != '' &&
+      rating > 0 &&
+      tagArray.length == 3 &&
+      tagArray[0] != ''
+    ) {
       setSent(true);
-    }
-    else{
+    } else {
       setSent(false);
     }
   });
@@ -102,19 +104,13 @@ const WriterModal = ({ setOpenModal }) => {
               </DetailWrapper>
             </ItemBox>
           </ItemBoxWrapper>
-
           <Instruction
             weight={500}
             margin={'48px 0px 0px 61px'}
-            color={(34, 34, 34, 1)}
+            color={rating == 0 ? '(34,34,34,1)' : '#007DFE'}
           >
             구독 서비스의 총 별점을 남겨주세요.
-          {
-            rating == 0 ? 
-            null
-            :
-            <CheckButton src={Check}/>
-          }
+            {rating == 0 ? null : <CheckButton src={Check} />}
           </Instruction>
           <RatingContainer>
             <StarRating>
@@ -143,23 +139,24 @@ const WriterModal = ({ setOpenModal }) => {
               <Instruction
                 weight={500}
                 margin={'55px 0px 0px 61px'}
-                color={(255, 63, 63, 1)}
+                color={
+                  tagArray[0] == null
+                    ? (255, 63, 63, 1)
+                    : tagLength
+                    ? '#ff3f3f'
+                    : '#007DFE'
+                }
                 tagLength={tagLength}
               >
                 {tagLength
                   ? '3개 이하의 태그를 골라주세요.'
                   : '1개 이상의 태그를 골라주세요.'}
-                 
-                 {
-                 tagArray[0] == null ?  
-                 null
-                 :
-                  tagLength 
-                  ? 
-                  <CheckButton src={Warning}/>
-                  :
-                  <CheckButton src={Check}/>
-                 }
+
+                {tagArray[0] == null ? null : tagLength ? (
+                  <CheckButton src={Warning} />
+                ) : (
+                  <CheckButton src={Check} />
+                )}
               </Instruction>
               <TagSelect setTagLength={setTagLength} />
             </>
@@ -367,6 +364,6 @@ const SubmitButton = styled.button`
 
 const CheckButton = styled.img`
   padding-left: 8px;
-  width:20px;
-  height:19.2px;
+  width: 20px;
+  height: 19.2px;
 `;
