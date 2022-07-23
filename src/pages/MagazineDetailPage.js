@@ -103,21 +103,22 @@ export default MagazineDetailPage;
 const Header = styled.div`
   position: fixed;
   width: 100%;
-  height: 38px;
-  top: 56px;
+  height: 56px;
+  top: 80px;
   background-color: white;
   z-index: 3;
 `;
 
 const HeaderTitle = styled.div`
+  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
   text-align: center;
   color: black;
   z-index: 2;
-  margin-top: 10px;
-  margin-bottom: 8px;
+  margin-top: 19px;
+  margin-bottom: 21px;
 `;
 
 const TitleWrapper = styled.div`
@@ -134,6 +135,7 @@ const TitleInfo = styled.div`
 `;
 
 const Title = styled.div`
+  font-family: 'Pretendard';
   font-size: 36px;
   font-weight: 800;
   text-align: center;
@@ -146,6 +148,7 @@ const Title = styled.div`
 `;
 
 const KeyWords = styled.div`
+  font-family: 'Pretendard';
   font-size: 20px;
   line-height: 36px;
   font-weight: 500;
@@ -168,12 +171,14 @@ const DetailWrapper = styled.div`
 `;
 
 const Date = styled.div`
+  font-family: 'Pretendard';
   font-weight: 400;
   font-size: 16px;
 
   color: #878888;
 `;
 const Editor = styled.div`
+  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 16px;
@@ -226,6 +231,7 @@ const TextWrapper = styled.div`
 `;
 
 const BrandName = styled.div`
+  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 28px;
   height: 40px;
@@ -233,6 +239,7 @@ const BrandName = styled.div`
 `;
 
 const BrandDetail = styled.div`
+  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 20px;
   margin-top: 4px;
@@ -256,6 +263,7 @@ const BrandButton = styled.div`
 `;
 
 const ButtonText = styled.div`
+  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 16px;
   margin: 13px 21.01px 13px 21.1px;
@@ -266,6 +274,7 @@ const BrandArrow = styled.img`
 `;
 
 const SubTitle = styled.div`
+  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 28px;
   line-height: 38px;
@@ -277,8 +286,11 @@ const SubTitle = styled.div`
 `;
 
 const Text = styled.text`
-  font-size: 20px;
+  font-family: 'Pretendard';
+  font-style: normal;
   font-weight: 400;
+  font-size: 16px;
+  line-height: 180%;
 
   color: #000000;
 
@@ -287,8 +299,8 @@ const Text = styled.text`
 
 const ParagraphWrapper = styled.div`
   margin-bottom: 80px;
-  width: 920px;
-  margin-left: 140px;
+  width: 700px;
+  margin-left: 250px;
 `;
 
 const Wrapper = styled.div`
