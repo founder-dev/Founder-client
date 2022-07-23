@@ -103,7 +103,7 @@ const WriterModal = ({ setOpenModal }) => {
             구독 서비스의 총 별점을 남겨주세요.
             {rating == 0 ? null : <CheckButton src={Check} />}
           </Instruction>
-          
+
           <RatingContainer
             rating={rating}
             hoverRating={hoverRating}
@@ -211,11 +211,12 @@ const ItemBoxWrapper = styled.div`
 `;
 
 const ItemBox = styled.div`
-width: 566px;
-height: 90px;
-padding: 26px 32px; 25px; 576px;
-border-radius: 4px;
-background-color: rgba(250, 250, 250, 1);
+  width: 534px;
+  height: 104px;
+  padding-top: 32px;
+  padding-left: 32px;
+  border-radius: 4px;
+  background-color: rgba(250, 250, 250, 1);
 `;
 
 const DetailWrapper = styled.div`
@@ -297,6 +298,7 @@ const SubmitButton = styled.button`
   padding: 16px 108px;
   gap: 10px;
   border-radius: 4px;
+  font-size: 20px;
 
   width: 480px;
   height: 68px;
