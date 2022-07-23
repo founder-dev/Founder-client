@@ -191,7 +191,8 @@ export const ReviewText = styled.text`
   font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
-  font-size: 20px;
+  font-size: 15.3167px;
+  line-height: 28px;
   color: #222222;
   cursor: pointer;
 `;

@@ -64,7 +64,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 80px;
+  height: 56px;
   background-color: ${(props) => props.opacity || 'white'};
   margin-top: ${(props) => props.LogoHeight || '0px'};
   position: ${(props) => props.position || 'fixed'};
@@ -78,7 +78,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 1440px;
-  height: 80px;
+  height: 56px;
 `;
 
 const HomeText = styled.div`
@@ -116,16 +116,15 @@ const TextButtonWrapper = styled.div`
   font-size: 16px;
   font-weight: ${fontWeight[2]};
   margin-left: 5rem;
-  width: 79px;
 `;
 
 const DropdownMenu = styled.ul`
-  padding-top: 7.27px;
+  margin-top: 0px;
   display: block;
   height: 218px;
   background-color: white;
   position: absolute;
-  transform: translateY(150px);
+  transform: translateY(145px);
   display: flex;
   flex-direction: column;
   list-style: none;

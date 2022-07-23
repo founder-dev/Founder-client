@@ -5,7 +5,6 @@ import CancleButtonImage from '../assets/ItemDetailPageAssets/CancleButtonImage.
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
-import Rating from '../components/StarRating/Rating';
 import { useRecoilState } from 'recoil';
 import { TagState, PreviewState } from '../recoil';
 import { Container, Background } from '../components/ModalDesign';
@@ -14,9 +13,9 @@ import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
 import Check from '../assets/ItemDetailPageAssets/CheckRate.png';
 import Warning from '../assets/ItemDetailPageAssets/Warning.png';
 import { Instruction } from '../components/WriterModalComponents/WriterModalPresenter';
+import RatingContainer from '../components/WriterModalComponents/RatingContainer';
 
 const WriterModal = ({ setOpenModal }) => {
-  
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState('');
   const [preview, setPreview] = useRecoilState(PreviewState);
@@ -41,27 +40,20 @@ const WriterModal = ({ setOpenModal }) => {
     */
   };
 
-  console.log(tagArray.length);
-  
-  useEffect(()=>{
-    if(review != "" && rating > 0 && tagArray.length == 3 && tagArray[0] != "")
-    {
+  console.log(rating);
+
+  useEffect(() => {
+    if (
+      review != '' &&
+      rating > 0 &&
+      tagArray.length <= 3 &&
+      tagArray[0] != ''
+    ) {
       setSent(true);
-    }
-    else{
+    } else {
       setSent(false);
     }
   });
-
-  const onMouseEnter = (index) => {
-    setHoverRating(index);
-  };
-  const onMouseLeave = () => {
-    setHoverRating(0);
-  };
-  const onSaveRating = (index) => {
-    setRating(index);
-  };
 
   return (
     <Container>
@@ -106,60 +98,42 @@ const WriterModal = ({ setOpenModal }) => {
           <Instruction
             weight={500}
             margin={'48px 0px 0px 61px'}
-            color={(34, 34, 34, 1)}
+            color={rating == 0 ? '(34,34,34,1)' : '#007DFE'}
           >
             구독 서비스의 총 별점을 남겨주세요.
-          {
-            rating == 0 ? 
-            null
-            :
-            <CheckButton src={Check}/>
-          }
+            {rating == 0 ? null : <CheckButton src={Check} />}
           </Instruction>
-          <RatingContainer>
-            <StarRating>
-              {[1, 2, 3, 4, 5].map((index) => {
-                return (
-                  <Rating
-                    index={index}
-                    rating={rating}
-                    hoverRating={hoverRating}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onSaveRating={onSaveRating}
-                  />
-                );
-              })}
-            </StarRating>
 
-            {[1, 2, 3, 4, 5].map((num) => (
-              <HiddenText key={num} show={hoverRating === num}>
-                {textList[num - 1]}
-              </HiddenText>
-            ))}
-          </RatingContainer>
+          <RatingContainer
+            rating={rating}
+            hoverRating={hoverRating}
+            setRating={setRating}
+            setHoverRating={setHoverRating}
+          />
+
           {isFood && (
             <>
               <Instruction
                 weight={500}
                 margin={'55px 0px 0px 61px'}
-                color={(255, 63, 63, 1)}
+                color={
+                  tagArray[0] == null
+                    ? (255, 63, 63, 1)
+                    : tagLength
+                    ? '#ff3f3f'
+                    : '#007DFE'
+                }
                 tagLength={tagLength}
               >
                 {tagLength
                   ? '3개 이하의 태그를 골라주세요.'
                   : '1개 이상의 태그를 골라주세요.'}
-                 
-                 {
-                 tagArray[0] == null ?  
-                 null
-                 :
-                  tagLength 
-                  ? 
-                  <CheckButton src={Warning}/>
-                  :
-                  <CheckButton src={Check}/>
-                 }
+
+                {tagArray[0] == null ? null : tagLength ? (
+                  <CheckButton src={Warning} />
+                ) : (
+                  <CheckButton src={Check} />
+                )}
               </Instruction>
               <TagSelect setTagLength={setTagLength} />
             </>
@@ -237,11 +211,12 @@ const ItemBoxWrapper = styled.div`
 `;
 
 const ItemBox = styled.div`
-width: 566px;
-height: 90px;
-padding: 26px 32px; 25px; 576px;
-border-radius: 4px;
-background-color: rgba(250, 250, 250, 1);
+  width: 534px;
+  height: 104px;
+  padding-top: 32px;
+  padding-left: 32px;
+  border-radius: 4px;
+  background-color: rgba(250, 250, 250, 1);
 `;
 
 const DetailWrapper = styled.div`
@@ -288,39 +263,6 @@ font-size: 16px;
 rgba(102, 102, 102, 1);
 `;
 
-const RatingContainer = styled.div`
-  display: flex;
-  margin-top: 12px;
-  margin-left: 61px;
-`;
-
-const StarRating = styled.div`
-  display: flex;
-  width: 189px;
-  height: 30.38px;
-`;
-
-const textList = [
-  '별로에요',
-  '그저 그래요',
-  '보통이에요',
-  '좋아요',
-  '아주 좋아요',
-];
-
-const HiddenText = styled.div`
-  margin-left: 21px;
-
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-
-  color: #222222;
-
-  ${({ show }) => (show ? `display:block` : `display:none`)}
-`;
-
 const LengthText = styled.div`
   position: absolute;
   width: 119px;
@@ -356,6 +298,7 @@ const SubmitButton = styled.button`
   padding: 16px 108px;
   gap: 10px;
   border-radius: 4px;
+  font-size: 20px;
 
   width: 480px;
   height: 68px;
@@ -367,6 +310,6 @@ const SubmitButton = styled.button`
 
 const CheckButton = styled.img`
   padding-left: 8px;
-  width:20px;
-  height:19.2px;
+  width: 20px;
+  height: 19.2px;
 `;

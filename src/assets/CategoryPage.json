@@ -1,10 +1,10 @@
 {
-    "category": "Food",
+    "category": "food",
     "category_detail": [
       {
         "type": {
           "id": 1,
-          "type_name": "FriedRice",
+          "type_name": "fried-rice",
           "type_desc": "아주맛있는볶음밥",
           "type_tag_arr": "건강,아이맛있다,야금야금",
           "order": 2,
@@ -149,7 +149,7 @@
       {
         "type": {
           "id": 2,
-          "type_name": "Salad",
+          "type_name": "salad",
           "type_desc": "건강한아침좋아",
           "type_tag_arr": "건강,아침,상쾌하다다다",
           "order": 3,
@@ -216,7 +216,7 @@
       {
         "type": {
           "id": 3,
-          "type_name": "Yogurt",
+          "type_name": "yogurt",
           "type_desc": "맛난요거트냠냠",
           "type_tag_arr": "요거트,이거최고다,야호",
           "order": 4,
