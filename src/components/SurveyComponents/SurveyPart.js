@@ -93,7 +93,7 @@ const AnswerItem = styled.div`
   border-radius: 20px 20px 4px 20px;
 
   font-weight: 400;
-  font-size: 20px
+  font-size: 20px;
   line-height: 32px;
   letter-spacing: -0.354132px;
 `;
