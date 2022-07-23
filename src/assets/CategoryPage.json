@@ -4,7 +4,7 @@
       {
         "type": {
           "id": 1,
-          "type_name": "friedRice",
+          "type_name": "fried-rice",
           "type_desc": "아주맛있는볶음밥",
           "type_tag_arr": "건강,아이맛있다,야금야금",
           "order": 2,
