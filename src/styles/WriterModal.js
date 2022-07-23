@@ -46,7 +46,7 @@ const WriterModal = ({ setOpenModal }) => {
     if (
       review != '' &&
       rating > 0 &&
-      tagArray.length == 3 &&
+      tagArray.length <= 3 &&
       tagArray[0] != ''
     ) {
       setSent(true);

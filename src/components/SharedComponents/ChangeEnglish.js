@@ -1,10 +1,10 @@
 function ChangeEnglish({ text }) {
   
   var dicText = {
-    Salad: '샐러드',
-    Yogurt: '그릭요거트',
-    Milk: '우유',
-    FriedRice: '볶음밥',
+    salad: '샐러드',
+    yogurt: '그릭요거트',
+    milk: '우유',
+    friedRice: '볶음밥',
   };
 
   return dicText[text];
