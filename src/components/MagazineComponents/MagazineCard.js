@@ -2,12 +2,11 @@ import React from 'react';
 import BrandStory from '../../assets/MagazinePageAssets/brandStory.png';
 import styled from 'styled-components';
 import { color } from '../../lib/theme';
-
 const MagazineCard = ({ title, text, tag, image }) => {
   return (
     <>
       <CardContainer>
-        <Image src={BrandStory} />
+        <Image src={image} />
         <ChipWrapper>
           <Chip># {tag[0]}</Chip>
           <Chip># {tag[1]}</Chip>

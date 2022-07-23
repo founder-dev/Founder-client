@@ -8,6 +8,8 @@ import Tag from '../components/Tag';
 import data from '../assets/Magazinedata.json';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import curation from '../assets/MagazinePageAssets/curation.png';
+import BrandStory from '../assets/MagazinePageAssets/brandStory.png';
 
 const MagazinePage = () => {
   const magazineData = [];
@@ -50,7 +52,7 @@ const MagazinePage = () => {
                   title={title}
                   text={intro_content}
                   tag={tag_arr}
-                  image={main_img}
+                  image={BrandStory}
                   key={i}
                 />
               </Link>
@@ -64,7 +66,7 @@ const MagazinePage = () => {
                 title={title}
                 text={intro_content}
                 tag={tag_arr}
-                image={main_img}
+                image={curation}
                 key={i}
               />
             ))}
