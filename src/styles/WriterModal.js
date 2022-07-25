@@ -29,11 +29,11 @@ const WriterModal = ({ setOpenModal }) => {
 
   const handleSubmit = (e) => {
     const formdata = new FormData();
-    formdata.append('reviewMedia', photo);
+    formdata.append('reviewMedia', photo.splice(1,3));
     formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
-    formdata.append('review_main_img', preview);
+    formdata.append('review_main_img', photo[0]);
     //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
     /* headers: {
     "Content-Type": `multipart/form-data; `,
@@ -41,6 +41,7 @@ const WriterModal = ({ setOpenModal }) => {
   };
 
   console.log(preview);
+  console.log(photo);
 
   useEffect(() => {
     if (

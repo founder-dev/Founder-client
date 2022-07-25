@@ -2,20 +2,14 @@ import styled from 'styled-components';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { PreviewState } from '../../recoil';
 import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
-import { useState } from 'react';
 
 function UploadPhoto({ photo, setPhoto }) {
-
   var PhotoArray = [];
-  Array.prototype.push.apply(PhotoArray, photo);
-  const dataTranster = new DataTransfer();
+  Array.prototype.push.apply(PhotoArray, photo); //배열형식으로 바꿔줌
   const [preview, setPreview] = useRecoilState(PreviewState);
-
-  console.log(PhotoArray);
 
   const uploadPhoto = (e) => {
     setPhoto(e.target.files);
-    console.log(photo);
 
     setPreview((preview) => [
       ...preview,
@@ -37,7 +31,7 @@ function UploadPhoto({ photo, setPhoto }) {
 
   const reUploadPhoto = (num) => (e) => {
     console.log(e.target.files[0]);
-  
+
     setPreview([
       ...preview.slice(0, num),
       URL.createObjectURL(e.target.files[0]),
@@ -49,7 +43,6 @@ function UploadPhoto({ photo, setPhoto }) {
       e.target.files[0],
       ...PhotoArray.slice(num + 1),
     ]);
-
   };
   return (
     <>
