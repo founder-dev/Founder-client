@@ -6,34 +6,56 @@ import Monthly from '../assets/ProductCardAssets/Monthly.png';
 import customSticker from '../assets/ProductCardAssets/customSticker.png';
 import Rated from '../components/StarRating/Rated';
 import { fontWeight, fontsize } from '../lib/theme';
+import { useRecoilState } from 'recoil';
+import { itemHoverState } from '../recoil';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
+  const [itemHover, setItemHover] = useRecoilState(itemHoverState);
   return (
-    <ProductCardContainer>
-      <ImageWrapper>
-        <Image src={itemImage} loading="lazy" />
+    <ProductCardContainer
+      onMouseEnter={() => setItemHover(true)}
+      onMouseLeave={() => setItemHover(false)}
+    >
+      {itemHover ? (
+        <>
+          <Image src={itemImage} loading="lazy" />
+          <HoverInfoContainer>
+            <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
+            <HoverInfoTitle>배송 주기</HoverInfoTitle>
+          </HoverInfoContainer>
+          <HoverInfoContainer marginTop={'2.51px'} width={'239px'}>
+            <HoverInfo>7.07~7.27원</HoverInfo>
+            <HoverInfo>1주/2주/4주/6주/2달</HoverInfo>
+          </HoverInfoContainer>
+        </>
+      ) : (
+        <>
+          <ImageWrapper>
+            <Image src={itemImage} loading="lazy" />
 
-        {schedule === 'Weekly' ? (
-          <>
-            <Sticker src={Weekly} />
-          </>
-        ) : (
-          <>
-            <Sticker src={Monthly} />
-          </>
-        )}
+            {schedule === 'Weekly' ? (
+              <>
+                <Sticker src={Weekly} />
+              </>
+            ) : (
+              <>
+                <Sticker src={Monthly} />
+              </>
+            )}
 
-        {custom ? (
-          <>
-            <CustomSticker src={customSticker} />
-          </>
-        ) : null}
-      </ImageWrapper>
-      <ProductCardTitle>{itemName}</ProductCardTitle>
-      <PriceRatingWrapper>
-        <Price>{price}</Price>
-        <Rated rating={rating} />
-      </PriceRatingWrapper>
+            {custom ? (
+              <>
+                <CustomSticker src={customSticker} />
+              </>
+            ) : null}
+          </ImageWrapper>
+          <ProductCardTitle>{itemName}</ProductCardTitle>
+          <PriceRatingWrapper>
+            <Price>{price}</Price>
+            <Rated rating={rating} />
+          </PriceRatingWrapper>
+        </>
+      )}
     </ProductCardContainer>
   );
 };
@@ -92,4 +114,27 @@ const Price = styled.div`
   font-style: normal;
   font-weight: ${fontWeight[2]};
   font-size: ${fontsize[3]};
+`;
+
+const HoverInfoContainer = styled.div`
+  margin-top: ${(props) => props.marginTop || '5.38px'};
+  margin-left: 21.51px;
+  width: ${(props) => props.width || '146px'};
+  display: flex;
+  justify-content: space-between;
+`;
+
+const HoverInfoTitle = styled.text`
+  font-style: normal;
+  font-weight: 500;
+  font-size: 10.7532px;
+  line-height: 18px;
+  color: #888888;
+`;
+
+const HoverInfo = styled.text`
+  font-weight: 500;
+  font-size: 15.3617px;
+  line-height: 28px;
+  color: #272727;
 `;
