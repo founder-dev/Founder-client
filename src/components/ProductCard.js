@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import itemImage from '../assets/ProductCardAssets/itemImage.png';
 import Weekly from '../assets/ProductCardAssets/Weekly.png';
@@ -6,18 +6,17 @@ import Monthly from '../assets/ProductCardAssets/Monthly.png';
 import customSticker from '../assets/ProductCardAssets/customSticker.png';
 import Rated from '../components/StarRating/Rated';
 import { fontWeight, fontsize } from '../lib/theme';
-import { useRecoilState } from 'recoil';
-import { itemHoverState } from '../recoil';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
-  const [itemHover, setItemHover] = useRecoilState(itemHoverState);
+  
+  const [itemHover, setItemHover] = useState(false);
   return (
     <ProductCardContainer
       onMouseEnter={() => setItemHover(true)}
       onMouseLeave={() => setItemHover(false)}
     >
       {itemHover ? (
-        <>
+    <>
           <Image src={itemImage} loading="lazy" />
           <HoverInfoContainer>
             <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
@@ -29,7 +28,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
           </HoverInfoContainer>
         </>
       ) : (
-        <>
+   <>
           <ImageWrapper>
             <Image src={itemImage} loading="lazy" />
 

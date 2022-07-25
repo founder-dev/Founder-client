@@ -29,7 +29,7 @@ const WriterModal = ({ setOpenModal }) => {
 
   const handleSubmit = (e) => {
     const formdata = new FormData();
-    formdata.append('reviewMedia', photo.splice(1,3));
+    formdata.append('reviewMedia', photo.splice(1,photo.length()));
     formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
