@@ -7,7 +7,9 @@ function KaKaoCode() {
         'https://found-er.co.kr/api/auth/kakao/signin/',
 
         {
-          headers: { 'Access-Control-Allow-Origin': '*' }, // 이래도 안됨ㅋ
+          headers: { 
+            'Access-Control-Allow-Origin': '*' 
+          }, // 이래도 안됨ㅋ
         }
       );
       console.log(response.data);
