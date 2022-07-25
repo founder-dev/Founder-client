@@ -44,11 +44,12 @@ function UploadPhoto({ photo, setPhoto }) {
       ...PhotoArray.slice(num + 1),
     ]);
   };
+
   return (
     <>
       {preview[0] == undefined ? (
         <>
-          <Photo for="uploadPhoto" />
+          <Photo htmlFor="uploadPhoto" />
           <input
             id="uploadPhoto"
             type="file"
@@ -60,11 +61,10 @@ function UploadPhoto({ photo, setPhoto }) {
         </>
       ) : (
         <>
-          <PreviewWrapper>
-            <>
+        <>
               {[0, 1, 2, 3].map((num) => (
-                <>
-                  <PreviewLabel for={num}>
+                <PreviewWrapper key={num}>
+                  <PreviewLabel htmlFor={num}>
                     <Preview photo={preview[num]} />
                   </PreviewLabel>
                   <input
@@ -75,10 +75,9 @@ function UploadPhoto({ photo, setPhoto }) {
                     onChange={reUploadPhoto(num)}
                     style={{ display: 'none' }}
                   />
-                </>
+                </PreviewWrapper>
               ))}
             </>
-          </PreviewWrapper>
         </>
       )}
     </>
