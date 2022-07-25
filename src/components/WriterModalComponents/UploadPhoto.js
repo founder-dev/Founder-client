@@ -6,10 +6,10 @@ import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
 function UploadPhoto({ photo, setPhoto }) {
   const [preview, setPreview] = useRecoilState(PreviewState);
 
-  console.log(preview[0]);
   const uploadPhoto = (e) => {
     setPhoto(e.target.files);
-    console.log(photo);
+    console.log(e.target.files);
+
     setPreview((preview) => [
       ...preview,
       URL.createObjectURL(e.target.files[0]),
@@ -28,6 +28,21 @@ function UploadPhoto({ photo, setPhoto }) {
     ]);
   };
 
+  const reUploadPhoto = (num) => (e) => {
+    setPreview([
+      ...preview.slice(0, num),
+      URL.createObjectURL(e.target.files[0]),
+      ...preview.slice(num + 1),
+    ]);
+
+    setPhoto([
+      ...photo.slice(0, num),
+      e.target.files[0],
+      ...photo.slice(num + 1),
+    ]);
+
+    console.log(photo);
+  };
   return (
     <>
       {preview[0] == undefined ? (
@@ -45,10 +60,23 @@ function UploadPhoto({ photo, setPhoto }) {
       ) : (
         <>
           <PreviewWrapper>
-            <Preview src={preview[0]} />
-            <Preview src={preview[1]} />
-            <Preview src={preview[2]} />
-            <Preview src={preview[3]} />
+            <>
+              {[0, 1, 2, 3].map((num) => (
+                <>
+                  <PreviewLabel for={num}>
+                    <Preview photo={preview[num]} />
+                  </PreviewLabel>
+                  <input
+                    id={num}
+                    type="file"
+                    accept="image/*"
+                    multiple="multiple"
+                    onChange={reUploadPhoto(num)}
+                    style={{ display: 'none' }}
+                  />
+                </>
+              ))}
+            </>
           </PreviewWrapper>
         </>
       )}
@@ -71,8 +99,14 @@ const Photo = styled.label`
 const Preview = styled.img`
   width: 100px;
   height: 100px;
+  background-image: url(${(props) => props.photo});
   margin-right: 10px;
   object-fit: cover;
+`;
+
+const PreviewLabel = styled.label`
+  width: 100px;
+  height: 100px;
 `;
 
 const PreviewWrapper = styled.div`
