@@ -2,11 +2,6 @@ import styled from 'styled-components';
 import LifeStyle from '../assets/SurveyAssets/LifeStyle.png';
 import SurveyIntro from '../assets/SurveyAssets/SurveyIntro.png';
 import { WidthWrapper } from '../components/WidthWrapper';
-import Founder from '../assets/SharedAssets/Founder.png';
-import Custom from '../assets/ProductCardAssets/customSticker3.png';
-import Sticker from '../assets/ProductCardAssets/sticker.png';
-import Custom2 from '../assets/ProductCardAssets/customSticker2.png';
-import FounderModel from '../assets/SignUpAssets/FounderModel.png';
 import { color, fontsize, fontWeight } from '../../src/lib/theme';
 import { Link } from 'react-router-dom';
 

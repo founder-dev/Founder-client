@@ -104,12 +104,13 @@ const Header = styled.div`
   position: fixed;
   width: 100%;
   height: 56px;
-  top: 80px;
+  top: 56px;
   background-color: white;
   z-index: 3;
 `;
 
 const HeaderTitle = styled.div`
+  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;

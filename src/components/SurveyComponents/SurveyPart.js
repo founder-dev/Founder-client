@@ -86,14 +86,14 @@ const AnswerItem = styled.div`
   padding: 12px 16px;
   gap: 8px;
   text-align: center;
-  float:right;
-  display : flex;
-  justify-content : center;
+  float: right;
+  display: flex;
+  justify-content: center;
   background: ${(props) => (props.selected != '' ? color.main[3] : 'white')};
   border-radius: 20px 20px 4px 20px;
 
   font-weight: 400;
-  font-size: 20px
+  font-size: 20px;
   line-height: 32px;
   letter-spacing: -0.354132px;
 `;
