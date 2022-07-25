@@ -17,7 +17,7 @@ import RatingContainer from '../components/WriterModalComponents/RatingContainer
 
 const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
-  const [photo, setPhoto] = useState('');
+  const [photo, setPhoto] = useState();
   const [preview, setPreview] = useRecoilState(PreviewState);
   const [tagLength, setTagLength] = useState(false);
   const [tagArray, setTagArray] = useRecoilState(TagState);
@@ -29,18 +29,19 @@ const WriterModal = ({ setOpenModal }) => {
 
   const handleSubmit = (e) => {
     const formdata = new FormData();
-    formdata.append('reviewMedia', photo);
+    formdata.append('reviewMedia', photo.splice(1,3));
     formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
-    formdata.append('review_main_img', preview);
+    formdata.append('review_main_img', photo[0]);
     //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
     /* headers: {
     "Content-Type": `multipart/form-data; `,
     */
   };
 
-  console.log(rating);
+  console.log(preview);
+  console.log(photo);
 
   useEffect(() => {
     if (

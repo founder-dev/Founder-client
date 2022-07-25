@@ -4,11 +4,12 @@ import { PreviewState } from '../../recoil';
 import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
 
 function UploadPhoto({ photo, setPhoto }) {
+  var PhotoArray = [];
+  Array.prototype.push.apply(PhotoArray, photo); //배열형식으로 바꿔줌
   const [preview, setPreview] = useRecoilState(PreviewState);
 
   const uploadPhoto = (e) => {
     setPhoto(e.target.files);
-    console.log(e.target.files);
 
     setPreview((preview) => [
       ...preview,
@@ -29,6 +30,8 @@ function UploadPhoto({ photo, setPhoto }) {
   };
 
   const reUploadPhoto = (num) => (e) => {
+    console.log(e.target.files[0]);
+
     setPreview([
       ...preview.slice(0, num),
       URL.createObjectURL(e.target.files[0]),
@@ -36,18 +39,17 @@ function UploadPhoto({ photo, setPhoto }) {
     ]);
 
     setPhoto([
-      ...photo.slice(0, num),
+      ...PhotoArray.slice(0, num),
       e.target.files[0],
-      ...photo.slice(num + 1),
+      ...PhotoArray.slice(num + 1),
     ]);
-
-    console.log(photo);
   };
+
   return (
     <>
       {preview[0] == undefined ? (
         <>
-          <Photo for="uploadPhoto" />
+          <Photo htmlFor="uploadPhoto" />
           <input
             id="uploadPhoto"
             type="file"
@@ -59,11 +61,10 @@ function UploadPhoto({ photo, setPhoto }) {
         </>
       ) : (
         <>
-          <PreviewWrapper>
-            <>
+        <>
               {[0, 1, 2, 3].map((num) => (
-                <>
-                  <PreviewLabel for={num}>
+                <PreviewWrapper key={num}>
+                  <PreviewLabel htmlFor={num}>
                     <Preview photo={preview[num]} />
                   </PreviewLabel>
                   <input
@@ -74,10 +75,9 @@ function UploadPhoto({ photo, setPhoto }) {
                     onChange={reUploadPhoto(num)}
                     style={{ display: 'none' }}
                   />
-                </>
+                </PreviewWrapper>
               ))}
             </>
-          </PreviewWrapper>
         </>
       )}
     </>
