@@ -6,13 +6,9 @@ import Monthly from '../assets/ProductCardAssets/Monthly.png';
 import customSticker from '../assets/ProductCardAssets/customSticker.png';
 import Rated from '../components/StarRating/Rated';
 import { fontWeight, fontsize } from '../lib/theme';
-import { useRecoilState } from 'recoil';
-import { itemHoverState } from '../recoil';
-import { useRef } from 'react';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   
-  const hoverRef = useRef();
   const [itemHover, setItemHover] = useState(false);
   return (
     <ProductCardContainer
