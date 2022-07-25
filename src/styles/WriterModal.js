@@ -17,7 +17,7 @@ import RatingContainer from '../components/WriterModalComponents/RatingContainer
 
 const WriterModal = ({ setOpenModal }) => {
   const [review, setReview] = useState('');
-  const [photo, setPhoto] = useState('');
+  const [photo, setPhoto] = useState();
   const [preview, setPreview] = useRecoilState(PreviewState);
   const [tagLength, setTagLength] = useState(false);
   const [tagArray, setTagArray] = useRecoilState(TagState);
@@ -40,7 +40,7 @@ const WriterModal = ({ setOpenModal }) => {
     */
   };
 
-  console.log(rating);
+  console.log(preview);
 
   useEffect(() => {
     if (

@@ -20,7 +20,7 @@ const RatingContainer = ({
   return (
     <StarContainer>
       <StarRating>
-        {[1, 2, 3, 4, 5].map((index) => {
+        {[1, 2, 3, 4, 5].map((index) => { //rating의 경우 배열의 순서가 불변하므로 따로 key를 주지 않음.
           return (
             <Rating
               index={index}

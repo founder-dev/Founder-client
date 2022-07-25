@@ -2,13 +2,20 @@ import styled from 'styled-components';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { PreviewState } from '../../recoil';
 import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
+import { useState } from 'react';
 
 function UploadPhoto({ photo, setPhoto }) {
+
+  var PhotoArray = [];
+  Array.prototype.push.apply(PhotoArray, photo);
+  const dataTranster = new DataTransfer();
   const [preview, setPreview] = useRecoilState(PreviewState);
+
+  console.log(PhotoArray);
 
   const uploadPhoto = (e) => {
     setPhoto(e.target.files);
-    console.log(e.target.files);
+    console.log(photo);
 
     setPreview((preview) => [
       ...preview,
@@ -29,6 +36,8 @@ function UploadPhoto({ photo, setPhoto }) {
   };
 
   const reUploadPhoto = (num) => (e) => {
+    console.log(e.target.files[0]);
+  
     setPreview([
       ...preview.slice(0, num),
       URL.createObjectURL(e.target.files[0]),
@@ -36,12 +45,11 @@ function UploadPhoto({ photo, setPhoto }) {
     ]);
 
     setPhoto([
-      ...photo.slice(0, num),
+      ...PhotoArray.slice(0, num),
       e.target.files[0],
-      ...photo.slice(num + 1),
+      ...PhotoArray.slice(num + 1),
     ]);
 
-    console.log(photo);
   };
   return (
     <>
