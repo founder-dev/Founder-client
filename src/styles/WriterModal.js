@@ -48,7 +48,8 @@ const WriterModal = ({ setOpenModal }) => {
       review != '' &&
       rating > 0 &&
       tagArray.length <= 3 &&
-      tagArray[0] != ''
+      tagArray[0] != '' &&
+      photo != undefined
     ) {
       setSent(true);
     } else {
