@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import BrandCircle from '../assets/BrandCircle.png';
-import Meally from '../assets/Meally.png';
+import BrandCircle from '../../assets/BrandCircle.png';
+import Meally from '../../assets/Meally.png';
 import { Link } from 'react-router-dom';
 
 const BrandCard = ({ brandName }) => {

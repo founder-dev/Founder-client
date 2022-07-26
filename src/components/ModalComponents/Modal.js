@@ -1,6 +1,6 @@
 import React from 'react';
-import SignUpModal from '../styles/SignUpModal';
-import WriterModal from '../styles/WriterModal';
+import SignUpModal from '../../styles/SignUpModal';
+import WriterModal from '../../styles/WriterModal';
 
 function Modal(props) {
   if (props.type === 'SignUpModal') {

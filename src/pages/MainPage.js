@@ -8,7 +8,7 @@ import { useRecoilState } from 'recoil';
 import { loginState, surveyState } from '../recoil';
 import data from '../assets/data.json';
 import ProductCard from '../components/ProductCard';
-import BrandCard from '../components/BrandCard';
+import BrandCard from '../components/SharedComponents/BrandCard';
 import { Container, GridWrapper } from '../components/GridLayout';
 import { Link } from 'react-router-dom';
 

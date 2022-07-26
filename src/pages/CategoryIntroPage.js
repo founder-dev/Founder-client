@@ -9,7 +9,7 @@ import { Container, GridWrapper, SubTitle } from '../components/GridLayout';
 import TitleData from '../assets/CategoryTitle.json';
 import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';
-import BrandCard from '../components/BrandCard';
+import BrandCard from '../components/SharedComponents/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
 import Categorydata from '../assets/CategoryPage.json';
 import Tape from '../assets/CategoryIntroPageAssets/Tape.png';
