@@ -1,8 +1,8 @@
 import React from 'react';
-import PageTitleBar from '../components/PageTitleBar';
-import TopBar from '../components/TopBar';
+import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
+import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
-import ProductCard from '../components/ProductCard';
+import ProductCard from '../components/SharedComponents/ProductCard';
 import data from '../assets/data.json';
 import { Link } from 'react-router-dom';
 import { Container, GridWrapper, SubTitle } from '../components/GridLayout';

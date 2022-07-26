@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import styled from 'styled-components';
-import icon from '../assets/TopBarAssets/icon.png';
-import whiteIcon from '../assets/TopBarAssets/whiteIcon.png';
-import Modal from './ModalComponents/Modal';
-import { loginState, surveyState } from '../recoil';
+import icon from '../../assets/TopBarAssets/icon.png';
+import whiteIcon from '../../assets/TopBarAssets/whiteIcon.png';
+import Modal from '../ModalComponents/Modal';
+import { loginState, surveyState } from '../../recoil';
 
 const TopBarButton = ({ color }) => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState);

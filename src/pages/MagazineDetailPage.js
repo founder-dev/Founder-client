@@ -1,5 +1,5 @@
 import React from 'react';
-import TopBar from '../components/TopBar';
+import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
 import MagazineImage from '../assets/MagazineDetailPageAssets/MagazineImage.png';
 import CurationPhoto from '../assets/MagazineDetailPageAssets/CurationPhoto.png';

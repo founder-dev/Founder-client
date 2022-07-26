@@ -1,13 +1,13 @@
 import React, { useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
-import coolicon from '../assets/TopBarAssets/coolicon.png';
-import whiteCoolicon from '../assets/TopBarAssets/whiteCoolicon.png';
+import coolicon from '../../assets/TopBarAssets/coolicon.png';
+import whiteCoolicon from '../../assets/TopBarAssets/whiteCoolicon.png';
 import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
-import { menuOpenState } from '../recoil';
-import { color, fontsize, fontWeight } from '../lib/theme';
+import { menuOpenState } from '../../recoil';
+import { color, fontsize, fontWeight } from '../../lib/theme';
 import { Link } from 'react-router-dom';
-import { loginState } from '../recoil';
+import { loginState } from '../../recoil';
 
 const TopBar = ({ position, opacity, color, main }) => {
   const [menuOpen, setMenuOpen] = useRecoilState(menuOpenState);

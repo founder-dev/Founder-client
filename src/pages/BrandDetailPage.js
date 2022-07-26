@@ -1,4 +1,4 @@
-import TopBar from '../components/TopBar';
+import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
 import background from '../assets/BrandDetailPageAssets/background.png';
 import brandArrow from '../assets/BrandDetailPageAssets/brandArrow.png';

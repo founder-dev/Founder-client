@@ -1,11 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import MagazinePageTitle from '../assets/MagazinePageAssets/MagazinePageTitle.png';
-import MyPageTitle from '../assets/MyPageAssets/MyPage.png';
-import BeverageTitle from '../assets/CategoryIntroPageAssets/Beverage.png';
-import FoodTitle from '../assets/CategoryIntroPageAssets/Food.png';
-import GoodsTitle from '../assets/CategoryIntroPageAssets/Goods.png';
-import HealthTitle from '../assets/CategoryIntroPageAssets/Health.png';
+import MagazinePageTitle from '../../assets/MagazinePageAssets/MagazinePageTitle.png';
+import MyPageTitle from '../../assets/MyPageAssets/MyPage.png';
+import BeverageTitle from '../../assets/CategoryIntroPageAssets/Beverage.png';
+import FoodTitle from '../../assets/CategoryIntroPageAssets/Food.png';
+import GoodsTitle from '../../assets/CategoryIntroPageAssets/Goods.png';
+import HealthTitle from '../../assets/CategoryIntroPageAssets/Health.png';
 
 const PageTitleBar = ({ title }) => {
   if (title === 'Magazine')
