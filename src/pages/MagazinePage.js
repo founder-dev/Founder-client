@@ -1,10 +1,9 @@
 import React from 'react';
-import PageTitleBar from '../components/PageTitleBar';
-import TopBar from '../components/TopBar';
+import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
+import TopBar from '../components/TopBarComponents/TopBar';
 import MagazineCard from '../components/MagazineComponents/MagazineCard';
 import Recommendation from '../components/MagazineComponents/Recommendation';
 import styled from 'styled-components';
-import Tag from '../components/Tag';
 import data from '../assets/Magazinedata.json';
 import { useEffect } from 'react';
 import { Link } from 'react-router-dom';

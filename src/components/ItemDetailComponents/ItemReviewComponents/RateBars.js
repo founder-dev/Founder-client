@@ -59,7 +59,7 @@ const RateBarBackground = styled.div`
 const RateBar = styled.div`
   display: absolute;
 
-  width: 100px;
+  width: ${45/55 * 200}px; //별점수 / 전체 별점 * 200
   height: 4px;
 
   background: #007dfe;

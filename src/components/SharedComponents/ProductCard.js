@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import itemImage from '../assets/ProductCardAssets/itemImage.png';
-import Weekly from '../assets/ProductCardAssets/Weekly.png';
-import Monthly from '../assets/ProductCardAssets/Monthly.png';
-import customSticker from '../assets/ProductCardAssets/customSticker.png';
-import Rated from '../components/StarRating/Rated';
-import { fontWeight, fontsize } from '../lib/theme';
+import itemImage from '../../assets/ProductCardAssets/itemImage.png';
+import Weekly from '../../assets/ProductCardAssets/Weekly.png';
+import Monthly from '../../assets/ProductCardAssets/Monthly.png';
+import customSticker from '../../assets/ProductCardAssets/customSticker.png';
+import Rated from '../StarRating/Rated';
+import { fontWeight, fontsize } from '../../lib/theme';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   

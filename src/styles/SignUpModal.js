@@ -3,7 +3,7 @@ import Close from '../assets/SignUpAssets/CloseButton.png';
 import KaKaoLogin from '../assets/SignUpAssets/KaKaoLogin.png';
 import Founder from '../assets/SharedAssets/Founder.png';
 import KaKaoCode from '../components/KakaoCode';
-import { Container, Background } from '../components/ModalDesign';
+import { Container, Background } from '../components/ModalComponents/ModalDesign';
 import { ModalBlock, Wrapper, Contents, Logo,
    Text, LoginButton, Guide,CloseButton } from '../components/SignUpPageComponents/SignUpModalPresenter';
 

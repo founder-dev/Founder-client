@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Modal from '../components/Modal';
-import TopBar from '../components/TopBar';
+import Modal from '../components/ModalComponents/Modal';
+import TopBar from '../components/TopBarComponents/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
 import { useParams } from 'react-router-dom';
@@ -53,7 +53,7 @@ const ItemDetailPage = () => {
       <TopBar />
       <WidthWrapper>
         <Wrapper>
-          <ItemDetailCategory text={title} product={product}/>
+          <ItemDetailCategory title={title} product={product}/>
           <ItemWrapper>
             <StickerdImage>
               <Img src={ItemImage} />

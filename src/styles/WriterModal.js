@@ -7,7 +7,7 @@ import { color, fontsize, fontWeight } from '../lib/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
 import { useRecoilState } from 'recoil';
 import { TagState, PreviewState } from '../recoil';
-import { Container, Background } from '../components/ModalDesign';
+import { Container, Background } from '../components/ModalComponents/ModalDesign';
 import InputText from '../components/WriterModalComponents/InputText';
 import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
 import Check from '../assets/ItemDetailPageAssets/CheckRate.png';

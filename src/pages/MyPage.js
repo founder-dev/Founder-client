@@ -1,5 +1,5 @@
-import TopBar from '../components/TopBar';
-import PageTitleBar from '../components/PageTitleBar';
+import TopBar from '../components/TopBarComponents/TopBar';
+import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import styled from 'styled-components';
 import { useState } from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';

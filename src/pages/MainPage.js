@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import FounderLogo from '../assets/MainPageAssets/logo.png';
 import Banner from '../components/MainPageComponents/Banner';
 import styled from 'styled-components';
-import TopBar from '../components/TopBar';
+import TopBar from '../components/TopBarComponents/TopBar';
 import { Logo } from '../components/FounderLogo';
 import { useRecoilState } from 'recoil';
 import { loginState, surveyState } from '../recoil';
 import data from '../assets/data.json';
-import ProductCard from '../components/ProductCard';
-import BrandCard from '../components/BrandCard';
+import ProductCard from '../components/SharedComponents/ProductCard';
+import BrandCard from '../components/SharedComponents/BrandCard';
 import { Container, GridWrapper } from '../components/GridLayout';
 import { Link } from 'react-router-dom';
 
