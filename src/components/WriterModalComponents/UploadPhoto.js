@@ -102,6 +102,8 @@ const Preview = styled.img`
   background-image: url(${(props) => props.photo});
   margin-right: 10px;
   object-fit: cover;
+
+  cursor: pointer;
 `;
 
 const PreviewLabel = styled.label`
