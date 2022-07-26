@@ -89,14 +89,12 @@ const DateWriterWrapper = styled.div`
   height: 40.44px;
 `;
 const Date = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: ${color.grey[4]};
 `;
 
 const Writer = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: ${color.grey[5]};
@@ -137,9 +135,7 @@ const Tag = styled.div`
 const ReviewPreview = styled.div`
   width: 333.9px;
   height: ${(props) => props.sizes.reviewHeight};
-
-  font-family: 'Pretendard';
-  font-style: normal;
+  
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;
@@ -150,4 +146,5 @@ const ReviewPreview = styled.div`
 
 const MoreButton = styled.img`
   margin-left: 10.71px;
+  cursor: pointer;
 `;
