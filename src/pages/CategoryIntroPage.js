@@ -52,7 +52,7 @@ const CategoryIntroPage = ({ title }) => {
                         delivery_cycle_main,
                         product_main_img,
                       }) => (
-                        <Link to={`/itemdetail`}>
+                        <Link to={`/itemdetail/${title}/${type_name}`}>
                           <ProductCard
                             itemName={product_name}
                             price={std_price}

@@ -41,7 +41,7 @@ const MainPage = () => {
                             { itemName, price, rating, custom, schedule },
                             i
                           ) => (
-                            <Link to={`/itemdetail`}>
+                            <Link to={`/itemdetail/Food/itemName`}>
                               <ProductCard
                                 itemName={itemName}
                                 price={price}

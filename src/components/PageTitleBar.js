@@ -14,25 +14,25 @@ const PageTitleBar = ({ title }) => {
         <img src={MagazinePageTitle} />
       </Container>
     );
-  else if (title === 'Food')
+  else if (title === 'food')
     return (
       <Container>
         <img src={FoodTitle} />
       </Container>
     );
-  else if (title === 'Health')
+  else if (title === 'health')
     return (
       <Container>
         <img src={HealthTitle} />
       </Container>
     );
-  else if (title === 'Beverage')
+  else if (title === 'beverage')
     return (
       <Container>
         <img src={BeverageTitle} />
       </Container>
     );
-  else if (title === 'Goods')
+  else if (title === 'goods')
     return (
       <Container>
         <img src={GoodsTitle} />
