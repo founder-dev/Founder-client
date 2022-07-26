@@ -4,7 +4,7 @@ import Modal from '../components/Modal';
 import TopBar from '../components/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
-
+import { useParams } from 'react-router-dom';
 import ArrowWhite from '../assets/ItemDetailPageAssets/ArrowWhite.png';
 import { WidthWrapper } from '../components/WidthWrapper';
 import {
@@ -27,6 +27,9 @@ import Item from '../components/ItemDetailComponents/Item';
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const itemData = [];
+  const params = useParams();
+  const title = params.title;
+  const product = params.product;
   const [isSelected, setIsSelected] = useState(true);
   /*
   /*useEffect(() => {
@@ -44,12 +47,13 @@ const ItemDetailPage = () => {
   }, []); 
   {itemData.product_name} //이런식으로 사용
   */
+
   return (
     <>
       <TopBar />
       <WidthWrapper>
         <Wrapper>
-          <ItemDetailCategory />
+          <ItemDetailCategory text={title} product={product}/>
           <ItemWrapper>
             <StickerdImage>
               <Img src={ItemImage} />

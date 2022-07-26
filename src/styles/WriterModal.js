@@ -48,7 +48,8 @@ const WriterModal = ({ setOpenModal }) => {
       review != '' &&
       rating > 0 &&
       tagArray.length <= 3 &&
-      tagArray[0] != ''
+      tagArray[0] != '' &&
+      photo != undefined
     ) {
       setSent(true);
     } else {
@@ -72,11 +73,12 @@ const WriterModal = ({ setOpenModal }) => {
 
         <Title>후기 작성하기</Title>
         <Instruction
-          weight={700}
+          weight={500}
           margin={'46px 0px 0px 61px '}
           color={(34, 34, 34, 1)}
         >
           제품 사진을 촬영/업로드해 주세요.
+          <Essential>*필수</Essential>
         </Instruction>
         <form>
           <ItemBoxWrapper>
@@ -313,4 +315,10 @@ const CheckButton = styled.img`
   padding-left: 8px;
   width: 20px;
   height: 19.2px;
+`;
+
+const Essential = styled.span`
+  font-size: 16px;
+  color: #FF3F3F;
+  padding-left: 8px;
 `;

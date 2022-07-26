@@ -22,18 +22,21 @@ function App() {
         <Route path="/magazinepage" element={<MagazinePage />} />
         <Route path="/surveyintropage" element={<SurveyIntroPage />} />
         <Route path="/surveypage" element={<SurveyPage />} />
-        <Route path="/food" element={<CategoryIntroPage title={'Food'} />} />
+        <Route path="/food" element={<CategoryIntroPage title={'food'} />} />
         <Route
           path="/beverage"
-          element={<CategoryIntroPage title={'Beverage'} />}
+          element={<CategoryIntroPage title={'beverage'} />}
         />
         <Route
           path="/health"
-          element={<CategoryIntroPage title={'Health'} />}
+          element={<CategoryIntroPage title={'health'} />}
         />
-        <Route path="/goods" element={<CategoryIntroPage title={'Goods'} />} />
+        <Route path="/goods" element={<CategoryIntroPage title={'goods'} />} />
         <Route path="/brandstory" element={<MagazineDetailPage />} />
-        <Route path="/itemdetail" element={<ItemDetailPage />} />
+        <Route
+          path="/itemdetail/:title/:product"
+          element={<ItemDetailPage />}
+        />
         <Route path="/branddetail" element={<BrandDetailPage />} />
       </Routes>
     </>

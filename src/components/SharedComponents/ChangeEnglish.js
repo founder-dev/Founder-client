@@ -24,7 +24,11 @@ function ChangeEnglish({ text }) {
     'skin-care-pack': '스킨케어팩',
     'care-pack': '케어팩',
     'collagen': '콜라겐',
-    'protein': '프로틴'
+    'protein': '프로틴',
+    'food': '식품',
+    'beverage': '음료',
+    'goods': '생필품',
+    'health': '건강'
   };
 
   return dicText[text];
