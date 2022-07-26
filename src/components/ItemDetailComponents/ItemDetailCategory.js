@@ -9,6 +9,7 @@ import useChangeKorean from '../../hooks/useChangeKorean';
 const ItemDetailCategory = ({ title, product, data }) => {
   var titleKorean = useChangeKorean(title);
   var titleProduct = useChangeKorean(product);
+  
   return (
     <>
       <CategoryWrapper>
