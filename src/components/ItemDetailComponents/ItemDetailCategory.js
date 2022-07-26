@@ -4,19 +4,19 @@ import {
   CategoryWrapper,
 } from './ItemDetailPresenter';
 import { Link } from 'react-router-dom';
-import ChangeEnglish from '../SharedComponents/ChangeEnglish';
+import useChangeKorean from '../../hooks/useChangeKorean';
 
-const ItemDetailCategory = ({ text, product, data }) => {
-  var titleKorean = ChangeEnglish(text={text});
-  var titleProduct = ChangeEnglish(text={product});
+const ItemDetailCategory = ({ title, product, data }) => {
+  var titleKorean = useChangeKorean(title);
+  var titleProduct = useChangeKorean(product);
   return (
     <>
       <CategoryWrapper>
-        <Link to={`/${text}`}>
+        <Link to={`/${title}`}>
           <HigherCategory>{titleKorean}</HigherCategory>
         </Link>
         <HigherCategory>{'>'}</HigherCategory>
-        <HigherCategory>{product}</HigherCategory>
+        <HigherCategory>{titleProduct}</HigherCategory>
         <HigherCategory>{'>'}</HigherCategory>
         <Category>룩트 그릭 요거트</Category>
       </CategoryWrapper>

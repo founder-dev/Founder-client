@@ -53,7 +53,7 @@ const ItemDetailPage = () => {
       <TopBar />
       <WidthWrapper>
         <Wrapper>
-          <ItemDetailCategory text={title} product={product}/>
+          <ItemDetailCategory title={title} product={product}/>
           <ItemWrapper>
             <StickerdImage>
               <Img src={ItemImage} />
