@@ -52,7 +52,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
           </ImageWrapper>
           <ProductCardTitle>{itemName}</ProductCardTitle>
           <PriceRatingWrapper>
-            <Price>{price}</Price>
+            <Price>{price} 원</Price>
             <Rated rating={rating} />
           </PriceRatingWrapper>
         </>
