@@ -15,7 +15,26 @@ import InputText from '../components/WriterModalComponents/InputText';
 import UploadPhoto from '../components/WriterModalComponents/UploadPhoto';
 import Check from '../assets/ItemDetailPageAssets/CheckRate.png';
 import Warning from '../assets/ItemDetailPageAssets/Warning.png';
-import { Instruction } from '../components/WriterModalComponents/WriterModalPresenter';
+import {
+  ModalBlock,
+  ScheduleSticker,
+  CustomSticker,
+  Title,
+  CancleImg,
+  ItemBoxWrapper,
+  ItemBox,
+  DetailWrapper,
+  ItemName,
+  DetailBox,
+  DetailGray,
+  DetailBlack,
+  LengthText,
+  SubmitButtonWrapper,
+  SubmitButton,
+  CheckButton,
+  Essential,
+  Instruction,
+} from '../components/WriterModalComponents/WriterModalPresenter';
 import RatingContainer from '../components/WriterModalComponents/RatingContainer';
 
 const WriterModal = ({ setOpenModal }) => {
@@ -158,170 +177,3 @@ const WriterModal = ({ setOpenModal }) => {
 };
 
 export default WriterModal;
-
-const ModalBlock = styled.div`
-  position: absolute;
-  width: 1200px;
-  height: 992px;
-
-  background: #ffffff;
-  box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
-  border-radius: 4px;
-
-  display: flex;
-  flex-direction: column;
-  text-align: left;
-`;
-
-const ScheduleSticker = styled.img`
-  position: absolute;
-  width: 102px;
-  height: 102px;
-  left: 986px;
-  top: 114px;
-`;
-
-const CustomSticker = styled.img`
-  position: absolute;
-  width: 111.96px;
-  height: 50.68px;
-  left: 1040px;
-  top: 190px;
-`;
-
-const Title = styled.div`
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-
-  margin: 38px 0px 0px 61px;
-
-  color: rgba(39, 39, 39, 1);
-`;
-
-const CancleImg = styled.img`
-  position: absolute;
-  top: 42px;
-  right: 71px;
-  bottom: 914px;
-  left: 1093px;
-`;
-
-const ItemBoxWrapper = styled.div`
-  width: 1068px;
-  height: 120px;
-  margin: 11px 71px 0px 61px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const ItemBox = styled.div`
-  width: 534px;
-  height: 104px;
-  padding-top: 32px;
-  padding-left: 32px;
-  border-radius: 4px;
-  background-color: rgba(250, 250, 250, 1);
-`;
-
-const DetailWrapper = styled.div`
-  width: 312px;
-  height: 32px;
-  display: flex;
-  justify-content: space-between;
-`;
-
-const ItemName = styled.div`
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 20px;
-
-  color: rgba(102, 102, 102, 1);
-
-  height: 36px;
-`;
-
-const DetailBox = styled.div`
-  margin-top: 5px;
-  display: flex;
-  height: 32px;
-`;
-
-const DetailGray = styled.div`
-  font-family: 'Pretendard';
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-
-  color: rgba(136, 136, 136, 1);
-
-  margin-right: 12px;
-`;
-
-const DetailBlack = styled.div`
-font-family: 'Pretendard';
-font-style: normal;
-font-weight: 500;
-font-size: 16px;
-
-rgba(102, 102, 102, 1);
-`;
-
-const LengthText = styled.div`
-  position: absolute;
-  width: 119px;
-  height: 24px;
-  left: 1002px;
-
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 24px;
-  text-align: right;
-  color: ${color.grey[4]};
-  ${(props) =>
-    props.top
-      ? css`
-          top: 750px;
-        `
-      : `top:570px;`}
-`;
-
-const SubmitButtonWrapper = styled.div`
-  width: 100%-61px;
-  height: 68px;
-  margin: 39px 31px 0px 31px;
-  display: flex;
-  justify-content: center;
-`;
-
-const SubmitButton = styled.button`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  padding: 16px 108px;
-  gap: 10px;
-  border-radius: 4px;
-  font-size: 20px;
-
-  width: 480px;
-  height: 68px;
-
-  background-color: ${(props) => (props.disabled ? '#FAFAFA' : '#007DFE')};
-  color: ${color.grey[3]};
-  border: none;
-`;
-
-const CheckButton = styled.img`
-  padding-left: 8px;
-  width: 20px;
-  height: 19.2px;
-`;
-
-const Essential = styled.span`
-  font-size: 16px;
-  color: #ff3f3f;
-  padding-left: 8px;
-`;
