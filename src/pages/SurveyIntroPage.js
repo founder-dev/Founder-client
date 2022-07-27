@@ -18,16 +18,16 @@ function SurveyIntroPage() {
         </LogoWrapper>
         <CustomSticker src={Custom} />
         <BlueSticker src={Sticker} rotate="rotate(-15deg)" />
-        <CustomSticker top="412.23px" left="318px" z="3" src={Custom} />
-        <BlueSticker top="355.22px" left="510.79px" src={Sticker} />
+        <CustomSticker top="364px" left="318px" z="3" src={Custom} />
+        <BlueSticker top="355.22px" left="465.24px" src={Sticker} />
         <CustomSticker
           top="688px"
-          left="704.08px"
+          left="688px"
           src={Custom}
           rotate="rotate(15deg)"
         />
         <Person src={FounderModel} />
-        <BlueSticker top="166.6px" left="1251.16px" src={Sticker} />
+        <BlueSticker top="166.6px" left="1205.61px" src={Sticker} />
         <TextContainer>
           <Text>
             파운더는 개인의 선호도를 분석하여 <br />
@@ -80,7 +80,7 @@ const CustomSticker = styled.img`
   width: 186.34px;
   height: 62.11px;
   left: ${(props) => props.left || '112px'};
-  top: ${(props) => props.top || '658.23px'};
+  top: ${(props) => props.top || '610px'};
   z-index: ${(props) => props.z || 1};
   transform: ${(props) => props.rotate || 'rotate(-15deg)'}; ;
 `;
@@ -90,7 +90,7 @@ const BlueSticker = styled.img`
   width: 175.99px;
   height: 175.99px;
   left: ${(props) => props.left || '27px'};
-  top: ${(props) => props.top || '513.55px'};
+  top: ${(props) => props.top || '468px'};
   z-index: 2;
   transform: ${(props) => props.rotate || 'rotate(15deg)'}; ;
 `;
