@@ -1,12 +1,24 @@
-import styled from 'styled-components';
 import LifeStyle from '../assets/SurveyAssets/LifeStyle.png';
 import { WidthWrapper } from '../components/WidthWrapper';
 import Founder from '../assets/SharedAssets/Founder.png';
 import Custom from '../assets/SurveyAssets/Custom.png';
 import Sticker from '../assets/SurveyAssets/Sticker.png';
 import FounderModel from '../assets/SurveyAssets/FounderModel.png';
-import { color, fontsize, fontWeight } from '../../src/lib/theme';
 import { Link } from 'react-router-dom';
+import {
+  Wrapper,
+  Title,
+  LogoWrapper,
+  Logo,
+  CustomSticker,
+  BlueSticker,
+  Person,
+  Text,
+  Text2,
+  BlueText,
+  TextContainer,
+  SurveyGo,
+} from '../components/SurveyComponents/SurveyIntroPresenter.js';
 
 function SurveyIntroPage() {
   return (
@@ -49,105 +61,3 @@ function SurveyIntroPage() {
 }
 
 export default SurveyIntroPage;
-
-const Wrapper = styled.div`
-  display: flex;
-  width: 1440px;
-  flex-direction: column;
-  position: relative;
-  align-items: center;
-`;
-
-const Title = styled.img`
-  width: 1343px;
-  height: 90px;
-  margin: 46px 47px 0px 50px;
-`;
-
-const Logo = styled.img`
-  width: 399.65px;
-  height: 65px;
-`;
-
-const LogoWrapper = styled.div`
-  margin-top: 36.3px;
-  width: 1343px;
-  height: 65px;
-`;
-
-const CustomSticker = styled.img`
-  position: absolute;
-  width: 186.34px;
-  height: 62.11px;
-  left: ${(props) => props.left || '112px'};
-  top: ${(props) => props.top || '610px'};
-  z-index: ${(props) => props.z || 1};
-  transform: ${(props) => props.rotate || 'rotate(-15deg)'}; ;
-`;
-
-const BlueSticker = styled.img`
-  position: absolute;
-  width: 175.99px;
-  height: 175.99px;
-  left: ${(props) => props.left || '27px'};
-  top: ${(props) => props.top || '468px'};
-  z-index: 2;
-  transform: ${(props) => props.rotate || 'rotate(15deg)'}; ;
-`;
-
-const Person = styled.img`
-  position: absolute;
-  width: 684.67px;
-  height: 656.55px;
-  left: 717px;
-  top: 146px;
-`;
-const Text = styled.div`
-  width: 783px;
-  height: 96px;
-  font-weight: 800;
-  font-size: 36px;
-  line-height: 48px;
-  text-align: center;
-`;
-
-const Text2 = styled.div`
-  width: 433px;
-  height: 72px;
-  padding-top: 25px;
-  font-weight: ${fontWeight[0]};
-  font-size: ${fontsize[3]};
-  line-height: 36px;
-  color: ${color.grey[7]};
-  text-align: center;
-`;
-
-const BlueText = styled.span`
-  color: #007dfe;
-`;
-
-const SurveyGo = styled.button`
-  justify-content: center;
-  align-items: center;
-  padding: 16px 108px;
-  gap: 10px;
-  margin-top: 74px;
-  margin-bottom: 240px;
-  background: #383838;
-  border-radius: 4px;
-  font-weight: ${fontWeight[0]};
-  font-size: ${fontsize[3]};
-  line-height: 36px;
-  color: ${color.white};
-  font-family: 'Pretendard';
-  cursor: pointer;
-`;
-
-const TextContainer = styled.div`
-  width: 783px;
-  height: 96px;
-  margin-top: 754.7px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
