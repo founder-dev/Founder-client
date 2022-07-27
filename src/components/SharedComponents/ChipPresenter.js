@@ -1,8 +1,8 @@
 import styled from 'styled-components';
-import { color } from '../../lib/theme';
+import { color } from '../../styles/theme';
 
 export const Chip = styled.span`
-  align-items : center;
+  align-items: center;
   justify-content: center;
   background-color: ${color.grey[1]};
   width: auto;

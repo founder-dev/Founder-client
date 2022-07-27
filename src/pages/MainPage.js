@@ -7,7 +7,10 @@ import { Logo } from '../components/FounderLogo';
 import data from '../assets/json/data.json';
 import ProductCard from '../components/SharedComponents/ProductCard';
 import BrandCard from '../components/SharedComponents/BrandCard';
-import { Container, GridWrapper } from '../components/GridLayout';
+import {
+  Container,
+  GridWrapper,
+} from '../components/SharedComponents/GridLayout';
 import { Link } from 'react-router-dom';
 
 const MainPage = () => {

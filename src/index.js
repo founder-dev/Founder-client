@@ -3,8 +3,8 @@ import App from './App';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-import GlobalStyle from './lib/globalstyle';
-import ScrollToTop from './ScrollToTop';
+import GlobalStyle from './styles/globalstyle';
+import ScrollToTop from './components/SharedComponents/ScrollToTop';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

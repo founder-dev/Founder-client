@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from '../lib/theme';
+import { color } from '../../styles/theme';
 
 export const Container = styled.div`
   padding-left: 260px;

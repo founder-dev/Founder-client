@@ -1,4 +1,4 @@
-import { color, fontsize, fontWeight } from '../../lib/theme';
+import { color, fontsize, fontWeight } from '../../styles/theme';
 import styled, { css } from 'styled-components';
 
 export const Instruction = styled.div`

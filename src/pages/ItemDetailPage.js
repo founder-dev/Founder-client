@@ -19,7 +19,7 @@ import {
   ReviewButton,
   ReviewText,
 } from '../components/ItemDetailComponents/ItemDetailPresenter';
-import { color, fontsize, fontWeight } from '../lib/theme';
+import { color, fontsize, fontWeight } from '../styles/theme';
 import ItemReview from '../components/ItemDetailComponents/ItemReview';
 import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCategory';
 import Item from '../components/ItemDetailComponents/Item';
@@ -53,7 +53,7 @@ const ItemDetailPage = () => {
       <TopBar />
       <WidthWrapper>
         <Wrapper>
-          <ItemDetailCategory title={title} product={product}/>
+          <ItemDetailCategory title={title} product={product} />
           <ItemWrapper>
             <StickerdImage>
               <Img src={ItemImage} />

@@ -5,10 +5,9 @@ import Weekly from '../../assets/ProductCardAssets/Weekly.png';
 import Monthly from '../../assets/ProductCardAssets/Monthly.png';
 import customSticker from '../../assets/ProductCardAssets/customSticker.png';
 import Rated from '../StarRating/Rated';
-import { fontWeight, fontsize } from '../../lib/theme';
+import { fontWeight, fontsize } from '../../styles/theme';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
-  
   const [itemHover, setItemHover] = useState(false);
   return (
     <ProductCardContainer
@@ -16,7 +15,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
       onMouseLeave={() => setItemHover(false)}
     >
       {itemHover ? (
-    <>
+        <>
           <Image src={itemImage} loading="lazy" />
           <HoverInfoContainer>
             <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
@@ -28,7 +27,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
           </HoverInfoContainer>
         </>
       ) : (
-   <>
+        <>
           <ImageWrapper>
             <Image src={itemImage} loading="lazy" />
 

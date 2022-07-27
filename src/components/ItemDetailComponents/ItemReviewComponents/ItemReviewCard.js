@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Review from '../../../assets/json/Review.json';
-import { color } from '../../../lib/theme';
+import { color } from '../../../styles/theme';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 

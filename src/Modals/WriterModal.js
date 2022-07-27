@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import CancleButtonImage from '../assets/ItemDetailPageAssets/CancleButtonImage.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
-import { color, fontsize, fontWeight } from './theme';
+import { color, fontsize, fontWeight } from '../styles/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
 import { useRecoilState } from 'recoil';
 import { TagState, PreviewState } from '../recoil';

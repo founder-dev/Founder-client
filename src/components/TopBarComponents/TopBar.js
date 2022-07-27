@@ -5,7 +5,7 @@ import whiteCoolicon from '../../assets/TopBarAssets/whiteCoolicon.png';
 import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../../recoil';
-import { color, fontsize, fontWeight } from '../../lib/theme';
+import { color, fontsize, fontWeight } from '../../styles/theme';
 import { Link } from 'react-router-dom';
 import { loginState } from '../../recoil';
 

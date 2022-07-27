@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Surveydata from '../../assets/json/Survey.json';
 import answerValue from '../../assets/json/answerValue.json';
-import { color, fontWeight, fontsize } from '../../lib/theme';
+import { color, fontWeight, fontsize } from '../../styles/theme';
 import { useRef, useCallback } from 'react';
 
 const SurveyPart = ({ selected, selectAnswer, Question, beforeQuestion }) => {

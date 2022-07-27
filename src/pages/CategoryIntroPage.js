@@ -5,7 +5,11 @@ import styled from 'styled-components';
 import ProductCard from '../components/SharedComponents/ProductCard';
 import data from '../assets/json/data.json';
 import { Link } from 'react-router-dom';
-import { Container, GridWrapper, SubTitle } from '../components/GridLayout';
+import {
+  Container,
+  GridWrapper,
+  SubTitle,
+} from '../components/SharedComponents/GridLayout';
 import TitleData from '../assets/json/CategoryTitle.json';
 import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';

@@ -1,26 +1,23 @@
-import styled from "styled-components";
-import { color } from "../../lib/theme";
+import styled from 'styled-components';
+import { color } from '../../styles/theme';
 
-function InputText({review , setReview}){
-  
-  
-    const inputReview = (e) => {
-        setReview(e.target.value);
-        console.log(review);
-      };
+function InputText({ review, setReview }) {
+  const inputReview = (e) => {
+    setReview(e.target.value);
+    console.log(review);
+  };
 
-    
-    return(
+  return (
     <>
-    <InputReview
-    type="text"
-    value={review}
-    onChange={inputReview}
-    maxLength="300"
-    size="100"
-    />
+      <InputReview
+        type="text"
+        value={review}
+        onChange={inputReview}
+        maxLength="300"
+        size="100"
+      />
     </>
-  )
+  );
 }
 
 export default InputText;

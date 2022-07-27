@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import background from '../assets/BrandDetailPageAssets/background.png';
 import brandArrow from '../assets/BrandDetailPageAssets/brandArrow.png';
 import { WidthWrapper } from '../components/WidthWrapper';
-import { color, fontWeight, fontsize } from '../lib/theme';
+import { color, fontWeight, fontsize } from '../styles/theme';
 
 const BrandDetailPage = () => {
   return (

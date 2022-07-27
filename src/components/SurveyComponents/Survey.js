@@ -4,7 +4,7 @@ import answerSet from '../../assets/json/answerSet.json';
 import answerValue from '../../assets/json/answerValue.json';
 import SurveyPart from './SurveyPart';
 import styled from 'styled-components';
-import { color } from '../../lib/theme';
+import { color } from '../../styles/theme';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';

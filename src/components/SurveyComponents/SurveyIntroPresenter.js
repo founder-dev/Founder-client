@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color, fontsize, fontWeight } from '../../../src/lib/theme';
+import { color, fontsize, fontWeight } from '../../styles/theme';
 
 export const Wrapper = styled.div`
   display: flex;
