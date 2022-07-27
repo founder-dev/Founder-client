@@ -17,18 +17,17 @@ export const CategoryWrapper = styled.div`
 export const HigherCategory = styled.div`
   color: rgba(212, 212, 212, 1);
   font-size: 20px;
-  font-family: 'Pretendard';
   font-weight: 500;
   margin-right: 11px;
   line-height: 36px;
+  cursor: pointer;
 `;
 
 export const Category = styled.div`
-color:rgba(0, 0, 0, 1)
-font-size: 20px;
-font-family: 'Pretendard';
-font-weight: 500;
-line-height: 36px;
+  color:rgba(0, 0, 0, 1)
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 36px;
 `;
 
 export const ItemWrapper = styled.div`
