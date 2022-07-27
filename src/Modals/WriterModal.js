@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import styled, { css } from 'styled-components';
 import Custom from '../assets/ItemDetailPageAssets/Custom.png';
 import CancleButtonImage from '../assets/ItemDetailPageAssets/CancleButtonImage.png';
 import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
-import { color, fontsize, fontWeight } from '../styles/theme';
 import TagSelect from '../components/WriterModalComponents/TagSelect';
 import { useRecoilState } from 'recoil';
 import { TagState, PreviewState } from '../recoil';
@@ -67,11 +65,11 @@ const WriterModal = ({ setOpenModal }) => {
 
   useEffect(() => {
     if (
-      review != '' &&
+      review !== '' &&
       rating > 0 &&
       tagArray.length <= 3 &&
-      tagArray[0] != '' &&
-      photo != undefined
+      tagArray[0] !== '' &&
+      photo !== undefined
     ) {
       setSent(true);
     } else {
@@ -123,10 +121,10 @@ const WriterModal = ({ setOpenModal }) => {
           <Instruction
             weight={500}
             margin={'48px 0px 0px 61px'}
-            color={rating == 0 ? '(34,34,34,1)' : '#007DFE'}
+            color={rating === 0 ? '(34,34,34,1)' : '#007DFE'}
           >
             구독 서비스의 총 별점을 남겨주세요.
-            {rating == 0 ? null : <CheckButton src={Check} />}
+            {rating === 0 ? null : <CheckButton src={Check} />}
           </Instruction>
 
           <RatingContainer
