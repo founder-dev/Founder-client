@@ -16,7 +16,9 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
     >
       {itemHover ? (
         <>
-          <Image src={itemImage} loading="lazy" />
+          <ImageContainer>
+            <Image src={itemImage} loading="lazy" />
+          </ImageContainer>
           <HoverInfoContainer>
             <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
             <HoverInfoTitle>배송 주기</HoverInfoTitle>
@@ -29,8 +31,9 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
       ) : (
         <>
           <ImageWrapper>
-            <Image src={itemImage} loading="lazy" />
-
+            <ImageContainer>
+              <Image src={itemImage} loading="lazy" />
+            </ImageContainer>
             {schedule === 'Weekly' ? (
               <>
                 <Sticker src={Weekly} />
@@ -49,7 +52,7 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
           </ImageWrapper>
           <ProductCardTitle>{itemName}</ProductCardTitle>
           <PriceRatingWrapper>
-            <Price>{price}</Price>
+            <Price>{price} 원</Price>
             <Rated rating={rating} />
           </PriceRatingWrapper>
         </>
@@ -67,10 +70,16 @@ const ProductCardContainer = styled.div`
   height: 370px;
 `;
 
-const Image = styled.img`
-  margin-top: 12px;
+const ImageContainer = styled.div`
   width: 288px;
   height: 276px;
+`;
+const Image = styled.img`
+  width: 250px;
+  height: 240px;
+  display: block;
+  margin: 0px auto;
+  padding-top: 20px;
 `;
 
 const ImageWrapper = styled.div`

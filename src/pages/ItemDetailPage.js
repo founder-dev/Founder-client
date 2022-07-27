@@ -23,6 +23,7 @@ import { color, fontsize, fontWeight } from '../styles/theme';
 import ItemReview from '../components/ItemDetailComponents/ItemReview';
 import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCategory';
 import Item from '../components/ItemDetailComponents/Item';
+import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -85,6 +86,7 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
+          <BrandMovingButton top="0px" left="260px" />
           <MenuBarContainer>
             <MenuBar
               onClick={() => setIsSelected(!isSelected)}
