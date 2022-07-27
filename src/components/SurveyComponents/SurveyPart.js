@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Surveydata from '../../assets/Survey.json';
-import answerValue from '../../assets/answerValue.json';
+import Surveydata from '../../assets/json/Survey.json';
+import answerValue from '../../assets/json/answerValue.json';
 import { color, fontWeight, fontsize } from '../../lib/theme';
 import { useRef, useCallback } from 'react';
 

@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import Surveydata from '../../assets/Survey.json';
-import answerSet from '../../assets/answerSet.json';
-import answerValue from '../../assets/answerValue.json';
+import Surveydata from '../../assets/json/Survey.json';
+import answerSet from '../../assets/json/answerSet.json';
+import answerValue from '../../assets/json/answerValue.json';
 import SurveyPart from './SurveyPart';
 import styled from 'styled-components';
 import { color } from '../../lib/theme';

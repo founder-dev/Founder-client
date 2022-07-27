@@ -1,12 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FounderLogo from '../assets/MainPageAssets/logo.png';
 import Banner from '../components/MainPageComponents/Banner';
 import styled from 'styled-components';
 import TopBar from '../components/TopBarComponents/TopBar';
 import { Logo } from '../components/FounderLogo';
-import { useRecoilState } from 'recoil';
-import { loginState, surveyState } from '../recoil';
-import data from '../assets/data.json';
+import data from '../assets/json/data.json';
 import ProductCard from '../components/SharedComponents/ProductCard';
 import BrandCard from '../components/SharedComponents/BrandCard';
 import { Container, GridWrapper } from '../components/GridLayout';

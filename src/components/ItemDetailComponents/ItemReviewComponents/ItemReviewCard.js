@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Review from '../../../assets/Review.json';
+import Review from '../../../assets/json/Review.json';
 import { color } from '../../../lib/theme';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
@@ -135,7 +135,7 @@ const Tag = styled.div`
 const ReviewPreview = styled.div`
   width: 333.9px;
   height: ${(props) => props.sizes.reviewHeight};
-  
+
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;

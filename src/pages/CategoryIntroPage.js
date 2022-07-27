@@ -3,15 +3,15 @@ import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
 import ProductCard from '../components/SharedComponents/ProductCard';
-import data from '../assets/data.json';
+import data from '../assets/json/data.json';
 import { Link } from 'react-router-dom';
 import { Container, GridWrapper, SubTitle } from '../components/GridLayout';
-import TitleData from '../assets/CategoryTitle.json';
+import TitleData from '../assets/json/CategoryTitle.json';
 import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';
 import BrandCard from '../components/SharedComponents/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
-import Categorydata from '../assets/CategoryPage.json';
+import Categorydata from '../assets/json/CategoryPage.json';
 import Tape from '../assets/CategoryIntroPageAssets/Tape.png';
 
 const CategoryIntroPage = ({ title }) => {
