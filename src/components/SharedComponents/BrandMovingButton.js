@@ -2,9 +2,9 @@ import styled from 'styled-components';
 import Arrow from '../../assets/MagazineDetailPageAssets/Arrow.png';
 import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
 
-const BrandMovingButton = () => {
+const BrandMovingButton = ({ top, left }) => {
   return (
-    <BrandHome>
+    <BrandHome top={top} left={left}>
       <BrandInfoWrapper>
         <BrandLogo src={Logo} />
         <TextWrapper>
@@ -27,17 +27,21 @@ export default BrandMovingButton;
 
 const BrandHome = styled.div`
   position: relative;
-  width: 1200px;
-  height: 132px;
+  width: 920px;
+  height: 100px;
 
-  margin-top: 80px;
-  margin-bottom: 156px;
+  margin-top: ${(props) => props.top || '80px'};
+  margin-bottom: 136px;
 
   background: #fafafa;
   border-radius: 4px;
 
   display: flex;
   justify-content: space-between;
+  margin-left: ${(props) => props.left || '120px'};
+  margin-right: 260px;
+
+  padding-bottom: 21px;
 `;
 const BrandInfoWrapper = styled.div`
   position: relative;
@@ -47,6 +51,8 @@ const BrandInfoWrapper = styled.div`
 const BrandLogo = styled.img`
   margin: 20px 32px 0px 32px;
   position: absolute;
+  width: 70px;
+  height: 70px;
 `;
 
 const TextWrapper = styled.div`
@@ -58,35 +64,35 @@ const TextWrapper = styled.div`
 
 const BrandName = styled.div`
   font-weight: 700;
-  font-size: 28px;
+  font-size: 20px;
   height: 40px;
   margin-top: 26px;
 `;
 
 const BrandDetail = styled.div`
   font-weight: 500;
-  font-size: 20px;
+  font-size: 14px;
   margin-top: 4px;
-  margin-bottom: 26px;
+  margin-bottom: 30px;
   height: 36px;
 `;
 
 const ButtonText = styled.div`
   font-weight: 500;
-  font-size: 16px;
-  margin: 13px 21.01px 13px 21.1px;
+  font-size: 12px;
+  margin: 13px 21.01px 13px;
 `;
 
 const BrandArrow = styled.img`
-  margin: 15.94px 21.01px 14.83px 30.77px;
+  margin-right: 10px;
 `;
 
 const BrandButton = styled.div`
-  width: 240px;
-  height: 54px;
+  width: 182px;
+  height: 39px;
   position: absolute;
   top: 52px;
-  left: 935px;
+  left: 700px;
   border-radius: 4px;
   border: 1px;
   border-style: solid;
@@ -94,4 +100,6 @@ const BrandButton = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  cursor: pointer;
 `;
