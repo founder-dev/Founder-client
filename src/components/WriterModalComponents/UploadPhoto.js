@@ -69,15 +69,15 @@ function UploadPhoto({ photo, setPhoto }) {
             <PreviewContainer>
               {[0, 1, 2, 3].map((num) => (
                 <>
-                  <PreviewLabel htmlFor={num}>
-                    <PreviewWrapper
-                      onMouseEnter={() => setItemHover(true)}
-                      onMouseLeave={() => setItemHover(false)}
-                    >
+                  <PreviewWrapper
+                    onMouseEnter={() => setItemHover(true)}
+                    onMouseLeave={() => setItemHover(false)}
+                  >
+                    <PreviewLabel htmlFor={num}>
                       <Preview photo={preview[num]} />
                       <TrashCanImg itemHover={itemHover} />
-                    </PreviewWrapper>
-                  </PreviewLabel>
+                    </PreviewLabel>
+                  </PreviewWrapper>
                   <input
                     id={num}
                     type="file"
@@ -122,6 +122,7 @@ const PreviewWrapper = styled.div`
   position: relative;
   object-fit: cover;
   cursor: pointer;
+  margin-right: 12px;
 `;
 
 const TrashCanImg = styled.img`
@@ -144,7 +145,6 @@ const TrashCanImg = styled.img`
 const PreviewLabel = styled.label`
   width: 100px;
   height: 100px;
-  margin-right: 12px;
 `;
 
 const PreviewContainer = styled.div`
@@ -153,4 +153,5 @@ const PreviewContainer = styled.div`
   border: 1px solid #e9e9e9;
   border-radius: 4px;
   padding: 16px 21px 20px 21px;
+  display: flex;
 `;
