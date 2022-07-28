@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { PreviewState } from '../../recoil';
 import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
+import SmallPhotoIcon from '../../assets/ItemDetailPageAssets/SmallPhotoIcon.png';
 import TrashCan from '../../assets/ItemDetailPageAssets/TrashCan.png';
 
 function UploadPhoto({ photo, setPhoto }) {
@@ -110,7 +111,7 @@ const Photo = styled.label`
 const Preview = styled.img`
   width: 100px;
   height: 100px;
-  background-image: url(${(props) => props.photo});
+  background-image: url(${(props) => props.photo || SmallPhotoIcon});
   object-fit: cover;
   cursor: pointer;
 `;
