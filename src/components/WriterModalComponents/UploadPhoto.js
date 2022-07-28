@@ -61,9 +61,10 @@ function UploadPhoto({ photo, setPhoto }) {
         </>
       ) : (
         <>
-        <>
+          <>
+            <PreviewWrapper>
               {[0, 1, 2, 3].map((num) => (
-                <PreviewWrapper key={num}>
+                <>
                   <PreviewLabel htmlFor={num}>
                     <Preview photo={preview[num]} />
                   </PreviewLabel>
@@ -75,9 +76,10 @@ function UploadPhoto({ photo, setPhoto }) {
                     onChange={reUploadPhoto(num)}
                     style={{ display: 'none' }}
                   />
-                </PreviewWrapper>
+                </>
               ))}
-            </>
+            </PreviewWrapper>
+          </>
         </>
       )}
     </>
@@ -100,7 +102,6 @@ const Preview = styled.img`
   width: 100px;
   height: 100px;
   background-image: url(${(props) => props.photo});
-  margin-right: 10px;
   object-fit: cover;
 
   cursor: pointer;
@@ -109,14 +110,14 @@ const Preview = styled.img`
 const PreviewLabel = styled.label`
   width: 100px;
   height: 100px;
+  margin-right: 12px;
 `;
 
 const PreviewWrapper = styled.div`
-  width: 510px;
-  height: 120px;
+  width: 448px;
+  height: 100px;
   border: 1px solid #e9e9e9;
   border-radius: 4px;
-  padding-left: 20px;
-  padding-top: 16px;
-  margin-right: 24px;
+  padding: 16px 21px 20px 21px;
+  display: block;
 `;
