@@ -4,8 +4,11 @@ import ItemReviewCard from '../ItemDetailComponents/ItemReviewComponents/ItemRev
 import Rated from '../StarRating/Rated';
 import RateBars from '../ItemDetailComponents/ItemReviewComponents/RateBars';
 import Slider from './Slider';
+import Review from '../../assets/json/Review.json';
 
 function ItemReview() {
+  const Reviewdata = Review;
+
   return (
     <ItemReviewWrapper>
       <ReviewInfoContainer>
@@ -24,9 +27,17 @@ function ItemReview() {
         </PhotoReviewWrapper>
       </ReviewInfoContainer>
       <ItemReviewCardGrid>
-        <ItemReviewCard />
-        <ItemReviewCard />
-        <ItemReviewCard />
+        {Reviewdata.map(
+          ({id, review_id, review_text, review_tag_arr, create_date}) => (
+            <ItemReviewCard
+              key={id}
+              text={review_text}
+              id={review_id}
+              tag={review_tag_arr}
+              date={create_date}
+            />
+          )
+        )}
       </ItemReviewCardGrid>
     </ItemReviewWrapper>
   );

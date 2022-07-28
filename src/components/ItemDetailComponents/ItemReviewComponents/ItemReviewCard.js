@@ -5,7 +5,10 @@ import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 import { color, fontsize, fontWeight } from '../../../styles/theme';
 
-const ItemReviewCard = () => {
+const ItemReviewCard = ({ text, id, tag, date }) => {
+  const userId = id.slice(0, 3) + '****';
+  const arraytag = tag.split(',');
+
   const [sizes, setSizes] = useState({
     cardHeight: '336.96px',
     reviewHeight: '56px',
@@ -30,20 +33,16 @@ const ItemReviewCard = () => {
     <>
       <CardContainer sizes={sizes}>
         <DateWriterWrapper>
-          <Date>2022.07.16.</Date>
-          <Writer>abc****</Writer>
+          <Date>{date}</Date>
+          <Writer>{userId}</Writer>
         </DateWriterWrapper>
         <Image></Image>
         <TagWrapper>
-          <Tag>고소해요</Tag>
-          <Tag></Tag>
-          <Tag></Tag>
+          <Tag>{arraytag[0]}</Tag>
+          <Tag>{arraytag[1]}</Tag>
+          <Tag>{arraytag[2]}</Tag>
         </TagWrapper>
-        <ReviewPreview sizes={sizes}>
-          늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다... 진짜
-          참아요...늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다...
-          진짜 참아요...
-        </ReviewPreview>
+        <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
         {sizes.reviewHeight == '56px' ? (
           <Writer>
             더보기
