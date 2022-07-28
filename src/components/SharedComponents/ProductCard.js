@@ -9,6 +9,9 @@ import { fontWeight, fontsize } from '../../styles/theme';
 
 const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
   const [itemHover, setItemHover] = useState(false);
+
+  const max = 7.27;
+  const min = 7.07;
   return (
     <ProductCardContainer
       onMouseEnter={() => setItemHover(true)}
@@ -24,7 +27,16 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
             <HoverInfoTitle>배송 주기</HoverInfoTitle>
           </HoverInfoContainer>
           <HoverInfoContainer marginTop={'2.51px'} width={'239px'}>
-            <HoverInfo>7.07~7.27원</HoverInfo>
+            <HoverInfo>
+              {min != 0 ? (
+                <>
+                  <span>{min}</span>
+                  <span>~{max}</span>원
+                </>
+              ) : (
+                <span>N/A</span>
+              )}
+            </HoverInfo>
             <HoverInfo>1주/2주/4주/6주/2달</HoverInfo>
           </HoverInfoContainer>
         </>
