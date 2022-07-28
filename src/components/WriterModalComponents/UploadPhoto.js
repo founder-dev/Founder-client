@@ -1,8 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import React, { useState } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { PreviewState } from '../../recoil';
 import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
 
+import PreviewPresenter from './PreviewPresenter';
 function UploadPhoto({ photo, setPhoto }) {
   var PhotoArray = [];
   Array.prototype.push.apply(PhotoArray, photo); //배열형식으로 바꿔줌
@@ -30,8 +32,6 @@ function UploadPhoto({ photo, setPhoto }) {
   };
 
   const reUploadPhoto = (num) => (e) => {
-    console.log(e.target.files[0]);
-
     setPreview([
       ...preview.slice(0, num),
       URL.createObjectURL(e.target.files[0]),
@@ -61,12 +61,12 @@ function UploadPhoto({ photo, setPhoto }) {
         </>
       ) : (
         <>
-        <>
+          <>
+            <PreviewContainer>
               {[0, 1, 2, 3].map((num) => (
-                <PreviewWrapper key={num}>
-                  <PreviewLabel htmlFor={num}>
-                    <Preview photo={preview[num]} />
-                  </PreviewLabel>
+                <>
+                  <PreviewPresenter num={num} preview={preview} />
+
                   <input
                     id={num}
                     type="file"
@@ -75,9 +75,10 @@ function UploadPhoto({ photo, setPhoto }) {
                     onChange={reUploadPhoto(num)}
                     style={{ display: 'none' }}
                   />
-                </PreviewWrapper>
+                </>
               ))}
-            </>
+            </PreviewContainer>
+          </>
         </>
       )}
     </>
@@ -96,27 +97,16 @@ const Photo = styled.label`
   border-radius: 4px;
 `;
 
-const Preview = styled.img`
-  width: 100px;
+const PreviewContainer = styled.div`
+  width: 448px;
   height: 100px;
-  background-image: url(${(props) => props.photo});
-  margin-right: 10px;
-  object-fit: cover;
-
-  cursor: pointer;
-`;
-
-const PreviewLabel = styled.label`
-  width: 100px;
-  height: 100px;
-`;
-
-const PreviewWrapper = styled.div`
-  width: 510px;
-  height: 120px;
   border: 1px solid #e9e9e9;
   border-radius: 4px;
-  padding-left: 20px;
-  padding-top: 16px;
-  margin-right: 24px;
+  padding: 16px 21px 20px 21px;
+  display: flex;
+`;
+
+const HoverWrapper = styled.div`
+  width: 100px;
+  height: 100px;
 `;
