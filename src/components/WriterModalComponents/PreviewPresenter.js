@@ -1,4 +1,4 @@
-import SmallPhotoIcon from '../../assets/ItemDetailPageAssets/SmallPhotoIcon.png';
+import SmallPhotoIcon from '../../assets/ItemDetailPageAssets/1.png';
 import TrashCan from '../../assets/ItemDetailPageAssets/TrashCan.png';
 import styled, { css } from 'styled-components';
 import React, { useState } from 'react';
