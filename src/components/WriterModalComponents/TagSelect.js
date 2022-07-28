@@ -19,6 +19,11 @@ function TagSelect({ setTagLength }) {
     false,
     false,
     false,
+    false,
+    false,
+    false,
+    false,
+    false,
   ]);
 
   const selectTag = (num) => (e) => {
@@ -63,23 +68,38 @@ function TagSelect({ setTagLength }) {
       <Tag value="퍽퍽해요" onClick={selectTag(4)} selected={selected[4]}>
         ♥ 퍽퍽해요
       </Tag>
-      <Tag value="매콤해요" onClick={selectTag(5)} selected={selected[5]}>
+      <Tag value="싱거워요" onClick={selectTag(5)} selected={selected[5]}>
+        ♥ 싱거워요
+      </Tag>
+      <Tag value="담백해요" onClick={selectTag(6)} selected={selected[6]}>
+        ♥ 담백해요
+      </Tag>
+      <Tag value="깔끔해요" onClick={selectTag(7)} selected={selected[7]}>
+        ♥ 깔끔해요
+      </Tag>
+      <Tag value="매콤해요" onClick={selectTag(8)} selected={selected[8]}>
         ♥ 매콤해요
       </Tag>
-      <Tag value="부드러워요" onClick={selectTag(6)} selected={selected[6]}>
+      <Tag value="부드러워요" onClick={selectTag(9)} selected={selected[9]}>
         ♥ 부드러워요
       </Tag>
-      <Tag value="짭짤해요" onClick={selectTag(7)} selected={selected[7]}>
+      <Tag value="짭짤해요" onClick={selectTag(10)} selected={selected[10]}>
         ♥ 짭짤해요
       </Tag>
-      <Tag value="써요" onClick={selectTag(8)} selected={selected[8]}>
+      <Tag value="써요" onClick={selectTag(11)} selected={selected[11]}>
         ♥ 써요
       </Tag>
-      <Tag value="떫어요" onClick={selectTag(9)} selected={selected[9]}>
+      <Tag value="떫어요" onClick={selectTag(12)} selected={selected[12]}>
         ♥ 떫어요
       </Tag>
-      <Tag value="비려요" onClick={selectTag(10)} selected={selected[10]}>
+      <Tag value="비려요" onClick={selectTag(13)} selected={selected[13]}>
         ♥ 비려요
+      </Tag>
+      <Tag value="꾸덕해요" onClick={selectTag(14)} selected={selected[14]}>
+        ♥ 꾸덕해요
+      </Tag>
+      <Tag value="든든해요" onClick={selectTag(15)} selected={selected[15]}>
+        ♥ 든든해요
       </Tag>
     </TagBox>
   );
@@ -93,7 +113,7 @@ const TagBox = styled.div`
   padding: 0px;
   gap: 12px;
 
-  width: 780px;
+  width: 1044px;
   height: 92px;
   margin: 13px 0px 0px 61px;
   flex-wrap: wrap;

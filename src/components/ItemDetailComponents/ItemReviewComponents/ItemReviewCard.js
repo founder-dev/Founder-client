@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Review from '../../../assets/json/Review.json';
-import { color } from '../../../styles/theme';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
+import { color, fontsize, fontWeight } from '../../../styles/theme';
 
-const ItemReviewCard = () => {
+const ItemReviewCard = ({ text, id, tag, date }) => {
+  const userId = id.slice(0, 3) + '****';
+  const arraytag = tag.split(',');
+
   const [sizes, setSizes] = useState({
     cardHeight: '336.96px',
     reviewHeight: '56px',
@@ -30,20 +33,16 @@ const ItemReviewCard = () => {
     <>
       <CardContainer sizes={sizes}>
         <DateWriterWrapper>
-          <Date>2022.07.16.</Date>
-          <Writer>abc****</Writer>
+          <Date>{date}</Date>
+          <Writer>{userId}</Writer>
         </DateWriterWrapper>
         <Image></Image>
         <TagWrapper>
-          <Tag></Tag>
-          <Tag></Tag>
-          <Tag></Tag>
+          <Tag>{arraytag[0]}</Tag>
+          <Tag>{arraytag[1]}</Tag>
+          <Tag>{arraytag[2]}</Tag>
         </TagWrapper>
-        <ReviewPreview sizes={sizes}>
-          늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다... 진짜
-          참아요...늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다...
-          진짜 참아요...
-        </ReviewPreview>
+        <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
         {sizes.reviewHeight == '56px' ? (
           <Writer>
             더보기
@@ -68,7 +67,6 @@ const CardContainer = styled.div`
   align-items: center;
   padding: 0px 18.38px 9.19px;
   gap: 9.19px;
-  margin-top: 72px;
 
   width: 431.93px;
   height: ${(props) => props.sizes.cardHeight};
@@ -113,7 +111,6 @@ const TagWrapper = styled.div`
   padding: 8px 0px;
   gap: 8px;
 
-  width: 279.23px;
   height: 47px;
 `;
 
@@ -122,14 +119,20 @@ const Tag = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 6px 14px;
+  padding: 6px;
   gap: 6px;
 
-  width: 88.25px;
-  height: 31px;
+  width: 88px;
+  height: 21px;
 
-  border: 0.765833px solid #222222;
+  border: 1px solid ${color.grey[7]};
   border-radius: 30.6333px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
 `;
 
 const ReviewPreview = styled.div`

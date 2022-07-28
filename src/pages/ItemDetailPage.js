@@ -32,6 +32,7 @@ const ItemDetailPage = () => {
   const title = params.title;
   const product = params.product;
   const [isSelected, setIsSelected] = useState(true);
+  const [brand, setBrand] = useState(true);
   /*
   /*useEffect(() => {
     const fetchItemDetail = async () => {
@@ -86,7 +87,7 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
-          <BrandMovingButton top="0px" left="260px" />
+          {brand && <BrandMovingButton top="0px" left="260px" />}
           <MenuBarContainer>
             <MenuBar
               onClick={() => setIsSelected(!isSelected)}

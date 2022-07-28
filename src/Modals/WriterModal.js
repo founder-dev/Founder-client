@@ -62,6 +62,7 @@ const WriterModal = ({ setOpenModal }) => {
 
   console.log(preview);
   console.log(photo);
+  console.log(tagArray);
 
   useEffect(() => {
     if (
