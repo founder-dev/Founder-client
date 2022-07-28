@@ -12,7 +12,7 @@ function PreviewPresenter({ num, preview }) {
       onMouseLeave={() => setItemHover(false)}
     >
       <Preview photo={preview[num]} />
-      <TrashCanImg itemHover={itemHover} />
+      <TrashCanImg itemHover={itemHover} photo={preview[num]} />
     </PreviewLabel>
   );
 }
@@ -31,7 +31,7 @@ const TrashCanImg = styled.img`
   width: 100px;
   height: 100px;
   ${(props) =>
-    props.itemHover === true
+    props.itemHover === true && props.photo !== undefined
       ? css`
           background-image: url(${TrashCan});
         `
