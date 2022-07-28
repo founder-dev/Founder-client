@@ -1,12 +1,15 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import React, { useState } from 'react';
 import { useRecoilState, useResetRecoilState } from 'recoil';
 import { PreviewState } from '../../recoil';
 import PhotoIcon from '../../assets/ItemDetailPageAssets/UploadPhoto.jpg';
+import TrashCan from '../../assets/ItemDetailPageAssets/TrashCan.png';
 
 function UploadPhoto({ photo, setPhoto }) {
   var PhotoArray = [];
   Array.prototype.push.apply(PhotoArray, photo); //배열형식으로 바꿔줌
   const [preview, setPreview] = useRecoilState(PreviewState);
+  const [itemHover, setItemHover] = useState(false);
 
   const uploadPhoto = (e) => {
     setPhoto(e.target.files);
@@ -30,8 +33,6 @@ function UploadPhoto({ photo, setPhoto }) {
   };
 
   const reUploadPhoto = (num) => (e) => {
-    console.log(e.target.files[0]);
-
     setPreview([
       ...preview.slice(0, num),
       URL.createObjectURL(e.target.files[0]),
@@ -44,6 +45,8 @@ function UploadPhoto({ photo, setPhoto }) {
       ...PhotoArray.slice(num + 1),
     ]);
   };
+
+  console.log(itemHover);
 
   return (
     <>
@@ -62,11 +65,17 @@ function UploadPhoto({ photo, setPhoto }) {
       ) : (
         <>
           <>
-            <PreviewWrapper>
+            <PreviewContainer>
               {[0, 1, 2, 3].map((num) => (
                 <>
                   <PreviewLabel htmlFor={num}>
-                    <Preview photo={preview[num]} />
+                    <PreviewWrapper
+                      onMouseEnter={() => setItemHover(true)}
+                      onMouseLeave={() => setItemHover(false)}
+                    >
+                      <Preview photo={preview[num]} />
+                      <TrashCanImg itemHover={itemHover} />
+                    </PreviewWrapper>
                   </PreviewLabel>
                   <input
                     id={num}
@@ -78,7 +87,7 @@ function UploadPhoto({ photo, setPhoto }) {
                   />
                 </>
               ))}
-            </PreviewWrapper>
+            </PreviewContainer>
           </>
         </>
       )}
@@ -103,7 +112,31 @@ const Preview = styled.img`
   height: 100px;
   background-image: url(${(props) => props.photo});
   object-fit: cover;
+  cursor: pointer;
+`;
 
+const PreviewWrapper = styled.div`
+  width: 100px;
+  height: 100px;
+  position: relative;
+  object-fit: cover;
+  cursor: pointer;
+`;
+
+const TrashCanImg = styled.img`
+  width: 100px;
+  height: 100px;
+  ${(props) =>
+    props.itemHover === true
+      ? css`
+          background-image: url(${TrashCan});
+        `
+      : `
+        `}
+  object-fit: cover;
+  position: absolute;
+  top: 0px;
+  left: 0px;
   cursor: pointer;
 `;
 
@@ -113,11 +146,10 @@ const PreviewLabel = styled.label`
   margin-right: 12px;
 `;
 
-const PreviewWrapper = styled.div`
+const PreviewContainer = styled.div`
   width: 448px;
   height: 100px;
   border: 1px solid #e9e9e9;
   border-radius: 4px;
   padding: 16px 21px 20px 21px;
-  display: block;
 `;
