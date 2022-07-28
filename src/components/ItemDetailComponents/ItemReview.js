@@ -25,6 +25,8 @@ function ItemReview() {
       </ReviewInfoContainer>
       <ItemReviewCardGrid>
         <ItemReviewCard />
+        <ItemReviewCard />
+        <ItemReviewCard />
       </ItemReviewCardGrid>
     </ItemReviewWrapper>
   );
@@ -93,8 +95,10 @@ const AlignCenter = styled.div`
 const ItemReviewCardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  width: 986px;
   column-gap: 56px;
   row-gap: 54px;
+  margin-top: 72px;
 `;
 
 const ItemReviewWrapper = styled.div`

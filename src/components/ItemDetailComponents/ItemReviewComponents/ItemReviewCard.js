@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 import Review from '../../../assets/json/Review.json';
-import { color } from '../../../styles/theme';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
+import { color, fontsize, fontWeight } from '../../../styles/theme';
 
 const ItemReviewCard = () => {
   const [sizes, setSizes] = useState({
@@ -35,7 +35,7 @@ const ItemReviewCard = () => {
         </DateWriterWrapper>
         <Image></Image>
         <TagWrapper>
-          <Tag></Tag>
+          <Tag>고소해요</Tag>
           <Tag></Tag>
           <Tag></Tag>
         </TagWrapper>
@@ -68,7 +68,6 @@ const CardContainer = styled.div`
   align-items: center;
   padding: 0px 18.38px 9.19px;
   gap: 9.19px;
-  margin-top: 72px;
 
   width: 431.93px;
   height: ${(props) => props.sizes.cardHeight};
@@ -113,7 +112,6 @@ const TagWrapper = styled.div`
   padding: 8px 0px;
   gap: 8px;
 
-  width: 279.23px;
   height: 47px;
 `;
 
@@ -122,14 +120,20 @@ const Tag = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 6px 14px;
+  padding: 6px;
   gap: 6px;
 
-  width: 88.25px;
-  height: 31px;
+  width: 88px;
+  height: 21px;
 
-  border: 0.765833px solid #222222;
+  border: 1px solid ${color.grey[7]};
   border-radius: 30.6333px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
 `;
 
 const ReviewPreview = styled.div`
