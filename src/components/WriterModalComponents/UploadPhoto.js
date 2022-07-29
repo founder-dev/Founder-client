@@ -65,16 +65,7 @@ function UploadPhoto({ photo, setPhoto }) {
             <PreviewContainer>
               {[0, 1, 2, 3].map((num) => (
                 <>
-                  <PreviewPresenter num={num} preview={preview} />
-
-                  <input
-                    id={num}
-                    type="file"
-                    accept="image/*"
-                    multiple="multiple"
-                    onChange={reUploadPhoto(num)}
-                    style={{ display: 'none' }}
-                  />
+                  <PreviewPresenter num={num} preview={preview} setPreview={setPreview} setPhoto={setPhoto} PhotoArray={PhotoArray}/>
                 </>
               ))}
             </PreviewContainer>
