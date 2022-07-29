@@ -5,10 +5,8 @@ import React, { useState } from 'react';
 
 function PreviewPresenter({ num, preview, setPreview, setPhoto, PhotoArray }) {
   const deletePhoto = (num) => (e) => {
-    for (var i = 0; i < PhotoArray.length; i++) {
-      setPreview([...preview.slice(0, num), ...preview.slice(num + 1)]);
-      setPhoto([...preview.slice(0, num), ...preview.slice(num + 1)]);
-    }
+    setPreview([...preview.slice(0, num), ...preview.slice(num + 1)]);
+    setPhoto([...preview.slice(0, num), ...preview.slice(num + 1)]);
   };
 
   const reUploadPhoto = (num) => (e) => {
