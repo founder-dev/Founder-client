@@ -4,9 +4,12 @@ import styled, { css } from 'styled-components';
 import React, { useState } from 'react';
 
 function PreviewPresenter({ num, preview, setPreview, setPhoto, PhotoArray }) {
-  function deletePhoto() {
-    console.log('edited');
-  }
+  const deletePhoto = (num) => (e) => {
+    for (var i = 0; i < PhotoArray.length; i++) {
+      setPreview([...preview.slice(0, num), ...preview.slice(num + 1)]);
+      setPhoto([...preview.slice(0, num), ...preview.slice(num + 1)]);
+    }
+  };
 
   const reUploadPhoto = (num) => (e) => {
     setPreview([
@@ -30,7 +33,7 @@ function PreviewPresenter({ num, preview, setPreview, setPhoto, PhotoArray }) {
       onMouseLeave={() => setItemHover(false)}
     >
       <Preview photo={preview[num]} />
-      {itemHover == true && preview[num] == undefined ? (
+      {preview[num] == undefined ? (
         <input
           id={num}
           type="file"
@@ -42,7 +45,11 @@ function PreviewPresenter({ num, preview, setPreview, setPhoto, PhotoArray }) {
       ) : (
         <></>
       )}
-      <TrashCanImg itemHover={itemHover} photo={preview[num]} />
+      <TrashCanImg
+        itemHover={itemHover}
+        photo={preview[num]}
+        onClick={deletePhoto(num)}
+      />
     </PreviewLabel>
   );
 }
