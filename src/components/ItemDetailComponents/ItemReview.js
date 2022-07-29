@@ -28,7 +28,7 @@ function ItemReview() {
       </ReviewInfoContainer>
       <ItemReviewCardGrid>
         {Reviewdata.map(
-          ({id, review_id, review_text, review_tag_arr, create_date}) => (
+          ({ id, review_id, review_text, review_tag_arr, create_date }) => (
             <ItemReviewCard
               key={id}
               text={review_text}
@@ -46,14 +46,12 @@ function ItemReview() {
 export default ItemReview;
 
 const Text = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: #888888;
 `;
 
 const NumText = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: #888888;
@@ -63,7 +61,6 @@ const NumText = styled.div`
 const Average = styled.div`
   margin-top: 10px;
   margin-bottom: 8.52px;
-  font-family: 'Pretendard';
   font-weight: 800;
   font-size: 28px;
   color: #007dfe;
@@ -76,12 +73,10 @@ const PhotoReviewWrapper = styled.div`
 
 const ReviewInfoContainer = styled.div`
   display: flex;
-
   margin-top: 47px;
 `;
 
 const PhotoText = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: #888888;

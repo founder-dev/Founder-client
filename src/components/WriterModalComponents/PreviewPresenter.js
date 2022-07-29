@@ -3,7 +3,28 @@ import TrashCan from '../../assets/ItemDetailPageAssets/TrashCan.png';
 import styled, { css } from 'styled-components';
 import React, { useState } from 'react';
 
-function PreviewPresenter({ num, preview }) {
+function PreviewPresenter({ num, preview, setPreview, setPhoto, PhotoArray }) {
+  const deletePhoto = (num) => (e) => {
+    for (var i = 0; i < PhotoArray.length; i++) {
+      setPreview([...preview.slice(0, num), ...preview.slice(num + 1)]);
+      setPhoto([...preview.slice(0, num), ...preview.slice(num + 1)]);
+    }
+  };
+
+  const reUploadPhoto = (num) => (e) => {
+    setPreview([
+      ...preview.slice(0, num),
+      URL.createObjectURL(e.target.files[0]),
+      ...preview.slice(num + 1),
+    ]);
+
+    setPhoto([
+      ...PhotoArray.slice(0, num),
+      e.target.files[0],
+      ...PhotoArray.slice(num + 1),
+    ]);
+  };
+
   const [itemHover, setItemHover] = useState(false);
   return (
     <PreviewLabel
@@ -12,7 +33,23 @@ function PreviewPresenter({ num, preview }) {
       onMouseLeave={() => setItemHover(false)}
     >
       <Preview photo={preview[num]} />
-      <TrashCanImg itemHover={itemHover} photo={preview[num]} />
+      {preview[num] == undefined ? (
+        <input
+          id={num}
+          type="file"
+          accept="image/*"
+          multiple="multiple"
+          onChange={reUploadPhoto(num)}
+          style={{ display: 'none' }}
+        />
+      ) : (
+        <></>
+      )}
+      <TrashCanImg
+        itemHover={itemHover}
+        photo={preview[num]}
+        onClick={deletePhoto(num)}
+      />
     </PreviewLabel>
   );
 }
