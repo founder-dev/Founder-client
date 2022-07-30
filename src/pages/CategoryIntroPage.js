@@ -56,20 +56,26 @@ const CategoryIntroPage = ({ title }) => {
                         .map(
                           ({
                             product_name,
-                            std_price,
+                            min_price,
                             star_rate_avg,
                             custom_flag,
-                            delivery_cycle_main,
+                            delivery_cycle,
                             product_main_img,
+                            min_std_price,
+                            max_std_price,
+                            delivery_cycle_detail,
                           }) => (
                             <Link to={`/itemdetail/${title}/${type_name}`}>
                               <ProductCard
                                 itemName={product_name}
-                                price={std_price}
+                                price={min_price}
                                 rating={star_rate_avg}
                                 custom={custom_flag}
-                                schedule={delivery_cycle_main}
+                                schedule={delivery_cycle}
                                 image={product_main_img}
+                                min_price={min_std_price}
+                                max_price={max_std_price}
+                                schedule_detail={delivery_cycle_detail}
                                 key={id}
                               />
                             </Link>

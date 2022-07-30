@@ -7,7 +7,16 @@ import customSticker from '../../assets/ProductCardAssets/customSticker.png';
 import Rated from '../StarRating/Rated';
 import { fontWeight, fontsize } from '../../styles/theme';
 
-const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
+const ProductCard = ({
+  itemName,
+  price,
+  rating,
+  custom,
+  schedule,
+  min_price,
+  max_price,
+  schedule_detail,
+}) => {
   const [itemHover, setItemHover] = useState(false);
 
   const max = 7.27;
@@ -28,16 +37,16 @@ const ProductCard = ({ itemName, price, rating, custom, schedule }) => {
           </HoverInfoContainer>
           <HoverInfoContainer marginTop={'2.51px'} width={'239px'}>
             <HoverInfo>
-              {min != 0 ? (
+              {min_price != 0 ? (
                 <>
-                  <span>{min}</span>
-                  <span>~{max}</span>원
+                  <span>{min_price}</span>
+                  <span>~{max_price}</span>원
                 </>
               ) : (
                 <span>N/A</span>
               )}
             </HoverInfo>
-            <HoverInfo>1주/2주/4주/6주/2달</HoverInfo>
+            <HoverInfo>{schedule_detail}</HoverInfo>
           </HoverInfoContainer>
         </>
       ) : (
@@ -141,6 +150,7 @@ const HoverInfoContainer = styled.div`
   width: ${(props) => props.width || '146px'};
   display: flex;
   justify-content: space-between;
+  text-align: left;
 `;
 
 const HoverInfoTitle = styled.text`
@@ -156,4 +166,5 @@ const HoverInfo = styled.text`
   font-size: 15.3617px;
   line-height: 28px;
   color: #272727;
+  text-align: left;
 `;
