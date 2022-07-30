@@ -2,8 +2,12 @@ import SmallPhotoIcon from '../../assets/ItemDetailPageAssets/1.png';
 import TrashCan from '../../assets/ItemDetailPageAssets/TrashCan.png';
 import styled, { css } from 'styled-components';
 import React, { useState } from 'react';
+import { useRecoilState } from 'recoil';
+import { PreviewState } from '../../recoil';
 
-function PreviewPresenter({ num, preview, setPreview, setPhoto, PhotoArray }) {
+function PreviewPresenter({ num, setPhoto, PhotoArray }) {
+  const [preview, setPreview] = useRecoilState(PreviewState);
+
   const deletePhoto = (num) => (e) => {
     setPreview([...preview.slice(0, num), ...preview.slice(num + 1)]);
     setPhoto([...preview.slice(0, num), ...preview.slice(num + 1)]);
@@ -31,7 +35,7 @@ function PreviewPresenter({ num, preview, setPreview, setPhoto, PhotoArray }) {
       onMouseLeave={() => setItemHover(false)}
     >
       <Preview photo={preview[num]} />
-      {preview[num] == undefined ? (
+      {itemHover && preview[num] == undefined ? (
         <input
           id={num}
           type="file"
