@@ -5,7 +5,6 @@ function ItemTitle({text}){
      
     var Hangeul = useChangeKorean(text);
 
-    console.log(text);
     return(
         <Title>{Hangeul}</Title>
     )

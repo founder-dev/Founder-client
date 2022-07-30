@@ -30,6 +30,7 @@ const CategoryIntroPage = ({ title }) => {
   const brands = Categorydata.category_detail.map(
     (items) => items.type_detail.brand
   );
+
   console.log(items);
 
   return (
@@ -39,7 +40,7 @@ const CategoryIntroPage = ({ title }) => {
       <WidthWrapper>
         <Wrapper>
           <Container>
-            {type.map(({ id, type_name, type_desc, type_tag_arr }, i) => (
+            {type.map(({ id, type_name, type_desc, type_tag_arr , type_img_order}, i) => (
               <>
                 <ItemTitle text={type_name} key={id} />
                 <SubTitle>
@@ -78,10 +79,10 @@ const CategoryIntroPage = ({ title }) => {
                     </>
                   ))}
                 </BrandCardWrapper>
+                <TextTape src={Tape} />
               </>
             ))}
           </Container>
-          <TextTape src={Tape} />
         </Wrapper>
       </WidthWrapper>
     </>
@@ -111,5 +112,6 @@ const BrandCardWrapper = styled.div`
 `;
 
 const TextTape = styled.img`
-  width: 100%;
+  width: 1440px;
+  padding-right: 0;
 `;

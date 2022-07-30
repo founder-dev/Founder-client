@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 `;
 
 export const CategoryWrapper = styled.div`
-  margin: 132px 0px 0px 260px;
+  margin: 108px 0px 0px 260px;
   display: flex;
   flex-direction: row;
   align-items: center;
