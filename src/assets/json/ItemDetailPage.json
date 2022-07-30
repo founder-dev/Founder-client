@@ -1,0 +1,16 @@
+{
+  "id": 1,
+  "product_name": "룩트 그릭 요거트",
+  "product_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/%EB%A3%A9%ED%8A%B8%20%EC%9A%94%EA%B1%B0%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+  "product_img_detail": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/%EB%A3%A9%ED%8A%B8%20%EC%9A%94%EA%B1%B0%ED%8A%B8/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
+  "custom_flag": true,
+  "delivery_cycle": "Monthly",
+  "delivery_cycle_detail": "1주/2주/4주/6주",
+  "min_price": 15000,
+  "star_rate_avg": 0,
+  "std_price": 7,
+  "discount_flag": true,
+  "purchase_link": "https://naver.com",
+  "type": 3,
+  "brand": 1
+}
