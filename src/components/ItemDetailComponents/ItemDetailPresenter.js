@@ -59,7 +59,6 @@ export const ItemNameWrapper = styled.div`
 export const ItemCategory = styled.div`
   color: rgba(0, 125, 254, 1);
   font-size: 16px;
-  font-family: 'Pretendard';
   font-weight: 500;
   padding-bottom: 2.63px;
 `;
@@ -67,7 +66,6 @@ export const ItemCategory = styled.div`
 export const ItemName = styled.div`
   color: black;
   font-size: 28px;
-  font-family: 'Pretendard';
   font-weight: 800;
 `;
 
@@ -80,7 +78,6 @@ export const Img = styled.img`
 export const DetailedInfo = styled.div`
   color: rgba(136, 136, 136, 1);
   font-size: 12px;
-  font-family: 'Pretendard';
   font-weight: 500;
 `;
 
@@ -104,7 +101,6 @@ export const PriceWrapper = styled.div`
 export const Price = styled.div`
   color: rgba(0, 125, 254, 1);
   font-size: 28px;
-  font-family: 'Pretendard';
   font-weight: 800;
 
   margin-right: 46.67px;
@@ -113,7 +109,6 @@ export const Price = styled.div`
 export const Schedule = styled.div`
 color:rgba(39, 39, 39, 1)
 font-size: 16px;
-font-family: 'Pretendard';
 font-weight: 700;
 `;
 
@@ -128,7 +123,6 @@ export const Line = styled.div`
 export const Guide = styled.div`
   color: rgba(136, 136, 136, 1);
   font-size: 14px;
-  font-family: 'Pretendard';
   font-weight: 500;
 
   margin-top: 12px;
@@ -145,13 +139,13 @@ export const PurchaseButton = styled.button`
   align-items: center;
   justify-content: space-between;
   padding: 8px 16px;
+
+  cursor: pointer;
 `;
 
 export const PurchaseText = styled.div`
   font-size: 16px;
-  font-family: 'Pretendard';
   font-weight: 500;
-
   color: white;
 `;
 
@@ -161,7 +155,6 @@ export const BoughtText = styled.text`
   display: flex;
 
   color: rgba(0, 0, 0, 1);
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -187,7 +180,6 @@ export const ReviewButton = styled.button`
 `;
 
 export const ReviewText = styled.text`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 15.3167px;
