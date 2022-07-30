@@ -10,7 +10,7 @@ function PreviewPresenter({ num, setPhoto, PhotoArray }) {
 
   const deletePhoto = (num) => (e) => {
     setPreview([...preview.slice(0, num), ...preview.slice(num + 1)]);
-    setPhoto([...preview.slice(0, num), ...preview.slice(num + 1)]);
+    setPhoto([...PhotoArray.slice(0, num), ...PhotoArray.slice(num + 1)]);
   };
 
   const reUploadPhoto = (num) => (e) => {
@@ -35,7 +35,7 @@ function PreviewPresenter({ num, setPhoto, PhotoArray }) {
       onMouseLeave={() => setItemHover(false)}
     >
       <Preview photo={preview[num]} />
-      {itemHover && preview[num] == undefined ? (
+      {preview[num] == undefined ? (
         <input
           id={num}
           type="file"
