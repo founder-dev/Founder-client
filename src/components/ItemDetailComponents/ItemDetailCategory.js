@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import useChangeKorean from '../../hooks/useChangeKorean';
 import { useNavigate } from 'react-router-dom';
 
-const ItemDetailCategory = ({ title, product, data }) => {
+const ItemDetailCategory = ({ title, product, productName }) => {
   var titleKorean = useChangeKorean(title);
   var titleProduct = useChangeKorean(product);
 
@@ -28,7 +28,7 @@ const ItemDetailCategory = ({ title, product, data }) => {
           {titleProduct}
         </HigherCategory>
         <HigherCategory>{'>'}</HigherCategory>
-        <Category>룩트 그릭 요거트</Category>
+        <Category>{productName}</Category>
       </CategoryWrapper>
     </>
   );

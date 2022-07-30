@@ -3,7 +3,8 @@ import styled, { css } from 'styled-components';
 import Modal from '../components/ModalComponents/Modal';
 import TopBar from '../components/TopBarComponents/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
-import WeeklyMonthly from '../assets/ItemDetailPageAssets/WeeklyMonthly.png';
+import Weekly from '../assets/ProductCardAssets/Weekly.png';
+import Monthly from '../assets/ProductCardAssets/Monthly.png';
 import { useParams } from 'react-router-dom';
 import ArrowWhite from '../assets/ItemDetailPageAssets/ArrowWhite.png';
 import { WidthWrapper } from '../components/WidthWrapper';
@@ -24,13 +25,15 @@ import ItemReview from '../components/ItemDetailComponents/ItemReview';
 import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCategory';
 import Item from '../components/ItemDetailComponents/Item';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
+import ItemDetaildata from '../assets/json/ItemDetailPage.json';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const itemData = [];
+  const itemData = ItemDetaildata;
   const params = useParams();
   const title = params.title;
   const product = params.product;
+
   const [isSelected, setIsSelected] = useState(true);
   const [brand, setBrand] = useState(true);
   /*
@@ -55,23 +58,33 @@ const ItemDetailPage = () => {
       <TopBar />
       <WidthWrapper>
         <Wrapper>
-          <ItemDetailCategory title={title} product={product} />
+          <ItemDetailCategory
+            title={title}
+            product={product}
+            productName={itemData.product_name}
+          />
           <ItemWrapper>
             <StickerdImage>
               <Img src={ItemImage} />
-              <Sticker src={WeeklyMonthly} />
+              {itemData.delivery_cycle === 'Weekly' ? (
+                <Sticker src={Weekly} />
+              ) : (
+                <Sticker src={Monthly} />
+              )}
             </StickerdImage>
             <ItemInfo>
-              <Item />
+              <Item product={product} data={itemData} />
 
               <Line />
               <Guide>
                 상품 문의와 자세한 정보를 원하신다면 판매 사이트를 방문해주세요.
               </Guide>
-              <PurchaseButton>
-                <PurchaseText>구매하러 갈래요</PurchaseText>
-                <img src={ArrowWhite} />
-              </PurchaseButton>
+              <a href={itemData.purchase_link}>
+                <PurchaseButton>
+                  <PurchaseText>구매하러 갈래요</PurchaseText>
+                  <img src={ArrowWhite} />
+                </PurchaseButton>
+              </a>
               <BoughtText>이미 구매한 상품인가요?</BoughtText>
               <ReviewButton>
                 <ReviewText

@@ -65,7 +65,7 @@ function UploadPhoto({ photo, setPhoto }) {
             <PreviewContainer>
               {[0, 1, 2, 3].map((num) => (
                 <>
-                  <PreviewPresenter num={num} preview={preview} setPreview={setPreview} setPhoto={setPhoto} PhotoArray={PhotoArray}/>
+                  <PreviewPresenter num={num} setPhoto={setPhoto} PhotoArray={PhotoArray}/>
                 </>
               ))}
             </PreviewContainer>

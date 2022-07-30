@@ -60,6 +60,8 @@ const WriterModal = ({ setOpenModal }) => {
     */
   };
 
+  console.log(photo);
+
   useEffect(() => {
     if (
       review !== '' &&

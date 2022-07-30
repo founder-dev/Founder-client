@@ -11,15 +11,18 @@ import {
   Schedule,
 } from './ItemDetailPresenter';
 import ItemDetailCustom from '../../assets/ItemDetailPageAssets/ItemDetailCustom.png';
+import useChangeKorean from '../../hooks/useChangeKorean';
 
-const Item = ({ data }) => {
+const Item = ({ product, data }) => {
+  const titleProduct = useChangeKorean(product); 
+
   return (
     <>
       <CustomLocator>
         <ItemNameWrapper>
-          <ItemCategory>그릭 요거트</ItemCategory>
-          <ItemName>룩트 그릭 요거트</ItemName>
-          <Img src={ItemDetailCustom} />
+          <ItemCategory>{titleProduct}</ItemCategory>
+          <ItemName>{data.product_name}</ItemName>
+          {data.custom_flag && <Img src={ItemDetailCustom} />}
         </ItemNameWrapper>
       </CustomLocator>
       <DetailedInfoWrapper>
@@ -28,8 +31,8 @@ const Item = ({ data }) => {
       </DetailedInfoWrapper>
 
       <PriceWrapper>
-        <Price>44,380 원</Price>
-        <Schedule>1주/2주/4주/6주/2달</Schedule>
+        <Price>{data.min_price} 원</Price>
+        <Schedule>{data.delivery_cycle_detail}</Schedule>
       </PriceWrapper>
     </>
   );
