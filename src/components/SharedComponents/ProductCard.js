@@ -19,8 +19,6 @@ const ProductCard = ({
 }) => {
   const [itemHover, setItemHover] = useState(false);
 
-  const max = 7.27;
-  const min = 7.07;
   return (
     <ProductCardContainer
       onMouseEnter={() => setItemHover(true)}
@@ -35,7 +33,7 @@ const ProductCard = ({
             <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
             <HoverInfoTitle>배송 주기</HoverInfoTitle>
           </HoverInfoContainer>
-          <HoverInfoContainer marginTop={'2.51px'} width={'239px'}>
+          <HoverInfoContainer marginTop={'2.51px'}>
             <HoverInfo>
               {min_price != 0 ? (
                 <>
@@ -125,8 +123,6 @@ const ProductCardTitle = styled.div`
   margin-top: 12px;
   font-size: 17px;
   font-weight: ${fontWeight[0]};
-  color: black;
-  font-family: 'Pretendard';
   margin-left: 21.47px;
 `;
 
@@ -139,7 +135,6 @@ const PriceRatingWrapper = styled.div`
 
 const Price = styled.div`
   color: rgba(0, 125, 254, 1);
-  font-style: normal;
   font-weight: ${fontWeight[2]};
   font-size: ${fontsize[3]};
 `;
@@ -147,18 +142,18 @@ const Price = styled.div`
 const HoverInfoContainer = styled.div`
   margin-top: ${(props) => props.marginTop || '5.38px'};
   margin-left: 21.51px;
-  width: ${(props) => props.width || '146px'};
   display: flex;
-  justify-content: space-between;
   text-align: left;
 `;
 
 const HoverInfoTitle = styled.text`
   font-style: normal;
   font-weight: 500;
-  font-size: 10.7532px;
+  font-size: 11px;
   line-height: 18px;
   color: #888888;
+
+  margin-right: 41px;
 `;
 
 const HoverInfo = styled.text`
@@ -166,5 +161,5 @@ const HoverInfo = styled.text`
   font-size: 15.3617px;
   line-height: 28px;
   color: #272727;
-  text-align: left;
+  padding-right: 22px;
 `;

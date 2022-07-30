@@ -20,7 +20,7 @@
               "product_detail_img": "https://founder-s3.s3.ap-northeast-2.amazonaws.com/media/product/test1/%ED%8C%8C%EC%9A%B4%EB%8D%94_%ED%94%84%EB%A1%9C%ED%95%84.png",
               "custom_flag": true,
               "delivery_cycle": "Weekly",
-              "delivery_cycle_detail": "1주/2주",
+              "delivery_cycle_detail": "1주/2주/4주/6주/두달",
               "min_price": 33,
               "max_price": 33,
               "star_rate_avg": 5,
