@@ -65,10 +65,6 @@ const Survey = () => {
     setId(id + 1);
   };
 
-  function beforeQuestion(num) {
-    selected[num] = false;
-  }
-
   function SubmitSurvey() {
     if (answerSet[0].answer_num == 1) {
       setGender(true);
@@ -76,11 +72,11 @@ const Survey = () => {
       setGender(false);
     }
 
-    /*axios
+    /* axios
       .put(
-        'http://127.0.0.1:8000/api/survey',
+        'https://found-er.co.kr/api/survey',
         { 
-          data : answerSend
+           answerSet
         },
         {
           headers: {
@@ -110,10 +106,6 @@ const Survey = () => {
     }
   }, [id]);
 
-  function Reload() {
-    window.location.reload();
-  }
-
   return (
     <SurveyWrapper ref={surveyRef}>
       <StartText width="385px">
@@ -124,54 +116,36 @@ const Survey = () => {
         주어진 질문에 버튼을 눌러 설문조사에 참여해주세요.
       </StartText>
 
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={0}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={1}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={2}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={3}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={4}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={5}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={6}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={7}
-      />
+      {[0, 1, 2, 3, 4, 5, 6, 7].map((num) => (
+        <SurveyPart
+          selected={selected}
+          selectAnswer={selectAnswer}
+          Question={num}
+        />
+      ))}
       {selected[8] && (
         <>
-          <StartText top="16px">설문조사가 완료되었습니다</StartText>
-          <StartText top="8px">
-            취향에 맞는 홈 서비스를 추천해드립니다.
+          <StartText top="16px" width="245px">
+            설문조사가 완료되었습니다
           </StartText>
-          <button onClick={Reload}>다시 하기</button>
-          <button onClick={SubmitSurvey}>제출완료</button>
+          <StartText top="8px" width="553px">
+            하린님의 취향에 꼭 맞는 구독 서비스들을 홈 화면에 추천해드립니다.
+          </StartText>
+          <Button
+            onClick={() => {
+              window.location.reload();
+            }}
+          >
+            다시 할래요
+          </Button>
+          <Button
+            onClick={SubmitSurvey}
+            top="0px"
+            background="#383838"
+            color="#FFFFFF"
+          >
+            설문조사 제출하기
+          </Button>
         </>
       )}
     </SurveyWrapper>
@@ -210,4 +184,20 @@ const SurveyWrapper = styled.div`
   ::-webkit-scrollbar {
     display: none;
   }
+`;
+const Button = styled.div`
+  width: 204px;
+  height: 28px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+  margin-top: ${(props) => props.top || '107px'};
+  margin-left: 256px;
+  padding: 12px 82px;
+  font-size: 14px;
+  line-height: 28px;
+  background-color: ${(props) => props.background || 'none'};
+  color: ${(props) => props.color || 'none'};
 `;

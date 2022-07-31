@@ -9,11 +9,20 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
   const userId = id.slice(0, 3) + '****';
   const arraytag = tag.split(',');
 
+  console.log(arraytag.length);
   const [sizes, setSizes] = useState({
     cardHeight: '336.96px',
     reviewHeight: '56px',
   });
 
+  const tagShow = () => {
+    var array = [];
+    for (var i = 0; i < arraytag.length; i++) {
+      array.push(<Tag>{arraytag[i]}</Tag>);
+    }
+
+    return array;
+  };
   const changeView = () => {
     if (sizes.reviewHeight == '56px') {
       // 닫혀있는경우
@@ -37,11 +46,7 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
           <Writer>{userId}</Writer>
         </DateWriterWrapper>
         <Image></Image>
-        <TagWrapper>
-          <Tag>{arraytag[0]}</Tag>
-          <Tag>{arraytag[1]}</Tag>
-          <Tag>{arraytag[2]}</Tag>
-        </TagWrapper>
+        <TagWrapper>{tagShow()}</TagWrapper>
         <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
         {sizes.reviewHeight == '56px' ? (
           <Writer>
