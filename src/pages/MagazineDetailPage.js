@@ -8,28 +8,16 @@ import axios from 'axios';
 import { useEffect } from 'react';
 import { color } from '../styles/theme';
 import TagShow from '../components/MagazineComponents/TagShow';
+import { fetchMagazineDetail } from '../API';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
   const [magazineDetaildata, setMagazineDetaildata] = useState(null);
 
-  const fetchMagazineDetail = async () => {
-    try {
-      setMagazineDetaildata(null);
-      const response = await axios.get(
-        'https://found-er.co.kr/api/magazine/daily-curation/14/'
-      );
-      setMagazineDetaildata(response.data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   useEffect(() => {
-    fetchMagazineDetail();
+    fetchMagazineDetail(setMagazineDetaildata);
   }, []);
 
-  
   if (!magazineDetaildata) return null;
 
   console.log(magazineDetaildata);
@@ -50,7 +38,7 @@ const MagazineDetailPage = () => {
             <TitleInfo>
               <Title>{magazineDetaildata.title}</Title>
               <KeyWords>
-                <TagShow tag_arr ={magazineDetaildata.tag_arr}/>
+                <TagShow tag_arr={magazineDetaildata.tag_arr} />
               </KeyWords>
             </TitleInfo>
           </TitleWrapper>
@@ -62,14 +50,16 @@ const MagazineDetailPage = () => {
           <Centering>
             {magazineDetaildata.magazine_magazinecontent.map((content) => (
               <>
-              <ArticleWrapper>
-              <ParagraphWrapper>
-              <SubTitle>{content.detail_title}</SubTitle>
-              <Text>{content.detail_content}</Text>
-              </ParagraphWrapper>
-              {content.detail_img != null && <Image src={content.detail_img}/>}
-              <BrandMovingButton/>
-              </ArticleWrapper>
+                <ArticleWrapper key={content.id}>
+                  <ParagraphWrapper>
+                    <SubTitle>{content.detail_title}</SubTitle>
+                    <Text>{content.detail_content}</Text>
+                  </ParagraphWrapper>
+                  {content.detail_img != null && (
+                    <Image src={content.detail_img} />
+                  )}
+                  <BrandMovingButton />
+                </ArticleWrapper>
               </>
             ))}
           </Centering>
@@ -205,7 +195,7 @@ const SubTitle = styled.div`
   margin-bottom: 46px;
 `;
 
-const Text = styled.text`
+const Text = styled.span`
   font-weight: 400;
   font-size: 20px;
   line-height: 180%;
