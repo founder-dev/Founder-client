@@ -7,6 +7,7 @@ import BrandMovingButton from '../components/SharedComponents/BrandMovingButton'
 import axios from 'axios';
 import { useEffect } from 'react';
 import { color } from '../styles/theme';
+import TagShow from '../components/MagazineComponents/TagShow';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
@@ -31,17 +32,6 @@ const MagazineDetailPage = () => {
   
   if (!magazineDetaildata) return null;
 
-  const arraytag = magazineDetaildata.tag_arr.split(',');
-
-  const tagShow = () => {
-    var array = [];
-    for (var i = 0; i < arraytag.length; i++) {
-      array.push(<text>{arraytag[i]}</text>);
-    }
-
-    return array;
-  };
-
   console.log(magazineDetaildata);
 
   return (
@@ -60,7 +50,7 @@ const MagazineDetailPage = () => {
             <TitleInfo>
               <Title>{magazineDetaildata.title}</Title>
               <KeyWords>
-                {tagShow()}
+                <TagShow tag_arr ={magazineDetaildata.tag_arr}/>
               </KeyWords>
             </TitleInfo>
           </TitleWrapper>
@@ -131,7 +121,6 @@ const TitleInfo = styled.div`
 `;
 
 const Title = styled.div`
-  font-family: 'Pretendard';
   font-size: 36px;
   font-weight: 800;
   text-align: center;
@@ -163,15 +152,12 @@ const DetailWrapper = styled.div`
 `;
 
 const Date = styled.div`
-  font-family: 'Pretendard';
   font-weight: 400;
   font-size: 16px;
 
   color: #878888;
 `;
 const Editor = styled.div`
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -185,6 +171,7 @@ const Centering = styled.div`
   justify-content: center;
   width: 1440px;
 `;
+
 const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -208,7 +195,6 @@ const BrandHome = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 28px;
   line-height: 38px;
