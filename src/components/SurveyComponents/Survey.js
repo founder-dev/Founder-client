@@ -65,10 +65,6 @@ const Survey = () => {
     setId(id + 1);
   };
 
-  function beforeQuestion(num) {
-    selected[num] = false;
-  }
-
   function SubmitSurvey() {
     if (answerSet[0].answer_num == 1) {
       setGender(true);
