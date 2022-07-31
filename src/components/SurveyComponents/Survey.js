@@ -72,11 +72,11 @@ const Survey = () => {
       setGender(false);
     }
 
-    /*axios
+    /* axios
       .put(
-        'http://127.0.0.1:8000/api/survey',
+        'https://found-er.co.kr/api/survey',
         { 
-          data : answerSend
+           answerSet
         },
         {
           headers: {
