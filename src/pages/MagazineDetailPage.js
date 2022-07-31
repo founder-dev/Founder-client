@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
-import MagazineImage from '../assets/MagazineDetailPageAssets/MagazineImage.png';
-import CurationPhoto from '../assets/MagazineDetailPageAssets/CurationPhoto.png';
 import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { color } from '../styles/theme';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
@@ -29,8 +28,21 @@ const MagazineDetailPage = () => {
     fetchMagazineDetail();
   }, []);
 
+  
   if (!magazineDetaildata) return null;
-  console.log(magazineDetaildata.magazine_magazinecontent);
+
+  const arraytag = magazineDetaildata.tag_arr.split(',');
+
+  const tagShow = () => {
+    var array = [];
+    for (var i = 0; i < arraytag.length; i++) {
+      array.push(<text>{arraytag[i]}</text>);
+    }
+
+    return array;
+  };
+
+  console.log(magazineDetaildata);
 
   return (
     <>
@@ -43,13 +55,12 @@ const MagazineDetailPage = () => {
 
       <WidthWrapper>
         <Wrapper>
-          <img src={MagazineImage} />
+          <HeaderImg src={magazineDetaildata.img_header} />
           <TitleWrapper>
             <TitleInfo>
               <Title>{magazineDetaildata.title}</Title>
               <KeyWords>
-                <text>가치소비 |</text> <text>제로웨이스트 |</text>{' '}
-                <text>비건 | </text> <text>유기농</text>
+                {tagShow()}
               </KeyWords>
             </TitleInfo>
           </TitleWrapper>
@@ -89,8 +100,13 @@ const Header = styled.div`
   z-index: 3;
 `;
 
+const HeaderImg = styled.img`
+  width: 1336px;
+  height: 396px;
+  margin-left: 52px;
+`;
+
 const HeaderTitle = styled.div`
-  font-family: 'Pretendard';
   font-weight: 700;
   font-size: 16px;
   line-height: 100%;
@@ -107,10 +123,10 @@ const TitleWrapper = styled.div`
 
 const TitleInfo = styled.div`
   position: absolute;
-  width: 100%;
+  width: 1336px;
   height: 172px;
   top: -172px;
-
+  margin-left: 52px;
   background: rgba(0, 0, 0, 0.3);
 `;
 
@@ -120,22 +136,18 @@ const Title = styled.div`
   font-weight: 800;
   text-align: center;
   line-height: 48px;
-
   color: white;
-
   z-index: 2;
   margin-top: 36px;
 `;
 
 const KeyWords = styled.div`
-  font-family: 'Pretendard';
   font-size: 20px;
   line-height: 36px;
   font-weight: 500;
-
   text-align: center;
 
-  color: #ffffff;
+  color: ${color.grey[2]};
 
   margin-top: 16px;
   gap: 12px;
@@ -208,9 +220,8 @@ const SubTitle = styled.div`
 `;
 
 const Text = styled.text`
-  font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 180%;
 
   color: #000000;
@@ -225,7 +236,8 @@ const ParagraphWrapper = styled.div`
 `;
 
 const Image = styled.img`
-  margin-left: 240px;
+  margin-left: 120px;
+  width: 1200px;
 `;
 const Wrapper = styled.div`
   display: flex;

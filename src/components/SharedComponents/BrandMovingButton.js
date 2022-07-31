@@ -90,15 +90,13 @@ const BrandArrow = styled.img`
 `;
 
 const BrandButton = styled.div`
-  width: 182px;
-  height: 39px;
+  width: 180px;
+  height: 37px;
   position: absolute;
-  top: 52px;
+  top: 40px;
   left: 700px;
   border-radius: 4px;
-  border: 1px;
-  border-style: solid;
-
+  border: 1px solid #222222;
   display: flex;
   align-items: center;
   justify-content: space-between;
