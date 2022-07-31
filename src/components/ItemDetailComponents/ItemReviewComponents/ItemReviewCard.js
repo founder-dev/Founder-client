@@ -15,6 +15,14 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
     reviewHeight: '56px',
   });
 
+  const tagShow = () => {
+    var array = [];
+    for (var i = 0; i < arraytag.length; i++) {
+      array.push(<Tag>{arraytag[i]}</Tag>);
+    }
+
+    return array;
+  };
   const changeView = () => {
     if (sizes.reviewHeight == '56px') {
       // 닫혀있는경우
@@ -37,7 +45,9 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
           <Date>{date}</Date>
           <Writer>{userId}님의 후기</Writer>
         </DateWriterWrapper>
-
+        <Image></Image>
+        <TagWrapper>{tagShow()}</TagWrapper>
+        <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
         {sizes.reviewHeight == '56px' ? (
           <>
             <Image></Image>
