@@ -4,6 +4,7 @@ import Review from '../../../assets/json/Review.json';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 import { color, fontsize, fontWeight } from '../../../styles/theme';
+import Rated from '../../StarRating/Rated';
 
 const ItemReviewCard = ({ text, id, tag, date }) => {
   const userId = id.slice(0, 3) + '****';
@@ -34,25 +35,43 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
       <CardContainer sizes={sizes}>
         <DateWriterWrapper>
           <Date>{date}</Date>
-          <Writer>{userId}</Writer>
+          <Writer>{userId}님의 후기</Writer>
         </DateWriterWrapper>
-        <Image></Image>
-        <TagWrapper>
-          <Tag>{arraytag[0]}</Tag>
-          <Tag>{arraytag[1]}</Tag>
-          <Tag>{arraytag[2]}</Tag>
-        </TagWrapper>
-        <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
+
         {sizes.reviewHeight == '56px' ? (
-          <Writer>
-            더보기
-            <MoreButton src={DownArrow} onClick={changeView} />
-          </Writer>
+          <>
+            <Image></Image>
+            <TagWrapper>
+              <Tag>{arraytag[0]}</Tag>
+              <Tag>{arraytag[1]}</Tag>
+              <Tag>{arraytag[2]}</Tag>
+            </TagWrapper>
+            <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
+            <Writer>
+              더보기
+              <MoreButton src={DownArrow} onClick={changeView} />
+            </Writer>
+          </>
         ) : (
-          <Writer>
-            접기
-            <MoreButton src={UpArrow} onClick={changeView} />
-          </Writer>
+          <>
+            <ImageContainer>
+              <Image></Image>
+              <Image></Image>
+              <Image></Image>
+              <Image></Image>
+            </ImageContainer>
+            <Rated rating={4} />
+            <TagWrapper>
+              <Tag>{arraytag[0]}</Tag>
+              <Tag>{arraytag[1]}</Tag>
+              <Tag>{arraytag[2]}</Tag>
+            </TagWrapper>
+            <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
+            <Writer>
+              접기
+              <MoreButton src={UpArrow} onClick={changeView} />
+            </Writer>
+          </>
         )}
       </CardContainer>
     </>
@@ -108,6 +127,7 @@ const TagWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  margin-top: 12px;
   padding: 8px 0px;
   gap: 8px;
 
@@ -150,4 +170,11 @@ const ReviewPreview = styled.div`
 const MoreButton = styled.img`
   margin-left: 10.71px;
   cursor: pointer;
+`;
+
+const ImageContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
 `;

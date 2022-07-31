@@ -5,45 +5,66 @@ import Rated from '../StarRating/Rated';
 import RateBars from '../ItemDetailComponents/ItemReviewComponents/RateBars';
 import Slider from './Slider';
 import Review from '../../assets/json/Review.json';
+import NotFoundImage from '../../assets/ItemDetailPageAssets/NotFoundImage.png';
 
 function ItemReview() {
-  const Reviewdata = Review;
+  const reviewData = Review;
 
   return (
-    <ItemReviewWrapper>
-      <ReviewInfoContainer>
-        <OverallRating>
-          <Text>총 평점</Text>
-          <AlignCenter>
-            <Average>{4}</Average>
-            <Rated rating={4}></Rated>
-            <NumText>{`(총 55개의 구매평)`}</NumText>
-          </AlignCenter>
-        </OverallRating>
-        <RateBars />
-        <PhotoReviewWrapper>
-          <PhotoText>사진 후기 모아보기</PhotoText>
-          <Slider />
-        </PhotoReviewWrapper>
-      </ReviewInfoContainer>
-      <ItemReviewCardGrid>
-        {Reviewdata.map(
-          ({ id, review_id, review_text, review_tag_arr, create_date }) => (
-            <ItemReviewCard
-              key={id}
-              text={review_text}
-              id={review_id}
-              tag={review_tag_arr}
-              date={create_date}
-            />
-          )
-        )}
-      </ItemReviewCardGrid>
-    </ItemReviewWrapper>
+    <>
+      {reviewData == null ? (
+        <>
+          <NotFound src={NotFoundImage} />
+          <NotFoundText>아직 작성된 후기가 없어요ㅠㅠ</NotFoundText>
+        </>
+      ) : (
+        <ItemReviewWrapper>
+          <ReviewInfoContainer>
+            <OverallRating>
+              <Text>총 평점</Text>
+              <AlignCenter>
+                <Average>{4}</Average>
+                <Rated rating={4}></Rated>
+                <NumText>{`(총 55개의 구매평)`}</NumText>
+              </AlignCenter>
+            </OverallRating>
+            <RateBars />
+            <PhotoReviewWrapper>
+              <PhotoText>사진 후기 모아보기</PhotoText>
+              <Slider />
+            </PhotoReviewWrapper>
+          </ReviewInfoContainer>
+          <ItemReviewCardGrid>
+            {reviewData.map(
+              ({ id, review_id, review_text, review_tag_arr, create_date }) => (
+                <ItemReviewCard
+                  key={id}
+                  text={review_text}
+                  id={review_id}
+                  tag={review_tag_arr}
+                  date={create_date}
+                />
+              )
+            )}
+          </ItemReviewCardGrid>
+        </ItemReviewWrapper>
+      )}
+    </>
   );
 }
 
 export default ItemReview;
+
+const NotFound = styled.img`
+  margin-top: 68.61px;
+  margin-bottom: 27px;
+`;
+
+const NotFoundText = styled.text`
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 31px;
+`;
 
 const Text = styled.div`
   font-weight: 500;
