@@ -72,11 +72,11 @@ const Survey = () => {
       setGender(false);
     }
 
-    /* axios
+    axios
       .put(
         'https://found-er.co.kr/api/survey',
-        { 
-           answerSet
+        {
+          data: { answerSet },
         },
         {
           headers: {
@@ -90,7 +90,7 @@ const Survey = () => {
 
       .catch((error) => {
         console.log(error);
-      }); */
+      });
 
     navigate(`/`);
   }

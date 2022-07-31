@@ -9,7 +9,6 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
   const userId = id.slice(0, 3) + '****';
   const arraytag = tag.split(',');
 
-  console.log(arraytag.length);
   const [sizes, setSizes] = useState({
     cardHeight: '336.96px',
     reviewHeight: '56px',
