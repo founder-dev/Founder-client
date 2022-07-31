@@ -116,46 +116,13 @@ const Survey = () => {
         주어진 질문에 버튼을 눌러 설문조사에 참여해주세요.
       </StartText>
 
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={0}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={1}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={2}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={3}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={4}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={5}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={6}
-      />
-      <SurveyPart
-        selected={selected}
-        selectAnswer={selectAnswer}
-        Question={7}
-      />
+      {[0, 1, 2, 3, 4, 5, 6, 7].map((num) => (
+        <SurveyPart
+          selected={selected}
+          selectAnswer={selectAnswer}
+          Question={num}
+        />
+      ))}
       {selected[8] && (
         <>
           <StartText top="16px" width="245px">
@@ -230,7 +197,7 @@ const Button = styled.div`
   margin-left: 256px;
   padding: 12px 82px;
   font-size: 14px;
-  line-height: 24px;
+  line-height: 28px;
   background-color: ${(props) => props.background || 'none'};
   color: ${(props) => props.color || 'none'};
 `;
