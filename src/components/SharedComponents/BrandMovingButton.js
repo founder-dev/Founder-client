@@ -28,7 +28,7 @@ export default BrandMovingButton;
 const BrandHome = styled.div`
   position: relative;
   width: 920px;
-  height: 100px;
+  height: 80px;
 
   margin-top: ${(props) => props.top || '80px'};
   margin-bottom: 136px;
@@ -38,10 +38,10 @@ const BrandHome = styled.div`
 
   display: flex;
   justify-content: space-between;
-  margin-left: ${(props) => props.left || '120px'};
+  margin-left: ${(props) => props.left || '260px'};
   margin-right: 260px;
 
-  padding-bottom: 21px;
+  padding-bottom: 20px;
 `;
 const BrandInfoWrapper = styled.div`
   position: relative;
@@ -65,8 +65,9 @@ const TextWrapper = styled.div`
 const BrandName = styled.div`
   font-weight: 700;
   font-size: 20px;
-  height: 40px;
-  margin-top: 26px;
+  height: 30px;
+  margin-top: 20px;
+  line-height: 31px;
 `;
 
 const BrandDetail = styled.div`
@@ -75,6 +76,7 @@ const BrandDetail = styled.div`
   margin-top: 4px;
   margin-bottom: 30px;
   height: 36px;
+  line-height: 28px;
 `;
 
 const ButtonText = styled.div`

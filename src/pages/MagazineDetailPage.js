@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
 import MagazineImage from '../assets/MagazineDetailPageAssets/MagazineImage.png';
@@ -6,37 +6,38 @@ import CurationPhoto from '../assets/MagazineDetailPageAssets/CurationPhoto.png'
 import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
+  const [magazineDetaildata, setMagazineDetaildata] = useState(null);
 
-  const magazineDetaildata = [];
+  const fetchMagazineDetail = async () => {
+    try {
+      setMagazineDetaildata(null);
+      const response = await axios.get(
+        'https://found-er.co.kr/api/magazine/daily-curation/14/'
+      );
+      setMagazineDetaildata(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
-  /*useEffect(() => {
-    const fetchMagazineDetail = async () => {
-      try {
-        const response = await axios.get(
-          'https://pounder/api/magazine/{pk}/'
-        );
-        magazineDetaildata = response.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
+  useEffect(() => {
     fetchMagazineDetail();
-  }, []); 
-  
-  {magazineDetaildata.title} 이런식으로 쓰면됨
-  */
+  }, []);
+
+  if (!magazineDetaildata) return null;
+  console.log(magazineDetaildata.magazine_magazinecontent);
 
   return (
     <>
       <TopBar />
 
       <Header>
-        <HeaderTitle>
-          여러분의 가치로운 소비를 위한 철학을 담은 브랜드 추천
-        </HeaderTitle>
+        <HeaderTitle>{magazineDetaildata.title}</HeaderTitle>
         <HorizontalProgress scroll={scroll} />
       </Header>
 
@@ -45,9 +46,7 @@ const MagazineDetailPage = () => {
           <img src={MagazineImage} />
           <TitleWrapper>
             <TitleInfo>
-              <Title>
-                여러분의 가치로운 소비를 위한 철학을 담은 브랜드 추천
-              </Title>
+              <Title>{magazineDetaildata.title}</Title>
               <KeyWords>
                 <text>가치소비 |</text> <text>제로웨이스트 |</text>{' '}
                 <text>비건 | </text> <text>유기농</text>
@@ -56,24 +55,22 @@ const MagazineDetailPage = () => {
           </TitleWrapper>
 
           <DetailWrapper>
-            <Editor>editor. 김하린</Editor>
-            <Date>2022.03.16</Date>
+            <Editor>editor. {magazineDetaildata.author}</Editor>
+            <Date>2022.07.28</Date>
           </DetailWrapper>
           <Centering>
-            <ArticleWrapper>
+            {magazineDetaildata.magazine_magazinecontent.map((content) => (
+              <>
+              <ArticleWrapper>
               <ParagraphWrapper>
-                <SubTitle>파운더와 함께하는 현물 구독</SubTitle>
-                <Text>
-                  우리는 일상생활 속에서 필요한 물품들에 대해 고정적인 취향이
-                  자리 잡혀있을 때가 많아요. 우리의 경험을 바탕으로 어떤 물건이
-                  나에게 가장 잘 맞는지 파악한 후 구매하곤 하죠. 이후에 사용한
-                  경험이 만족스러웠다면 재구매로까지 이어지기도 합니다. 파운더는
-                  이 과정을 단순화해주고자 합니다!
-                </Text>
+              <SubTitle>{content.detail_title}</SubTitle>
+              <Text>{content.detail_content}</Text>
               </ParagraphWrapper>
-              <img src={CurationPhoto} />
+              {content.detail_img != null && <Image src={content.detail_img}/>}
               <BrandMovingButton/>
-            </ArticleWrapper>
+              </ArticleWrapper>
+              </>
+            ))}
           </Centering>
         </Wrapper>
       </WidthWrapper>
@@ -172,6 +169,7 @@ const Editor = styled.div`
 
 const Centering = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: center;
   width: 1440px;
 `;
@@ -210,7 +208,6 @@ const SubTitle = styled.div`
 `;
 
 const Text = styled.text`
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
@@ -223,10 +220,13 @@ const Text = styled.text`
 
 const ParagraphWrapper = styled.div`
   margin-bottom: 80px;
-  width: 700px;
+  width: 920px;
   margin-left: 250px;
 `;
 
+const Image = styled.img`
+  margin-left: 240px;
+`;
 const Wrapper = styled.div`
   display: flex;
   justify-content: center;
