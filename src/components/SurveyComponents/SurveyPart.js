@@ -13,6 +13,7 @@ const SurveyPart = ({ selected, selectAnswer, Question, beforeQuestion }) => {
     */
   const answer = Surveydata[Question].answer;
   const answerNum = Surveydata[Question].answerNum;
+  const answerImage = Surveydata[Question].answerImage;
 
   return (
     <SurveyItem>
@@ -23,17 +24,20 @@ const SurveyPart = ({ selected, selectAnswer, Question, beforeQuestion }) => {
               {Surveydata[Question].question}
             </QuestionItem>
           </div>
-          {answer.map((item, i) => (
-            <SelectionWrapper key={item.id}>
-              <button
+          <SelectionWrapper length={answerImage.length}>
+            {answer.map((item, i) => (
+              <Button
+                type="button"
                 onClick={selectAnswer(Question)}
                 id={answerNum[i]}
                 value={item}
-              >
-                {item}
-              </button>
-            </SelectionWrapper>
-          ))}
+                image={process.env.PUBLIC_URL + answerImage[i]}
+                length={answerImage.length}
+                key={item.id}
+                loading="lazy"
+              ></Button>
+            ))}
+          </SelectionWrapper>
           <div>
             <AnswerItem
               selected={answerValue[Question]}
@@ -75,9 +79,14 @@ const QuestionItem = styled.div`
 `;
 
 const SelectionWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  width: 300px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: ${(props) => (props.length == 2 ? '723px' : '639px')};
+  column-gap: ${(props) => (props.length == 2 ? '27px' : '23px')};
+  row-gap: 27px;
+  padding-left: ${(props) => (props.length == 2 ? '98px' : '141px')};
+  margin-top: 30px;
+  margin-bottom: 22px;
 `;
 
 const AnwerWrapper = styled.div``;
@@ -96,4 +105,15 @@ const AnswerItem = styled.div`
   font-size: 20px;
   line-height: 32px;
   letter-spacing: -0.354132px;
+`;
+
+const Button = styled.button`
+  width: ${(props) => (props.length == 2 ? '349px' : '309px')};
+  height: 349px;
+  background-image: url(${(props) => props.image});
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  background-color: white;
+  padding: 0px;
 `;

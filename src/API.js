@@ -11,7 +11,7 @@ const instance = axios.create({
 export const fetchMagazineDetail = async (setMagazineDetaildata) => {
   try {
     setMagazineDetaildata(null);
-    const response = await instance.get('api/magazine/daily-curation/14/');
+    const response = await instance.get('api/magazine/daily_curation/14'); //error 뜨는 중
     setMagazineDetaildata(response.data);
   } catch (error) {
     console.log(error);
@@ -23,6 +23,16 @@ export const fetchCategoryIntro = async ({setCategoryIntroData,title}) => {
     setCategoryIntroData(null);
     const response = await instance.get(`api/category/${title}`);
     setCategoryIntroData(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchMagazine = async (setMagazineData) => {
+  try {
+    setMagazineData(null);
+    const response = await instance.get(`api/magazine`);
+    setMagazineData(response.data);
   } catch (error) {
     console.log(error);
   }

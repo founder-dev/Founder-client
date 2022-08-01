@@ -1,15 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color } from '../../styles/theme';
+import TagArray from '../SharedComponents/TagArray';
+
 const MagazineCard = ({ title, text, tag, image }) => {
+  var arraytag = String(tag).split(',');
+
   return (
     <>
       <CardContainer>
         <Image src={image} loading="lazy" />
         <ChipWrapper>
-          <Chip># {tag[0]}</Chip>
-          <Chip># {tag[1]}</Chip>
-          <Chip># {tag[2]}</Chip>
+          <Chip># {arraytag[0]}</Chip>
+          <Chip># {arraytag[1]}</Chip>
+          {arraytag[2] != null && <Chip># {arraytag[2]}</Chip>}
+          {arraytag[3] != null && <Chip># {arraytag[3]}</Chip>}
         </ChipWrapper>
         <CardTitle>{title}</CardTitle>
         <SubText>{text}</SubText>
@@ -42,7 +47,7 @@ const Chip = styled.div`
   background-color: ${color.grey[2]};
   height: 34px;
   padding: 3px 9px;
-  border-radius: 2px;
+  border-radius: 1.5px;
 
   margin-right: 9px;
   font-weight: 500;

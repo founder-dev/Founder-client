@@ -4,38 +4,21 @@ import TopBar from '../components/TopBarComponents/TopBar';
 import MagazineCard from '../components/MagazineComponents/MagazineCard';
 import Recommendation from '../components/MagazineComponents/Recommendation';
 import styled from 'styled-components';
-import data from '../assets/json/Magazinedata.json';
 import { Link } from 'react-router-dom';
-import curation from '../assets/MagazinePageAssets/curation.png';
-import BrandStory from '../assets/MagazinePageAssets/brandStory.png';
+import { fetchMagazine } from '../API';
+import { useState, useEffect } from 'react';
 
 const MagazinePage = () => {
-  const magazineData = [];
-  /*useEffect(() => {
-    const fetchMagazine = async () => {
-      try {
-        const response = await axios.get(
-          'https://pounder/api/magazine/'
-        );
-        magazineData = response.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchMagazine();
-  }, []); */
+  const [magazineData, setMagazineData] = useState(null);
 
-  const Story = data.filter((story) => story.magazine_type === '파운더 스토리'); //magazineData 이름바꾸기
-  const Curation = data.filter(
-    (curation) => curation.magazine_type === '데일리 큐레이션'
-  );
-  const Brand = data.filter((items) => items.magazine_type === '브랜드');
-  /*api 통신하면 브랜드 부분은 
-  const brandName = Curation.map((brand) => brand.brand_name));
-  const brandLink = Curation.map((brand) => brand.brand_link));
-  const brandLogo = Curation.map((brand) => brand.brand_logo)); // 이 부분 브랜드에도 추가해줘야됨
-  */
-  console.log(Brand);
+  useEffect(() => {
+    fetchMagazine(setMagazineData);
+  }, []);
+
+  if (!magazineData) return null;
+
+  console.log(magazineData);
+
   return (
     <>
       <TopBar />
@@ -44,36 +27,40 @@ const MagazinePage = () => {
         <Wrapper>
           <MagazineCardWrapper>
             <Topic>브랜드 스토리</Topic>
-            {Story.map(({ title, intro_content, tag_arr, main_img }, i) => (
-              <Link to={`/brandstory`}>
-                <MagazineCard
-                  title={title}
-                  text={intro_content}
-                  tag={tag_arr}
-                  image={BrandStory}
-                  key={i}
-                />
-              </Link>
-            ))}
+            {magazineData.founder_story.map(
+              ({ title, intro, tag_arr, img_main, id }) => (
+                <Link to={`/brandstory`}>
+                  <MagazineCard
+                    title={title}
+                    text={intro}
+                    tag={tag_arr}
+                    image={img_main}
+                    key={id}
+                  />
+                </Link>
+              )
+            )}
           </MagazineCardWrapper>
 
           <CurationWrapper>
             <Topic>데일리 큐레이션</Topic>
-            {Curation.map(({ title, intro_content, tag_arr, main_img }, i) => (
-              <MagazineCard
-                title={title}
-                text={intro_content}
-                tag={tag_arr}
-                image={curation}
-                key={i}
-              />
-            ))}
+            {magazineData.daily_curation.map(
+              ({ title, intro, tag_arr, img_main, id }) => (
+                <MagazineCard
+                  title={title}
+                  text={intro}
+                  tag={tag_arr}
+                  image={img_main}
+                  key={id}
+                />
+              )
+            )}
           </CurationWrapper>
 
           <RecommendationWrapper>
             <Topic>추천 브랜드</Topic>
-            {Brand.map(({ title }, i) => (
-              <Recommendation title={title} key={i} />
+            {magazineData.magazine_brand.map(({ brand_name , id , brand_img_logo}) => (
+              <Recommendation title={brand_name} key={id} img={brand_img_logo}/>
             ))}
           </RecommendationWrapper>
         </Wrapper>
