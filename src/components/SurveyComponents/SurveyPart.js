@@ -34,6 +34,7 @@ const SurveyPart = ({ selected, selectAnswer, Question, beforeQuestion }) => {
                 image={process.env.PUBLIC_URL + answerImage[i]}
                 length={answerImage.length}
                 key={item.id}
+                loading="lazy"
               ></Button>
             ))}
           </SelectionWrapper>
