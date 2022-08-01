@@ -4,10 +4,7 @@ import TopBar from '../components/TopBarComponents/TopBar';
 import MagazineCard from '../components/MagazineComponents/MagazineCard';
 import Recommendation from '../components/MagazineComponents/Recommendation';
 import styled from 'styled-components';
-import data from '../assets/json/Magazinedata.json';
 import { Link } from 'react-router-dom';
-import curation from '../assets/MagazinePageAssets/curation.png';
-import BrandStory from '../assets/MagazinePageAssets/brandStory.png';
 import { fetchMagazine } from '../API';
 import { useState, useEffect } from 'react';
 

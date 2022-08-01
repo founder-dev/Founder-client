@@ -46,7 +46,7 @@ const Chip = styled.div`
   background-color: ${color.grey[2]};
   height: 34px;
   padding: 3px 9px;
-  border-radius: 2px;
+  border-radius: 1.5px;
 
   margin-right: 9px;
   font-weight: 500;

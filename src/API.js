@@ -11,7 +11,7 @@ const instance = axios.create({
 export const fetchMagazineDetail = async (setMagazineDetaildata) => {
   try {
     setMagazineDetaildata(null);
-    const response = await instance.get('api/magazine/daily-curation/14/');
+    const response = await instance.get('api/magazine/daily_curation/14');
     setMagazineDetaildata(response.data);
   } catch (error) {
     console.log(error);
