@@ -4,12 +4,12 @@ import BrandCircle from '../../assets/BrandCircle.png';
 import Meally from '../../assets/Meally.png';
 import { Link } from 'react-router-dom';
 
-const BrandCard = ({ brandName }) => {
+const BrandCard = ({ brandName, brandLogo }) => {
   return (
     <Link to={`/branddetail`}>
       <BrandCardContainer>
         <BrandLogoBackground src={BrandCircle}></BrandLogoBackground>
-        <BrandLogo src={Meally} loading="lazy" />
+        <BrandLogo src={brandLogo} loading="lazy" />
         <BrandName>{brandName}</BrandName>
       </BrandCardContainer>
     </Link>

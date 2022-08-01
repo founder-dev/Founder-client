@@ -3,20 +3,16 @@ import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
 import ProductCard from '../components/SharedComponents/ProductCard';
-import data from '../assets/json/data.json';
 import { Link } from 'react-router-dom';
 import {
   Container,
   GridWrapper,
   SubTitle,
 } from '../components/SharedComponents/GridLayout';
-import TitleData from '../assets/json/CategoryTitle.json';
 import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';
 import BrandCard from '../components/SharedComponents/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
-import Categorydata from '../assets/json/CategoryPage.json';
-import Tape from '../assets/CategoryIntroPageAssets/Tape.png';
 import { fetchCategoryIntro } from '../API';
 
 const CategoryIntroPage = ({ title }) => {
@@ -50,6 +46,7 @@ const CategoryIntroPage = ({ title }) => {
                       .map(
                         ({
                           product_name,
+                          product_img,
                           min_price,
                           star_rate_avg,
                           custom_flag,
@@ -62,14 +59,15 @@ const CategoryIntroPage = ({ title }) => {
                           <Link to={`/itemdetail/food/${content.type_name}`}>
                             <ProductCard
                               itemName={product_name}
+                              productImg={product_img}
                               price={min_price}
                               rating={star_rate_avg}
                               custom={custom_flag}
                               schedule={delivery_cycle}
                               image={product_main_img}
-                              min_price={min_std_price}
-                              max_price={max_std_price}
-                              schedule_detail={delivery_cycle_detail}
+                              minPrice={min_std_price}
+                              maxPrice={max_std_price}
+                              scheduleKorean={delivery_cycle_detail}
                             />
                           </Link>
                         )
@@ -77,14 +75,20 @@ const CategoryIntroPage = ({ title }) => {
                   </GridWrapper>
                   <BrandTitle text={content.type_name} />
                   <BrandCardWrapper>
-                    {content.type_brand.map(({ brand_name, id }) => (
-                      <>
-                        <BrandCard brandName={brand_name} key={id} />
-                      </>
-                    ))}
+                    {content.type_brand.map(
+                      ({ brand_name, id, brand_img_logo }) => (
+                        <>
+                          <BrandCard
+                            brandName={brand_name}
+                            key={id}
+                            brandLogo={brand_img_logo}
+                          />
+                        </>
+                      )
+                    )}
                   </BrandCardWrapper>
                 </Container>
-                <TextTape src={Tape} />
+                <TextTape src={content.type_img_footer} />
               </>
             ))}
           </>
