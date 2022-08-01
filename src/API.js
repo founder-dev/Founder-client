@@ -18,10 +18,10 @@ export const fetchMagazineDetail = async (setMagazineDetaildata) => {
   }
 };
 
-export const fetchCategoryIntro = async (setCategoryIntroData) => {
+export const fetchCategoryIntro = async ({setCategoryIntroData,title}) => {
   try {
     setCategoryIntroData(null);
-    const response = await instance.get('api/category/food');
+    const response = await instance.get(`api/category/${title}`);
     setCategoryIntroData(response.data);
   } catch (error) {
     console.log(error);

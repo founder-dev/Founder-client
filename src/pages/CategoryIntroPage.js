@@ -19,12 +19,10 @@ const CategoryIntroPage = ({ title }) => {
   const [categoryIntroData, setCategoryIntroData] = useState(null);
 
   useEffect(() => {
-    fetchCategoryIntro(setCategoryIntroData);
-  }, []);
+    fetchCategoryIntro({setCategoryIntroData,title});
+  }, [title]);
 
   if (!categoryIntroData) return null;
-
-  console.log(categoryIntroData);
 
   return (
     <>
@@ -55,8 +53,9 @@ const CategoryIntroPage = ({ title }) => {
                           min_std_price,
                           max_std_price,
                           delivery_cycle_detail,
+                          id,
                         }) => (
-                          <Link to={`/itemdetail/food/${content.type_name}`}>
+                          <Link to={`/itemdetail/${title}/${content.type_name}/${id}`}>
                             <ProductCard
                               itemName={product_name}
                               productImg={product_img}
@@ -73,20 +72,23 @@ const CategoryIntroPage = ({ title }) => {
                         )
                       )}
                   </GridWrapper>
-                  <BrandTitle text={content.type_name} />
-                  <BrandCardWrapper>
-                    {content.type_brand.map(
-                      ({ brand_name, id, brand_img_logo }) => (
-                        <>
-                          <BrandCard
-                            brandName={brand_name}
-                            key={id}
-                            brandLogo={brand_img_logo}
-                          />
-                        </>
-                      )
-                    )}
-                  </BrandCardWrapper>
+
+                  {content.type_brand != '' && (
+                    <>
+                      <BrandTitle text={content.type_name} />
+                      <BrandCardWrapper>
+                        {content.type_brand.map(
+                          ({ brand_name, id, brand_img_logo }) => (
+                            <BrandCard
+                              brandName={brand_name}
+                              key={id}
+                              brandLogo={brand_img_logo}
+                            />
+                          )
+                        )}
+                      </BrandCardWrapper>
+                    </>
+                  )}
                 </Container>
                 <TextTape src={content.type_img_footer} />
               </>
@@ -114,10 +116,15 @@ const Wrapper = styled.div`
 `;
 
 const BrandCardWrapper = styled.div`
-  margin-top: 18.4px;
+  width: 920px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: 18.4px;
   margin-bottom: 79.82px;
+
+  column-gap: 30px;
+  row-gap: 20px;
 `;
 
 const TextTape = styled.img`

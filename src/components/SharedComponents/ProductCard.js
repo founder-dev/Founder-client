@@ -27,26 +27,27 @@ const ProductCard = ({
     >
       {itemHover ? (
         <>
-          <ImageContainer>
-            <Image src={productImg} loading="lazy" />
-          </ImageContainer>
-          <HoverInfoContainer>
-            <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
-            <HoverInfoTitle>배송 주기</HoverInfoTitle>
-          </HoverInfoContainer>
-          <HoverInfoContainer marginTop={'2.51px'}>
-            <HoverInfo>
-              {minPrice != 0 ? (
-                <>
-                  <span>{minPrice}</span>
-                  <span>~{maxPrice}</span>원
-                </>
-              ) : (
-                <span>N/A</span>
-              )}
-            </HoverInfo>
-            <HoverInfo>{scheduleKorean}</HoverInfo>
-          </HoverInfoContainer>
+          <Image src={productImg} loading="lazy" />
+
+          <Container>
+            <HoverInfoContainer>
+              <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
+              <HoverInfo>
+                {minPrice != 0 ? (
+                  <>
+                    <span>{minPrice}</span>
+                    <span>~{maxPrice}</span>원
+                  </>
+                ) : (
+                  <span>N/A</span>
+                )}
+              </HoverInfo>
+            </HoverInfoContainer>
+            <HoverInfoContainer>
+              <HoverInfoTitle>배송 주기</HoverInfoTitle>
+              <HoverInfo>{scheduleKorean}</HoverInfo>
+            </HoverInfoContainer>
+          </Container>
         </>
       ) : (
         <>
@@ -95,11 +96,10 @@ const ImageContainer = styled.div`
   height: 276px;
 `;
 const Image = styled.img`
-  width: 250px;
-  height: 240px;
+  width: 288.27px;
+  height: 276px;
   display: block;
-  margin: 0px auto;
-  padding-top: 20px;
+  margin-top: 9.2px;
 `;
 
 const ImageWrapper = styled.div`
@@ -145,6 +145,15 @@ const HoverInfoContainer = styled.div`
   margin-left: 21.51px;
   display: flex;
   text-align: left;
+  flex-direction: column;
+`;
+
+const Container = styled.div`
+  margin-top: 5.38px;
+  padding-left: 21.51px;
+  width: 288px;
+  display: flex;
+  flex-direction: row;
 `;
 
 const HoverInfoTitle = styled.text`
@@ -160,7 +169,7 @@ const HoverInfoTitle = styled.text`
 const HoverInfo = styled.text`
   font-weight: 500;
   font-size: 15.3617px;
-  line-height: 28px;
+  line-height: 27.65px;
   color: #272727;
   padding-right: 22px;
 `;
