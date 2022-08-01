@@ -24,8 +24,6 @@ const CategoryIntroPage = ({ title }) => {
 
   if (!categoryIntroData) return null;
 
-  console.log(categoryIntroData);
-
   return (
     <>
       <TopBar />
@@ -74,20 +72,23 @@ const CategoryIntroPage = ({ title }) => {
                         )
                       )}
                   </GridWrapper>
-                  <BrandTitle text={content.type_name} />
-                  <BrandCardWrapper>
-                    {content.type_brand.map(
-                      ({ brand_name, id, brand_img_logo }) => (
-                        <>
-                          <BrandCard
-                            brandName={brand_name}
-                            key={id}
-                            brandLogo={brand_img_logo}
-                          />
-                        </>
-                      )
-                    )}
-                  </BrandCardWrapper>
+
+                  {content.type_brand != '' && (
+                    <>
+                      <BrandTitle text={content.type_name} />
+                      <BrandCardWrapper>
+                        {content.type_brand.map(
+                          ({ brand_name, id, brand_img_logo }) => (
+                            <BrandCard
+                              brandName={brand_name}
+                              key={id}
+                              brandLogo={brand_img_logo}
+                            />
+                          )
+                        )}
+                      </BrandCardWrapper>
+                    </>
+                  )}
                 </Container>
                 <TextTape src={content.type_img_footer} />
               </>
@@ -115,10 +116,15 @@ const Wrapper = styled.div`
 `;
 
 const BrandCardWrapper = styled.div`
-  margin-top: 18.4px;
+  width: 920px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: 18.4px;
   margin-bottom: 79.82px;
+
+  column-gap: 30px;
+  row-gap: 20px;
 `;
 
 const TextTape = styled.img`

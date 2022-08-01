@@ -23,7 +23,6 @@ const BrandCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
-  margin-right: 30px;
 `;
 
 const BrandLogoBackground = styled.img`
