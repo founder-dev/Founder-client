@@ -9,13 +9,14 @@ import { fontWeight, fontsize } from '../../styles/theme';
 
 const ProductCard = ({
   itemName,
+  productImg,
   price,
   rating,
   custom,
   schedule,
-  min_price,
-  max_price,
-  schedule_detail,
+  minPrice,
+  maxPrice,
+  scheduleKorean,
 }) => {
   const [itemHover, setItemHover] = useState(false);
 
@@ -27,7 +28,7 @@ const ProductCard = ({
       {itemHover ? (
         <>
           <ImageContainer>
-            <Image src={itemImage} loading="lazy" />
+            <Image src={productImg} loading="lazy" />
           </ImageContainer>
           <HoverInfoContainer>
             <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
@@ -35,25 +36,25 @@ const ProductCard = ({
           </HoverInfoContainer>
           <HoverInfoContainer marginTop={'2.51px'}>
             <HoverInfo>
-              {min_price != 0 ? (
+              {minPrice != 0 ? (
                 <>
-                  <span>{min_price}</span>
-                  <span>~{max_price}</span>원
+                  <span>{minPrice}</span>
+                  <span>~{maxPrice}</span>원
                 </>
               ) : (
                 <span>N/A</span>
               )}
             </HoverInfo>
-            <HoverInfo>{schedule_detail}</HoverInfo>
+            <HoverInfo>{scheduleKorean}</HoverInfo>
           </HoverInfoContainer>
         </>
       ) : (
         <>
           <ImageWrapper>
             <ImageContainer>
-              <Image src={itemImage} loading="lazy" />
+              <Image src={productImg} loading="lazy" />
             </ImageContainer>
-            {schedule === 'Weekly' ? (
+            {schedule === 'weekly' ? (
               <>
                 <Sticker src={Weekly} />
               </>
