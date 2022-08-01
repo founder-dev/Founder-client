@@ -55,8 +55,9 @@ const CategoryIntroPage = ({ title }) => {
                           min_std_price,
                           max_std_price,
                           delivery_cycle_detail,
+                          id,
                         }) => (
-                          <Link to={`/itemdetail/food/${content.type_name}`}>
+                          <Link to={`/itemdetail/${title}/${content.type_name}/${id}`}>
                             <ProductCard
                               itemName={product_name}
                               productImg={product_img}
