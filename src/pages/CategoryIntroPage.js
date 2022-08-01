@@ -115,10 +115,15 @@ const Wrapper = styled.div`
 `;
 
 const BrandCardWrapper = styled.div`
-  margin-top: 18.4px;
+  width: 920px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: 18.4px;
   margin-bottom: 79.82px;
+
+  column-gap: 30px;
+  row-gap: 20px;
 `;
 
 const TextTape = styled.img`
