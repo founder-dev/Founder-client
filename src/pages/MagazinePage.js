@@ -8,27 +8,21 @@ import data from '../assets/json/Magazinedata.json';
 import { Link } from 'react-router-dom';
 import curation from '../assets/MagazinePageAssets/curation.png';
 import BrandStory from '../assets/MagazinePageAssets/brandStory.png';
+import { fetchMagazine } from '../API';
+import { useState, useEffect } from 'react';
 
 const MagazinePage = () => {
-  const magazineData = [];
-  /*useEffect(() => {
-    const fetchMagazine = async () => {
-      try {
-        const response = await axios.get(
-          'https://pounder/api/magazine/'
-        );
-        magazineData = response.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchMagazine();
-  }, []); */
+  const [magzineData, setMagazineData] = useState(null);
+
+  useEffect(() => {
+    fetchMagazine(setMagazineData);
+  }, []);
+
+  if (!magzineData) return null;
+
+  console.log(magzineData.daily_curation[0].tag_arr);
 
   const Story = data.filter((story) => story.magazine_type === '파운더 스토리'); //magazineData 이름바꾸기
-  const Curation = data.filter(
-    (curation) => curation.magazine_type === '데일리 큐레이션'
-  );
   const Brand = data.filter((items) => items.magazine_type === '브랜드');
   /*api 통신하면 브랜드 부분은 
   const brandName = Curation.map((brand) => brand.brand_name));
@@ -59,13 +53,13 @@ const MagazinePage = () => {
 
           <CurationWrapper>
             <Topic>데일리 큐레이션</Topic>
-            {Curation.map(({ title, intro_content, tag_arr, main_img }, i) => (
+            {magzineData.daily_curation.map(({ title, intro, tag_arr, img_main ,id}) => (
               <MagazineCard
                 title={title}
-                text={intro_content}
+                text={intro}
                 tag={tag_arr}
-                image={curation}
-                key={i}
+                image={img_main}
+                key={id}
               />
             ))}
           </CurationWrapper>

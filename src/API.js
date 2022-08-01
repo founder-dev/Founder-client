@@ -28,6 +28,16 @@ export const fetchCategoryIntro = async ({setCategoryIntroData,title}) => {
   }
 };
 
+export const fetchMagazine = async (setMagazineData) => {
+  try {
+    setMagazineData(null);
+    const response = await instance.get(`api/magazine`);
+    setMagazineData(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 //필요한 API만들기
 /*export const PersonalInfo = async (token) =>
     await API.get('/mypage', {
