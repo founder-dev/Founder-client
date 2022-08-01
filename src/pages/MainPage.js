@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import FounderLogo from '../assets/MainPageAssets/logo.png';
 import Banner from '../components/MainPageComponents/Banner';
 import styled from 'styled-components';
-import TopBar from '../components/TopBar';
+import TopBar from '../components/TopBarComponents/TopBar';
 import { Logo } from '../components/FounderLogo';
-import { useRecoilState } from 'recoil';
-import { loginState, surveyState } from '../recoil';
-import data from '../assets/data.json';
-import ProductCard from '../components/ProductCard';
-import BrandCard from '../components/BrandCard';
-import { Container, GridWrapper } from '../components/GridLayout';
+import data from '../assets/json/data.json';
+import ProductCard from '../components/SharedComponents/ProductCard';
+import BrandCard from '../components/SharedComponents/BrandCard';
+import {
+  Container,
+  GridWrapper,
+} from '../components/SharedComponents/GridLayout';
 import { Link } from 'react-router-dom';
 
 const MainPage = () => {
@@ -20,10 +21,10 @@ const MainPage = () => {
 
   return (
     <>
+      <Logo src={FounderLogo} />
+      <TopBar position={'sticky'} main={'main'} />
       <WidthWrapper>
         <Wrapper>
-          <Logo src={FounderLogo} />
-          <TopBar position={'sticky'} />
           <Banner />
           <Container>
             {subTitle.map((subTitle) => (
@@ -41,7 +42,7 @@ const MainPage = () => {
                             { itemName, price, rating, custom, schedule },
                             i
                           ) => (
-                            <Link to={`/itemdetail`}>
+                            <Link to={`/itemdetail/Food/itemName`}>
                               <ProductCard
                                 itemName={itemName}
                                 price={price}
@@ -90,6 +91,7 @@ const SubTitle = styled.div`
   color: black;
   font-size: 20px;
   font-weight: 500;
+  line-height: 32px;
 `;
 
 const ItemTitle = styled.div`
@@ -97,6 +99,7 @@ const ItemTitle = styled.div`
   margin-bottom: 42.75px;
   color: black;
   font-size: 24px;
+  line-height: 36px;
   font-weight: 800;
 `;
 

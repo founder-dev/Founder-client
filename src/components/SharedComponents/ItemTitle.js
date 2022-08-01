@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import ChangeEnglish from "./ChangeEnglish";
+import useChangeKorean from "../../hooks/useChangeKorean";
 
 function ItemTitle({text}){
      
-    var Hangeul = ChangeEnglish(text={text});
+    var Hangeul = useChangeKorean(text);
 
     return(
         <Title>{Hangeul}</Title>

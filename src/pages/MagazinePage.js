@@ -1,13 +1,13 @@
 import React from 'react';
-import PageTitleBar from '../components/PageTitleBar';
-import TopBar from '../components/TopBar';
+import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
+import TopBar from '../components/TopBarComponents/TopBar';
 import MagazineCard from '../components/MagazineComponents/MagazineCard';
 import Recommendation from '../components/MagazineComponents/Recommendation';
 import styled from 'styled-components';
-import Tag from '../components/Tag';
-import data from '../assets/Magazinedata.json';
-import { useEffect } from 'react';
+import data from '../assets/json/Magazinedata.json';
 import { Link } from 'react-router-dom';
+import curation from '../assets/MagazinePageAssets/curation.png';
+import BrandStory from '../assets/MagazinePageAssets/brandStory.png';
 
 const MagazinePage = () => {
   const magazineData = [];
@@ -29,7 +29,7 @@ const MagazinePage = () => {
   const Curation = data.filter(
     (curation) => curation.magazine_type === '데일리 큐레이션'
   );
-  const Brand = data.map((items) => items.brand);
+  const Brand = data.filter((items) => items.magazine_type === '브랜드');
   /*api 통신하면 브랜드 부분은 
   const brandName = Curation.map((brand) => brand.brand_name));
   const brandLink = Curation.map((brand) => brand.brand_link));
@@ -50,7 +50,7 @@ const MagazinePage = () => {
                   title={title}
                   text={intro_content}
                   tag={tag_arr}
-                  image={main_img}
+                  image={BrandStory}
                   key={i}
                 />
               </Link>
@@ -64,17 +64,17 @@ const MagazinePage = () => {
                 title={title}
                 text={intro_content}
                 tag={tag_arr}
-                image={main_img}
+                image={curation}
                 key={i}
-                curationHeight="475px"
-                imageHeight="320px"
               />
             ))}
           </CurationWrapper>
 
           <RecommendationWrapper>
             <Topic>추천 브랜드</Topic>
-            <Recommendation Brand={Brand} />
+            {Brand.map(({ title }, i) => (
+              <Recommendation title={title} key={i} />
+            ))}
           </RecommendationWrapper>
         </Wrapper>
       </WidthWrapper>

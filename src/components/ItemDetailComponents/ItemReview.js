@@ -4,43 +4,75 @@ import ItemReviewCard from '../ItemDetailComponents/ItemReviewComponents/ItemRev
 import Rated from '../StarRating/Rated';
 import RateBars from '../ItemDetailComponents/ItemReviewComponents/RateBars';
 import Slider from './Slider';
+import Review from '../../assets/json/Review.json';
+import NotFoundImage from '../../assets/ItemDetailPageAssets/NotFoundImage.png';
 
 function ItemReview() {
+  const reviewData = Review;
+
   return (
-    <ItemReviewWrapper>
-      <ReviewInfoContainer>
-        <OverallRating>
-          <Text>총 평점</Text>
-          <AlignCenter>
-            <Average>{4}</Average>
-            <Rated rating={4}></Rated>
-            <NumText>{`(총 55개의 구매평)`}</NumText>
-          </AlignCenter>
-        </OverallRating>
-        <RateBars />
-        <PhotoReviewWrapper>
-          <PhotoText>사진 후기 모아보기</PhotoText>
-          <Slider />
-        </PhotoReviewWrapper>
-      </ReviewInfoContainer>
-      <ItemReviewCardGrid>
-        <ItemReviewCard />
-      </ItemReviewCardGrid>
-    </ItemReviewWrapper>
+    <>
+      {reviewData == null ? (
+        <>
+          <NotFound src={NotFoundImage} />
+          <NotFoundText>아직 작성된 후기가 없어요ㅠㅠ</NotFoundText>
+        </>
+      ) : (
+        <ItemReviewWrapper>
+          <ReviewInfoContainer>
+            <OverallRating>
+              <Text>총 평점</Text>
+              <AlignCenter>
+                <Average>{4}</Average>
+                <Rated rating={4}></Rated>
+                <NumText>{`(총 55개의 구매평)`}</NumText>
+              </AlignCenter>
+            </OverallRating>
+            <RateBars />
+            <PhotoReviewWrapper>
+              <PhotoText>사진 후기 모아보기</PhotoText>
+              <Slider />
+            </PhotoReviewWrapper>
+          </ReviewInfoContainer>
+          <ItemReviewCardGrid>
+            {reviewData.map(
+              ({ id, review_id, review_text, review_tag_arr, create_date }) => (
+                <ItemReviewCard
+                  key={id}
+                  text={review_text}
+                  id={review_id}
+                  tag={review_tag_arr}
+                  date={create_date}
+                />
+              )
+            )}
+          </ItemReviewCardGrid>
+        </ItemReviewWrapper>
+      )}
+    </>
   );
 }
 
 export default ItemReview;
 
+const NotFound = styled.img`
+  margin-top: 68.61px;
+  margin-bottom: 27px;
+`;
+
+const NotFoundText = styled.text`
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 31px;
+`;
+
 const Text = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: #888888;
 `;
 
 const NumText = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: #888888;
@@ -50,7 +82,6 @@ const NumText = styled.div`
 const Average = styled.div`
   margin-top: 10px;
   margin-bottom: 8.52px;
-  font-family: 'Pretendard';
   font-weight: 800;
   font-size: 28px;
   color: #007dfe;
@@ -63,12 +94,10 @@ const PhotoReviewWrapper = styled.div`
 
 const ReviewInfoContainer = styled.div`
   display: flex;
-
   margin-top: 47px;
 `;
 
 const PhotoText = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: #888888;
@@ -93,8 +122,10 @@ const AlignCenter = styled.div`
 const ItemReviewCardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  width: 986px;
   column-gap: 56px;
   row-gap: 54px;
+  margin-top: 72px;
 `;
 
 const ItemReviewWrapper = styled.div`

@@ -1,6 +1,11 @@
 import styled from 'styled-components';
 
 const RateBars = () => {
+  const star_rate = [2, 3, 4, 5, 2]; //예시
+  const total = star_rate.reduce(function add(sum, currValue) {
+    return sum + currValue;
+  }, 0);
+
   return (
     <>
       <TextWrapper>
@@ -12,25 +17,13 @@ const RateBars = () => {
       </TextWrapper>
 
       <ColumnWrapper>
-        <RateBarBackground>
-          <RateBar />
-        </RateBarBackground>
-
-        <RateBarBackground>
-          <RateBar />
-        </RateBarBackground>
-
-        <RateBarBackground>
-          <RateBar />
-        </RateBarBackground>
-
-        <RateBarBackground>
-          <RateBar />
-        </RateBarBackground>
-
-        <RateBarBackground>
-          <RateBar />
-        </RateBarBackground>
+      {
+        [0,1,2,3,4].map((num)=>(
+          <RateBarBackground>
+            <RateBar rate={star_rate[num]} total={total}/>
+          </RateBarBackground>
+        ))
+      }
       </ColumnWrapper>
     </>
   );
@@ -59,7 +52,8 @@ const RateBarBackground = styled.div`
 const RateBar = styled.div`
   display: absolute;
 
-  width: 100px;
+  width: ${(props) =>
+    (props.rate / props.total) * 200}px; //별점수 / 전체 별점 * 200
   height: 4px;
 
   background: #007dfe;

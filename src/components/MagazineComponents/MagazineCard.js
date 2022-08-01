@@ -1,14 +1,11 @@
 import React from 'react';
-import BrandStory from '../../assets/MagazinePageAssets/brandStory.png';
 import styled from 'styled-components';
-import { color } from '../../lib/theme';
-
-const MagazineCard = ({ title, text, tag, curationHeight, imageHeight , image }) => {
-  console.log(tag);
+import { color } from '../../styles/theme';
+const MagazineCard = ({ title, text, tag, image }) => {
   return (
     <>
-      <CardContainer height={curationHeight}>
-        <Image src={BrandStory} height={imageHeight} />
+      <CardContainer>
+        <Image src={image} loading="lazy" />
         <ChipWrapper>
           <Chip># {tag[0]}</Chip>
           <Chip># {tag[1]}</Chip>
@@ -24,7 +21,7 @@ const MagazineCard = ({ title, text, tag, curationHeight, imageHeight , image })
 export default MagazineCard;
 
 const Image = styled.img`
-  height: ${(props) => props.height || '441px'};
+  border-radius: 4px;
 `;
 
 const CardContainer = styled.div`
@@ -33,7 +30,6 @@ const CardContainer = styled.div`
   justify-content: center;
   background-color: white;
   width: 330px;
-  height: ${(props) => props.height || '620px'};
   margin-bottom: 32px;
 `;
 
@@ -44,12 +40,11 @@ const Chip = styled.div`
   align-items: center;
   justify-content: center;
   background-color: ${color.grey[2]};
-  width: 66px;
-  height: 32px;
+  height: 34px;
   padding: 3px 9px;
   border-radius: 2px;
 
-  margin-right: 12px;
+  margin-right: 9px;
   font-weight: 500;
   font-size: 16px;
   line-height: 28px;

@@ -1,16 +1,28 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Review from '../../../assets/Review.json';
-import { color } from '../../../lib/theme';
+import Review from '../../../assets/json/Review.json';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
+import { color, fontsize, fontWeight } from '../../../styles/theme';
+import Rated from '../../StarRating/Rated';
 
-const ItemReviewCard = () => {
+const ItemReviewCard = ({ text, id, tag, date }) => {
+  const userId = id.slice(0, 3) + '****';
+  const arraytag = tag.split(',');
+
   const [sizes, setSizes] = useState({
     cardHeight: '336.96px',
     reviewHeight: '56px',
   });
 
+  const tagShow = () => {
+    var array = [];
+    for (var i = 0; i < arraytag.length; i++) {
+      array.push(<Tag>{arraytag[i]}</Tag>);
+    }
+
+    return array;
+  };
   const changeView = () => {
     if (sizes.reviewHeight == '56px') {
       // 닫혀있는경우
@@ -21,7 +33,7 @@ const ItemReviewCard = () => {
     } // 열려있는경우
     else
       setSizes({
-        cardHeight: '336.96px',
+        cardHeight: '342px',
         reviewHeight: '56px',
       });
   };
@@ -30,30 +42,36 @@ const ItemReviewCard = () => {
     <>
       <CardContainer sizes={sizes}>
         <DateWriterWrapper>
-          <Date>2022.07.16.</Date>
-          <Writer>abc****</Writer>
+          <Date>{date}</Date>
+          <Writer>{userId}님의 후기</Writer>
         </DateWriterWrapper>
-        <Image></Image>
-        <TagWrapper>
-          <Tag></Tag>
-          <Tag></Tag>
-          <Tag></Tag>
-        </TagWrapper>
-        <ReviewPreview sizes={sizes}>
-          늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다... 진짜
-          참아요...늘 맛있게 먹고 있어요...절대 단종하지 마세요 저 숨참습니다...
-          진짜 참아요...
-        </ReviewPreview>
+
         {sizes.reviewHeight == '56px' ? (
-          <Writer>
-            더보기
-            <MoreButton src={DownArrow} onClick={changeView} />
-          </Writer>
+          <>
+            <Image></Image>
+            <TagWrapper>{tagShow()}</TagWrapper>
+            <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
+            <Writer>
+              더보기
+              <MoreButton src={DownArrow} onClick={changeView} />
+            </Writer>
+          </>
         ) : (
-          <Writer>
-            접기
-            <MoreButton src={UpArrow} onClick={changeView} />
-          </Writer>
+          <>
+            <ImageContainer>
+              <Image></Image>
+              <Image></Image>
+              <Image></Image>
+              <Image></Image>
+            </ImageContainer>
+            <Rated rating={4} />
+            <TagWrapper margin={'30.38px 0px'}>{tagShow()}</TagWrapper>
+            <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
+            <Writer>
+              접기
+              <MoreButton src={UpArrow} onClick={changeView} />
+            </Writer>
+          </>
         )}
       </CardContainer>
     </>
@@ -66,11 +84,8 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 18.38px 9.19px;
-  gap: 9.19px;
-  margin-top: 72px;
 
-  width: 431.93px;
+  width: 432px;
   height: ${(props) => props.sizes.cardHeight};
 
   background: #fafafa;
@@ -82,41 +97,40 @@ const DateWriterWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 15.3167px 18.38px 6.12667px;
+  padding: 9.19149px 18.383px;
   gap: 6.13px;
+  margin-bottom: 12px;
 
-  width: 395.17px;
-  height: 40.44px;
+  width: 392px;
+  height: 19px;
 `;
 const Date = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: ${color.grey[4]};
 `;
 
 const Writer = styled.div`
-  font-family: 'Pretendard';
   font-weight: 500;
   font-size: 12px;
   color: ${color.grey[5]};
+  margin-bottom: 12px;
 `;
 
 const Image = styled.img`
   width: 120px;
   height: 120px;
-  margin-top: 9.19px;
 `;
 
 const TagWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  padding: 8px 0px;
+  margin: ${(props) => props.margin || '20px 0px'};
   gap: 8px;
 
   width: 279.23px;
-  height: 47px;
+  height: 31px;
 `;
 
 const Tag = styled.div`
@@ -124,22 +138,27 @@ const Tag = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  padding: 6px 14px;
+  padding: 6px;
   gap: 6px;
 
-  width: 88.25px;
-  height: 31px;
+  width: 88px;
+  height: 21px;
 
-  border: 0.765833px solid #222222;
+  border: 1px solid ${color.grey[7]};
   border-radius: 30.6333px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 18px;
 `;
 
 const ReviewPreview = styled.div`
   width: 333.9px;
   height: ${(props) => props.sizes.reviewHeight};
+  margin-bottom: 12px;
 
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;
@@ -150,4 +169,13 @@ const ReviewPreview = styled.div`
 
 const MoreButton = styled.img`
   margin-left: 10.71px;
+  cursor: pointer;
+`;
+
+const ImageContainer = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 12px;
+  row-gap: 12px;
+  margin-bottom: 19.91px;
 `;

@@ -1,87 +1,77 @@
-import React from 'react';
-import TopBar from '../components/TopBar';
+import React, { useState } from 'react';
+import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
-import MagazineImage from '../assets/MagazineDetailPageAssets/MagazineImage.png';
-import CurationPhoto from '../assets/MagazineDetailPageAssets/CurationPhoto.png';
-import Arrow from '../assets/MagazineDetailPageAssets/Arrow.png';
-import Logo from '../assets/MagazineDetailPageAssets/Logo.png';
 import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
+import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
+import axios from 'axios';
+import { useEffect } from 'react';
+import { color } from '../styles/theme';
+import TagShow from '../components/MagazineComponents/TagShow';
+import { fetchMagazineDetail } from '../API';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
+  const [magazineDetaildata, setMagazineDetaildata] = useState(null);
 
-  const magazineDetaildata = [];
+  useEffect(() => {
+    fetchMagazineDetail(setMagazineDetaildata);
+  }, []);
 
-  /*useEffect(() => {
-    const fetchMagazineDetail = async () => {
-      try {
-        const response = await axios.get(
-          'https://pounder/api/magazine/{pk}/'
-        );
-        magazineDetaildata = response.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchMagazineDetail();
-  }, []); 
-  
-  {magazineDetaildata.title} 이런식으로 쓰면됨
-  */
-  
+  if (!magazineDetaildata) return null;
+
+  console.log(magazineDetaildata);
+
+  const dateShow = () => {
+    const date = magazineDetaildata.created_at.substr(0, 10);
+
+    return date;
+  };
+
   return (
     <>
       <TopBar />
+
       <Header>
-        <HeaderTitle>파운더 사용 설명서</HeaderTitle>
+        <HeaderTitle>{magazineDetaildata.title}</HeaderTitle>
         <HorizontalProgress scroll={scroll} />
       </Header>
 
       <WidthWrapper>
         <Wrapper>
-          <img src={MagazineImage} />
+          <HeaderImg src={magazineDetaildata.img_header} />
           <TitleWrapper>
             <TitleInfo>
-              <Title>파운더 사용 설명서</Title>
-              <KeyWords>설문조사 | 카테고리 | 매거진 </KeyWords>
+              <Title>{magazineDetaildata.title}</Title>
+              <KeyWords>
+                <TagShow tag_arr={magazineDetaildata.tag_arr} />
+              </KeyWords>
             </TitleInfo>
           </TitleWrapper>
 
           <DetailWrapper>
-            <Editor>editor. 김하린</Editor>
-            <Date>2022.03.16</Date>
+            <Editor>editor. {magazineDetaildata.author}</Editor>
+            <Date>{dateShow()}</Date>
           </DetailWrapper>
-          <ArticleWrapper>
-            <ParagraphWrapper>
-              <SubTitle>파운더와 함께하는 현물 구독</SubTitle>
-              <Text>
-                우리는 일상생활 속에서 필요한 물품들에 대해 고정적인 취향이 자리
-                잡혀있을 때가 많아요. 우리의 경험을 바탕으로 어떤 물건이 나에게
-                가장 잘 맞는지 파악한 후 구매하곤 하죠. 이후에 사용한 경험이
-                만족스러웠다면 재구매로까지 이어지기도 합니다. 파운더는 이
-                과정을 단순화해주고자 합니다!
-              </Text>
-            </ParagraphWrapper>
-            <img src={CurationPhoto} />
+          <Centering>
+            {magazineDetaildata.magazine_magazinecontent.map((content) => (
+              <>
+                <ArticleWrapper key={content.id}>
+                  <ParagraphWrapper>
+                    <SubTitle>{content.detail_title}</SubTitle>
+                    <Text>{content.detail_content}</Text>
+                  </ParagraphWrapper>
+                  {content.detail_img != null && (
+                    <Image src={content.detail_img} />
+                  )}
 
-            <BrandHome>
-              <BrandInfoWrapper>
-                <BrandLogo src={Logo} />
-                <TextWrapper>
-                  <BrandName>{`톤 28 (TOUN 28)`}</BrandName>
-                  <BrandDetail>
-                    플라스틱을 줄여 동물들을 살리는, 친환경 바를거리
-                  </BrandDetail>
-                </TextWrapper>
-              </BrandInfoWrapper>
-
-              <BrandButton>
-                <ButtonText>브랜드 홈 방문하기</ButtonText>
-                <BrandArrow src={Arrow} />
-              </BrandButton>
-            </BrandHome>
-          </ArticleWrapper>
+                  {content.magazinecontent_brand != null && (
+                    <BrandMovingButton />
+                  )}
+                </ArticleWrapper>
+              </>
+            ))}
+          </Centering>
         </Wrapper>
       </WidthWrapper>
     </>
@@ -93,22 +83,27 @@ export default MagazineDetailPage;
 const Header = styled.div`
   position: fixed;
   width: 100%;
-  height: 82px;
-  top: 80px;
+  height: 56px;
+  top: 56px;
   background-color: white;
   z-index: 3;
 `;
 
+const HeaderImg = styled.img`
+  width: 1336px;
+  height: 396px;
+  margin-left: 52px;
+`;
+
 const HeaderTitle = styled.div`
-  font-family: 'Pretendard';
   font-weight: 700;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 100%;
   text-align: center;
   color: black;
   z-index: 2;
-  margin-top: 31px;
-  margin-bottom: 31px;
+  margin-top: 19px;
+  margin-bottom: 21px;
 `;
 
 const TitleWrapper = styled.div`
@@ -117,33 +112,33 @@ const TitleWrapper = styled.div`
 
 const TitleInfo = styled.div`
   position: absolute;
-  width: 100%;
-  height: 164px;
-  top: -164px;
-
+  width: 1336px;
+  height: 172px;
+  top: -172px;
+  margin-left: 52px;
   background: rgba(0, 0, 0, 0.3);
 `;
 
 const Title = styled.div`
-  font-family: 'Pretendard';
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 800;
   text-align: center;
-
+  line-height: 48px;
   color: white;
-
   z-index: 2;
-  margin-top: 41px;
-  margin-bottom: 21px;
+  margin-top: 36px;
 `;
 
 const KeyWords = styled.div`
-  font-family: 'Pretendard';
   font-size: 20px;
-
+  line-height: 36px;
+  font-weight: 500;
   text-align: center;
 
-  color: #ffffff;
+  color: ${color.grey[2]};
+
+  margin-top: 16px;
+  gap: 12px;
 `;
 
 const DetailWrapper = styled.div`
@@ -153,19 +148,15 @@ const DetailWrapper = styled.div`
   justify-content: space-between;
   width: 211px;
   margin-left: 120px;
-  margin-bottom: 8px;
 `;
 
 const Date = styled.div`
-  font-family: 'Pretendard';
   font-weight: 400;
   font-size: 16px;
 
   color: #878888;
 `;
 const Editor = styled.div`
-  font-family: 'Pretendard';
-  font-style: normal;
   font-weight: 500;
   font-size: 16px;
   line-height: 100%;
@@ -173,15 +164,18 @@ const Editor = styled.div`
   color: #000000;
 `;
 
+const Centering = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 1440px;
+`;
+
 const ArticleWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 0px;
-  gap: 156px;
-  margin-left: 120px;
-  width: 960px;
-  margin-left: 240px;
+  width: 1200px;
+  justify-content: center;
 `;
 
 const BrandHome = styled.div`
@@ -189,7 +183,7 @@ const BrandHome = styled.div`
   width: 1200px;
   height: 132px;
 
-  margin-top: 56px;
+  margin-top: 80px;
   margin-bottom: 156px;
 
   background: #fafafa;
@@ -198,94 +192,44 @@ const BrandHome = styled.div`
   display: flex;
   justify-content: space-between;
 `;
-const BrandInfoWrapper = styled.div`
-  position: relative;
-`;
-
-const BrandLogo = styled.img`
-  margin: 20px 32px 0px 32px;
-  position: absolute;
-`;
-
-const TextWrapper = styled.div`
-  position: absolute;
-  align-items: column;
-  width: 683px;
-  left: 160px;
-`;
-
-const BrandName = styled.div`
-  font-family: 'Pretendard';
-  font-weight: 700;
-  font-size: 28px;
-  height: 40px;
-  margin-top: 26px;
-`;
-
-const BrandDetail = styled.div`
-  font-family: 'Pretendard';
-  font-weight: 500;
-  font-size: 20px;
-  margin-top: 4px;
-  margin-bottom: 26px;
-  height: 36px;
-`;
-
-const BrandButton = styled.div`
-  width: 240px;
-  height: 54px;
-  position: absolute;
-  top: 52px;
-  left: 935px;
-  border-radius: 4px;
-  border: 1px;
-  border-style: solid;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-`;
-
-const ButtonText = styled.div`
-  font-family: 'Pretendard';
-  font-weight: 500;
-  font-size: 16px;
-  margin: 13px 21.01px 13px 21.1px;
-`;
-
-const BrandArrow = styled.img`
-  margin: 15.94px 21.01px 14.83px 30.77px;
-`;
 
 const SubTitle = styled.div`
-  font-family: 'Pretendard';
-  font-weight: bold;
-  font-size: 32px;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 38px;
 
   color: #272727;
 
-  margin-bottom: 48px;
+  margin-top: 84px;
+  margin-bottom: 46px;
 `;
 
-const Text = styled.text`
-  font-family: 'Pretendard';
+const Text = styled.span`
+  font-weight: 400;
   font-size: 20px;
+  line-height: 180%;
 
   color: #000000;
 
-  margin-bottom: 156px;
-`;
-
-const ParagraphWrapper = styled.div`
-  margin-top: 76px;
   margin-bottom: 80px;
 `;
 
+const ParagraphWrapper = styled.div`
+  margin-bottom: 80px;
+  width: 920px;
+  margin-left: 250px;
+`;
+
+const Image = styled.img`
+  margin-left: 120px;
+  width: 1200px;
+`;
 const Wrapper = styled.div`
   display: flex;
+  justify-content: center;
   flex-direction: column;
   width: 1440px;
-  padding-top: 162px;
+  padding-top: 118px;
   padding-bottom: 235px;
 `;
 

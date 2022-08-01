@@ -3,15 +3,14 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import KaKaoCode from '../KakaoCode';
 import { loginState } from '../../recoil';
-import { color, fontsize, fontWeight } from '../../lib/theme';
+import { color, fontsize, fontWeight } from '../../styles/theme';
 
-function BannerButton(){
+function BannerButton() {
+  const isLoggedIn = useRecoilValue(loginState);
 
-    const isLoggedIn = useRecoilValue(loginState);
-
-    return(
-        <>
-        {isLoggedIn ? (
+  return (
+    <>
+      {isLoggedIn ? (
         <>
           <Link to={`/surveyintropage`}>
             <Button>설문조사에 참여하기</Button>
@@ -22,8 +21,8 @@ function BannerButton(){
           <Button onClick={KaKaoCode}>로그인 하러 가기</Button>
         </>
       )}
-        </>
-    )
+    </>
+  );
 }
 
 export default BannerButton;

@@ -1,20 +1,16 @@
 import React from 'react';
-import Protein from '../../assets/MagazinePageAssets/Protein.png';
+import Toun from '../../assets/MagazinePageAssets/Toun.png';
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-const Recommendation = ({ Brand }) => {
+const Recommendation = ({ title }) => {
   return (
-    <CardContainer>
-      {Brand.map(
-        (brand, i) =>
-          brand != undefined && (
-            <>
-              <Image src={Protein} />
-              <SubText>{brand}</SubText>
-            </>
-          )
-      )}
-    </CardContainer>
+    <Link to={`/branddetail`}>
+      <CardContainer>
+        <Image src={Toun} />
+        <SubText>{title}</SubText>
+      </CardContainer>
+    </Link>
   );
 };
 
@@ -22,6 +18,8 @@ export default Recommendation;
 
 const Image = styled.img`
   border-radius: 4px;
+  width: 165px;
+  height: 165px;
 `;
 
 const CardContainer = styled.div`
@@ -29,20 +27,18 @@ const CardContainer = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: white;
-  width: 216px;
-  height: 170px;
-  margin-bottom: 24px;
-
-  margin-top: 150px;
+  width: 165px;
+  margin-bottom: 16px;
 `;
 
 const SubText = styled.div`
   margin-top: 4px;
   justify-content: center;
-  background-color: white;
   color: black;
   font-size: 16px;
   font-family: 'Pretendard';
-  margin-bottom: 24px;
+  line-height: 28px;
+
+  font-style: normal;
+  font-weight: 500;
 `;

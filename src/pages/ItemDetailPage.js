@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
-import Modal from '../components/Modal';
-import TopBar from '../components/TopBar';
+import Modal from '../components/ModalComponents/Modal';
+import TopBar from '../components/TopBarComponents/TopBar';
 import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
+import Weekly from '../assets/ProductCardAssets/Weekly.png';
+import Monthly from '../assets/ProductCardAssets/Monthly.png';
+import { useParams } from 'react-router-dom';
 import ArrowWhite from '../assets/ItemDetailPageAssets/ArrowWhite.png';
 import { WidthWrapper } from '../components/WidthWrapper';
 import {
@@ -17,15 +20,22 @@ import {
   ReviewButton,
   ReviewText,
 } from '../components/ItemDetailComponents/ItemDetailPresenter';
-import { color, fontsize, fontWeight } from '../lib/theme';
+import { color, fontsize, fontWeight } from '../styles/theme';
 import ItemReview from '../components/ItemDetailComponents/ItemReview';
 import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCategory';
 import Item from '../components/ItemDetailComponents/Item';
+import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
+import ItemDetaildata from '../assets/json/ItemDetailPage.json';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const itemData = [];
+  const itemData = ItemDetaildata;
+  const params = useParams();
+  const title = params.title;
+  const product = params.product;
+
   const [isSelected, setIsSelected] = useState(true);
+  const [brand, setBrand] = useState(true);
   /*
   /*useEffect(() => {
     const fetchItemDetail = async () => {
@@ -42,24 +52,39 @@ const ItemDetailPage = () => {
   }, []); 
   {itemData.product_name} //이런식으로 사용
   */
+
   return (
     <>
       <TopBar />
       <WidthWrapper>
         <Wrapper>
-          <ItemDetailCategory />
+          <ItemDetailCategory
+            title={title}
+            product={product}
+            productName={itemData.product_name}
+          />
           <ItemWrapper>
-            <img src={ItemImage} />
+            <StickerdImage>
+              <Img src={ItemImage} />
+              {itemData.delivery_cycle === 'Weekly' ? (
+                <Sticker src={Weekly} />
+              ) : (
+                <Sticker src={Monthly} />
+              )}
+            </StickerdImage>
             <ItemInfo>
-              <Item />
+              <Item product={product} data={itemData} />
+
               <Line />
               <Guide>
                 상품 문의와 자세한 정보를 원하신다면 판매 사이트를 방문해주세요.
               </Guide>
-              <PurchaseButton>
-                <PurchaseText>구매하러 갈래요</PurchaseText>
-                <img src={ArrowWhite} />
-              </PurchaseButton>
+              <a href={itemData.purchase_link}>
+                <PurchaseButton>
+                  <PurchaseText>구매하러 갈래요</PurchaseText>
+                  <img src={ArrowWhite} />
+                </PurchaseButton>
+              </a>
               <BoughtText>이미 구매한 상품인가요?</BoughtText>
               <ReviewButton>
                 <ReviewText
@@ -75,7 +100,8 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
-          <div>
+          {brand && <BrandMovingButton top="0px" left="260px" />}
+          <MenuBarContainer>
             <MenuBar
               onClick={() => setIsSelected(!isSelected)}
               isSelected={isSelected}
@@ -87,9 +113,9 @@ const ItemDetailPage = () => {
               left="28px"
               isSelected={!isSelected}
             >
-              후기 모아보기
+              구독 후기
             </MenuBar>
-          </div>
+          </MenuBarContainer>
           {isSelected ? <div>상세정보컴포넌트</div> : <ItemReview />}
         </Wrapper>
       </WidthWrapper>
@@ -113,4 +139,25 @@ const MenuBar = styled.span`
         `
       : `
         color: ${color.grey[3]};`}
+`;
+
+const MenuBarContainer = styled.div`
+  margin-top: 60px;
+`;
+const StickerdImage = styled.div`
+  width: 480px;
+  height: 480px;
+  margin-right: 72.4px;
+  position: relative;
+`;
+
+const Img = styled.img`
+  width: 480px;
+  height: 480px;
+`;
+
+const Sticker = styled.img`
+  position: absolute;
+  top: 19.14px;
+  right: 31.75px;
 `;
