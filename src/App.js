@@ -34,7 +34,7 @@ function App() {
         <Route path="/goods" element={<CategoryIntroPage title={'goods'} />} />
         <Route path="/brandstory" element={<MagazineDetailPage />} />
         <Route
-          path="/itemdetail/:title/:product"
+          path="/itemdetail/:title/:product/:id"
           element={<ItemDetailPage />}
         />
         <Route path="/branddetail" element={<BrandDetailPage />} />
