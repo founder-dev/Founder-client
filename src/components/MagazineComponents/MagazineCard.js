@@ -4,8 +4,7 @@ import { color } from '../../styles/theme';
 import TagArray from '../SharedComponents/TagArray';
 
 const MagazineCard = ({ title, text, tag, image }) => {
-  
-  var arraytag = String(tag).split(",");
+  var arraytag = String(tag).split(',');
 
   return (
     <>
@@ -14,7 +13,7 @@ const MagazineCard = ({ title, text, tag, image }) => {
         <ChipWrapper>
           <Chip># {arraytag[0]}</Chip>
           <Chip># {arraytag[1]}</Chip>
-          <Chip># {arraytag[2]}</Chip>
+          {arraytag[2] != null && <Chip># {arraytag[2]}</Chip>}
         </ChipWrapper>
         <CardTitle>{title}</CardTitle>
         <SubText>{text}</SubText>
