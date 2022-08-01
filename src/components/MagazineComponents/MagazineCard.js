@@ -14,6 +14,7 @@ const MagazineCard = ({ title, text, tag, image }) => {
           <Chip># {arraytag[0]}</Chip>
           <Chip># {arraytag[1]}</Chip>
           {arraytag[2] != null && <Chip># {arraytag[2]}</Chip>}
+          {arraytag[3] != null && <Chip># {arraytag[3]}</Chip>}
         </ChipWrapper>
         <CardTitle>{title}</CardTitle>
         <SubText>{text}</SubText>
