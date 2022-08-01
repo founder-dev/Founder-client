@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
@@ -17,21 +17,18 @@ import BrandCard from '../components/SharedComponents/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
 import Categorydata from '../assets/json/CategoryPage.json';
 import Tape from '../assets/CategoryIntroPageAssets/Tape.png';
+import { fetchCategoryIntro } from '../API';
 
 const CategoryIntroPage = ({ title }) => {
-  const results = data.filter((items) => items.itemType === title); //백에서 타이틀 데이터와 물건 데이터를 따로 전달함
-  const Titledata = TitleData.filter((items) => items.bigcategory === title); //api를 통해서 불러올 타이틀 이름(카테고리마다 다름)
+  const [categoryIntroData, setCategoryIntroData] = useState(null);
 
-  //새롭게 만든 백엔드 데이터에 맞춘 new mapping!
-  const type = Categorydata.category_detail.map((items) => items.type);
-  const items = Categorydata.category_detail.map(
-    (items) => items.type_detail.product
-  );
-  const brands = Categorydata.category_detail.map(
-    (items) => items.type_detail.brand
-  );
+  useEffect(() => {
+    fetchCategoryIntro(setCategoryIntroData);
+  }, []);
 
-  console.log(items);
+  if (!categoryIntroData) return null;
+
+  console.log(categoryIntroData);
 
   return (
     <>
@@ -40,61 +37,56 @@ const CategoryIntroPage = ({ title }) => {
       <WidthWrapper>
         <Wrapper>
           <>
-            {type.map(
-              (
-                { id, type_name, type_desc, type_tag_arr, type_img_order },
-                i
-              ) => (
-                <>
-                  <Container>
-                    <ItemTitle text={type_name} key={id} />
-                    <SubTitle>
-                      {type_desc} <TagArray tag={type_tag_arr} key={id} />
-                    </SubTitle>
-                    <GridWrapper>
-                      {items[i] //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
-                        .map(
-                          ({
-                            product_name,
-                            min_price,
-                            star_rate_avg,
-                            custom_flag,
-                            delivery_cycle,
-                            product_main_img,
-                            min_std_price,
-                            max_std_price,
-                            delivery_cycle_detail,
-                          }) => (
-                            <Link to={`/itemdetail/${title}/${type_name}`}>
-                              <ProductCard
-                                itemName={product_name}
-                                price={min_price}
-                                rating={star_rate_avg}
-                                custom={custom_flag}
-                                schedule={delivery_cycle}
-                                image={product_main_img}
-                                min_price={min_std_price}
-                                max_price={max_std_price}
-                                schedule_detail={delivery_cycle_detail}
-                                key={id}
-                              />
-                            </Link>
-                          )
-                        )}
-                    </GridWrapper>
-                    <BrandTitle text={type_name} />
-                    <BrandCardWrapper>
-                      {brands[i].map(({ brand_name, id }) => (
-                        <>
-                          <BrandCard brandName={brand_name} key={id} />
-                        </>
-                      ))}
-                    </BrandCardWrapper>
-                  </Container>
-                  <TextTape src={Tape} />
-                </>
-              )
-            )}
+            {categoryIntroData.category_type.map((content) => (
+              <>
+                <Container>
+                  <ItemTitle text={content.type_name} key={content.id} />
+                  <SubTitle>
+                    {content.type_desc}{' '}
+                    <TagArray tag={content.type_tag_arr} key={content.id} />
+                  </SubTitle>
+                  <GridWrapper>
+                    {content.type_product //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
+                      .map(
+                        ({
+                          product_name,
+                          min_price,
+                          star_rate_avg,
+                          custom_flag,
+                          delivery_cycle,
+                          product_main_img,
+                          min_std_price,
+                          max_std_price,
+                          delivery_cycle_detail,
+                        }) => (
+                          <Link to={`/itemdetail/food/${content.type_name}`}>
+                            <ProductCard
+                              itemName={product_name}
+                              price={min_price}
+                              rating={star_rate_avg}
+                              custom={custom_flag}
+                              schedule={delivery_cycle}
+                              image={product_main_img}
+                              min_price={min_std_price}
+                              max_price={max_std_price}
+                              schedule_detail={delivery_cycle_detail}
+                            />
+                          </Link>
+                        )
+                      )}
+                  </GridWrapper>
+                  <BrandTitle text={content.type_name} />
+                  <BrandCardWrapper>
+                    {content.type_brand.map(({ brand_name, id }) => (
+                      <>
+                        <BrandCard brandName={brand_name} key={id} />
+                      </>
+                    ))}
+                  </BrandCardWrapper>
+                </Container>
+                <TextTape src={Tape} />
+              </>
+            ))}
           </>
         </Wrapper>
       </WidthWrapper>
