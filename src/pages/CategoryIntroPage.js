@@ -71,20 +71,23 @@ const CategoryIntroPage = ({ title }) => {
                         )
                       )}
                   </GridWrapper>
-                  <BrandTitle text={content.type_name} />
-                  <BrandCardWrapper>
-                    {content.type_brand.map(
-                      ({ brand_name, id, brand_img_logo }) => (
-                        <>
-                          <BrandCard
-                            brandName={brand_name}
-                            key={id}
-                            brandLogo={brand_img_logo}
-                          />
-                        </>
-                      )
-                    )}
-                  </BrandCardWrapper>
+
+                  {content.type_brand != '' && (
+                    <>
+                      <BrandTitle text={content.type_name} />
+                      <BrandCardWrapper>
+                        {content.type_brand.map(
+                          ({ brand_name, id, brand_img_logo }) => (
+                            <BrandCard
+                              brandName={brand_name}
+                              key={id}
+                              brandLogo={brand_img_logo}
+                            />
+                          )
+                        )}
+                      </BrandCardWrapper>
+                    </>
+                  )}
                 </Container>
                 <TextTape src={content.type_img_footer} />
               </>
