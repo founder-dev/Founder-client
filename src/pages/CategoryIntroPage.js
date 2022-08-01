@@ -24,8 +24,6 @@ const CategoryIntroPage = ({ title }) => {
 
   if (!categoryIntroData) return null;
 
-  console.log(categoryIntroData);
-
   return (
     <>
       <TopBar />
