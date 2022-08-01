@@ -19,8 +19,8 @@ const CategoryIntroPage = ({ title }) => {
   const [categoryIntroData, setCategoryIntroData] = useState(null);
 
   useEffect(() => {
-    fetchCategoryIntro(setCategoryIntroData);
-  }, []);
+    fetchCategoryIntro({setCategoryIntroData,title});
+  }, [title]);
 
   if (!categoryIntroData) return null;
 

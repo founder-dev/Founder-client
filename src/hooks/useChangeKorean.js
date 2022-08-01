@@ -19,7 +19,7 @@ function useChangeKorean (text){
         'lens': '렌즈',
         'shaver': '면도기',
         'lacto': '유산균',
-        'supplement': '생필품',
+        'supplement-pack': '생필품',
         'skin-care-pack': '스킨케어팩',
         'care-pack': '케어팩',
         'collagen': '콜라겐',
