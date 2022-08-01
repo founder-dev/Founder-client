@@ -1,15 +1,20 @@
 import React from 'react';
 import styled from 'styled-components';
 import { color } from '../../styles/theme';
+import TagArray from '../SharedComponents/TagArray';
+
 const MagazineCard = ({ title, text, tag, image }) => {
+  
+  var arraytag = String(tag).split(",");
+
   return (
     <>
       <CardContainer>
         <Image src={image} loading="lazy" />
         <ChipWrapper>
-          <Chip># {tag[0]}</Chip>
-          <Chip># {tag[1]}</Chip>
-          <Chip># {tag[2]}</Chip>
+          <Chip># {arraytag[0]}</Chip>
+          <Chip># {arraytag[1]}</Chip>
+          <Chip># {arraytag[2]}</Chip>
         </ChipWrapper>
         <CardTitle>{title}</CardTitle>
         <SubText>{text}</SubText>
