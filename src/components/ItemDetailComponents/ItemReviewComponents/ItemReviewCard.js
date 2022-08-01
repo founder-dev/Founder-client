@@ -33,7 +33,7 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
     } // 열려있는경우
     else
       setSizes({
-        cardHeight: '336.96px',
+        cardHeight: '342px',
         reviewHeight: '56px',
       });
   };
@@ -114,6 +114,7 @@ const Writer = styled.div`
   font-weight: 500;
   font-size: 12px;
   color: ${color.grey[5]};
+  margin-bottom: 12px;
 `;
 
 const Image = styled.img`
