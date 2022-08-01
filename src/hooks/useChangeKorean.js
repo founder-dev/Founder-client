@@ -23,6 +23,7 @@ function useChangeKorean (text){
         'skin-care-pack': '스킨케어팩',
         'care-pack': '케어팩',
         'collagen': '콜라겐',
+        'lens_cotton_collagen' : '렌즈 / 화장솜 / 콜라겐',
         'protein': '프로틴',
         'food': '식품',
         'beverage': '음료',
