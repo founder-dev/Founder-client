@@ -29,13 +29,12 @@ const CardContainer = styled.div`
   align-items: center;
   width: 165px;
   height: 165px;
-  margin-bottom: 16px;
+  margin-bottom: 3px;
   background-color: #f2f2f2;
 `;
 
 const SubText = styled.div`
-  margin-top: 4px;
-  margin-bottom: 4px;
+  margin-bottom: 16px;
   justify-content: center;
   color: black;
   font-size: 16px;
