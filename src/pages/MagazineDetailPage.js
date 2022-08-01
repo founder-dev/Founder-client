@@ -22,6 +22,12 @@ const MagazineDetailPage = () => {
 
   console.log(magazineDetaildata);
 
+  const dateShow = () => {
+    const date = magazineDetaildata.created_at.substr(0, 10);
+
+    return date;
+  };
+
   return (
     <>
       <TopBar />
@@ -45,7 +51,7 @@ const MagazineDetailPage = () => {
 
           <DetailWrapper>
             <Editor>editor. {magazineDetaildata.author}</Editor>
-            <Date>2022.07.28</Date>
+            <Date>{dateShow()}</Date>
           </DetailWrapper>
           <Centering>
             {magazineDetaildata.magazine_magazinecontent.map((content) => (
@@ -58,7 +64,10 @@ const MagazineDetailPage = () => {
                   {content.detail_img != null && (
                     <Image src={content.detail_img} />
                   )}
-                  <BrandMovingButton />
+
+                  {content.magazinecontent_brand != null && (
+                    <BrandMovingButton />
+                  )}
                 </ArticleWrapper>
               </>
             ))}
