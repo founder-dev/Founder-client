@@ -45,17 +45,11 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
           <Date>{date}</Date>
           <Writer>{userId}님의 후기</Writer>
         </DateWriterWrapper>
-        <Image></Image>
-        <TagWrapper>{tagShow()}</TagWrapper>
-        <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
+
         {sizes.reviewHeight == '56px' ? (
           <>
             <Image></Image>
-            <TagWrapper>
-              <Tag>{arraytag[0]}</Tag>
-              <Tag>{arraytag[1]}</Tag>
-              <Tag>{arraytag[2]}</Tag>
-            </TagWrapper>
+            <TagWrapper>{tagShow()}</TagWrapper>
             <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
             <Writer>
               더보기
@@ -71,11 +65,7 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
               <Image></Image>
             </ImageContainer>
             <Rated rating={4} />
-            <TagWrapper>
-              <Tag>{arraytag[0]}</Tag>
-              <Tag>{arraytag[1]}</Tag>
-              <Tag>{arraytag[2]}</Tag>
-            </TagWrapper>
+            <TagWrapper margin={'30.38px 0px'}>{tagShow()}</TagWrapper>
             <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
             <Writer>
               접기
@@ -94,10 +84,8 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px 18.38px 9.19px;
-  gap: 9.19px;
 
-  width: 431.93px;
+  width: 432px;
   height: ${(props) => props.sizes.cardHeight};
 
   background: #fafafa;
@@ -109,11 +97,12 @@ const DateWriterWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 15.3167px 18.38px 6.12667px;
+  padding: 9.19149px 18.383px;
   gap: 6.13px;
+  margin-bottom: 12px;
 
-  width: 395.17px;
-  height: 40.44px;
+  width: 392px;
+  height: 19px;
 `;
 const Date = styled.div`
   font-weight: 500;
@@ -130,18 +119,17 @@ const Writer = styled.div`
 const Image = styled.img`
   width: 120px;
   height: 120px;
-  margin-top: 9.19px;
 `;
 
 const TagWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  margin-top: 12px;
-  padding: 8px 0px;
+  margin: ${(props) => props.margin || '20px 0px'};
   gap: 8px;
 
-  height: 47px;
+  width: 279.23px;
+  height: 31px;
 `;
 
 const Tag = styled.div`
@@ -168,6 +156,7 @@ const Tag = styled.div`
 const ReviewPreview = styled.div`
   width: 333.9px;
   height: ${(props) => props.sizes.reviewHeight};
+  margin-bottom: 12px;
 
   font-weight: 500;
   font-size: 14px;
@@ -187,4 +176,5 @@ const ImageContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   column-gap: 12px;
   row-gap: 12px;
+  margin-bottom: 19.91px;
 `;
