@@ -41,7 +41,7 @@ function ItemReview({ id }) {
                 text={review.review_text}
                 id={review.nickname}
                 tag={review.review_tag_arr}
-                date={review.created_at}
+                date={review.create_date}
                 star={review.star_rate}
                 main_img={review.review_img_main}
                 review_media={review.review_reviewmedia}
