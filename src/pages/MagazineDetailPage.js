@@ -61,8 +61,8 @@ const MagazineDetailPage = () => {
                     <Image src={content.detail_img} />
                   )}
 
-                  {content.magazinecontent_brand != null && (
-                    <BrandMovingButton />
+                  {content.brand != null && (
+                    <BrandMovingButton/>
                   )}
                 </ArticleWrapper>
               </>
