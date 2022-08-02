@@ -36,13 +36,12 @@ const Button = styled.button`
   gap: 12px;
 
   position: absolute;
-
   width: 283px;
   height: 52px;
   right: 578px;
-  top: 191px;
+  top: 224px;
 
-  background: #007dfe;
+  background: #272727;
   border-radius: 4px;
 
   font-weight: ${fontWeight[0]};
