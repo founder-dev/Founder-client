@@ -38,6 +38,27 @@ export const fetchMagazine = async (setMagazineData) => {
   }
 };
 
+export const fetchItemDetail = async ({setItemDetailData,id}) => {
+  try {
+    setItemDetailData(null);
+    const response = await instance.get(`api/product/${id}`);
+    setItemDetailData(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchItemReview = async ({setItemReview ,id}) => {
+  try {
+    setItemReview(null);
+    const response = await instance.get(`api/api/product/${id}/review`);
+    setItemReview(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 //필요한 API만들기
 /*export const PersonalInfo = async (token) =>
     await API.get('/mypage', {

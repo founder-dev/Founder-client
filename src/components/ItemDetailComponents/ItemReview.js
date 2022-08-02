@@ -1,4 +1,4 @@
-import { useState, useRef } from 'react';
+import { useState, useRef ,useEffect } from 'react';
 import styled from 'styled-components';
 import ItemReviewCard from '../ItemDetailComponents/ItemReviewComponents/ItemReviewCard';
 import Rated from '../StarRating/Rated';
@@ -6,9 +6,18 @@ import RateBars from '../ItemDetailComponents/ItemReviewComponents/RateBars';
 import Slider from './Slider';
 import Review from '../../assets/json/Review.json';
 import NotFoundImage from '../../assets/ItemDetailPageAssets/NotFoundImage.png';
+import { fetchItemReview } from '../../API';
 
-function ItemReview() {
+function ItemReview({id}) {
   const reviewData = Review;
+  const [itemReview, setItemReview] = useState(null);
+  
+  /*useEffect(() => {
+    fetchItemReview({setItemReview,id});
+  }, [id]);
+
+  if (!itemReview) return null;
+  console.log(itemReview);*/
 
   return (
     <>

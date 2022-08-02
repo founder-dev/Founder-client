@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+
 import styled, { css } from 'styled-components';
 import Modal from '../components/ModalComponents/Modal';
 import TopBar from '../components/TopBarComponents/TopBar';
@@ -26,16 +26,24 @@ import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCat
 import Item from '../components/ItemDetailComponents/Item';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
 import ItemDetaildata from '../assets/json/ItemDetailPage.json';
+import { useState, useEffect } from 'react';
+import { fetchItemDetail } from '../API';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [itemDetailData, setItemDetailData] = useState(null);
   const itemData = ItemDetaildata;
   const params = useParams();
   const title = params.title;
   const product = params.product;
-
+  const id = params.id;
   const [isSelected, setIsSelected] = useState(true);
   const [brand, setBrand] = useState(true);
+
+  /* useEffect(() => {
+    fetchItemDetail({setItemDetailData,id});
+  }, []);
+
   /*
   /*useEffect(() => {
     const fetchItemDetail = async () => {
@@ -53,6 +61,8 @@ const ItemDetailPage = () => {
   {itemData.product_name} //이런식으로 사용
   */
 
+  //if (!itemDetailData) return null;
+  //console.log(itemDetailData); 
   return (
     <>
       <TopBar />
@@ -66,7 +76,7 @@ const ItemDetailPage = () => {
           <ItemWrapper>
             <StickerdImage>
               <Img src={ItemImage} />
-              {itemData.delivery_cycle === 'Weekly' ? (
+              {itemData.delivery_cycle === 'weekly' ? (
                 <Sticker src={Weekly} />
               ) : (
                 <Sticker src={Monthly} />
@@ -116,7 +126,7 @@ const ItemDetailPage = () => {
               구독 후기
             </MenuBar>
           </MenuBarContainer>
-          {isSelected ? <div>상세정보컴포넌트</div> : <ItemReview />}
+          {isSelected ? <div>상세정보컴포넌트</div> : <ItemReview id={id}/>}
         </Wrapper>
       </WidthWrapper>
     </>
