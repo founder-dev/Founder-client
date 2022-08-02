@@ -24,12 +24,6 @@ const MagazineDetailPage = () => {
 
   console.log(magazineDetaildata);
 
-  const dateShow = () => {
-    const date = magazineDetaildata.created_at.substr(0, 10);
-
-    return date;
-  };
-
   return (
     <>
       <TopBar />
@@ -53,7 +47,7 @@ const MagazineDetailPage = () => {
 
           <DetailWrapper>
             <Editor>editor. {magazineDetaildata.author}</Editor>
-            <Date>{dateShow()}</Date>
+            <Date>{magazineDetaildata.created_at.substr(0, 10)}</Date>
           </DetailWrapper>
           <Centering>
             {magazineDetaildata.magazine_magazinecontent.map((content) => (
