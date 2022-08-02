@@ -7,10 +7,23 @@ import { PreviewState } from '../../recoil';
 
 function PreviewPresenter({ num, setPhoto, PhotoArray }) {
   const [preview, setPreview] = useRecoilState(PreviewState);
+  const [currentNum, setCurrentNum] = useState(num);
 
-  const deletePhoto = (num) => (e) => {
-    setPreview([...preview.slice(0, num), ...preview.slice(num + 1)]);
-    setPhoto([...PhotoArray.slice(0, num), ...PhotoArray.slice(num + 1)]);
+  const deletePhoto = (currentNum) => (e) => {
+    setPreview([
+      ...preview.slice(0, currentNum),
+      ...preview.slice(currentNum + 1),
+    ]);
+    setPhoto([
+      ...PhotoArray.slice(0, currentNum),
+      ...PhotoArray.slice(currentNum + 1),
+    ]);
+
+    if (preview[currentNum + 1] === undefined) {
+      setCurrentNum(currentNum - 1);
+    } else {
+      setCurrentNum(currentNum);
+    }
   };
 
   const reUploadPhoto = (num) => (e) => {
@@ -35,7 +48,7 @@ function PreviewPresenter({ num, setPhoto, PhotoArray }) {
       onMouseLeave={() => setItemHover(false)}
     >
       <Preview photo={preview[num]} />
-      {preview[num] == undefined ? (
+      {preview[currentNum] == undefined ? (
         <input
           id={num}
           type="file"
