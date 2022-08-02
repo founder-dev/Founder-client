@@ -19,7 +19,7 @@ const CategoryIntroPage = ({ title }) => {
   const [categoryIntroData, setCategoryIntroData] = useState(null);
 
   useEffect(() => {
-    fetchCategoryIntro({setCategoryIntroData,title});
+    fetchCategoryIntro({ setCategoryIntroData, title });
   }, [title]);
 
   if (!categoryIntroData) return null;
@@ -55,7 +55,9 @@ const CategoryIntroPage = ({ title }) => {
                           delivery_cycle_detail,
                           id,
                         }) => (
-                          <Link to={`/itemdetail/${title}/${content.type_name}/${id}`}>
+                          <Link
+                            to={`/itemdetail/${title}/${content.type_name}/${id}`}
+                          >
                             <ProductCard
                               itemName={product_name}
                               productImg={product_img}
@@ -128,6 +130,6 @@ const BrandCardWrapper = styled.div`
 `;
 
 const TextTape = styled.img`
-  width: 100%;
+  width: 1440px;
   height: 63px;
 `;

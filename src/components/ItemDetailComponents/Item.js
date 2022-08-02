@@ -8,6 +8,7 @@ import {
   DetailedInfo,
   PriceWrapper,
   Price,
+  ScheduleWrapper,
   Schedule,
 } from './ItemDetailPresenter';
 import ItemDetailCustom from '../../assets/ItemDetailPageAssets/ItemDetailCustom.png';
@@ -28,14 +29,15 @@ const Item = ({ product, data }) => {
         </ItemNameWrapper>
       </CustomLocator>
       <DetailedInfoWrapper>
-        <DetailedInfo>최저가</DetailedInfo>
-        <DetailedInfo>배송 주기</DetailedInfo>
+        <PriceWrapper>
+          <DetailedInfo marginBottom={'2.44px'}>최저가</DetailedInfo>
+          <Price>{data.min_price} 원</Price>
+        </PriceWrapper>
+        <ScheduleWrapper>
+          <DetailedInfo marginBottom={'7.04px'}>배송 주기</DetailedInfo>
+          <Schedule>{data.delivery_cycle_detail}</Schedule>
+        </ScheduleWrapper>
       </DetailedInfoWrapper>
-
-      <PriceWrapper>
-        <Price>{data.min_price} 원</Price>
-        <Schedule>{data.delivery_cycle_detail}</Schedule>
-      </PriceWrapper>
     </>
   );
 };
