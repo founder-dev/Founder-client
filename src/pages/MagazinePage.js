@@ -59,9 +59,16 @@ const MagazinePage = () => {
 
           <RecommendationWrapper>
             <Topic>추천 브랜드</Topic>
-            {magazineData.magazine_brand.map(({ brand_name , id , brand_img_logo}) => (
-              <Recommendation title={brand_name} key={id} img={brand_img_logo}/>
-            ))}
+            {magazineData.magazine_brand.map(
+              ({ brand_name, id, brand_img_logo }) => (
+                <Recommendation
+                  title={brand_name}
+                  key={id}
+                  id={id}
+                  img={brand_img_logo}
+                />
+              )
+            )}
           </RecommendationWrapper>
         </Wrapper>
       </WidthWrapper>

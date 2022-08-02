@@ -85,6 +85,7 @@ const CategoryIntroPage = ({ title }) => {
                               brandName={brand_name}
                               key={id}
                               brandLogo={brand_img_logo}
+                              id={id}
                             />
                           )
                         )}

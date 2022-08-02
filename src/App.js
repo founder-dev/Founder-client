@@ -37,7 +37,7 @@ function App() {
           path="/itemdetail/:title/:product/:id"
           element={<ItemDetailPage />}
         />
-        <Route path="/branddetail" element={<BrandDetailPage />} />
+        <Route path="/branddetail/:id" element={<BrandDetailPage />} />
       </Routes>
     </>
   );
