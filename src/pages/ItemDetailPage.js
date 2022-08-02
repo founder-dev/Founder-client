@@ -1,4 +1,3 @@
-
 import styled, { css } from 'styled-components';
 import Modal from '../components/ModalComponents/Modal';
 import TopBar from '../components/TopBarComponents/TopBar';
@@ -40,8 +39,8 @@ const ItemDetailPage = () => {
   const [isSelected, setIsSelected] = useState(true);
   const [brand, setBrand] = useState(true);
 
-   useEffect(() => {
-    fetchItemDetail({setItemDetailData,id});
+  useEffect(() => {
+    fetchItemDetail({ setItemDetailData, id });
   }, []);
 
   /*
@@ -62,7 +61,7 @@ const ItemDetailPage = () => {
   */
 
   if (!itemDetailData) return null;
-  console.log(itemDetailData); 
+  console.log(itemDetailData);
   return (
     <>
       <TopBar />
@@ -110,7 +109,9 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
-          {itemDetailData.brand != null && <BrandMovingButton top="0px" left="260px" />}
+          {itemDetailData.brand != null && (
+            <BrandMovingButton data={itemDetailData.brand} top="0px" left="260px" />
+          )}
           <MenuBarContainer>
             <MenuBar
               onClick={() => setIsSelected(!isSelected)}
@@ -126,7 +127,16 @@ const ItemDetailPage = () => {
               구독 후기
             </MenuBar>
           </MenuBarContainer>
-          {isSelected ? <div>상세정보컴포넌트</div> : <ItemReview id={id}/>}
+          {isSelected ? (
+            <ImageDetail>
+              <img
+                src={itemDetailData.product.product_img_detail}
+                loading="lazy"
+              />
+            </ImageDetail>
+          ) : (
+            <ItemReview id={id} />
+          )}
         </Wrapper>
       </WidthWrapper>
     </>
@@ -170,4 +180,13 @@ const Sticker = styled.img`
   position: absolute;
   top: 19.14px;
   right: 31.75px;
+`;
+
+const ImageDetail = styled.div`
+  width: 1440px;
+  height: auto;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  justify-content: center;
+  display: flex;
 `;

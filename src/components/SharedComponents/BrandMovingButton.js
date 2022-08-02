@@ -2,15 +2,17 @@ import styled from 'styled-components';
 import Arrow from '../../assets/MagazineDetailPageAssets/Arrow.png';
 import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
 
-const BrandMovingButton = ({ top, left }) => {
+const BrandMovingButton = ({ data, top, left }) => {
+  const desc = String(data.brand_desc).split('.');
+  
   return (
     <BrandHome top={top} left={left}>
       <BrandInfoWrapper>
-        <BrandLogo src={Logo} />
+        <BrandLogo src={data.brand_img_logo} />
         <TextWrapper>
-          <BrandName>{`톤 28 (TOUN 28)`}</BrandName>
+          <BrandName>{`${data.brand_name} (${data.brand_name_eng})`}</BrandName>
           <BrandDetail>
-            플라스틱을 줄여 동물들을 살리는, 친환경 바를거리
+            {desc[1]}
           </BrandDetail>
         </TextWrapper>
       </BrandInfoWrapper>
