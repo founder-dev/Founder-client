@@ -6,7 +6,15 @@ import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 import { color, fontsize, fontWeight } from '../../../styles/theme';
 import Rated from '../../StarRating/Rated';
 
-const ItemReviewCard = ({ text, id, tag, date ,star}) => {
+const ItemReviewCard = ({
+  text,
+  id,
+  tag,
+  date,
+  star,
+  main_img,
+  review_media,
+}) => {
   const userId = String(id).slice(0, 2) + '***';
   const arraytag = String(tag).split(',');
 
@@ -48,7 +56,7 @@ const ItemReviewCard = ({ text, id, tag, date ,star}) => {
 
         {sizes.reviewHeight == '56px' ? (
           <>
-            <Image></Image>
+            <Image src={main_img}></Image>
             <TagWrapper>{tagShow()}</TagWrapper>
             <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
             <Writer>

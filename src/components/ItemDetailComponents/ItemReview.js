@@ -43,6 +43,8 @@ function ItemReview({ id }) {
                 tag={review.review_tag_arr}
                 date={review.create_date}
                 star={review.star_rate}
+                main_img={review.review_img_main}
+                review_media={review.review_reviewmedia}
               />
             ))}
           </ItemReviewCardGrid>
@@ -97,7 +99,6 @@ const ItemReviewCardGrid = styled.div`
   column-gap: 1em;
   width: 918px;
   margin-top: 72px;
-  background-color: red;
 `;
 
 const ItemReviewWrapper = styled.div`
