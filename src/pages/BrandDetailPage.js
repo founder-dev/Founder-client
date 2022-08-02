@@ -1,12 +1,12 @@
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
-import background from '../assets/BrandDetailPageAssets/background.png';
 import brandArrow from '../assets/BrandDetailPageAssets/brandArrow.png';
 import { WidthWrapper } from '../components/WidthWrapper';
 import { color, fontWeight, fontsize } from '../styles/theme';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchBrandDetail } from '../API';
+
 const BrandDetailPage = () => {
   const [brandDetaildata, setBrandDetailData] = useState(null);
   const params = useParams();
@@ -62,7 +62,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 1440px;
   height: 100vh;
-  background-image: url(${(props) => (props.img)});
+  background-image: url(${(props) => props.img});
   flex-direction: column;
   background-size: cover;
   color: ${color.white};

@@ -1,26 +1,27 @@
 import styled from 'styled-components';
 import Arrow from '../../assets/MagazineDetailPageAssets/Arrow.png';
 import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
+import { Link } from 'react-router-dom';
 
 const BrandMovingButton = ({ data, top, left }) => {
   const desc = String(data.brand_desc).split('.');
-  
+
   return (
     <BrandHome top={top} left={left}>
       <BrandInfoWrapper>
         <BrandLogo src={data.brand_img_logo} />
         <TextWrapper>
           <BrandName>{`${data.brand_name} (${data.brand_name_eng})`}</BrandName>
-          <BrandDetail>
-            {desc[1]}
-          </BrandDetail>
+          <BrandDetail>{desc[1]}</BrandDetail>
         </TextWrapper>
       </BrandInfoWrapper>
 
-      <BrandButton>
-        <ButtonText>브랜드 홈 방문하기</ButtonText>
-        <BrandArrow src={Arrow} />
-      </BrandButton>
+      <a href={data.brand_link}>
+        <BrandButton>
+          <ButtonText>브랜드 홈 방문하기</ButtonText>
+          <BrandArrow src={Arrow} />
+        </BrandButton>
+      </a>
     </BrandHome>
   );
 };
