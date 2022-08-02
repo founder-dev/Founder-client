@@ -110,7 +110,11 @@ const ItemDetailPage = () => {
             </ItemInfo>
           </ItemWrapper>
           {itemDetailData.brand != null && (
-            <BrandMovingButton data={itemDetailData.brand} top="0px" left="260px" />
+            <BrandMovingButton
+              data={itemDetailData.brand}
+              top="0px"
+              left="260px"
+            />
           )}
           <MenuBarContainer>
             <MenuBar
@@ -128,12 +132,10 @@ const ItemDetailPage = () => {
             </MenuBar>
           </MenuBarContainer>
           {isSelected ? (
-            <ImageDetail>
-              <img
-                src={itemDetailData.product.product_img_detail}
-                loading="lazy"
-              />
-            </ImageDetail>
+            <DetailImage
+              src={itemDetailData.product.product_img_detail}
+              loading="lazy"
+            />
           ) : (
             <ItemReview id={id} />
           )}
@@ -182,11 +184,9 @@ const Sticker = styled.img`
   right: 31.75px;
 `;
 
-const ImageDetail = styled.div`
+const DetailImage = styled.img`
   width: 1440px;
   height: auto;
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
-  justify-content: center;
-  display: flex;
 `;
