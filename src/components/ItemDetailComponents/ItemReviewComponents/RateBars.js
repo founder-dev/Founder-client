@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-const RateBars = () => {
-  const star_rate = [2, 3, 4, 5, 2]; //예시
-  const total = star_rate.reduce(function add(sum, currValue) {
-    return sum + currValue;
-  }, 0);
+const RateBars = ({ total, star_rate }) => {
 
   return (
     <>
@@ -17,13 +13,11 @@ const RateBars = () => {
       </TextWrapper>
 
       <ColumnWrapper>
-      {
-        [0,1,2,3,4].map((num)=>(
+        {[0, 1, 2, 3, 4].map((num) => (
           <RateBarBackground>
-            <RateBar rate={star_rate[num]} total={total}/>
+            <RateBar rate={star_rate[num]} total={total} />
           </RateBarBackground>
-        ))
-      }
+        ))}
       </ColumnWrapper>
     </>
   );
