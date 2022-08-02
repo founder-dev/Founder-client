@@ -32,11 +32,9 @@ const Banner = () => {
         </SwiperSlide>
         <SwiperSlide>
           <BannerImage src={Banner2} />
-          <BannerButton />
         </SwiperSlide>
         <SwiperSlide>
           <BannerImage src={Banner3} />
-          <BannerButton />
         </SwiperSlide>
       </StyledSwiper>
     </BannerWrapper>
