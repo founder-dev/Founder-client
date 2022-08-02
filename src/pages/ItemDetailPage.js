@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import Modal from '../components/ModalComponents/Modal';
 import TopBar from '../components/TopBarComponents/TopBar';
-import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
 import Weekly from '../assets/ProductCardAssets/Weekly.png';
 import Monthly from '../assets/ProductCardAssets/Monthly.png';
 import { useParams } from 'react-router-dom';
@@ -42,23 +41,6 @@ const ItemDetailPage = () => {
   useEffect(() => {
     fetchItemDetail({ setItemDetailData, id });
   }, []);
-
-  /*
-  /*useEffect(() => {
-    const fetchItemDetail = async () => {
-      try {
-        const response = await axios.get(
-          'https://pounder/api/product/detail/{pk}/'
-        );
-        itemData = response.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchItemDetail();
-  }, []); 
-  {itemData.product_name} //이런식으로 사용
-  */
 
   if (!itemDetailData) return null;
   console.log(itemDetailData);
