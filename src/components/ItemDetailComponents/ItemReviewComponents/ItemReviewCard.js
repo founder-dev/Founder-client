@@ -6,8 +6,8 @@ import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 import { color, fontsize, fontWeight } from '../../../styles/theme';
 import Rated from '../../StarRating/Rated';
 
-const ItemReviewCard = ({ text, id, tag, date }) => {
-  const userId = id.slice(0, 2) + '***';
+const ItemReviewCard = ({ text, id, tag, date ,star}) => {
+  const userId = String(id).slice(0, 2) + '***';
   const arraytag = String(tag).split(',');
 
   const [sizes, setSizes] = useState({
@@ -64,7 +64,7 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
               <Image></Image>
               <Image></Image>
             </ImageContainer>
-            <Rated rating={4} />
+            <Rated rating={star} />
             <TagWrapper margin={'30.38px 0px'}>{tagShow()}</TagWrapper>
             <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
             <Writer>

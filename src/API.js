@@ -51,7 +51,7 @@ export const fetchItemDetail = async ({setItemDetailData,id}) => {
 export const fetchItemReview = async ({setItemReview ,id}) => {
   try {
     setItemReview(null);
-    const response = await instance.get(`api/api/product/${id}/review`);
+    const response = await axios.get(`https://found-er.co.kr/api/product/${id}/review`);
     setItemReview(response.data);
   } catch (error) {
     console.log(error);

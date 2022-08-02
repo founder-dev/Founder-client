@@ -1,4 +1,4 @@
-import { useState, useRef ,useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import ItemReviewCard from '../ItemDetailComponents/ItemReviewComponents/ItemReviewCard';
 import Rated from '../StarRating/Rated';
@@ -8,24 +8,24 @@ import Review from '../../assets/json/Review.json';
 import NotFoundImage from '../../assets/ItemDetailPageAssets/NotFoundImage.png';
 import { fetchItemReview } from '../../API';
 
-function ItemReview({id}) {
+function ItemReview({ id }) {
   const reviewData = Review;
   const [itemReview, setItemReview] = useState(null);
-  
-  /*useEffect(() => {
-    fetchItemReview({setItemReview,id});
+
+  useEffect(() => {
+    fetchItemReview({ setItemReview, id });
   }, [id]);
 
   if (!itemReview) return null;
-  console.log(itemReview);*/
+  console.log(itemReview);
 
   return (
     <>
-      {reviewData == null ? (
-        <>
+      {itemReview.reviews == '' ? (
+        <NotFoundWrapper>
           <NotFound src={NotFoundImage} />
           <NotFoundText>아직 작성된 후기가 없어요ㅠㅠ</NotFoundText>
-        </>
+        </NotFoundWrapper>
       ) : (
         <ItemReviewWrapper>
           <ReviewInfoContainer>
@@ -44,17 +44,16 @@ function ItemReview({id}) {
             </PhotoReviewWrapper>
           </ReviewInfoContainer>
           <ItemReviewCardGrid>
-            {reviewData.map(
-              ({ id, review_id, review_text, review_tag_arr, create_date }) => (
-                <ItemReviewCard
-                  key={id}
-                  text={review_text}
-                  id={review_id}
-                  tag={review_tag_arr}
-                  date={create_date}
-                />
-              )
-            )}
+            {itemReview.reviews.map((review) => (
+              <ItemReviewCard
+                key={review.id}
+                text={review.review_text}
+                id={review.nickname}
+                tag={review.review_tag_arr}
+                date={review.create_date}
+                star={review.star_rate}
+              />
+            ))}
           </ItemReviewCardGrid>
         </ItemReviewWrapper>
       )}
@@ -64,15 +63,25 @@ function ItemReview({id}) {
 
 export default ItemReview;
 
+const NotFoundWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  text-align: center;
+`;
+
 const NotFound = styled.img`
   margin-top: 68.61px;
   margin-bottom: 27px;
+
+  width: 289px;
+  height: 269px;
 `;
 
 const NotFoundText = styled.text`
   font-weight: 700;
   font-size: 20px;
   line-height: 31px;
+  text-align: center;
 `;
 
 const Text = styled.div`
@@ -134,7 +143,6 @@ const ItemReviewCardGrid = styled.div`
   width: 918px;
   margin-top: 72px;
   background-color: red;
-  
 `;
 
 const ItemReviewWrapper = styled.div`
