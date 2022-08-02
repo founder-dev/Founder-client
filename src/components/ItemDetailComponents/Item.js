@@ -14,7 +14,7 @@ import ItemDetailCustom from '../../assets/ItemDetailPageAssets/ItemDetailCustom
 import useChangeKorean from '../../hooks/useChangeKorean';
 
 const Item = ({ product, data }) => {
-  const titleProduct = useChangeKorean(product); 
+  const titleProduct = useChangeKorean(product);
 
   return (
     <>
@@ -22,7 +22,9 @@ const Item = ({ product, data }) => {
         <ItemNameWrapper>
           <ItemCategory>{titleProduct}</ItemCategory>
           <ItemName>{data.product_name}</ItemName>
-          {data.custom_flag && <Img src={ItemDetailCustom} />}
+          {data.custom_flag && (
+            <Img src={ItemDetailCustom} left={data.product_name.length} />
+          )}
         </ItemNameWrapper>
       </CustomLocator>
       <DetailedInfoWrapper>

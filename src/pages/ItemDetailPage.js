@@ -1,4 +1,3 @@
-import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import Modal from '../components/ModalComponents/Modal';
 import TopBar from '../components/TopBarComponents/TopBar';
@@ -26,16 +25,24 @@ import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCat
 import Item from '../components/ItemDetailComponents/Item';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
 import ItemDetaildata from '../assets/json/ItemDetailPage.json';
+import { useState, useEffect } from 'react';
+import { fetchItemDetail } from '../API';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
+  const [itemDetailData, setItemDetailData] = useState(null);
   const itemData = ItemDetaildata;
   const params = useParams();
   const title = params.title;
   const product = params.product;
-
+  const id = params.id;
   const [isSelected, setIsSelected] = useState(true);
   const [brand, setBrand] = useState(true);
+
+  useEffect(() => {
+    fetchItemDetail({ setItemDetailData, id });
+  }, []);
+
   /*
   /*useEffect(() => {
     const fetchItemDetail = async () => {
@@ -53,6 +60,8 @@ const ItemDetailPage = () => {
   {itemData.product_name} //이런식으로 사용
   */
 
+  if (!itemDetailData) return null;
+  console.log(itemDetailData);
   return (
     <>
       <TopBar />
@@ -61,25 +70,25 @@ const ItemDetailPage = () => {
           <ItemDetailCategory
             title={title}
             product={product}
-            productName={itemData.product_name}
+            productName={itemDetailData.product.product_name}
           />
           <ItemWrapper>
             <StickerdImage>
-              <Img src={ItemImage} />
-              {itemData.delivery_cycle === 'Weekly' ? (
+              <Img src={itemDetailData.product.product_img} />
+              {itemDetailData.product.delivery_cycle === 'weekly' ? (
                 <Sticker src={Weekly} />
               ) : (
                 <Sticker src={Monthly} />
               )}
             </StickerdImage>
             <ItemInfo>
-              <Item product={product} data={itemData} />
+              <Item product={product} data={itemDetailData.product} />
 
               <Line />
               <Guide>
                 상품 문의와 자세한 정보를 원하신다면 판매 사이트를 방문해주세요.
               </Guide>
-              <a href={itemData.purchase_link}>
+              <a href={itemDetailData.product.purchase_link}>
                 <PurchaseButton>
                   <PurchaseText>구매하러 갈래요</PurchaseText>
                   <img src={ArrowWhite} />
@@ -100,7 +109,9 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
-          {brand && <BrandMovingButton top="0px" left="260px" />}
+          {itemDetailData.brand != null && (
+            <BrandMovingButton data={itemDetailData.brand} top="0px" left="260px" />
+          )}
           <MenuBarContainer>
             <MenuBar
               onClick={() => setIsSelected(!isSelected)}
@@ -116,7 +127,16 @@ const ItemDetailPage = () => {
               구독 후기
             </MenuBar>
           </MenuBarContainer>
-          {isSelected ? <div>상세정보컴포넌트</div> : <ItemReview />}
+          {isSelected ? (
+            <ImageDetail>
+              <img
+                src={itemDetailData.product.product_img_detail}
+                loading="lazy"
+              />
+            </ImageDetail>
+          ) : (
+            <ItemReview id={id} />
+          )}
         </Wrapper>
       </WidthWrapper>
     </>
@@ -160,4 +180,13 @@ const Sticker = styled.img`
   position: absolute;
   top: 19.14px;
   right: 31.75px;
+`;
+
+const ImageDetail = styled.div`
+  width: 1440px;
+  height: auto;
+  object-fit: cover;
+  image-rendering: -webkit-optimize-contrast;
+  justify-content: center;
+  display: flex;
 `;

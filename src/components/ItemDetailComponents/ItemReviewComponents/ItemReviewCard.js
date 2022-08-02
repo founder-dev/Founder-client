@@ -7,8 +7,8 @@ import { color, fontsize, fontWeight } from '../../../styles/theme';
 import Rated from '../../StarRating/Rated';
 
 const ItemReviewCard = ({ text, id, tag, date }) => {
-  const userId = id.slice(0, 3) + '****';
-  const arraytag = tag.split(',');
+  const userId = id.slice(0, 2) + '***';
+  const arraytag = String(tag).split(',');
 
   const [sizes, setSizes] = useState({
     cardHeight: '336.96px',
@@ -33,7 +33,7 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
     } // 열려있는경우
     else
       setSizes({
-        cardHeight: '342px',
+        cardHeight: 'auto',
         reviewHeight: '56px',
       });
   };
@@ -84,12 +84,13 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: center;
   width: 432px;
   height: ${(props) => props.sizes.cardHeight};
 
   background: #fafafa;
   border-radius: 3.06333px;
+  margin-bottom: 56px;
 `;
 
 const DateWriterWrapper = styled.div`
