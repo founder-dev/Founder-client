@@ -67,11 +67,12 @@ export const ItemName = styled.div`
   color: black;
   font-size: 28px;
   font-weight: 800;
+  width : 800px;
 `;
 
 export const Img = styled.img`
   position: absolute;
-  left: 191.46px;
+  left: 300.46px;
   bottom: 23.58px;
 `;
 

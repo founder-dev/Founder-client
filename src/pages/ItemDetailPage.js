@@ -40,7 +40,7 @@ const ItemDetailPage = () => {
   const [isSelected, setIsSelected] = useState(true);
   const [brand, setBrand] = useState(true);
 
-  /* useEffect(() => {
+   useEffect(() => {
     fetchItemDetail({setItemDetailData,id});
   }, []);
 
@@ -61,8 +61,8 @@ const ItemDetailPage = () => {
   {itemData.product_name} //이런식으로 사용
   */
 
-  //if (!itemDetailData) return null;
-  //console.log(itemDetailData); 
+  if (!itemDetailData) return null;
+  console.log(itemDetailData); 
   return (
     <>
       <TopBar />
@@ -71,25 +71,25 @@ const ItemDetailPage = () => {
           <ItemDetailCategory
             title={title}
             product={product}
-            productName={itemData.product_name}
+            productName={itemDetailData.product.product_name}
           />
           <ItemWrapper>
             <StickerdImage>
-              <Img src={ItemImage} />
-              {itemData.delivery_cycle === 'weekly' ? (
+              <Img src={itemDetailData.product.product_img} />
+              {itemDetailData.product.delivery_cycle === 'weekly' ? (
                 <Sticker src={Weekly} />
               ) : (
                 <Sticker src={Monthly} />
               )}
             </StickerdImage>
             <ItemInfo>
-              <Item product={product} data={itemData} />
+              <Item product={product} data={itemDetailData.product} />
 
               <Line />
               <Guide>
                 상품 문의와 자세한 정보를 원하신다면 판매 사이트를 방문해주세요.
               </Guide>
-              <a href={itemData.purchase_link}>
+              <a href={itemDetailData.product.purchase_link}>
                 <PurchaseButton>
                   <PurchaseText>구매하러 갈래요</PurchaseText>
                   <img src={ArrowWhite} />
@@ -110,7 +110,7 @@ const ItemDetailPage = () => {
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
-          {brand && <BrandMovingButton top="0px" left="260px" />}
+          {itemDetailData.brand != null && <BrandMovingButton top="0px" left="260px" />}
           <MenuBarContainer>
             <MenuBar
               onClick={() => setIsSelected(!isSelected)}

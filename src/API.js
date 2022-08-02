@@ -41,7 +41,7 @@ export const fetchMagazine = async (setMagazineData) => {
 export const fetchItemDetail = async ({setItemDetailData,id}) => {
   try {
     setItemDetailData(null);
-    const response = await instance.get(`api/product/${id}`);
+    const response = await axios.get(`https://found-er.co.kr/api/product/${id}`);
     setItemDetailData(response.data);
   } catch (error) {
     console.log(error);
