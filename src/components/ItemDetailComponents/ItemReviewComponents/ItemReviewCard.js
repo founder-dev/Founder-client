@@ -33,7 +33,7 @@ const ItemReviewCard = ({ text, id, tag, date }) => {
     } // 열려있는경우
     else
       setSizes({
-        cardHeight: '342px',
+        cardHeight: 'auto',
         reviewHeight: '56px',
       });
   };
@@ -84,12 +84,13 @@ const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  justify-content: center;
   width: 432px;
   height: ${(props) => props.sizes.cardHeight};
 
   background: #fafafa;
   border-radius: 3.06333px;
+  margin-bottom: 56px;
 `;
 
 const DateWriterWrapper = styled.div`
