@@ -1,10 +1,21 @@
 import styled from 'styled-components';
 import Arrow from '../../assets/MagazineDetailPageAssets/Arrow.png';
-import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
-import { Link } from 'react-router-dom';
+import { fetchBrandDetail } from '../../API';
+import { useState, useEffect } from 'react';
 
 const BrandMovingButton = ({ data, top, left }) => {
-  const desc = String(data.brand_desc).split('.');
+  //const desc = String(data.brand_desc).split('.');
+
+  /*const [brandDetaildata, setBrandDetailData] = useState(null);
+
+  useEffect(() => {
+    fetchBrandDetail({ setBrandDetailData, brandNum });
+  }, []);
+
+  if (!brandDetaildata) return null;
+  console.log(brandDetaildata);*/
+
+  if (!data) return null;
 
   return (
     <BrandHome top={top} left={left}>
@@ -12,7 +23,7 @@ const BrandMovingButton = ({ data, top, left }) => {
         <BrandLogo src={data.brand_img_logo} />
         <TextWrapper>
           <BrandName>{`${data.brand_name} (${data.brand_name_eng})`}</BrandName>
-          <BrandDetail>{desc[1]}</BrandDetail>
+          <BrandDetail>한줄짜리소개글수정중</BrandDetail>
         </TextWrapper>
       </BrandInfoWrapper>
 
