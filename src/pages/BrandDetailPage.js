@@ -4,24 +4,34 @@ import background from '../assets/BrandDetailPageAssets/background.png';
 import brandArrow from '../assets/BrandDetailPageAssets/brandArrow.png';
 import { WidthWrapper } from '../components/WidthWrapper';
 import { color, fontWeight, fontsize } from '../styles/theme';
-
+import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { fetchBrandDetail } from '../API';
 const BrandDetailPage = () => {
+  const [brandDetaildata, setBrandDetailData] = useState(null);
+  const params = useParams();
+  const id = params.id;
+
+  useEffect(() => {
+    fetchBrandDetail({ setBrandDetailData, id });
+  }, []);
+
+  if (!brandDetaildata) return null;
+  console.log(brandDetaildata);
+
   return (
     <>
       <WidthWrapper>
-        <Wrapper>
+        <Wrapper img={brandDetaildata.brand_img_bg}>
           <TopBar
             position={'static'}
             opacity={'rgba(0, 0, 0, 0.25)'}
             color={'white'}
           />
           <Container>
-            <BrandTitle>Lukt</BrandTitle>
-            <Description>
-              건강하고 맛있는 북유럽 식문화를 소개하는 아이슬란딕 요거트 앤 토핑
-              브랜드입니다
-            </Description>
-            <a href={'https://naver.com'}>
+            <BrandTitle>{brandDetaildata.brand_name_eng}</BrandTitle>
+            <Description>{brandDetaildata.brand_desc}</Description>
+            <a href={brandDetaildata.brand_link}>
               <BrandButton>
                 <ButtonText>브랜드 홈 방문하기</ButtonText>
                 <BrandArrow src={brandArrow} />
@@ -41,6 +51,10 @@ const Container = styled.div`
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.25);
+
+  display: flex;
+  text-align: center;
+  justify-content: center;
 `;
 
 const Wrapper = styled.div`
@@ -48,7 +62,7 @@ const Wrapper = styled.div`
   display: flex;
   width: 1440px;
   height: 100vh;
-  background-image: url(${background});
+  background-image: url(${(props) => (props.img)});
   flex-direction: column;
   background-size: cover;
   color: ${color.white};
@@ -56,8 +70,6 @@ const Wrapper = styled.div`
 
 const BrandTitle = styled.div`
   position: absolute;
-  left: 38%;
-  right: 46.36%;
   top: 22.65%;
 
   font-style: normal;

@@ -58,6 +58,16 @@ export const fetchItemReview = async ({setItemReview ,id}) => {
   }
 };
 
+export const fetchBrandDetail = async ({setBrandDetailData, id}) => {
+  try {
+    setBrandDetailData(null);
+    const response = await axios.get(`https://found-er.co.kr/api/brand/${id}`);
+    setBrandDetailData(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 
 //필요한 API만들기
 /*export const PersonalInfo = async (token) =>
