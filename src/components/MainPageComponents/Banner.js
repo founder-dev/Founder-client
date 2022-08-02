@@ -48,7 +48,7 @@ const BannerWrapper = styled.div`
 `;
 const BannerImage = styled.img`
   width: 1440px;
-  height: 280px;
+  height: 320px;
 `;
 
 const StyledSwiper = styled(Swiper)`
