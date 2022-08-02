@@ -7,8 +7,8 @@ import { color, fontsize, fontWeight } from '../../../styles/theme';
 import Rated from '../../StarRating/Rated';
 
 const ItemReviewCard = ({ text, id, tag, date }) => {
-  const userId = id.slice(0, 3) + '****';
-  const arraytag = tag.split(',');
+  const userId = id.slice(0, 2) + '***';
+  const arraytag = String(tag).split(',');
 
   const [sizes, setSizes] = useState({
     cardHeight: '336.96px',
