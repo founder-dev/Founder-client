@@ -8,17 +8,17 @@ const instance = axios.create({
   timeout: 5000,
 });
 
-export const fetchMagazineDetail = async (setMagazineDetaildata) => {
+export const fetchMagazineDetail = async ({ setMagazineDetaildata, id }) => {
   try {
     setMagazineDetaildata(null);
-    const response = await instance.get('api/magazine/daily_curation/14'); //error 뜨는 중
+    const response = await axios.get(`https://found-er.co.kr/api/magazine/${id}`); //error 뜨는 중
     setMagazineDetaildata(response.data);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const fetchCategoryIntro = async ({setCategoryIntroData,title}) => {
+export const fetchCategoryIntro = async ({ setCategoryIntroData, title }) => {
   try {
     setCategoryIntroData(null);
     const response = await instance.get(`api/category/${title}`);
@@ -38,27 +38,31 @@ export const fetchMagazine = async (setMagazineData) => {
   }
 };
 
-export const fetchItemDetail = async ({setItemDetailData,id}) => {
+export const fetchItemDetail = async ({ setItemDetailData, id }) => {
   try {
     setItemDetailData(null);
-    const response = await axios.get(`https://found-er.co.kr/api/product/${id}`);
+    const response = await axios.get(
+      `https://found-er.co.kr/api/product/${id}`
+    );
     setItemDetailData(response.data);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const fetchItemReview = async ({setItemReview ,id}) => {
+export const fetchItemReview = async ({ setItemReview, id }) => {
   try {
     setItemReview(null);
-    const response = await axios.get(`https://found-er.co.kr/api/product/${id}/review`);
+    const response = await axios.get(
+      `https://found-er.co.kr/api/product/${id}/review`
+    );
     setItemReview(response.data);
   } catch (error) {
     console.log(error);
   }
 };
 
-export const fetchBrandDetail = async ({setBrandDetailData, id}) => {
+export const fetchBrandDetail = async ({ setBrandDetailData, id }) => {
   try {
     setBrandDetailData(null);
     const response = await axios.get(`https://found-er.co.kr/api/brand/${id}`);
@@ -67,7 +71,6 @@ export const fetchBrandDetail = async ({setBrandDetailData, id}) => {
     console.log(error);
   }
 };
-
 
 //필요한 API만들기
 /*export const PersonalInfo = async (token) =>

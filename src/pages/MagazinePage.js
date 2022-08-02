@@ -29,7 +29,7 @@ const MagazinePage = () => {
             <Topic>브랜드 스토리</Topic>
             {magazineData.founder_story.map(
               ({ title, intro, tag_arr, img_main, id }) => (
-                <Link to={`/brandstory`}>
+                <Link to={`/brandstory/${id}`}>
                   <MagazineCard
                     title={title}
                     text={intro}

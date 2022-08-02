@@ -4,18 +4,20 @@ import styled from 'styled-components';
 import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
-import axios from 'axios';
 import { useEffect } from 'react';
 import { color } from '../styles/theme';
 import TagShow from '../components/MagazineComponents/TagShow';
 import { fetchMagazineDetail } from '../API';
+import { useParams } from 'react-router-dom';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
+  const params = useParams();
+  const id = params.id;
   const [magazineDetaildata, setMagazineDetaildata] = useState(null);
 
   useEffect(() => {
-    fetchMagazineDetail(setMagazineDetaildata);
+    fetchMagazineDetail({ setMagazineDetaildata, id });
   }, []);
 
   if (!magazineDetaildata) return null;
