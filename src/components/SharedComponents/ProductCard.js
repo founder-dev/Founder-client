@@ -33,11 +33,17 @@ const ProductCard = ({
             <HoverInfoContainer>
               <HoverInfoTitle>가격/용량*개수</HoverInfoTitle>
               <HoverInfo>
-                {minPrice != 0 ? (
-                  <>
-                    <span>{minPrice}</span>
-                    <span>~{maxPrice}</span>원
-                  </>
+                {minPrice !== null ? (
+                  maxPrice !== null ? (
+                    <>
+                      <span>{minPrice}</span>
+                      <span>~{maxPrice}</span>원
+                    </>
+                  ) : (
+                    <>
+                      <span>{minPrice}</span>원
+                    </>
+                  )
                 ) : (
                   <span>N/A</span>
                 )}
