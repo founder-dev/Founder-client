@@ -5,6 +5,7 @@ export const ModalBlock = styled.div`
   position: absolute;
   width: 1200px;
   height: 992px;
+  top: 44px;
 
   background: #ffffff;
   box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.25);
@@ -36,6 +37,7 @@ export const Title = styled.div`
   font-style: normal;
   font-weight: 700;
   font-size: 32px;
+  line-height: 44px;
 
   margin: 38px 0px 0px 61px;
 
@@ -131,9 +133,9 @@ export const LengthText = styled.div`
 `;
 
 export const SubmitButtonWrapper = styled.div`
-  width: 100%-61px;
+  width: 100%;
   height: 68px;
-  margin: 39px 31px 0px 31px;
+  margin-top: 39px;
   display: flex;
   justify-content: center;
 `;
@@ -171,6 +173,7 @@ export const Essential = styled.span`
 export const Instruction = styled.div`
   font-weight: ${(props) => props.weight};
   font-size: 20px;
+  line-height: 36px;
 
   margin: ${(props) => props.margin};
   color: ${(props) => props.color};
