@@ -67,13 +67,13 @@ export const ItemName = styled.div`
   color: black;
   font-size: 28px;
   font-weight: 800;
-  width : 800px;
+  width: 800px;
 `;
 
 export const Img = styled.img`
   position: absolute;
-  left: 300.46px;
-  bottom: 23.58px;
+  left: ${(props) => props.left * 17}px;
+  bottom: 40px;
 `;
 
 export const DetailedInfo = styled.div`
