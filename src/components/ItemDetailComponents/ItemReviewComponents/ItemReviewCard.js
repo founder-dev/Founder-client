@@ -50,7 +50,7 @@ const ItemReviewCard = ({
     <>
       <CardContainer sizes={sizes}>
         <DateWriterWrapper>
-          <Date>{date.substr(0, 10)}</Date>
+          <Date>{date}</Date>
           <Writer>{userId}님의 후기</Writer>
         </DateWriterWrapper>
 

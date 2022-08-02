@@ -29,7 +29,7 @@ const MagazinePage = () => {
             <Topic>브랜드 스토리</Topic>
             {magazineData.founder_story.map(
               ({ title, intro, tag_arr, img_main, id }) => (
-                <Link to={`/brandstory/${id}`}>
+                <Link to={`/brandstory`}>
                   <MagazineCard
                     title={title}
                     text={intro}
@@ -46,7 +46,6 @@ const MagazinePage = () => {
             <Topic>데일리 큐레이션</Topic>
             {magazineData.daily_curation.map(
               ({ title, intro, tag_arr, img_main, id }) => (
-                <Link to={`/brandstory/${id}`}>
                 <MagazineCard
                   title={title}
                   text={intro}
@@ -54,7 +53,6 @@ const MagazinePage = () => {
                   image={img_main}
                   key={id}
                 />
-                </Link>
               )
             )}
           </CurationWrapper>

@@ -4,25 +4,29 @@ import styled from 'styled-components';
 import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
+import axios from 'axios';
 import { useEffect } from 'react';
 import { color } from '../styles/theme';
 import TagShow from '../components/MagazineComponents/TagShow';
 import { fetchMagazineDetail } from '../API';
-import { useParams } from 'react-router-dom';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
-  const params = useParams();
-  const id = params.id;
   const [magazineDetaildata, setMagazineDetaildata] = useState(null);
 
   useEffect(() => {
-    fetchMagazineDetail({ setMagazineDetaildata, id });
+    fetchMagazineDetail(setMagazineDetaildata);
   }, []);
 
   if (!magazineDetaildata) return null;
 
   console.log(magazineDetaildata);
+
+  const dateShow = () => {
+    const date = magazineDetaildata.created_at.substr(0, 10);
+
+    return date;
+  };
 
   return (
     <>
@@ -47,7 +51,7 @@ const MagazineDetailPage = () => {
 
           <DetailWrapper>
             <Editor>editor. {magazineDetaildata.author}</Editor>
-            <Date>{magazineDetaildata.created_at.substr(0, 10)}</Date>
+            <Date>{dateShow()}</Date>
           </DetailWrapper>
           <Centering>
             {magazineDetaildata.magazine_magazinecontent.map((content) => (
@@ -61,8 +65,8 @@ const MagazineDetailPage = () => {
                     <Image src={content.detail_img} />
                   )}
 
-                  {content.brand != null && (
-                    <BrandMovingButton/>
+                  {content.magazinecontent_brand != null && (
+                    <BrandMovingButton />
                   )}
                 </ArticleWrapper>
               </>
