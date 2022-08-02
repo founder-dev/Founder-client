@@ -1,5 +1,7 @@
 import styled from 'styled-components';
-import MainBanner from '../../assets/MainPageAssets/MainBanner.png';
+import Banner1 from '../../assets/MainPageAssets/Banner1.png';
+import Banner2 from '../../assets/MainPageAssets/Banner2.png';
+import Banner3 from '../../assets/MainPageAssets/Banner3.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import BannerButton from './BannerButton';
@@ -25,15 +27,15 @@ const Banner = () => {
     <BannerWrapper>
       <StyledSwiper {...swiperProps}>
         <SwiperSlide>
-          <BannerImage src={MainBanner} />
+          <BannerImage src={Banner1} />
           <BannerButton />
         </SwiperSlide>
         <SwiperSlide>
-          <BannerImage src={MainBanner} />
+          <BannerImage src={Banner2} />
           <BannerButton />
         </SwiperSlide>
         <SwiperSlide>
-          <BannerImage src={MainBanner} />
+          <BannerImage src={Banner3} />
           <BannerButton />
         </SwiperSlide>
       </StyledSwiper>
