@@ -27,7 +27,7 @@ const ItemReviewCard = ({
   const photoShow = () => {
     var array = [];
     for (var i = 0; i < review_media.length; i++) {
-      array.push(<Image src={review_media[i]} />);
+      array.push(<Image src={review_media[i].review_img} />);
     }
 
     return array;

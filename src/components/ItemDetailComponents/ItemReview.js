@@ -31,8 +31,9 @@ function ItemReview({ id }) {
             <PhotoReviewWrapper>
               <PhotoText>사진 후기 모아보기</PhotoText>
               <Slider
-                photo={itemReview.reviews.map(
-                  (items) => items.review_img_main
+                main={itemReview.reviews.map((items) => items.review_img_main)}
+                media={itemReview.reviews.map(
+                  (items) => items.review_reviewmedia
                 )}
               />
             </PhotoReviewWrapper>

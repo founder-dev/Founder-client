@@ -11,9 +11,18 @@ import Backward from '../../assets/ItemDetailPageAssets/Backward.png';
 
 const TOTAL_SLIDES = 4;
 
-export default function Slider({photo}) {
+export default function Slider({ main, media }) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
+
+  const mediaPhoto = media.filter((items)=>items != '').map((items) => items.review_img);
+  
+  const photoArray = [
+    ...main,
+    ...mediaPhoto,
+  ];
+
+  console.log(mediaPhoto);
 
   const NextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES - 3) {
@@ -33,8 +42,8 @@ export default function Slider({photo}) {
 
   const photoShow = () => {
     var array = [];
-    for (var i = 0; i < photo.length; i++) {
-      array.push(<Slide img={photo[i]} />);
+    for (var i = 0; i < photoArray.length; i++) {
+      array.push(<Slide img={photoArray[i]} />);
     }
 
     return array;
@@ -51,9 +60,7 @@ export default function Slider({photo}) {
     <Container>
       <ForwardButton src={Forward} onClick={PrevSlide} />
       <SliderWrapper>
-        <SliderContainer ref={slideRef}>
-          {photoShow()}
-        </SliderContainer>
+        <SliderContainer ref={slideRef}>{photoShow()}</SliderContainer>
       </SliderWrapper>
 
       <BackwardButton src={Backward} onClick={NextSlide} />
