@@ -18,8 +18,8 @@ export default Recommendation;
 
 const Image = styled.img`
   border-radius: 4px;
-  width: 136.37px;
-  height: 30px;
+  width: 107.69px;
+  height: 44.62px;
 `;
 
 const CardContainer = styled.div`
