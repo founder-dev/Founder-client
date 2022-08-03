@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 const BrandMovingButton = ({ data, top, left }) => {
   const desc = String(data.brand_desc).split('.');
 
+  if(!data) return null;
+  
   return (
     <BrandHome top={top} left={left}>
       <BrandInfoWrapper>
