@@ -4,10 +4,12 @@ import { Link } from 'react-router-dom';
 import KaKaoCode from '../KakaoCode';
 import { loginState } from '../../recoil';
 import { color, fontsize, fontWeight } from '../../styles/theme';
+import * as config from '../../config';
 
 function BannerButton() {
   const isLoggedIn = useRecoilValue(loginState);
-
+  const url = config.KAKAO_URL;
+  
   return (
     <>
       {isLoggedIn ? (
@@ -18,7 +20,9 @@ function BannerButton() {
         </>
       ) : (
         <>
-          <Button onClick={KaKaoCode}>로그인 하러 가기</Button>
+          <a href={url}>
+            <Button onClick={KaKaoCode}>로그인 하러 가기</Button>
+          </a>
         </>
       )}
     </>
