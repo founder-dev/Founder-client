@@ -76,11 +76,12 @@ const Survey = () => {
       .put(
         'https://found-er.co.kr/api/survey',
         {
-          data: { answerSet },
+          "body": { answerSet },
         },
         {
           headers: {
             'Content-Type': 'application/json',
+            'Authorization': `Bearer `
           },
         }
       )
