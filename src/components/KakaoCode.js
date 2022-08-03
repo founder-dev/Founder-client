@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { loginState } from '../recoil';
 
 function KaKaoCode() {
   const kakaologin = async () => {
@@ -13,6 +14,7 @@ function KaKaoCode() {
         }
       );
       console.log(response.data);
+      loginState(true);
     } catch (e) {
       console.log(e);
     }
