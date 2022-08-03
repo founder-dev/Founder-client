@@ -70,19 +70,20 @@ const Wrapper = styled.div`
 
 const BrandTitle = styled.div`
   position: absolute;
-  top: 22.65%;
+  top: 22%;
 
-  font-style: normal;
+  word-break : nowrap;
+  width: 1440px;
   font-weight: ${fontWeight[3]};
-  font-size: 200px;
+  font-size: 160px;
   line-height: 160px;
 `;
 
 const Description = styled.div`
-  position: absolute;
-  top: 44.84%;
+
   width: 720px;
 
+  margin-top: 80px;
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
