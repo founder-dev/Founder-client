@@ -23,7 +23,9 @@ export const fetchMagazineDetail = async ({ setMagazineDetaildata, id }) => {
 export const fetchCategoryIntro = async ({ setCategoryIntroData, title }) => {
   try {
     setCategoryIntroData(null);
-    const response = await instance.get(`api/category/${title}`);
+    const response = await axios.get(
+      `https://found-er.co.kr/api/category/${title}`
+    );
     setCategoryIntroData(response.data);
   } catch (error) {
     console.log(error);
@@ -33,7 +35,7 @@ export const fetchCategoryIntro = async ({ setCategoryIntroData, title }) => {
 export const fetchMagazine = async (setMagazineData) => {
   try {
     setMagazineData(null);
-    const response = await instance.get(`api/magazine`);
+    const response = await axios.get(`https://found-er.co.kr/api/magazine`);
     setMagazineData(response.data);
   } catch (error) {
     console.log(error);

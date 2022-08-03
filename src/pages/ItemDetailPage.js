@@ -182,4 +182,5 @@ const DetailImage = styled.img`
   height: auto;
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
+  margin-top: 55.61px;
 `;
