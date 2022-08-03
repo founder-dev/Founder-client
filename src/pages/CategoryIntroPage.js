@@ -40,41 +40,43 @@ const CategoryIntroPage = ({ title }) => {
                     {content.type_desc}{' '}
                     <TagArray tag={content.type_tag_arr} key={content.id} />
                   </SubTitle>
-                  <GridWrapper>
-                    {content.type_product //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
-                      .map(
-                        ({
-                          product_name,
-                          product_img,
-                          min_price,
-                          star_rate_avg,
-                          custom_flag,
-                          delivery_cycle,
-                          product_main_img,
-                          min_std_price,
-                          max_std_price,
-                          delivery_cycle_detail,
-                          id,
-                        }) => (
-                          <Link
-                            to={`/itemdetail/${title}/${content.type_name}/${id}`}
-                          >
-                            <ProductCard
-                              itemName={product_name}
-                              productImg={product_img}
-                              price={min_price}
-                              rating={star_rate_avg}
-                              custom={custom_flag}
-                              schedule={delivery_cycle}
-                              image={product_main_img}
-                              minPrice={min_std_price}
-                              maxPrice={max_std_price}
-                              scheduleKorean={delivery_cycle_detail}
-                            />
-                          </Link>
-                        )
-                      )}
-                  </GridWrapper>
+                  {content.type_product != '' ? (
+                    <GridWrapper>
+                      {content.type_product //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
+                        .map(
+                          ({
+                            product_name,
+                            product_img,
+                            min_price,
+                            star_rate_avg,
+                            custom_flag,
+                            delivery_cycle,
+                            product_main_img,
+                            min_std_price,
+                            max_std_price,
+                            delivery_cycle_detail,
+                            id,
+                          }) => (
+                            <Link
+                              to={`/itemdetail/${title}/${content.type_name}/${id}`}
+                            >
+                              <ProductCard
+                                itemName={product_name}
+                                productImg={product_img}
+                                price={min_price}
+                                rating={star_rate_avg}
+                                custom={custom_flag}
+                                schedule={delivery_cycle}
+                                image={product_main_img}
+                                minPrice={min_std_price}
+                                maxPrice={max_std_price}
+                                scheduleKorean={delivery_cycle_detail}
+                              />
+                            </Link>
+                          )
+                        )}
+                    </GridWrapper>
+                  ) : null}
 
                   {content.type_brand != '' && (
                     <>

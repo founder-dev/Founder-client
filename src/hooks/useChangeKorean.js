@@ -5,7 +5,7 @@ function useChangeKorean (text){
         'milk': '우유',
         'fried-rice': '볶음밥',
         'shake': '쉐이크',
-        'cereal': '시리얼',
+        'cereal': '그래놀라',
         'bread': '빵',
         'chicken': '치킨',
         'coffee-cold': '커피',
