@@ -9,24 +9,21 @@ import { useEffect } from 'react';
 import { color } from '../styles/theme';
 import TagShow from '../components/MagazineComponents/TagShow';
 import { fetchMagazineDetail } from '../API';
+import { useParams } from 'react-router-dom';
 
 const MagazineDetailPage = () => {
   const { scroll } = useDetectScroll();
   const [magazineDetaildata, setMagazineDetaildata] = useState(null);
+  const params = useParams();
+  const id = params.id;
 
   useEffect(() => {
-    fetchMagazineDetail(setMagazineDetaildata);
+    fetchMagazineDetail({ setMagazineDetaildata, id });
   }, []);
 
   if (!magazineDetaildata) return null;
 
   console.log(magazineDetaildata);
-
-  const dateShow = () => {
-    const date = magazineDetaildata.created_at.substr(0, 10);
-
-    return date;
-  };
 
   return (
     <>
@@ -51,7 +48,7 @@ const MagazineDetailPage = () => {
 
           <DetailWrapper>
             <Editor>editor. {magazineDetaildata.author}</Editor>
-            <Date>{dateShow()}</Date>
+            <Date>{magazineDetaildata.created_at.substr(0, 10)}</Date>
           </DetailWrapper>
           <Centering>
             {magazineDetaildata.magazine_magazinecontent.map((content) => (
@@ -65,9 +62,7 @@ const MagazineDetailPage = () => {
                     <Image src={content.detail_img} />
                   )}
 
-                  {content.magazinecontent_brand != null && (
-                    <BrandMovingButton />
-                  )}
+                  {content.brand != null && <BrandMovingButton />}
                 </ArticleWrapper>
               </>
             ))}
