@@ -24,8 +24,6 @@ const MainPage = () => {
           'https://found-er.co.kr/api/recommend'
         );
         setRecommendationData(response.data);
-        console.log(recommendationData);
-        console.log(response);
       } catch (e) {
         console.log(e);
       }
