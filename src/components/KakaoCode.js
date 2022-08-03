@@ -3,8 +3,7 @@ import { loginState } from '../recoil';
 import { useRecoilState } from 'recoil';
 
 function KaKaoCode() {
-
-  const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); 
+  //const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState);
 
   const kakaologin = async () => {
     try {
@@ -14,11 +13,12 @@ function KaKaoCode() {
         {
           headers: {
             'Access-Control-Allow-Origin': '*',
+            'Content-Type': 'application/json',
           }, // 이래도 안됨ㅋ
         }
       );
-      console.log(response.data);
-      setIsLoggedIn(true);
+      console.log(response);
+      //setIsLoggedIn(true);
     } catch (e) {
       console.log(e);
     }

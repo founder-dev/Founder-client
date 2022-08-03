@@ -21,7 +21,12 @@ const MainPage = () => {
     const fetchRecommendation = async () => {
       try {
         const response = await axios.get(
-          'https://found-er.co.kr/api/recommend'
+          'https://found-er.co.kr/api/recommend',
+          /*{
+            headers : {
+              Authorazation: '',
+            }
+          }, // 이래도 안됨ㅋ*/
         );
         setRecommendationData(response.data);
       } catch (e) {
