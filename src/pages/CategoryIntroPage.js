@@ -24,6 +24,7 @@ const CategoryIntroPage = ({ title }) => {
 
   if (!categoryIntroData) return null;
 
+  console.log(categoryIntroData);
   return (
     <>
       <TopBar />
@@ -35,7 +36,7 @@ const CategoryIntroPage = ({ title }) => {
               <>
                 <Container>
                   <ItemTitle text={content.type_name} key={content.id} />
-                  <SubTitle>
+                  <SubTitle bottom={content.type_product == '' && '0px'}>
                     {content.type_desc}{' '}
                     <TagArray tag={content.type_tag_arr} key={content.id} />
                   </SubTitle>
@@ -131,6 +132,6 @@ const BrandCardWrapper = styled.div`
 `;
 
 const TextTape = styled.img`
-  width: 1440px;
-  height: 63px;
+  width: 100%;
+  height: 79px;
 `;

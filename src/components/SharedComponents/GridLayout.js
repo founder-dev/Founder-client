@@ -23,7 +23,7 @@ export const ItemTitle = styled.div`
 
 export const SubTitle = styled.div`
   margin-top: 8px;
-  margin-bottom: 48px;
+  margin-bottom: ${(props) => props.bottom || '48px'};
   color: black;
   font-size: 20px;
   font-weight: 500;
