@@ -23,6 +23,15 @@ const ItemReviewCard = ({
     reviewHeight: '56px',
   });
 
+  const photoShow = () => {
+    var array = [];
+    for (var i = 0; i < review_media.length; i++) {
+      array.push(<Image src={review_media[i]} />);
+    }
+
+    return array;
+  };
+
   const tagShow = () => {
     var array = [];
     for (var i = 0; i < arraytag.length; i++) {
@@ -41,7 +50,7 @@ const ItemReviewCard = ({
     } // 열려있는경우
     else
       setSizes({
-        cardHeight: 'auto',
+        cardHeight: '342px',
         reviewHeight: '56px',
       });
   };
@@ -67,10 +76,8 @@ const ItemReviewCard = ({
         ) : (
           <>
             <ImageContainer>
-              <Image></Image>
-              <Image></Image>
-              <Image></Image>
-              <Image></Image>
+              <Image src={main_img}></Image>
+              {photoShow()}
             </ImageContainer>
             <Rated rating={star} />
             <TagWrapper margin={'30.38px 0px'}>{tagShow()}</TagWrapper>
@@ -135,6 +142,7 @@ const TagWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+  justify-content: center;
   margin: ${(props) => props.margin || '20px 0px'};
   gap: 8px;
 

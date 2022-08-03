@@ -95,9 +95,10 @@ const PhotoText = styled.div`
 `;
 
 const ItemReviewCardGrid = styled.div`
-  column-count: 2;
-  column-gap: 1em;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   width: 918px;
+  column-gap: 56px;
   margin-top: 72px;
 `;
 
