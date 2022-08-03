@@ -107,10 +107,11 @@ const AnswerItem = styled.div`
 `;
 
 const Button = styled.button`
-  max-height: 348px;
-  max-width: ${(props) => (props.length == 2 ? '348px' : '309px')};
+  width: ${(props) => (props.length == 2 ? '349px' : '309px')};
+  height: 349px;
   object-fit: contain;
   background-image: url(${(props) => props.image});
+  background-size: cover;
   border: 0;
   outline: 0;
   cursor: pointer;
