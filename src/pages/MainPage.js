@@ -49,19 +49,6 @@ const MainPage = () => {
                   <TagArray tag={content.type_tag_arr} key={content.id} />
                 </SubTitle>
 
-                {content.type_brand.map((brand) => (
-                  <>
-                    <BrandCardWrapper>
-                      <BrandCard
-                        brandName={brand.brand_name}
-                        key={brand.id}
-                        brandLogo={brand.brand_img_logo}
-                        id={brand.id}
-                      />
-                    </BrandCardWrapper>
-                  </>
-                ))}
-
                 {content.type_product != '' && (
                   <GridWrapper>
                     {content.type_product.map(
@@ -96,6 +83,18 @@ const MainPage = () => {
                     )}
                   </GridWrapper>
                 )}
+                <BrandCardWrapper>
+                  {content.type_brand.map((brand) => (
+                    <>
+                      <BrandCard
+                        brandName={brand.brand_name}
+                        key={brand.id}
+                        brandLogo={brand.brand_img_logo}
+                        id={brand.id}
+                      />
+                    </>
+                  ))}
+                </BrandCardWrapper>
               </>
             ))}
           </Container>
@@ -146,8 +145,13 @@ const BrandsTitle = styled.div`
 `;
 
 const BrandCardWrapper = styled.div`
-  margin-top: 24px;
-  margin-bottom: 130px;
+  width: 920px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-top: 18.4px;
+  margin-bottom: 79.82px;
+
+  column-gap: 30px;
+  row-gap: 20px;
 `;
