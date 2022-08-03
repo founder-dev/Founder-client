@@ -14,6 +14,9 @@ function Modal(props) {
         name={props.name}
         schedule={props.schedule}
         minPrice={props.minPrice}
+        custom={props.custom}
+        delivery={props.delivery}
+        title={props.title}
       />
     );
   }
