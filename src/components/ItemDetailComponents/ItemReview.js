@@ -30,7 +30,12 @@ function ItemReview({ id }) {
             <OverAllRate itemReview={itemReview} />
             <PhotoReviewWrapper>
               <PhotoText>사진 후기 모아보기</PhotoText>
-              <Slider />
+              <Slider
+                main={itemReview.reviews.map((items) => items.review_img_main)}
+                media={itemReview.reviews.map(
+                  (items) => items.review_reviewmedia
+                )}
+              />
             </PhotoReviewWrapper>
           </ReviewInfoContainer>
           <ItemReviewCardGrid>
@@ -89,14 +94,8 @@ const PhotoText = styled.div`
 const ItemReviewCardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-<<<<<<< HEAD
   width: 918px;
   column-gap: 56px;
-=======
-  width: 986px;
-  column-gap: 56px;
-  row-gap: 54px;
->>>>>>> 047fbfeed992dc19ef03ff37c449893fd4d45879
   margin-top: 72px;
 `;
 
