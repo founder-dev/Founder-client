@@ -106,6 +106,7 @@ const ItemDetailPage = () => {
               data={itemDetailData.brand}
               top="0px"
               left="260px"
+              id={itemDetailData.brand.id}
             />
           )}
           <MenuBarContainer>

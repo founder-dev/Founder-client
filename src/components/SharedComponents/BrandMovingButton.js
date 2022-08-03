@@ -3,22 +3,32 @@ import Arrow from '../../assets/MagazineDetailPageAssets/Arrow.png';
 import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
 import { Link } from 'react-router-dom';
 import { fetchBrandDetail } from '../../API';
+import { useState, useEffect } from 'react';
+import React from 'react';
 
-const BrandMovingButton = ({ data, top, left ,num}) => {
+const BrandMovingButton = ({ data, top, left, id }) => {
+  const [brandDetaildata, setBrandDetailData] = useState(null);
 
-  if(!data) return null;
-  
+  useEffect(() => {
+    fetchBrandDetail({ setBrandDetailData, id });
+  }, []);
+
+  if (!brandDetaildata) return null;
+  console.log(brandDetaildata);
+
+  if (!data) return null;
+
   return (
     <BrandHome top={top} left={left}>
       <BrandInfoWrapper>
-        <BrandLogo src={data.brand_img_logo} />
+        <BrandLogo src={brandDetaildata.brand_img_logo} />
         <TextWrapper>
-          <BrandName>{`${data.brand_name} (${data.brand_name_eng})`}</BrandName>
-          <BrandDetail>{data.brand_desc_detail}</BrandDetail>
+          <BrandName>{`${brandDetaildata.brand_name} (${brandDetaildata.brand_name_eng})`}</BrandName>
+          <BrandDetail>{brandDetaildata.brand_desc_detail}</BrandDetail>
         </TextWrapper>
       </BrandInfoWrapper>
 
-      <a href={data.brand_link}>
+      <a href={brandDetaildata.brand_link}>
         <BrandButton>
           <ButtonText>브랜드 홈 방문하기</ButtonText>
           <BrandArrow src={Arrow} />
