@@ -20,6 +20,8 @@ const Image = styled.img`
   position: absolute;
   left: ${(props) => props.left || '120px'};
   top: 51px;
+  height: 51px;
+  width: 671px;
 `;
 
 const Wrapper = styled.div`
