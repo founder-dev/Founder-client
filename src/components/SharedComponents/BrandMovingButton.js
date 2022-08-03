@@ -4,16 +4,15 @@ import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
 import { Link } from 'react-router-dom';
 
 const BrandMovingButton = ({ data, top, left }) => {
-  //const desc = String(data.brand_desc).split('.');
+  const desc = String(data.brand_desc).split('.');
 
-  if(!data) return null; //매거진 상세에서는 data 가 없어서 추가한 거임
   return (
     <BrandHome top={top} left={left}>
       <BrandInfoWrapper>
         <BrandLogo src={data.brand_img_logo} />
         <TextWrapper>
           <BrandName>{`${data.brand_name} (${data.brand_name_eng})`}</BrandName>
-          <BrandDetail>한줄소개</BrandDetail>
+          <BrandDetail>{data.brand_desc}</BrandDetail>
         </TextWrapper>
       </BrandInfoWrapper>
 
