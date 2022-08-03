@@ -1,7 +1,11 @@
 import axios from 'axios';
 import { loginState } from '../recoil';
+import { useRecoilState } from 'recoil';
 
 function KaKaoCode() {
+
+  const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); 
+
   const kakaologin = async () => {
     try {
       const response = await axios.get(
@@ -14,7 +18,7 @@ function KaKaoCode() {
         }
       );
       console.log(response.data);
-      loginState(true);
+      setIsLoggedIn(true);
     } catch (e) {
       console.log(e);
     }
