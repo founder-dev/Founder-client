@@ -8,6 +8,7 @@ import BannerButton from './BannerButton';
 import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
 import './Pagination.css';
+import { Link } from 'react-router-dom';
 
 SwiperCore.use([Pagination, Autoplay]);
 
@@ -30,11 +31,16 @@ const Banner = () => {
           <BannerImage src={Banner1} />
           <BannerButton />
         </SwiperSlide>
+
         <SwiperSlide>
-          <BannerImage src={Banner2} />
+          <Link to={`/brandstory/6`}>
+            <BannerImage src={Banner2} />
+          </Link>
         </SwiperSlide>
         <SwiperSlide>
-          <BannerImage src={Banner3} />
+          <Link to={`/brandstory/14`}>
+            <BannerImage src={Banner3} />
+          </Link>
         </SwiperSlide>
       </StyledSwiper>
     </BannerWrapper>

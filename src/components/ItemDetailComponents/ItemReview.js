@@ -23,7 +23,6 @@ function ItemReview({ id }) {
       {itemReview.reviews == '' ? (
         <NotFoundWrapper>
           <NotFound src={NotFoundImage} />
-          <NotFoundText>아직 작성된 후기가 없어요ㅠㅠ</NotFoundText>
         </NotFoundWrapper>
       ) : (
         <ItemReviewWrapper>
@@ -70,13 +69,6 @@ const NotFound = styled.img`
   height: 269px;
 `;
 
-const NotFoundText = styled.text`
-  font-weight: 700;
-  font-size: 20px;
-  line-height: 31px;
-  text-align: center;
-`;
-
 const PhotoReviewWrapper = styled.div`
   width: 576px;
   height: 144px;
@@ -97,8 +89,14 @@ const PhotoText = styled.div`
 const ItemReviewCardGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+<<<<<<< HEAD
   width: 918px;
   column-gap: 56px;
+=======
+  width: 986px;
+  column-gap: 56px;
+  row-gap: 54px;
+>>>>>>> 047fbfeed992dc19ef03ff37c449893fd4d45879
   margin-top: 72px;
 `;
 

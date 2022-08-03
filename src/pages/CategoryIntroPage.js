@@ -19,7 +19,7 @@ const CategoryIntroPage = ({ title }) => {
   const [categoryIntroData, setCategoryIntroData] = useState(null);
 
   useEffect(() => {
-    fetchCategoryIntro({setCategoryIntroData,title});
+    fetchCategoryIntro({ setCategoryIntroData, title });
   }, [title]);
 
   if (!categoryIntroData) return null;
@@ -36,7 +36,7 @@ const CategoryIntroPage = ({ title }) => {
               <>
                 <Container>
                   <ItemTitle text={content.type_name} key={content.id} />
-                 <SubTitle bottom={content.type_product == '' && '0px'}>
+                  <SubTitle bottom={content.type_product == '' && '0px'}>
                     {content.type_desc}{' '}
                     <TagArray tag={content.type_tag_arr} key={content.id} />
                   </SubTitle>
@@ -56,7 +56,9 @@ const CategoryIntroPage = ({ title }) => {
                           delivery_cycle_detail,
                           id,
                         }) => (
-                          <Link to={`/itemdetail/${title}/${content.type_name}/${id}`}>
+                          <Link
+                            to={`/itemdetail/${title}/${content.type_name}/${id}`}
+                          >
                             <ProductCard
                               itemName={product_name}
                               productImg={product_img}

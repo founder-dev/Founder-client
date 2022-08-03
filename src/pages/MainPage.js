@@ -1,10 +1,9 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import FounderLogo from '../assets/MainPageAssets/logo.png';
 import Banner from '../components/MainPageComponents/Banner';
 import styled from 'styled-components';
 import TopBar from '../components/TopBarComponents/TopBar';
 import { Logo } from '../components/FounderLogo';
-import data from '../assets/json/data.json';
 import ProductCard from '../components/SharedComponents/ProductCard';
 import BrandCard from '../components/SharedComponents/BrandCard';
 import {
@@ -12,12 +11,28 @@ import {
   GridWrapper,
 } from '../components/SharedComponents/GridLayout';
 import { Link } from 'react-router-dom';
+import TagArray from '../components/SharedComponents/TagArray';
+import axios from 'axios';
+import ItemTitle2 from '../components/SharedComponents/ItemTitle2';
 
 const MainPage = () => {
-  const title = 'Food';
-  const results = data.filter((items) => items.itemType === title);
-  const Title = [...new Set(results.map((items) => items.itemTitle))]; //백엔드에서는 title,subtitle data만 따로 전달함
-  const subTitle = [...new Set(results.map((items) => items.subTitle))];
+  const [recommendationData, setRecommendationData] = useState(null);
+
+  useEffect(() => {
+    const fetchRecommendation = async () => {
+      try {
+        const response = await axios.get(
+          'https://found-er.co.kr/api/recommend'
+        );
+        setRecommendationData(response.data);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchRecommendation();
+  }, []);
+
+  if (!recommendationData) return null;
 
   return (
     <>
@@ -27,40 +42,64 @@ const MainPage = () => {
         <Wrapper>
           <Banner />
           <Container>
-            {subTitle.map((subTitle) => (
+            {recommendationData.rec_type.map((content) => (
               <>
-                <SubTitle>{subTitle}</SubTitle>
-                {Title.map((title) => (
-                  <>
-                    <ItemTitle>{title}</ItemTitle>
+                <SubTitle>{content.type_desc} </SubTitle>
+                <RowWrapper>
+                  <TitleWrapper>
+                    <Title>{content.type_desc_detail}</Title>
+                    <ItemTitle2 text={content.type_name} />
+                  </TitleWrapper>
 
-                    <GridWrapper>
-                      {results
-                        .filter((items) => items.itemTitle === title)
-                        .map(
-                          (
-                            { itemName, price, rating, custom, schedule },
-                            i
-                          ) => (
-                            <Link to={`/itemdetail/Food/itemName`}>
-                              <ProductCard
-                                itemName={itemName}
-                                price={price}
-                                rating={rating}
-                                custom={custom}
-                                schedule={schedule}
-                                key={i}
-                              />
-                            </Link>
-                          )
-                        )}
-                    </GridWrapper>
-                    <BrandsTitle>{title} 브랜드</BrandsTitle>
-                    <BrandCardWrapper>
-                      <BrandCard brandName={'밀앤데일리'} />
-                    </BrandCardWrapper>
-                  </>
-                ))}
+                  <TagArray tag={content.type_tag_arr} key={content.id} />
+                </RowWrapper>
+
+                {content.type_product != '' && (
+                  <GridWrapper>
+                    {content.type_product.map(
+                      ({
+                        product_name,
+                        product_img,
+                        min_price,
+                        star_rate_avg,
+                        custom_flag,
+                        delivery_cycle,
+                        product_main_img,
+                        min_std_price,
+                        max_std_price,
+                        delivery_cycle_detail,
+                        id,
+                      }) => (
+                        <Link to={`/itemdetail/${content.type_name}/${id}`}>
+                          <ProductCard
+                            itemName={product_name}
+                            productImg={product_img}
+                            price={min_price}
+                            rating={star_rate_avg}
+                            custom={custom_flag}
+                            schedule={delivery_cycle}
+                            image={product_main_img}
+                            minPrice={min_std_price}
+                            maxPrice={max_std_price}
+                            scheduleKorean={delivery_cycle_detail}
+                          />
+                        </Link>
+                      )
+                    )}
+                  </GridWrapper>
+                )}
+                <BrandCardWrapper>
+                  {content.type_brand.map((brand) => (
+                    <>
+                      <BrandCard
+                        brandName={brand.brand_name}
+                        key={brand.id}
+                        brandLogo={brand.brand_img_logo}
+                        id={brand.id}
+                      />
+                    </>
+                  ))}
+                </BrandCardWrapper>
               </>
             ))}
           </Container>
@@ -88,31 +127,41 @@ const Wrapper = styled.div`
 
 const SubTitle = styled.div`
   margin-top: 52px;
-  color: black;
+  color: #666666;
   font-size: 20px;
   font-weight: 500;
   line-height: 32px;
 `;
 
-const ItemTitle = styled.div`
-  margin-top: 4px;
-  margin-bottom: 42.75px;
-  color: black;
+const Title = styled.div`
+  font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  font-weight: 800;
+  margin-right: 10px;
 `;
 
-const BrandsTitle = styled.div`
-  margin-top: 120px;
-  color: black;
-  font-size: 28px;
-  font-weight: bold;
+const TitleWrapper = styled.div`
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const RowWrapper = styled.div`
+  width: 920px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 42.75px;
 `;
 
 const BrandCardWrapper = styled.div`
-  margin-top: 24px;
-  margin-bottom: 130px;
+  width: 920px;
   display: flex;
-  flex-direction: row;
+  flex-wrap: wrap;
+
+  margin-bottom: 79.82px;
+
+  column-gap: 30px;
+  row-gap: 20px;
 `;

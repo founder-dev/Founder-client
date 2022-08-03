@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import Modal from '../components/ModalComponents/Modal';
 import TopBar from '../components/TopBarComponents/TopBar';
-import ItemImage from '../assets/ItemDetailPageAssets/ItemImage.png';
 import Weekly from '../assets/ProductCardAssets/Weekly.png';
 import Monthly from '../assets/ProductCardAssets/Monthly.png';
 import { useParams } from 'react-router-dom';
@@ -42,23 +41,6 @@ const ItemDetailPage = () => {
   useEffect(() => {
     fetchItemDetail({ setItemDetailData, id });
   }, []);
-
-  /*
-  /*useEffect(() => {
-    const fetchItemDetail = async () => {
-      try {
-        const response = await axios.get(
-          'https://pounder/api/product/detail/{pk}/'
-        );
-        itemData = response.data;
-      } catch (e) {
-        console.log(e);
-      }
-    };
-    fetchItemDetail();
-  }, []); 
-  {itemData.product_name} //이런식으로 사용
-  */
 
   if (!itemDetailData) return null;
   console.log(itemDetailData);
@@ -104,13 +86,24 @@ const ItemDetailPage = () => {
                   후기 작성하기
                 </ReviewText>
                 {modalOpen && (
-                  <Modal setOpenModal={setModalOpen} type="WriterModal" />
+                  <Modal
+                    setOpenModal={setModalOpen}
+                    id={itemDetailData.product.id}
+                    name={itemDetailData.product.product_name}
+                    schedule={itemDetailData.product.delivery_cycle}
+                    minPrice={itemDetailData.product.min_price}
+                    type="WriterModal"
+                  />
                 )}
               </ReviewButton>
             </ItemInfo>
           </ItemWrapper>
           {itemDetailData.brand != null && (
-            <BrandMovingButton data={itemDetailData.brand} top="0px" left="260px" />
+            <BrandMovingButton
+              data={itemDetailData.brand}
+              top="0px"
+              left="260px"
+            />
           )}
           <MenuBarContainer>
             <MenuBar
@@ -128,12 +121,10 @@ const ItemDetailPage = () => {
             </MenuBar>
           </MenuBarContainer>
           {isSelected ? (
-            <ImageDetail>
-              <img
-                src={itemDetailData.product.product_img_detail}
-                loading="lazy"
-              />
-            </ImageDetail>
+            <DetailImage
+              src={itemDetailData.product.product_img_detail}
+              loading="lazy"
+            />
           ) : (
             <ItemReview id={id} />
           )}
@@ -182,11 +173,9 @@ const Sticker = styled.img`
   right: 31.75px;
 `;
 
-const ImageDetail = styled.div`
+const DetailImage = styled.img`
   width: 1440px;
   height: auto;
   object-fit: cover;
   image-rendering: -webkit-optimize-contrast;
-  justify-content: center;
-  display: flex;
 `;

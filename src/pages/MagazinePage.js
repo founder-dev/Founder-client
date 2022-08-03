@@ -47,13 +47,13 @@ const MagazinePage = () => {
             {magazineData.daily_curation.map(
               ({ title, intro, tag_arr, img_main, id }) => (
                 <Link to={`/brandstory/${id}`}>
-                <MagazineCard
-                  title={title}
-                  text={intro}
-                  tag={tag_arr}
-                  image={img_main}
-                  key={id}
-                />
+                  <MagazineCard
+                    title={title}
+                    text={intro}
+                    tag={tag_arr}
+                    image={img_main}
+                    key={id}
+                  />
                 </Link>
               )
             )}

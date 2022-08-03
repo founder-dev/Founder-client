@@ -80,31 +80,35 @@ export const DetailedInfo = styled.div`
   color: rgba(136, 136, 136, 1);
   font-size: 12px;
   font-weight: 500;
+  margin-bottom: ${(props) => props.marginBottom};
 `;
 
 export const DetailedInfoWrapper = styled.div`
   margin-top: 18.14px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  width: 222.67px;
-  height: 19px;
+  height: 58.44px;
 `;
 
 export const PriceWrapper = styled.div`
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 320px;
-  height: 37px;
+  flex-direction: column;
+  width: 177.67px;
+  height: 58.44px;
 `;
 
 export const Price = styled.div`
   color: rgba(0, 125, 254, 1);
   font-size: 28px;
   font-weight: 800;
-
   margin-right: 46.67px;
+`;
+
+export const ScheduleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 190.33px;
+  height: 58.44px;
 `;
 
 export const Schedule = styled.div`
@@ -115,10 +119,10 @@ font-weight: 700;
 
 export const Line = styled.div`
   width: 368px;
-  height: 2px;
-  margin-top: 30.39px;
+  height: 0px;
 
-  background-color: black;
+  border: 1.53167px solid #000000;
+  margin-top: 30.39px;
 `;
 
 export const Guide = styled.div`

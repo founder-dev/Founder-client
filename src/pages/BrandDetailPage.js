@@ -74,20 +74,23 @@ const BrandTitle = styled.div`
 
   font-style: normal;
   font-weight: ${fontWeight[3]};
-  font-size: 160px;
+  font-size: 200px;
   line-height: 160px;
 `;
 
 const Description = styled.div`
   position: absolute;
-  left: 38%;
-  top: 44%;
-  margin-top: 80px;
-  width: 350px;
+  top: 44.84%;
+  width: 720px;
+
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 36px;
+
   text-align: center;
-  font-weight: ${fontWeight[0]};
-  font-size: ${fontsize[3]};
-  line-height: 28px;
+
+  color: #ffffff;
+  word-break: keep-all;
 `;
 
 const BrandButton = styled.div`
