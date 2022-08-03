@@ -25,12 +25,6 @@ const MagazineDetailPage = () => {
 
   console.log(magazineDetaildata);
 
-  const dateShow = () => {
-    const date = magazineDetaildata.created_at.substr(0, 10);
-
-    return date;
-  };
-
   return (
     <>
       <TopBar />
