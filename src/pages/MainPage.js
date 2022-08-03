@@ -13,6 +13,7 @@ import {
 import { Link } from 'react-router-dom';
 import TagArray from '../components/SharedComponents/TagArray';
 import axios from 'axios';
+import ItemTitle2 from '../components/SharedComponents/ItemTitle2';
 
 const MainPage = () => {
   const [recommendationData, setRecommendationData] = useState(null);
@@ -43,11 +44,15 @@ const MainPage = () => {
           <Container>
             {recommendationData.rec_type.map((content) => (
               <>
-                <ItemTitle text={content.type_name} key={content.id} />
-                <SubTitle>
-                  {content.type_desc}{' '}
+                <SubTitle>{content.type_desc} </SubTitle>
+                <RowWrapper>
+                  <TitleWrapper>
+                    <Title>{content.type_desc_detail}</Title>
+                    <ItemTitle2 text={content.type_name} />
+                  </TitleWrapper>
+
                   <TagArray tag={content.type_tag_arr} key={content.id} />
-                </SubTitle>
+                </RowWrapper>
 
                 {content.type_product != '' && (
                   <GridWrapper>
@@ -122,26 +127,32 @@ const Wrapper = styled.div`
 
 const SubTitle = styled.div`
   margin-top: 52px;
-  color: black;
+  color: #666666;
   font-size: 20px;
   font-weight: 500;
   line-height: 32px;
 `;
 
-const ItemTitle = styled.div`
-  margin-top: 4px;
-  margin-bottom: 42.75px;
-  color: black;
+const Title = styled.div`
+  font-weight: 500;
   font-size: 24px;
   line-height: 36px;
-  font-weight: 800;
+  margin-right: 10px;
 `;
 
-const BrandsTitle = styled.div`
-  margin-top: 120px;
-  color: black;
-  font-size: 28px;
-  font-weight: bold;
+const TitleWrapper = styled.div`
+  height: 36px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+const RowWrapper = styled.div`
+  width: 920px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 42.75px;
 `;
 
 const BrandCardWrapper = styled.div`
@@ -149,7 +160,6 @@ const BrandCardWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  margin-top: 18.4px;
   margin-bottom: 79.82px;
 
   column-gap: 30px;
