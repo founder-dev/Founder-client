@@ -15,8 +15,6 @@ export default function Slider() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
-  console.log(currentSlide);
-
   const NextSlide = () => {
     if (currentSlide >= TOTAL_SLIDES - 3) {
       return;

@@ -86,7 +86,14 @@ const ItemDetailPage = () => {
                   후기 작성하기
                 </ReviewText>
                 {modalOpen && (
-                  <Modal setOpenModal={setModalOpen} type="WriterModal" />
+                  <Modal
+                    setOpenModal={setModalOpen}
+                    id={itemDetailData.product.id}
+                    name={itemDetailData.product.product_name}
+                    schedule={itemDetailData.product.delivery_cycle}
+                    minPrice={itemDetailData.product.min_price}
+                    type="WriterModal"
+                  />
                 )}
               </ReviewButton>
             </ItemInfo>
