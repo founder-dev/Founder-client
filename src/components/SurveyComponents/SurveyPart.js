@@ -89,7 +89,6 @@ const SelectionWrapper = styled.div`
   margin-bottom: 22px;
 `;
 
-const AnwerWrapper = styled.div``;
 const AnswerItem = styled.div`
   align-items: center;
   padding: 12px 16px;
@@ -108,8 +107,9 @@ const AnswerItem = styled.div`
 `;
 
 const Button = styled.button`
-  width: ${(props) => (props.length == 2 ? '349px' : '309px')};
-  height: 349px;
+  max-height: 348px;
+  max-width: ${(props) => (props.length == 2 ? '348px' : '309px')};
+  object-fit: contain;
   background-image: url(${(props) => props.image});
   border: 0;
   outline: 0;
