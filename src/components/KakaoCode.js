@@ -8,7 +8,6 @@ function KaKaoCode() {
         'https://found-er.co.kr/api/auth/kakao/signin'
       );
       console.log(response.data);
-      loginState(true);
     } catch (e) {
       console.log(e);
     }
