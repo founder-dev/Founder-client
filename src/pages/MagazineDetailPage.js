@@ -57,12 +57,11 @@ const MagazineDetailPage = () => {
                   <ParagraphWrapper>
                     <SubTitle>{content.detail_title}</SubTitle>
                     <Text>{content.detail_content}</Text>
-                  </ParagraphWrapper>
-                  {content.detail_img != null && (
+                  </ParagraphWrapper> 
+                 {content.detail_img != null && (
                     <Image src={content.detail_img} />
                   )}
-
-                  {content.brand != null && <BrandMovingButton num ={content.brand}/>}
+                  {content.brand != null && <BrandMovingButton id={content.brand} />}
                 </ArticleWrapper>
               </>
             ))}
