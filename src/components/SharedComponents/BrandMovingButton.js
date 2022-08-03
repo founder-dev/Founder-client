@@ -2,8 +2,9 @@ import styled from 'styled-components';
 import Arrow from '../../assets/MagazineDetailPageAssets/Arrow.png';
 import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
 import { Link } from 'react-router-dom';
+import { fetchBrandDetail } from '../../API';
 
-const BrandMovingButton = ({ data, top, left }) => {
+const BrandMovingButton = ({ data, top, left ,num}) => {
 
   if(!data) return null;
   
