@@ -34,8 +34,9 @@ import {
   Instruction,
 } from '../components/WriterModalComponents/WriterModalPresenter';
 import RatingContainer from '../components/WriterModalComponents/RatingContainer';
+import axios from 'axios';
 
-const WriterModal = ({ setOpenModal }) => {
+const WriterModal = ({ setOpenModal, id, name, schedule, minPrice }) => {
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState();
   const [preview, setPreview] = useRecoilState(PreviewState);
@@ -45,22 +46,44 @@ const WriterModal = ({ setOpenModal }) => {
   const [hoverRating, setHoverRating] = useState(0);
   const [isFood, setIsFood] = useState(true);
   const [sent, setSent] = useState(false);
-  //axios get 통신을 통해 get으로 아이템에 대한 id,cost를 받을 예정
 
   const handleSubmit = (e) => {
     const formdata = new FormData();
-    formdata.append('reviewMedia', photo.splice(1, photo.length()));
+    formdata.append('reviewMedia', photo.splice(0, photo.length()));
     formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
     formdata.append('review_main_img', photo[0]);
-    //axios post통신을 통해 해당 아이템에 대한 정보들을 보낼 예정
-    /* headers: {
-    "Content-Type": `multipart/form-data; `,
-    */
-  };
 
-  console.log(photo);
+    const postLink = `https://found-er.co.kr/api/product/${id}/review`;
+    const accessToken =
+      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU5NDk4NzcwLCJqdGkiOiI5M2M0YzcxYTI5Mjc0YzgxYjM5MmI0NzdiYjQ5YWY0MSIsInVzZXJfaWQiOjQxfQ.QCuJZy3LF0WVoPo5hs2k71GKDwNnQFxSJarA2VcUC1c';
+    axios
+      .post(
+        { postLink },
+        {
+          reviewMedia: formdata.reviewMedia,
+          star_rate: formdata.star_rate,
+          review_text: formdata.review_text,
+          review_tag_arr: formdata.review_tag_arr,
+          review_img_main: formdata.review_img_main,
+        },
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${accessToken}`,
+          },
+        }
+      )
+      .then((response) => {
+        window.alert('후기 완!');
+        console.log(response);
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   useEffect(() => {
     if (
@@ -103,15 +126,15 @@ const WriterModal = ({ setOpenModal }) => {
           <ItemBoxWrapper>
             <UploadPhoto photo={photo} setPhoto={setPhoto} />
             <ItemBox>
-              <ItemName>룩트 그릭 요거트</ItemName>
+              <ItemName>{name}</ItemName>
               <DetailWrapper>
                 <DetailBox>
                   <DetailGray>배송주기</DetailGray>
-                  <DetailBlack>주간/월간</DetailBlack>
+                  <DetailBlack>{schedule}</DetailBlack>
                 </DetailBox>
                 <DetailBox>
                   <DetailGray>최저가</DetailGray>
-                  <DetailBlack>44,380원</DetailBlack>
+                  <DetailBlack>{minPrice}</DetailBlack>
                 </DetailBox>
               </DetailWrapper>
             </ItemBox>
