@@ -155,21 +155,11 @@ const RowWrapper = styled.div`
   margin-bottom: 42.75px;
 `;
 
-const TopContent = styled.div`
-  margin-top: 52px;
-  width: 920px;
-  height: 72px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-`;
-
 const BrandCardWrapper = styled.div`
   width: 920px;
   display: flex;
   flex-wrap: wrap;
 
-  margin-top: 18.4px;
   margin-bottom: 79.82px;
 
   column-gap: 30px;
