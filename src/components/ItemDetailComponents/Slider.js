@@ -11,7 +11,7 @@ import Backward from '../../assets/ItemDetailPageAssets/Backward.png';
 
 const TOTAL_SLIDES = 4;
 
-export default function Slider() {
+export default function Slider({photo}) {
   const [currentSlide, setCurrentSlide] = useState(0);
   const slideRef = useRef(null);
 
@@ -31,6 +31,15 @@ export default function Slider() {
     }
   };
 
+  const photoShow = () => {
+    var array = [];
+    for (var i = 0; i < photo.length; i++) {
+      array.push(<Slide img={photo[i]} />);
+    }
+
+    return array;
+  };
+
   useEffect(() => {
     slideRef.current.style.transition = 'all 0.5s ease-in-out';
     slideRef.current.style.transform = `translateX(-${
@@ -43,11 +52,7 @@ export default function Slider() {
       <ForwardButton src={Forward} onClick={PrevSlide} />
       <SliderWrapper>
         <SliderContainer ref={slideRef}>
-          <Slide img={Photo1} />
-          <Slide img={Photo2} />
-          <Slide img={Photo3} />
-          <Slide img={Photo4} />
-          <Slide img={Photo5} />
+          {photoShow()}
         </SliderContainer>
       </SliderWrapper>
 

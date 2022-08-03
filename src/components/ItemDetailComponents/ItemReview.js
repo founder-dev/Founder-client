@@ -30,7 +30,11 @@ function ItemReview({ id }) {
             <OverAllRate itemReview={itemReview} />
             <PhotoReviewWrapper>
               <PhotoText>사진 후기 모아보기</PhotoText>
-              <Slider />
+              <Slider
+                photo={itemReview.reviews.map(
+                  (items) => items.review_img_main
+                )}
+              />
             </PhotoReviewWrapper>
           </ReviewInfoContainer>
           <ItemReviewCardGrid>

@@ -5,6 +5,7 @@ import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 import { color, fontsize, fontWeight } from '../../../styles/theme';
 import Rated from '../../StarRating/Rated';
+import { css } from 'styled-components';
 
 const ItemReviewCard = ({
   text,
@@ -19,7 +20,7 @@ const ItemReviewCard = ({
   const arraytag = String(tag).split(',');
 
   const [sizes, setSizes] = useState({
-    cardHeight: '336.96px',
+    cardHeight: '342px',
     reviewHeight: '56px',
   });
 
@@ -75,7 +76,7 @@ const ItemReviewCard = ({
           </>
         ) : (
           <>
-            <ImageContainer>
+            <ImageContainer num={review_media.length + 1}>
               <Image src={main_img}></Image>
               {photoShow()}
             </ImageContainer>
@@ -190,9 +191,17 @@ const MoreButton = styled.img`
 `;
 
 const ImageContainer = styled.div`
-  display: grid;
+  ${(props) =>
+    props.num == 1
+      ? css`
+          display: flex;
+          justify-content: center;
+        `
+      : `
+    display: grid;
   grid-template-columns: repeat(2, 1fr);
   column-gap: 12px;
   row-gap: 12px;
   margin-bottom: 19.91px;
+    `}
 `;
