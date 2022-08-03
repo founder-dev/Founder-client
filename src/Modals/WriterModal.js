@@ -35,8 +35,18 @@ import {
 } from '../components/WriterModalComponents/WriterModalPresenter';
 import RatingContainer from '../components/WriterModalComponents/RatingContainer';
 import axios from 'axios';
+import Weekly from '../assets/ProductCardAssets/Weekly.png';
 
-const WriterModal = ({ setOpenModal, id, name, schedule, minPrice }) => {
+const WriterModal = ({
+  setOpenModal,
+  id,
+  name,
+  schedule,
+  minPrice,
+  custom,
+  delivery,
+  title,
+}) => {
   const [review, setReview] = useState('');
   const [photo, setPhoto] = useState();
   const [preview, setPreview] = useRecoilState(PreviewState);
@@ -44,7 +54,7 @@ const WriterModal = ({ setOpenModal, id, name, schedule, minPrice }) => {
   const [tagArray, setTagArray] = useRecoilState(TagState);
   const [rating, setRating] = useState(0);
   const [hoverRating, setHoverRating] = useState(0);
-  const [isFood, setIsFood] = useState(true);
+  const [isFood, setIsFood] = useState(false);
   const [sent, setSent] = useState(false);
 
   const handleSubmit = (e) => {
@@ -99,12 +109,23 @@ const WriterModal = ({ setOpenModal, id, name, schedule, minPrice }) => {
     }
   });
 
+  useEffect(() => {
+    if (title == 'beverage' || title == 'food') {
+      setIsFood(true);
+    }
+  }, []);
+
+  console.log(title);
   return (
     <Container>
       <Background />
       <ModalBlock>
-        <ScheduleSticker src={WeeklyMonthly} />
-        <CustomSticker src={Custom} />
+        {
+          <ScheduleSticker
+            src={delivery == 'weekly' ? Weekly : WeeklyMonthly}
+          />
+        }
+        {custom && <CustomSticker src={Custom} />}
 
         <CancleImg
           src={CancleButtonImage}
