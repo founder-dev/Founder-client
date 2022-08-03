@@ -8,10 +8,12 @@ const instance = axios.create({
   timeout: 5000,
 });
 
-export const fetchMagazineDetail = async (setMagazineDetaildata) => {
+export const fetchMagazineDetail = async ({ setMagazineDetaildata, id }) => {
   try {
     setMagazineDetaildata(null);
-    const response = await instance.get('api/magazine/daily_curation/14'); //error 뜨는 중
+    const response = await instance.get(
+      `https://found-er.co.kr/api/magazine/${id}`
+    );
     setMagazineDetaildata(response.data);
   } catch (error) {
     console.log(error);

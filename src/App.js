@@ -32,7 +32,7 @@ function App() {
           element={<CategoryIntroPage title={'health'} />}
         />
         <Route path="/goods" element={<CategoryIntroPage title={'goods'} />} />
-        <Route path="/brandstory" element={<MagazineDetailPage />} />
+        <Route path="/brandstory/:id" element={<MagazineDetailPage />} />
         <Route
           path="/itemdetail/:title/:product/:id"
           element={<ItemDetailPage />}
