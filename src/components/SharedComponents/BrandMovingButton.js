@@ -14,7 +14,7 @@ const BrandMovingButton = ({ data, top, left }) => {
         <BrandLogo src={data.brand_img_logo} />
         <TextWrapper>
           <BrandName>{`${data.brand_name} (${data.brand_name_eng})`}</BrandName>
-          <BrandDetail>{data.brand_desc}</BrandDetail>
+          <BrandDetail>{data.brand_desc_detail}</BrandDetail>
         </TextWrapper>
       </BrandInfoWrapper>
 
