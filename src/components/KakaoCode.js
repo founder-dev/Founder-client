@@ -5,7 +5,7 @@ function KaKaoCode() {
   const kakaologin = async () => {
     try {
       const response = await axios.get(
-        'https://found-er.co.kr/api/auth/kakao/signin'
+        'https://found-er.co.kr/api/auth/kakao/signin/callback'
       );
       console.log(response.data);
     } catch (e) {
