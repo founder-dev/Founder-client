@@ -57,13 +57,14 @@ const WriterModal = ({
   const [isFood, setIsFood] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const formdata = new FormData();
-    formdata.append('reviewMedia', photo.splice(0, photo.length()));
+    formdata.append('reviewMedia', preview.slice(0, preview.length()));
     formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
-    formdata.append('review_img_main', photo[0]);
+    formdata.append('review_img_main', preview[0]);
 
     const postLink = `https://found-er.co.kr/api/product/${id}/review`;
     const accessToken = localStorage.getItem('accesstoken');
@@ -111,7 +112,6 @@ const WriterModal = ({
     }
   }, []);
 
-  console.log(title);
   return (
     <Container>
       <Background />
@@ -203,7 +203,7 @@ const WriterModal = ({
           <InputText review={review} setReview={setReview} />
           <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton type="submit" disabled={!sent}>
+            <SubmitButton type="button" disabled={!sent}>
               작성완료
             </SubmitButton>
           </SubmitButtonWrapper>
