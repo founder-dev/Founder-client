@@ -17,8 +17,6 @@ const MagazinePage = () => {
 
   if (!magazineData) return null;
 
-  console.log(magazineData);
-
   return (
     <>
       <TopBar />
