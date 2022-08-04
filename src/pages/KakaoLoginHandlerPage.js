@@ -1,22 +1,26 @@
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 
 function KaKaoLoginHandlerPage() {
   var code = new URL(window.location.href).searchParams.get('code');
+  const navigate = useNavigate();
 
-  /*const kakaologin = async () => {
+  const kakaologin = async () => {
         try {
           const response = await axios.get(
             `https://found-er.co.kr/api/auth/kakao/signin/callback?code=${code}`
           );
           console.log(response.data);
           console.log("로그인 성공");
+          navigate("/");
         } catch (e) {
           console.log(e);
           console.log("로그인 불가");
         }
       };
     
-      kakaologin();*/
+      useEffect(()=> {kakaologin();},[]);
 
   return (
     <>
