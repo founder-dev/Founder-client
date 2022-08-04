@@ -17,6 +17,7 @@ function KaKaoLoginHandlerPage() {
       console.log(response.data);
       console.log('로그인 성공');
       localStorage.setItem('accesstoken', response.data.token.access);
+      localStorage.setItem('refreshtoken', response.data.token.refresh);
       console.log(localStorage.accesstoken);
       setLoggedIn(true);
       navigate('/');

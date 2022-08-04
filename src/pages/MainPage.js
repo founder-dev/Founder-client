@@ -60,14 +60,7 @@ const MainPage = () => {
       try {
         const response = await axios.get(
           'https://found-er.co.kr/api/recommend',
-
-          {
-            headers: {
-              Authorization: `Bearer ${
-                localStorage.accesstoken != null ? localStorage.accesstoken : ''
-              }`,
-            },
-          }
+          config
         );
         setRecommendationData(response.data);
       } catch (e) {
