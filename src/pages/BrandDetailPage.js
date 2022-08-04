@@ -72,18 +72,17 @@ const BrandTitle = styled.div`
   position: absolute;
   top: 22%;
 
-  word-break : nowrap;
+  word-break: nowrap;
   width: 1440px;
   font-weight: ${fontWeight[3]};
-  font-size: 160px;
+  font-size: 120px;
   line-height: 160px;
 `;
 
 const Description = styled.div`
-
   width: 720px;
 
-  margin-top: 80px;
+  margin-top: 40px;
   font-weight: 500;
   font-size: 24px;
   line-height: 36px;
