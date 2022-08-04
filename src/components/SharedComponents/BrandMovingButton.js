@@ -45,9 +45,6 @@ const BrandHome = styled.div`
   width: 920px;
   height: 80px;
 
-  margin-top: ${(props) => props.top || '80px'};
-  margin-bottom: 136px;
-
   background: #fafafa;
   border-radius: 4px;
 
