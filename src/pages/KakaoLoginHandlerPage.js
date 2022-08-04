@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loginState } from '../recoil';
 import { useRecoilState } from 'recoil';
+import KakaoRefresh from '../components/SharedComponents/KakaoRefresh';
 
 function KaKaoLoginHandlerPage() {
   const [loggedin, setLoggedIn] = useRecoilState(loginState);
@@ -19,10 +20,12 @@ function KaKaoLoginHandlerPage() {
       localStorage.setItem('accesstoken', response.data.token.access);
       console.log(localStorage.accesstoken);
       setLoggedIn(true);
+      KakaoRefresh();
       navigate('/');
     } catch (e) {
       console.log(e);
       console.log('로그인 불가');
+      KakaoRefresh();
     }
   };
 

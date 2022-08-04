@@ -59,15 +59,7 @@ const MainPage = () => {
     const fetchRecommendation = async () => {
       try {
         const response = await axios.get(
-          'https://found-er.co.kr/api/recommend',
-
-          {
-            headers: {
-              Authorization: `Bearer ${
-                localStorage.accesstoken != null ? localStorage.accesstoken : ''
-              }`,
-            },
-          }
+          'https://found-er.co.kr/api/recommend'
         );
         setRecommendationData(response.data);
       } catch (e) {
@@ -91,8 +83,8 @@ const MainPage = () => {
             <>
               <SubTitle>선택이 어려운 당신을 위한 추천</SubTitle>
               <RowWrapper>
-              <Title>오롯이 당신을 위한</Title>
-              <TagArray tag="큐레이션,1:1,맞춤추천" />
+                <Title>오롯이 당신을 위한</Title>
+                <TagArray tag="큐레이션,1:1,맞춤추천" />
               </RowWrapper>
               <BrandCardWrapper>
                 {recommendationData.curation.map((brand) => (
