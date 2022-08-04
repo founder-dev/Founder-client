@@ -14,7 +14,6 @@ import { Link } from 'react-router-dom';
 import TagArray from '../components/SharedComponents/TagArray';
 import axios from 'axios';
 import ItemTitle2 from '../components/SharedComponents/ItemTitle2';
-import useCategory from '../hooks/useCategory';
 
 const MainPage = () => {
   const [recommendationData, setRecommendationData] = useState(null);
@@ -47,15 +46,9 @@ const MainPage = () => {
     protein: 'health',
   };
 
-  var config = {
-    headers: {
-      Authorization: `Bearer ${
-        localStorage.accesstoken != null ? localStorage.accesstoken : ''
-      }`,
-    },
-  };
+  var token = localStorage.accesstoken == undefined ? `` : `Bearer ${localStorage.accesstoken}`; 
 
-  const token = localStorage.accesstoken != null ? `` : `Bearer ${localStorage.accesstoken}`; 
+  console.log(token);
 
   useEffect(() => {
     const fetchRecommendation = async () => {
@@ -64,7 +57,7 @@ const MainPage = () => {
           'https://found-er.co.kr/api/recommend',
           {
             headers: {
-              Authorization: {token},
+              Authorization: token,
             },
           }
         );

@@ -1,11 +1,9 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
-import Surveydata from '../../assets/json/Survey.json';
 import answerSet from '../../assets/json/answerSet.json';
 import answerValue from '../../assets/json/answerValue.json';
 import SurveyPart from './SurveyPart';
 import styled from 'styled-components';
 import { color } from '../../styles/theme';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
@@ -78,7 +76,7 @@ const Survey = () => {
       .put(
         'https://found-er.co.kr/api/survey',
         {
-          answer : answerSend,
+          answer : answerSet,
         },
         {
           headers: {
@@ -92,7 +90,7 @@ const Survey = () => {
       })
 
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data);
         console.log('설문조사 제출 실패');
       });
 
