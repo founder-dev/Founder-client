@@ -76,7 +76,7 @@ const Survey = () => {
       .put(
         'https://found-er.co.kr/api/survey',
         {
-          answer : answerSet,
+          answer : answerSend,
         },
         {
           headers: {

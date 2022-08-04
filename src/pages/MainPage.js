@@ -83,7 +83,7 @@ const MainPage = () => {
 
           {recommendationData.curation != null && (
             <>
-              <SubTitle>선택이 어려운 당신을 위한 추천</SubTitle>
+              <SubTitle2>선택이 어려운 당신을 위한 추천</SubTitle2>
               <RowWrapper>
               <Title>오롯이 당신을 위한</Title>
               <TagArray tag="큐레이션,1:1,맞춤추천" />
@@ -200,6 +200,7 @@ const SubTitle = styled.div`
 
 const SubTitle2 = styled.div`
   margin-top: 52px;
+  margin-right: 670px;
   color: #666666;
   font-size: 20px;
   font-weight: 500;
