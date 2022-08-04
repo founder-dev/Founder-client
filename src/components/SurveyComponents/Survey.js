@@ -65,6 +65,8 @@ const Survey = () => {
     setId(id + 1);
   };
 
+  console.log(localStorage.accesstoken);
+
   function SubmitSurvey() {
     if (answerSet[0].answer_num == 1) {
       setGender(true);
@@ -76,12 +78,20 @@ const Survey = () => {
       .put(
         'https://found-er.co.kr/api/survey',
         {
-          answerSet,
+          answerSend
+          /*[
+            {"question_num": '1', "answer_num": '2'},
+            {"question_num": '2', "answer_num": '3'},
+            {"question_num": '3', "answer_num": '2'},
+            {"question_num": '4', "answer_num": '1'},
+            {"question_num": '5', "answer_num": '4'},
+            {"question_num": '6', "answer_num": '1'},
+            {"question_num": '7', "answer_num": '2'},
+          ]*/
         },
         {
           headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU5NTU1MTE1LCJqdGkiOiJjMWJlMjM4Yzk1MjU0MzJmYWU3YTgzYzE5YTQyOWM3MyIsInVzZXJfaWQiOjQzfQ.3dsBX8NehGp9bqj8Baoe8sCR74FoTDR71_nxRqHjBb4`,
+            Authorization: `Bearer ${localStorage.accesstoken}`,
           },
         }
       )
