@@ -18,6 +18,7 @@ import ItemTitle2 from '../components/SharedComponents/ItemTitle2';
 const MainPage = () => {
   const [recommendationData, setRecommendationData] = useState(null);
 
+  //프론트에서 처리하는 카테고리
   var dicText = {
     salad: 'food',
     yogurt: 'food',
@@ -46,6 +47,7 @@ const MainPage = () => {
     protein: 'health',
   };
 
+  //초기 상태 유저를 위해 
   var token = localStorage.accesstoken == undefined ? `` : `Bearer ${localStorage.accesstoken}`; 
 
   console.log(token);

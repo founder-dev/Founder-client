@@ -6,6 +6,7 @@ import { useRecoilState } from 'recoil';
 
 function KaKaoLoginHandlerPage() {
   const [loggedin, setLoggedIn] = useRecoilState(loginState);
+
   var code = new URL(window.location.href).searchParams.get('code');
   const navigate = useNavigate();
 
@@ -22,7 +23,6 @@ function KaKaoLoginHandlerPage() {
       setLoggedIn(true);
       navigate('/');
     } catch (e) {
-      console.log(e);
       console.log('로그인 불가');
     }
   };
@@ -33,10 +33,8 @@ function KaKaoLoginHandlerPage() {
 
   return (
     <>
-      <div>{code}</div>
-      <div>기다려주세요~</div>
+      <div>로딩 중 기다려주세요~</div>
     </>
-    //axios 통신을 통해 인가코드 넘겨주기
   );
 }
 
