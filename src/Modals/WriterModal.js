@@ -66,8 +66,7 @@ const WriterModal = ({
     formdata.append('review_main_img', photo[0]);
 
     const postLink = `https://found-er.co.kr/api/product/${id}/review`;
-    const accessToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU5NDk4NzcwLCJqdGkiOiI5M2M0YzcxYTI5Mjc0YzgxYjM5MmI0NzdiYjQ5YWY0MSIsInVzZXJfaWQiOjQxfQ.QCuJZy3LF0WVoPo5hs2k71GKDwNnQFxSJarA2VcUC1c';
+    const access = localStorage.getItem('accesstoken');
     axios
       .post(
         { postLink },
@@ -76,12 +75,12 @@ const WriterModal = ({
           star_rate: formdata.star_rate,
           review_text: formdata.review_text,
           review_tag_arr: formdata.review_tag_arr,
-          review_img_main: formdata.review_img_main,
+          review_img_main: formdata.review_main_img,
         },
         {
           headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `Bearer ${access}`,
           },
         }
       )
