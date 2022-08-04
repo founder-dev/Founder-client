@@ -76,12 +76,12 @@ const Survey = () => {
       .put(
         'https://found-er.co.kr/api/survey',
         {
-          "body": { answerSet },
+          answerSet,
         },
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer `
+            Authorization: `Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU5NTU1MTE1LCJqdGkiOiJjMWJlMjM4Yzk1MjU0MzJmYWU3YTgzYzE5YTQyOWM3MyIsInVzZXJfaWQiOjQzfQ.3dsBX8NehGp9bqj8Baoe8sCR74FoTDR71_nxRqHjBb4`,
           },
         }
       )
