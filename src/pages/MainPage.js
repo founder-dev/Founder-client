@@ -55,12 +55,18 @@ const MainPage = () => {
     },
   };
 
+  const token = localStorage.accesstoken != null ? `` : `Bearer ${localStorage.accesstoken}`; 
+
   useEffect(() => {
     const fetchRecommendation = async () => {
       try {
         const response = await axios.get(
           'https://found-er.co.kr/api/recommend',
-          config
+          {
+            headers: {
+              Authorization: {token},
+            },
+          }
         );
         setRecommendationData(response.data);
       } catch (e) {
