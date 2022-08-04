@@ -57,26 +57,22 @@ const WriterModal = ({
   const [isFood, setIsFood] = useState(false);
   const [sent, setSent] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = () => {
     const formdata = new FormData();
     formdata.append('reviewMedia', photo.splice(0, photo.length()));
     formdata.append('star_rate', rating);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
-    formdata.append('review_main_img', photo[0]);
+    formdata.append('review_img_main', photo[0]);
 
     const postLink = `https://found-er.co.kr/api/product/${id}/review`;
-    const accessToken =
-      'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjU5NDk4NzcwLCJqdGkiOiI5M2M0YzcxYTI5Mjc0YzgxYjM5MmI0NzdiYjQ5YWY0MSIsInVzZXJfaWQiOjQxfQ.QCuJZy3LF0WVoPo5hs2k71GKDwNnQFxSJarA2VcUC1c';
+    const accessToken = localStorage.getItem('accesstoken');
+    console.log(accessToken);
     axios
       .post(
         { postLink },
         {
-          reviewMedia: formdata.reviewMedia,
-          star_rate: formdata.star_rate,
-          review_text: formdata.review_text,
-          review_tag_arr: formdata.review_tag_arr,
-          review_img_main: formdata.review_img_main,
+          formdata,
         },
         {
           headers: {
@@ -143,7 +139,7 @@ const WriterModal = ({
           제품 사진을 촬영/업로드해 주세요.
           <Essential>*필수</Essential>
         </Instruction>
-        <form>
+        <form onSubmit={handleSubmit}>
           <ItemBoxWrapper>
             <UploadPhoto photo={photo} setPhoto={setPhoto} />
             <ItemBox>
@@ -207,7 +203,7 @@ const WriterModal = ({
           <InputText review={review} setReview={setReview} />
           <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton onClick={handleSubmit} disabled={!sent}>
+            <SubmitButton type="submit" disabled={!sent}>
               작성완료
             </SubmitButton>
           </SubmitButtonWrapper>
