@@ -14,11 +14,11 @@ import { Link } from 'react-router-dom';
 import TagArray from '../components/SharedComponents/TagArray';
 import axios from 'axios';
 import ItemTitle2 from '../components/SharedComponents/ItemTitle2';
-import useCategory from '../hooks/useCategory';
 
 const MainPage = () => {
   const [recommendationData, setRecommendationData] = useState(null);
 
+  //프론트에서 처리하는 카테고리
   var dicText = {
     salad: 'food',
     yogurt: 'food',
@@ -47,25 +47,19 @@ const MainPage = () => {
     protein: 'health',
   };
 
-  var config = {
-    headers: {
-      Authorization: `Bearer ${
-        localStorage.accesstoken != null ? localStorage.accesstoken : ''
-      }`,
-    },
-  };
+  //초기 상태 유저를 위해 
+  var token = localStorage.accesstoken == undefined ? `` : `Bearer ${localStorage.accesstoken}`; 
+
+  console.log(token);
 
   useEffect(() => {
     const fetchRecommendation = async () => {
       try {
         const response = await axios.get(
           'https://found-er.co.kr/api/recommend',
-
           {
             headers: {
-              Authorization: `Bearer ${
-                localStorage.accesstoken != null ? localStorage.accesstoken : ''
-              }`,
+              Authorization: token,
             },
           }
         );
@@ -89,7 +83,7 @@ const MainPage = () => {
 
           {recommendationData.curation != null && (
             <>
-              <SubTitle>선택이 어려운 당신을 위한 추천</SubTitle>
+              <SubTitle2>선택이 어려운 당신을 위한 추천</SubTitle2>
               <RowWrapper>
               <Title>오롯이 당신을 위한</Title>
               <TagArray tag="큐레이션,1:1,맞춤추천" />
@@ -206,6 +200,7 @@ const SubTitle = styled.div`
 
 const SubTitle2 = styled.div`
   margin-top: 52px;
+  margin-right: 670px;
   color: #666666;
   font-size: 20px;
   font-weight: 500;
