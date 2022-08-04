@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
-import axios from 'axios';
 import { useEffect } from 'react';
 import { color } from '../styles/theme';
 import TagShow from '../components/MagazineComponents/TagShow';
@@ -57,11 +56,13 @@ const MagazineDetailPage = () => {
                   <ParagraphWrapper>
                     <SubTitle>{content.detail_title}</SubTitle>
                     <Text>{content.detail_content}</Text>
-                  </ParagraphWrapper> 
-                 {content.detail_img != null && (
+                  </ParagraphWrapper>
+                  {content.detail_img != null && (
                     <Image src={content.detail_img} />
                   )}
-                  {content.brand != null && <BrandMovingButton id={content.brand} />}
+                  {content.brand != null && (
+                    <BrandMovingButton id={content.brand} />
+                  )}
                 </ArticleWrapper>
               </>
             ))}
