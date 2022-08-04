@@ -1,15 +1,8 @@
 import styled from 'styled-components';
-import KaKaoCode from '../kakaologin';
 import KaKaoLogin from '../../assets/SignUpAssets/KaKaoLogin.png';
-import * as config from '../../config';
+import { KAKAO_AUTH_URL } from './KaKaoAuth';
 
 const KaKaoLoginButton = () => {
-  const url = config.KAKAO_URL;
-  
-  const CLIENT_ID = config.CLIENT_ID;
-  const REDIRECT_URI = 'http://localhost:3000/kakao';
-  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=code`;
-
   return (
     <a href={KAKAO_AUTH_URL}>
       <LoginButton>

@@ -3,12 +3,10 @@ import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import styled from 'styled-components';
 import { useState ,useEffect} from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';
-import Illust from '../assets/MyPageAssets/Login.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
 import { GenderState, loginState } from '../recoil';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WidthWrapper, Wrapper, MyName, Info ,Id , MyId, Button , KaKaoButton , Logo} from '../components/MyPageComponents/MyPagePresenter';
-import axios from "react";
 import { fetchUserInfo } from '../API';
 
 const MyPage = () => {
@@ -26,8 +24,7 @@ const MyPage = () => {
   }, [access]);
 
   if (!userData) return null;
-    console.log(userData);
-    console.log(gender);  
+
     return(
       <>
         <TopBar/>
