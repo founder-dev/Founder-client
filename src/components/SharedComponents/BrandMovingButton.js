@@ -6,7 +6,7 @@ import { fetchBrandDetail } from '../../API';
 import { useState, useEffect } from 'react';
 import React from 'react';
 
-const BrandMovingButton = ({ data, top, left, id }) => {
+const BrandMovingButton = ({ top, left, id }) => {
   const [brandDetaildata, setBrandDetailData] = useState(null);
 
   useEffect(() => {
@@ -16,7 +16,7 @@ const BrandMovingButton = ({ data, top, left, id }) => {
   if (!brandDetaildata) return null;
   console.log(brandDetaildata);
 
-  if (!data) return null;
+  if (!brandDetaildata) return null;
 
   return (
     <BrandHome top={top} left={left}>

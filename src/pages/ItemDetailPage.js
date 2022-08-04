@@ -103,7 +103,6 @@ const ItemDetailPage = () => {
           </ItemWrapper>
           {itemDetailData.brand != null && (
             <BrandMovingButton
-              data={itemDetailData.brand}
               top="0px"
               left="260px"
               id={itemDetailData.brand.id}
