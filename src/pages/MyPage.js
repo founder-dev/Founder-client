@@ -5,7 +5,6 @@ import { useState } from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';
 import Illust from '../assets/MyPageAssets/Login.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
-import KaKaoCode from '../components/KakaoCode';
 import { GenderState, loginState } from '../recoil';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WidthWrapper, Wrapper, MyName, Info ,Id , MyId, Button , KaKaoButton , Logo} from '../components/MyPageComponents/MyPagePresenter';
@@ -68,7 +67,7 @@ const MyPage = () => {
             <MyName width ="468px">더 나은 서비스를 위해 가입하세요</MyName>
             <Id width = "433px">지금 로그인하고 파운더만의 설문조사에 참여하세요.</Id>
             <Id width = "433px">89가지 제품 중 가장 필요한 제품을 추천해드려요.</Id>
-            <KaKaoButton onClick={KaKaoCode}><img src ={Kakaologin}/></KaKaoButton>
+            <KaKaoButton><img src ={Kakaologin}/></KaKaoButton>
           </>
         }
         <Logo src ={Founder}/>
