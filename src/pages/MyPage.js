@@ -8,6 +8,7 @@ import { GenderState, loginState } from '../recoil';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WidthWrapper, Wrapper, MyName, Info ,Id , MyId, Button , KaKaoButton , Logo} from '../components/MyPageComponents/MyPagePresenter';
 import { fetchUserInfo } from '../API';
+import axios from 'axios';
 
 const MyPage = () => {
 
@@ -19,6 +20,26 @@ const MyPage = () => {
     const access = localStorage.getItem('accesstoken');
     const [userData, setuserData] = useState(null);
     
+    const Logout = () =>{
+      axios
+      .put(
+        'https://found-er.co.kr/api/auth/kakao/signout/callback',
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.accesstoken}`,
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        console.log('로그아웃 완료');
+      })
+
+      .catch((error) => {
+        console.log(error);
+        console.log('로그아웃 실패');
+      });
+    }
     useEffect(() => {
       fetchUserInfo({setuserData,access});
   }, [access]);
@@ -42,7 +63,7 @@ const MyPage = () => {
           <Id top = "16px">이메일</Id>
           <MyId>{userData.email}</MyId>
           </Info>
-          <Button>로그아웃</Button>
+          <Button onClick={Logout}>로그아웃</Button>
           
           </>
           :

@@ -47,13 +47,27 @@ const MainPage = () => {
     protein: 'health',
   };
 
-  
+  var config = {
+    headers: {
+      Authorization: `Bearer ${
+        localStorage.accesstoken != null ? localStorage.accesstoken : ''
+      }`,
+    },
+  };
 
   useEffect(() => {
     const fetchRecommendation = async () => {
       try {
         const response = await axios.get(
           'https://found-er.co.kr/api/recommend',
+
+          {
+            headers: {
+              Authorization: `Bearer ${
+                localStorage.accesstoken != null ? localStorage.accesstoken : ''
+              }`,
+            },
+          }
         );
         setRecommendationData(response.data);
       } catch (e) {
@@ -72,6 +86,28 @@ const MainPage = () => {
       <WidthWrapper>
         <Wrapper>
           <Banner />
+
+          {recommendationData.curation != null && (
+            <>
+              <SubTitle>선택이 어려운 당신을 위한 추천</SubTitle>
+              <RowWrapper>
+              <Title>오롯이 당신을 위한</Title>
+              <TagArray tag="큐레이션,1:1,맞춤추천" />
+              </RowWrapper>
+              <BrandCardWrapper>
+                {recommendationData.curation.map((brand) => (
+                  <>
+                    <BrandCard
+                      brandName={brand.brand_name}
+                      key={brand.id}
+                      brandLogo={brand.brand_img_logo}
+                      id={brand.id}
+                    />
+                  </>
+                ))}
+              </BrandCardWrapper>
+            </>
+          )}
           <Container>
             {recommendationData.rec_type.map((content) => (
               <>
@@ -166,6 +202,15 @@ const SubTitle = styled.div`
   font-size: 20px;
   font-weight: 500;
   line-height: 32px;
+`;
+
+const SubTitle2 = styled.div`
+  margin-top: 52px;
+  color: #666666;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 32px;
+  text-align: left;
 `;
 
 const Title = styled.div`
