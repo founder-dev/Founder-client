@@ -47,6 +47,8 @@ const MainPage = () => {
     protein: 'health',
   };
 
+  
+
   useEffect(() => {
     const fetchRecommendation = async () => {
       try {
@@ -67,7 +69,7 @@ const MainPage = () => {
   }, []);
 
   if (!recommendationData) return null;
-
+  console.log(recommendationData);
   return (
     <>
       <Logo src={FounderLogo} />
