@@ -78,16 +78,7 @@ const Survey = () => {
       .put(
         'https://found-er.co.kr/api/survey',
         {
-          answerSend,
-          /*[
-            {"question_num": '1', "answer_num": '2'},
-            {"question_num": '2', "answer_num": '3'},
-            {"question_num": '3', "answer_num": '2'},
-            {"question_num": '4', "answer_num": '1'},
-            {"question_num": '5', "answer_num": '4'},
-            {"question_num": '6', "answer_num": '1'},
-            {"question_num": '7', "answer_num": '2'},
-          ]*/
+          answer : answerSend,
         },
         {
           headers: {
@@ -97,10 +88,12 @@ const Survey = () => {
       )
       .then((response) => {
         console.log(response);
+        console.log('설문조사 제출 완료');
       })
 
       .catch((error) => {
         console.log(error);
+        console.log('설문조사 제출 실패');
       });
 
     navigate(`/`);

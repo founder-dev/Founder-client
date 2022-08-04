@@ -76,6 +76,24 @@ export const fetchBrandDetail = async ({ setBrandDetailData, id }) => {
   }
 };
 
+export const fetchUserInfo = async ({ setuserData, access }) => {
+  try {
+    setuserData(null);
+    const response = await axios.get(
+      `https://found-er.co.kr/api/user`,
+      {
+        headers: {
+          Authorization: `Bearer ${access}`,
+        },
+      }
+      );
+    setuserData(response.data);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+
 //필요한 API만들기
 /*export const PersonalInfo = async (token) =>
     await API.get('/mypage', {

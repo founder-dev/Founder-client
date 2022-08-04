@@ -1,14 +1,13 @@
 import TopBar from '../components/TopBarComponents/TopBar';
 import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import styled from 'styled-components';
-import { useState } from 'react';
+import { useState ,useEffect} from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';
-import Illust from '../assets/MyPageAssets/Login.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
 import { GenderState, loginState } from '../recoil';
 import { useRecoilState, useRecoilValue } from 'recoil';
 import { WidthWrapper, Wrapper, MyName, Info ,Id , MyId, Button , KaKaoButton , Logo} from '../components/MyPageComponents/MyPagePresenter';
-import axios from "react";
+import { fetchUserInfo } from '../API';
 
 const MyPage = () => {
 
@@ -17,27 +16,15 @@ const MyPage = () => {
     const [id, setId] = useState("UserId");
     const gender = useRecoilValue(GenderState);
     const [email, setEmail] = useState("MyEmail@.com");
-    console.log(gender);
+    const access = localStorage.getItem('accesstoken');
+    const [userData, setuserData] = useState(null);
     
-    /*if(isLoggedIn === true){
-      useEffect(() => {
-        const fetchLogin = async () => {
-          try {
-            const response = await axios.get(
-              'https://pounder/api/mypage/'
-            );
-            const userData = response.data;
-            setUsername(userData.name);
-            setId(userData.nickname);
-            setEmail(userData.email);
-          } catch (e) {
-            console.log(e);
-          }
-        };
-        fetchLogin();
-      }, []); 
-    }*/
-    
+    useEffect(() => {
+      fetchUserInfo({setuserData,access});
+  }, [access]);
+
+  if (!userData) return null;
+
     return(
       <>
         <TopBar/>
@@ -46,18 +33,14 @@ const MyPage = () => {
         <Wrapper>
           {isLoggedIn === true ?
           <>
-          <MyName>{username}</MyName>
-          <Info>
-          <Id>아이디</Id>
-          <MyId>{id}</MyId>
-          </Info>
+          <MyName>{userData.nickname}</MyName>
           <Info>
           <Id top = "16px">성별</Id>
           <MyId>{gender ? "여성" : "남성"}</MyId>
           </Info>
           <Info>
           <Id top = "16px">이메일</Id>
-          <MyId>{email}</MyId>
+          <MyId>{userData.email}</MyId>
           </Info>
           <Button>로그아웃</Button>
           

@@ -77,7 +77,7 @@ const WriterModal = ({
         {
           headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${accessToken}`,
+            Authorization: `Bearer ${access}`,
           },
         }
       )

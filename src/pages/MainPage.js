@@ -51,7 +51,12 @@ const MainPage = () => {
     const fetchRecommendation = async () => {
       try {
         const response = await axios.get(
-          'https://found-er.co.kr/api/recommend'
+          'https://found-er.co.kr/api/recommend',
+          {
+            headers: {
+              Authorization: `Bearer ${localStorage.accesstoken}`,
+            },
+          }
         );
         setRecommendationData(response.data);
       } catch (e) {

@@ -3,11 +3,10 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { loginState } from '../../recoil';
 import { color, fontsize, fontWeight } from '../../styles/theme';
-import * as config from '../../config';
+import { KAKAO_AUTH_URL } from '../SharedComponents/KaKaoAuth';
 
 function BannerButton() {
   const isLoggedIn = useRecoilValue(loginState);
-  const url = config.KAKAO_URL;
   
   return (
     <>
@@ -19,7 +18,7 @@ function BannerButton() {
         </>
       ) : (
         <>
-          <a href={url}>
+          <a href={KAKAO_AUTH_URL}>
             <Button>로그인 하러 가기</Button>
           </a>
         </>
