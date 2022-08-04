@@ -102,7 +102,6 @@ const Survey = () => {
 
   const ScrollEvent = useEffect(() => {
     if (surveyRef.current) {
-      console.log(surveyRef.current);
       surveyRef.current.scrollIntoView({
         block: 'end',
         behavior: 'smooth',

@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import HorizontalProgress from '../components/MagazineComponents/HorizontalProgress';
 import useDetectScroll from '../hooks/useDetectScroll';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
-import axios from 'axios';
 import { useEffect } from 'react';
 import { color } from '../styles/theme';
 import TagShow from '../components/MagazineComponents/TagShow';
@@ -57,11 +56,13 @@ const MagazineDetailPage = () => {
                   <ParagraphWrapper>
                     <SubTitle>{content.detail_title}</SubTitle>
                     <Text>{content.detail_content}</Text>
-                  </ParagraphWrapper> 
-                 {content.detail_img != null && (
+                  </ParagraphWrapper>
+                  {content.detail_img != null && (
                     <Image src={content.detail_img} />
                   )}
-                  {content.brand != null && <BrandMovingButton id={content.brand} />}
+                  {content.brand != null && (
+                    <BrandMovingButton id={content.brand} />
+                  )}
                 </ArticleWrapper>
               </>
             ))}
@@ -172,21 +173,6 @@ const ArticleWrapper = styled.div`
   justify-content: center;
 `;
 
-const BrandHome = styled.div`
-  position: relative;
-  width: 1200px;
-  height: 132px;
-
-  margin-top: 80px;
-  margin-bottom: 156px;
-
-  background: #fafafa;
-  border-radius: 4px;
-
-  display: flex;
-  justify-content: space-between;
-`;
-
 const SubTitle = styled.div`
   font-weight: 700;
   font-size: 28px;
@@ -209,13 +195,12 @@ const Text = styled.span`
 `;
 
 const ParagraphWrapper = styled.div`
-  margin-bottom: 80px;
   width: 920px;
   margin-left: 250px;
 `;
 
 const Image = styled.img`
-  margin-left: 120px;
+  margin: 80px 0px 80px 120px;
   width: 1200px;
 `;
 const Wrapper = styled.div`

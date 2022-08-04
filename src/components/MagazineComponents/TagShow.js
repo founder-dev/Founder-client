@@ -1,19 +1,18 @@
-function TagShow({tag_arr}){
+function TagShow({ tag_arr }) {
+  const arraytag = tag_arr.split(',');
 
-    const arraytag = tag_arr.split(',');
-
-    const tagArray = () => {
+  const tagArray = () => {
     var array = [];
-    for (var i = 0; i < arraytag.length; i++) {
+    for (var i = 0; i < arraytag.length - 1; i++) {
       array.push(<span>{arraytag[i]} | </span>);
     }
+
+    array.push(<span>{arraytag[arraytag.length - 1]} </span>);
 
     return array;
   };
 
-  return(
-    <>{tagArray()}</>
-  );
+  return <>{tagArray()}</>;
 }
 
 export default TagShow;
