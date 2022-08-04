@@ -53,6 +53,7 @@ const BrandHome = styled.div`
 
   display: flex;
   justify-content: space-between;
+
   margin-left: ${(props) => props.left || '260px'};
   margin-right: 260px;
 
@@ -64,17 +65,17 @@ const BrandInfoWrapper = styled.div`
 `;
 
 const BrandLogo = styled.img`
-  margin: 20px 32px 0px 32px;
+  margin: 28px 32px 8px 32px;
   position: absolute;
-  width: 70px;
-  height: 70px;
+  width: 107px;
+  height: 44px;
 `;
 
 const TextWrapper = styled.div`
   position: absolute;
   align-items: column;
   width: 683px;
-  left: 160px;
+  left: 170px;
 `;
 
 const BrandName = styled.div`
