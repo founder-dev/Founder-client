@@ -16,6 +16,7 @@ function KaKaoLoginHandlerPage() {
       );
       console.log(response.data);
       console.log('로그인 성공');
+      localStorage.clear();
       localStorage.setItem('accesstoken', response.data.token.access);
       console.log(localStorage.accesstoken);
       setLoggedIn(true);
@@ -32,7 +33,6 @@ function KaKaoLoginHandlerPage() {
 
   return (
     <>
-      <div>{code}</div>
       <div>기다려주세요~</div>
     </>
     //axios 통신을 통해 인가코드 넘겨주기

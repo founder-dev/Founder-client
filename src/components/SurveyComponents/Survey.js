@@ -89,11 +89,13 @@ const Survey = () => {
       .then((response) => {
         console.log(response);
         console.log('설문조사 제출 완료');
+        alert("성공");
       })
 
       .catch((error) => {
         console.log(error);
         console.log('설문조사 제출 실패');
+        alert("실패임");
       });
 
     navigate(`/`);

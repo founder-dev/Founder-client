@@ -49,9 +49,7 @@ const MainPage = () => {
 
   var config = {
     headers: {
-      Authorization: `Bearer ${
-        localStorage.accesstoken != null ? localStorage.accesstoken : ''
-      }`,
+      Authorization: `Bearer ${localStorage.accesstoken}`,
     },
   };
 
@@ -60,14 +58,10 @@ const MainPage = () => {
       try {
         const response = await axios.get(
           'https://found-er.co.kr/api/recommend',
-
           {
-            headers: {
-              Authorization: `Bearer ${
-                localStorage.accesstoken != null ? localStorage.accesstoken : ''
-              }`,
-            },
-          }
+            Authorization: `Bearer ${localStorage.accesstoken}`,
+          },
+
         );
         setRecommendationData(response.data);
       } catch (e) {
