@@ -78,7 +78,7 @@ const Survey = () => {
       .put(
         'https://found-er.co.kr/api/survey',
         {
-          answerSend
+          answerSend,
           /*[
             {"question_num": '1', "answer_num": '2'},
             {"question_num": '2', "answer_num": '3'},
@@ -109,7 +109,6 @@ const Survey = () => {
 
   const ScrollEvent = useEffect(() => {
     if (surveyRef.current) {
-      console.log(surveyRef.current);
       surveyRef.current.scrollIntoView({
         block: 'end',
         behavior: 'smooth',

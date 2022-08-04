@@ -20,31 +20,31 @@ const MainPage = () => {
   const [recommendationData, setRecommendationData] = useState(null);
 
   var dicText = {
-    'salad': 'food',
-    'yogurt': 'food',
-    'milk': 'food',
+    salad: 'food',
+    yogurt: 'food',
+    milk: 'food',
     'fried-rice': 'food',
-    'shake': 'food',
-    'cereal': 'food',
-    'bread': 'food',
-    'chicken': 'food',
+    shake: 'food',
+    cereal: 'food',
+    bread: 'food',
+    chicken: 'food',
     'coffee-cold': 'beverage',
     'coffee-beans': 'beverage',
     'coffee-capsule': 'beverage',
-    'tea': 'beverage',
-    'pad': 'goods',
-    'teeth': 'goods',
-    'pack': 'goods',  
-    'cotton': 'goods',
-    'lens': 'goods',
-    'shaver': 'goods',
-    'lacto': 'health',
+    tea: 'beverage',
+    pad: 'goods',
+    teeth: 'goods',
+    pack: 'goods',
+    cotton: 'goods',
+    lens: 'goods',
+    shaver: 'goods',
+    lacto: 'health',
     'supplement-pack': 'health',
     'skin-care-pack': 'health',
     'care-pack': 'health',
-    'collagen': 'health',
-    'lens_cotton_collagen' : 'health',
-    'protein': 'health',
+    collagen: 'health',
+    lens_cotton_collagen: 'health',
+    protein: 'health',
   };
 
   useEffect(() => {
@@ -63,7 +63,6 @@ const MainPage = () => {
 
   if (!recommendationData) return null;
 
-  console.log(recommendationData);
   return (
     <>
       <Logo src={FounderLogo} />
@@ -84,8 +83,7 @@ const MainPage = () => {
                   <TagArray tag={content.type_tag_arr} key={content.id} />
                 </RowWrapper>
 
-                {
-                content.type_product != '' && (
+                {content.type_product != '' && (
                   <GridWrapper>
                     {content.type_product.map(
                       ({
@@ -101,7 +99,11 @@ const MainPage = () => {
                         delivery_cycle_detail,
                         id,
                       }) => (
-                        <Link to={`/itemdetail/${dicText[content.type_name]}/${content.type_name}/${id}`}>
+                        <Link
+                          to={`/itemdetail/${dicText[content.type_name]}/${
+                            content.type_name
+                          }/${id}`}
+                        >
                           <ProductCard
                             itemName={product_name}
                             productImg={product_img}
