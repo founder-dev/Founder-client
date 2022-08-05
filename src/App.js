@@ -9,7 +9,7 @@ import CategoryIntroPage from './pages/CategoryIntroPage';
 import SurveyPage from './pages/SurveyPage';
 import SurveyIntroPage from './pages/SurveyIntroPage';
 import BrandDetailPage from './pages/BrandDetailPage';
-import { checkAccessToken } from './components/SharedComponents/RefreshToken';
+import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
 
 function App() {
  // checkAccessToken(localStorage.refreshtoken);

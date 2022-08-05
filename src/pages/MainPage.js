@@ -53,8 +53,6 @@ const MainPage = () => {
       ? ``
       : `Bearer ${localStorage.accesstoken}`;
 
-  console.log(token);
-
   useEffect(() => {
     const fetchRecommendation = async () => {
       try {

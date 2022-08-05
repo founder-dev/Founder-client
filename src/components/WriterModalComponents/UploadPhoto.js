@@ -31,8 +31,6 @@ function UploadPhoto({ photo, setPhoto }) {
     ]);
   };
 
-  console.log(preview);
-
   const reUploadPhoto = (num) => (e) => {
     setPreview([
       ...preview.slice(0, num),
@@ -67,11 +65,7 @@ function UploadPhoto({ photo, setPhoto }) {
             <PreviewContainer>
               {[0, 1, 2, 3].map((num) => (
                 <>
-                  <PreviewPresenter
-                    num={num}
-                    setPhoto={setPhoto}
-                    PhotoArray={PhotoArray}
-                  />
+                  <PreviewPresenter num={num} setPhoto={setPhoto} PhotoArray={PhotoArray}/>
                 </>
               ))}
             </PreviewContainer>

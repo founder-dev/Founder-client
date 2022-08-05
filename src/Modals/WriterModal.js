@@ -59,21 +59,18 @@ const WriterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const formdata = new FormData();
-    formdata.append('reviewMedia', preview.slice(0, preview.length()));
-    formdata.append('star_rate', rating);
-    formdata.append('review_text', review);
-    formdata.append('review_tag_arr', tagArray);
-    formdata.append('review_img_main', preview[0]);
 
-    const postLink = `https://found-er.co.kr/api/product/${id}/review`;
     const accessToken = localStorage.getItem('accesstoken');
     console.log(accessToken);
     axios
       .post(
-        { postLink },
+        `https://found-er.co.kr/api/product/${id}/review`,
         {
-          formdata,
+          star_rate: rating,
+          reviewMedia: photo[0],
+          review_text: review,
+          review_img_main: photo[0],
+          review_tag_arr: isFood ? tagArray.toString() : '',
         },
         {
           headers: {
@@ -88,7 +85,7 @@ const WriterModal = ({
       })
 
       .catch((error) => {
-        console.log(error);
+        console.log(error.response.data);
       });
   };
 
@@ -203,9 +200,7 @@ const WriterModal = ({
           <InputText review={review} setReview={setReview} />
           <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton type="button" disabled={!sent}>
-              작성완료
-            </SubmitButton>
+            <SubmitButton disabled={!sent}>작성완료</SubmitButton>
           </SubmitButtonWrapper>
         </form>
       </ModalBlock>
