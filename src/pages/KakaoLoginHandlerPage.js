@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loginState } from '../recoil';
 import { useRecoilState } from 'recoil';
+import { KakaoRefresh } from '../components/SharedComponents/RefreshToken';
 
 function KaKaoLoginHandlerPage() {
   const [loggedin, setLoggedIn] = useRecoilState(loginState);
+
   var code = new URL(window.location.href).searchParams.get('code');
   const navigate = useNavigate();
 
@@ -18,11 +20,15 @@ function KaKaoLoginHandlerPage() {
       console.log('로그인 성공');
       localStorage.clear();
       localStorage.setItem('accesstoken', response.data.token.access);
+      localStorage.setItem('refreshtoken', response.data.token.refresh);
       console.log(localStorage.accesstoken);
       setLoggedIn(true);
+
+      setTimeout(function () {
+        KakaoRefresh(null);
+      }, 4 * 60 * 1000);
       navigate('/');
     } catch (e) {
-      console.log(e);
       console.log('로그인 불가');
     }
   };
@@ -34,8 +40,8 @@ function KaKaoLoginHandlerPage() {
   return (
     <>
       <div>기다려주세요~</div>
+      <div>로딩 중 기다려주세요~</div>
     </>
-    //axios 통신을 통해 인가코드 넘겨주기
   );
 }
 

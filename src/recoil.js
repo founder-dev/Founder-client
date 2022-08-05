@@ -1,4 +1,7 @@
 import { atom } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
+
+const { persistAtom } = recoilPersist();
 
 export const itemHoverState = atom({
   key: 'itemHoverState',
@@ -13,6 +16,7 @@ export const menuOpenState = atom({
 export const loginState = atom({
   key: 'loginState',
   default: false,
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const surveyState = atom({
@@ -28,6 +32,7 @@ export const TagState = atom({
 export const GenderState = atom({
   key: 'genderState',
   default: true,
+  effects_UNSTABLE: [persistAtom],
 });
 
 export const PreviewState = atom({

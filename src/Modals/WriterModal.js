@@ -57,19 +57,17 @@ const WriterModal = ({
   const [isFood, setIsFood] = useState(false);
   const [sent, setSent] = useState(false);
 
-  
   const handleSubmit = (e) => {
-    var formdata = new FormData();
     e.preventDefault();
-    console.log(photo[0]);
-    formdata.append('star_rate', rating);
+    const formdata = new FormData();
+    formdata.append('star_rate', String(rating));
+    formdata.append('reviewMedia', photo[0]);
     formdata.append('review_text', review);
-    formdata.append('review_tag_arr', tagArray.toString());
-
+    formdata.append('review_tag_arr', tagArray);
     formdata.append('review_img_main', photo[0]);
 
-    formdata.append('reviewMedia', photo[0]);
-
+    console.log(formdata);
+    const postLink = `https://found-er.co.kr/api/product/${id}/review`;
     const accessToken = localStorage.getItem('accesstoken');
     console.log(accessToken);
     axios
@@ -81,7 +79,7 @@ const WriterModal = ({
         {
           headers: {
             'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ${localStorage.accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       )
@@ -115,6 +113,7 @@ const WriterModal = ({
     }
   }, []);
 
+  console.log(title);
   return (
     <Container>
       <Background />
@@ -206,7 +205,7 @@ const WriterModal = ({
           <InputText review={review} setReview={setReview} />
           <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton onClick={handleSubmit} type="button" disabled={!sent}>
+            <SubmitButton type="submit" disabled={!sent}>
               작성완료
             </SubmitButton>
           </SubmitButtonWrapper>

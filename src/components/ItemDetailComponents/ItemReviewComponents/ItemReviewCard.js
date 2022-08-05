@@ -36,11 +36,12 @@ const ItemReviewCard = ({
   const tagShow = () => {
     var array = [];
     for (var i = 0; i < arraytag.length; i++) {
-      array.push(<Tag>{arraytag[i]}</Tag>);
+      array.push(<Tag>♥ {arraytag[i]}</Tag>);
     }
 
     return array;
   };
+
   const changeView = () => {
     if (sizes.reviewHeight == '56px') {
       // 닫혀있는경우

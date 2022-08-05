@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
 import GlobalStyle from './styles/globalstyle';
 import ScrollToTop from './components/SharedComponents/ScrollToTop';
+import axios from 'axios';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
