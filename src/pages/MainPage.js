@@ -47,10 +47,11 @@ const MainPage = () => {
     protein: 'health',
   };
 
-  //초기 상태 유저를 위해 
-  var token = localStorage.accesstoken == undefined ? `` : `Bearer ${localStorage.accesstoken}`; 
-
-  console.log(token);
+  //초기 상태 유저를 위해
+  var token =
+    localStorage.accesstoken == undefined
+      ? ``
+      : `Bearer ${localStorage.accesstoken}`;
 
   useEffect(() => {
     const fetchRecommendation = async () => {
@@ -72,7 +73,7 @@ const MainPage = () => {
   }, []);
 
   if (!recommendationData) return null;
-  console.log(recommendationData);
+
   return (
     <>
       <Logo src={FounderLogo} />
@@ -85,8 +86,8 @@ const MainPage = () => {
             <>
               <SubTitle2>선택이 어려운 당신을 위한 추천</SubTitle2>
               <RowWrapper>
-              <Title>오롯이 당신을 위한</Title>
-              <TagArray tag="큐레이션,1:1,맞춤추천" />
+                <Title>오롯이 당신을 위한</Title>
+                <TagArray tag="큐레이션,1:1,맞춤추천" />
               </RowWrapper>
               <BrandCardWrapper>
                 {recommendationData.curation.map((brand) => (

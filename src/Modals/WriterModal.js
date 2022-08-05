@@ -64,7 +64,7 @@ const WriterModal = ({
     formdata.append('reviewMedia', photo[0]);
     formdata.append('review_text', review);
     formdata.append('review_tag_arr', tagArray);
-    formdata.append('review_img_main', photo[0]);
+    formdata.append('review_img_main', preview[0]);
 
     console.log(formdata);
     const postLink = `https://found-er.co.kr/api/product/${id}/review`;
@@ -113,7 +113,6 @@ const WriterModal = ({
     }
   }, []);
 
-  console.log(title);
   return (
     <Container>
       <Background />
@@ -205,7 +204,7 @@ const WriterModal = ({
           <InputText review={review} setReview={setReview} />
           <LengthText top={isFood}>{review.length} / 300자</LengthText>
           <SubmitButtonWrapper>
-            <SubmitButton type="submit" disabled={!sent}>
+            <SubmitButton type="button" disabled={!sent}>
               작성완료
             </SubmitButton>
           </SubmitButtonWrapper>

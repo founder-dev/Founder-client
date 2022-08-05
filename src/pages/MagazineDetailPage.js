@@ -22,8 +22,6 @@ const MagazineDetailPage = () => {
 
   if (!magazineDetaildata) return null;
 
-  console.log(magazineDetaildata);
-
   return (
     <>
       <TopBar />
@@ -58,7 +56,7 @@ const MagazineDetailPage = () => {
                     <Text>{content.detail_content}</Text>
                   </ParagraphWrapper>
                   {content.detail_img != null && (
-                    <Image src={content.detail_img} loading='lazy'/>
+                    <Image src={content.detail_img} loading="lazy" />
                   )}
                   {content.brand != null && (
                     <BrandMovingButton id={content.brand} />

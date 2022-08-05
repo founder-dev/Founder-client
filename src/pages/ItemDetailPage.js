@@ -43,7 +43,7 @@ const ItemDetailPage = () => {
   }, []);
 
   if (!itemDetailData) return null;
-  console.log(itemDetailData);
+
   return (
     <>
       <TopBar />
