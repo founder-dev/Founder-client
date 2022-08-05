@@ -81,6 +81,8 @@ const WriterModal = ({
       )
       .then((response) => {
         window.alert('후기 완!');
+        setOpenModal(false);
+        window.location.reload();
         console.log(response);
       })
 
