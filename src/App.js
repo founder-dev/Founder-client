@@ -13,7 +13,6 @@ import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
 
 function App() {
  // checkAccessToken(localStorage.refreshtoken);
- KakaoRefresh();
   return (
     <>
       <Routes>
