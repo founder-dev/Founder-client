@@ -82,7 +82,7 @@ const ItemReviewCard = ({
               {photoShow()}
             </ImageContainer>
             <Rated rating={star} />
-            <TagWrapper margin={'30.38px 0px'}>{tagShow()}</TagWrapper>
+            {tag != '' ? <TagWrapper>{tagShow()}</TagWrapper> : <div></div>}
             <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
             <Writer>
               접기
