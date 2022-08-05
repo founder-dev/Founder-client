@@ -12,7 +12,7 @@ import BrandDetailPage from './pages/BrandDetailPage';
 import { checkAccessToken } from './components/SharedComponents/RefreshToken';
 
 function App() {
- // checkAccessToken(localStorage.refreshtoken);
+  //localStorage.clear();
   return (
     <>
       <Routes>
