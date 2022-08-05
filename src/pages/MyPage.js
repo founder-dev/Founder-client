@@ -58,7 +58,7 @@ const MyPage = () => {
 
     //REST API 로그아웃
     axios
-      .put('https://found-er.co.kr/api/user/signout', {
+      .post('https://found-er.co.kr/api/user/signout', {
         headers: {
           Authorization: `Bearer ${localStorage.accesstoken}`,
           'Content-Type': 'application/json',
