@@ -67,7 +67,7 @@ const WriterModal = ({
         `https://found-er.co.kr/api/product/${id}/review`,
         {
           star_rate: rating,
-          reviewMedia: photo[0],
+          reviewMedia: photo,
           review_text: review,
           review_img_main: photo[0],
           review_tag_arr: isFood ? tagArray.toString() : '',
