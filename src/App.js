@@ -12,7 +12,6 @@ import BrandDetailPage from './pages/BrandDetailPage';
 import { checkAccessToken } from './components/SharedComponents/RefreshToken';
 
 function App() {
-  //localStorage.clear();
   return (
     <>
       <Routes>
