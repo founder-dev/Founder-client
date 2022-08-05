@@ -19,6 +19,7 @@ function KaKaoLoginHandlerPage() {
       console.log('로그인 성공');
       localStorage.setItem('accesstoken', response.data.token.access);
       localStorage.setItem('refreshtoken', response.data.token.refresh);
+      localStorage.setItem('kakaotoken', response.data.token.kakao);
       console.log(localStorage.accesstoken);
       setLoggedIn(true);
       navigate('/');

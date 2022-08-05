@@ -18,8 +18,8 @@ import {
   Logo,
 } from '../components/MyPageComponents/MyPagePresenter';
 import { fetchUserInfo } from '../API';
-import axios from 'axios';
 import { KAKAO_AUTH_URL } from '../components/SharedComponents/KaKaoAuth';
+import axios from 'axios';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
@@ -30,29 +30,53 @@ const MyPage = () => {
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
 
-  const Logout = () => {
-    axios
-      .put('https://found-er.co.kr/api/auth/kakao/signout/callback', {
-        headers: {
-          Authorization: `Bearer ${localStorage.accesstoken}`,
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        console.log('로그아웃 완료');
-      })
-
-      .catch((error) => {
-        console.log(error);
-        console.log('로그아웃 실패');
-      });
-  };
-
   useEffect(() => {
     fetchUserInfo({ setuserData, access });
   }, [access]);
 
   if (!userData) return null;
+
+  const Logout = () => {
+    //카카오 로그아웃
+    axios
+      .post('https://kapi.kakao.com/v1/user/logout', {
+        headers: {
+          Authorization: `Bearer ${localStorage.kakaotoken}`,
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        console.log('카카오 로그아웃 완료');
+      })
+
+      .catch((error) => {
+        console.log(error);
+        console.log(error.response.data);
+        console.log('카카오 로그아웃 실패');
+      });
+
+    //REST API 로그아웃
+    axios
+      .put('https://found-er.co.kr/api/user/signout', {
+        headers: {
+          Authorization: `Bearer ${localStorage.accesstoken}`,
+          'Content-Type': 'application/json',
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        setIsLoggedIn(false);
+        localStorage.clear();
+        console.log('로그아웃 완료');
+      })
+
+      .catch((error) => {
+        console.log(error);
+        console.log(error.response.data);
+        console.log('로그아웃 실패');
+      });
+  };
 
   return (
     <>
@@ -71,7 +95,9 @@ const MyPage = () => {
                 <Id top="16px">이메일</Id>
                 <MyId>{userData.email}</MyId>
               </Info>
-              <Button onClick={Logout}>로그아웃</Button>
+              <Button type="button" onClick={() => Logout()}>
+                로그아웃
+              </Button>
             </>
           ) : (
             <>
