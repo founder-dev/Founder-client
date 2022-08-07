@@ -23,10 +23,6 @@ function KaKaoLoginHandlerPage() {
       localStorage.setItem('refreshtoken', response.data.token.refresh);
       console.log(localStorage.accesstoken);
       setLoggedIn(true);
-
-      setTimeout(function () {
-        KakaoRefresh(null);
-      }, 4 * 60 * 1000);
       navigate('/');
     } catch (e) {
       console.log('로그인 불가');

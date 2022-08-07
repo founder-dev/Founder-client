@@ -68,7 +68,7 @@ const ItemReviewCard = ({
         {sizes.reviewHeight == '56px' ? (
           <>
             <Image src={main_img}></Image>
-            <TagWrapper>{tagShow()}</TagWrapper>
+            {tag != "" ? <TagWrapper>{tagShow()}</TagWrapper> : <div></div>}
             <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
             <Writer>
               더보기
@@ -78,7 +78,6 @@ const ItemReviewCard = ({
         ) : (
           <>
             <ImageContainer num={review_media.length + 1}>
-              <Image src={main_img}></Image>
               {photoShow()}
             </ImageContainer>
             <Rated rating={star} />

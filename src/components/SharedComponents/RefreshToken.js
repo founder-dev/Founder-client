@@ -1,16 +1,13 @@
 import { useRecoilState } from 'recoil';
 import { loginState } from '../../recoil';
 import axios from 'axios';
-import kakaologin from '../../pages/KakaoLoginHandlerPage';
 
-//console.log(localStorage.getItem('accesstoken'));
-
-export const KakaoRefresh = async ({ callback }) => {
+export const KakaoRefresh = async () => {
   const [loggedin, setLoggedIn] = useRecoilState(loginState);
   try {
     const response = await axios.post(
       'https://found-er.co.kr/api/token/refresh',
-      { refresh: `Bearer ${localStorage.refreshtoken}` },
+      { refresh: `${localStorage.refreshtoken}` },
       {
         headers: {
           'Content-Type': 'application/json',
@@ -22,24 +19,11 @@ export const KakaoRefresh = async ({ callback }) => {
     alert('성공');
     localStorage.setItem('accesstoken', response.data.token.access);
     localStorage.setItem('refreshtoken', response.data.token.refresh);
-    kakaologin();
-
-    axios.defaults.headers.common['Authorization'] =
-      'Bearer ' + response.data.access;
-    if (callback) {
-      callback(true);
-    }
-
-    setTimeout(function () {
-      KakaoRefresh(null);
-    }, 4 * 1000 * 60);
   } catch (e) {
     console.log(e);
     console.log('리프레쉬 불가');
   }
 };
-
-
 
 /*
 export const requestAccessToken = async (refresh_token) => {

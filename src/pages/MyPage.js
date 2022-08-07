@@ -32,7 +32,25 @@ const MyPage = () => {
 
   const Logout = () => {
     axios
-      .put('https://found-er.co.kr/api/auth/kakao/signout/callback', {
+      .post('https://kapi.kakao.com/v1/user/logout', {
+        headers: {
+          Authorization: `Bearer ${localStorage.kakaotoken}`,
+        },
+      })
+      .then((response) => {
+        console.log(response);
+        console.log('카카오 로그아웃 완료');
+      })
+
+      .catch((error) => {
+        console.log(error);
+        console.log(error.response.data);
+        console.log('카카오 로그아웃 실패');
+      });
+
+
+    axios
+      .post('https://found-er.co.kr/api/auth/kakao/signout/callback', {
         headers: {
           Authorization: `Bearer ${localStorage.accesstoken}`,
         },

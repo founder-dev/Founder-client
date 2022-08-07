@@ -60,21 +60,26 @@ const WriterModal = ({
   const handleSubmit = (e) => {
     e.preventDefault();
     const formdata = new FormData();
-    formdata.append('star_rate', String(rating));
+    formdata.append('star_rate', "1");
     formdata.append('reviewMedia', photo[0]);
     formdata.append('review_text', review);
-    formdata.append('review_tag_arr', tagArray);
+    formdata.append('review_tag_arr', tagArray.toString());
     formdata.append('review_img_main', photo[0]);
 
     console.log(formdata);
     const postLink = `https://found-er.co.kr/api/product/${id}/review`;
     const accessToken = localStorage.getItem('accesstoken');
+
     console.log(accessToken);
     axios
       .post(
         `https://found-er.co.kr/api/product/${id}/review`,
         {
-          formdata,
+          star_rate: rating,
+          reviewMedia: photo,
+          review_text: review,
+          review_img_main: photo[0],
+          review_tag_arr: isFood ?  tagArray.toString() : ''
         },
         {
           headers: {

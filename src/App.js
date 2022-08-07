@@ -13,23 +13,10 @@ import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
 import { useEffect } from 'react';
 import { useRecoilState } from 'recoil';
 import { loginState } from './recoil';
+import axios from 'axios';
 
 function App() {
   
-  /*const [isLogin , setIsLogin] = useRecoilState(loginState);
-
-  useEffect(()=>{
-    try{
-      KakaoRefresh(loginCallBack);
-    }catch(e){
-        console.log(e);
-    }
-  },[]);
-
-  function loginCallBack(login){
-    setIsLogin(login);
-  }*/
-
   return (
     <>
       <Routes>

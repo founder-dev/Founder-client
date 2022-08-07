@@ -6,6 +6,7 @@ import { RecoilRoot } from 'recoil';
 import GlobalStyle from './styles/globalstyle';
 import ScrollToTop from './components/SharedComponents/ScrollToTop';
 import axios from 'axios';
+import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
