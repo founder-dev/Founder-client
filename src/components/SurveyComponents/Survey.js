@@ -74,7 +74,7 @@ const Survey = () => {
 
     axios
       .put(
-        'https://found-er.co.kr/api/survey',
+        'https://api.found-er.co.kr/api/survey',
         {
           answer : answerSend,
         },

@@ -64,7 +64,7 @@ const WriterModal = ({
     console.log(accessToken);
     axios
       .post(
-        `https://found-er.co.kr/api/product/${id}/review`,
+        `https://api.found-er.co.kr/api/product/${id}/review`,
         {
           star_rate: rating,
           reviewMedia: photo,

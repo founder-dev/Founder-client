@@ -12,7 +12,7 @@ export const fetchMagazineDetail = async ({ setMagazineDetaildata, id }) => {
   try {
     setMagazineDetaildata(null);
     const response = await instance.get(
-      `https://found-er.co.kr/api/magazine/${id}`
+      `https://api.found-er.co.kr/api/magazine/${id}`
     );
     setMagazineDetaildata(response.data);
   } catch (error) {
@@ -24,7 +24,7 @@ export const fetchCategoryIntro = async ({ setCategoryIntroData, title }) => {
   try {
     setCategoryIntroData(null);
     const response = await axios.get(
-      `https://found-er.co.kr/api/category/${title}`
+      `https://api.found-er.co.kr/api/category/${title}`
     );
     setCategoryIntroData(response.data);
   } catch (error) {
@@ -35,7 +35,7 @@ export const fetchCategoryIntro = async ({ setCategoryIntroData, title }) => {
 export const fetchMagazine = async (setMagazineData) => {
   try {
     setMagazineData(null);
-    const response = await axios.get(`https://found-er.co.kr/api/magazine`);
+    const response = await axios.get(`https://api.found-er.co.kr/api/magazine`);
     setMagazineData(response.data);
   } catch (error) {
     console.log(error);
@@ -46,7 +46,7 @@ export const fetchItemDetail = async ({ setItemDetailData, id }) => {
   try {
     setItemDetailData(null);
     const response = await axios.get(
-      `https://found-er.co.kr/api/product/${id}`
+      `https://api.found-er.co.kr/api/product/${id}`
     );
     setItemDetailData(response.data);
   } catch (error) {
@@ -58,7 +58,7 @@ export const fetchItemReview = async ({ setItemReview, id }) => {
   try {
     setItemReview(null);
     const response = await axios.get(
-      `https://found-er.co.kr/api/product/${id}/review`
+      `https://api.found-er.co.kr/api/product/${id}/review`
     );
     setItemReview(response.data);
   } catch (error) {
@@ -69,7 +69,7 @@ export const fetchItemReview = async ({ setItemReview, id }) => {
 export const fetchBrandDetail = async ({ setBrandDetailData, id }) => {
   try {
     setBrandDetailData(null);
-    const response = await axios.get(`https://found-er.co.kr/api/brand/${id}`);
+    const response = await axios.get(`https://api.found-er.co.kr/api/brand/${id}`);
     setBrandDetailData(response.data);
   } catch (error) {
     console.log(error);
@@ -80,7 +80,7 @@ export const fetchUserInfo = async ({ setuserData, access }) => {
   try {
     setuserData(null);
     const response = await axios.get(
-      `https://found-er.co.kr/api/user`,
+      `https://api.found-er.co.kr/api/user`,
       {
         headers: {
           Authorization: `Bearer ${access}`,

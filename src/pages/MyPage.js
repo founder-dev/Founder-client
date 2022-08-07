@@ -32,7 +32,7 @@ const MyPage = () => {
 
   const Logout = () => {
     axios
-      .put('https://found-er.co.kr/api/auth/kakao/signout/callback', {
+      .post('https://api.found-er.co.kr/api/auth/kakao/signout', {
         headers: {
           Authorization: `Bearer ${localStorage.accesstoken}`,
         },
