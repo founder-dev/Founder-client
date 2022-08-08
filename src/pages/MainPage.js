@@ -74,6 +74,7 @@ const MainPage = () => {
 
   if (!recommendationData) return null;
 
+  console.log(recommendationData);
   return (
     <>
       <Logo src={FounderLogo} />
