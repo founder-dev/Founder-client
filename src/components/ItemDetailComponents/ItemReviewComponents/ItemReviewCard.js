@@ -77,6 +77,7 @@ const ItemReviewCard = ({
           </>
         ) : (
           <>
+            <Image src={main_img}></Image>
             <ImageContainer num={review_media.length + 1}>
               {photoShow()}
             </ImageContainer>
