@@ -10,9 +10,23 @@ import SurveyPage from './pages/SurveyPage';
 import SurveyIntroPage from './pages/SurveyIntroPage';
 import BrandDetailPage from './pages/BrandDetailPage';
 import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
+import axios from 'axios';
 
 function App() {
- // checkAccessToken(localStorage.refreshtoken);
+  // checkAccessToken(localStorage.refreshtoken);
+
+  //setInterval(KakaoRefresh, 1000 * 60 * 4);
+
+  /*axios.interceptors.response.use(
+    (response) => response,
+    (error) => {
+      if (error.response.status === 401) {
+        localStorage.clear();
+      }
+      return Promise.reject(error);
+    }
+  );*/
+
   return (
     <>
       <Routes>
