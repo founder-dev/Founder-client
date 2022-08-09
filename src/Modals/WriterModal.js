@@ -106,7 +106,7 @@ const WriterModal = ({
   });
 
   useEffect(() => {
-    if (title == 'beverage' || title == 'food') {
+    if (title === 'beverage' || title === 'food') {
       setIsFood(true);
     }
   }, []);
@@ -117,7 +117,7 @@ const WriterModal = ({
       <ModalBlock>
         {
           <ScheduleSticker
-            src={delivery == 'weekly' ? Weekly : WeeklyMonthly}
+            src={delivery === 'weekly' ? Weekly : WeeklyMonthly}
           />
         }
         {custom && <CustomSticker src={Custom} />}

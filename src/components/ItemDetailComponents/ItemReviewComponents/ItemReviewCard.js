@@ -1,9 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Review from '../../../assets/json/Review.json';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
-import { color, fontsize, fontWeight } from '../../../styles/theme';
+import { color } from '../../../styles/theme';
 import Rated from '../../StarRating/Rated';
 import { css } from 'styled-components';
 
@@ -43,7 +42,7 @@ const ItemReviewCard = ({
   };
 
   const changeView = () => {
-    if (sizes.reviewHeight == '56px') {
+    if (sizes.reviewHeight === '56px') {
       // 닫혀있는경우
       setSizes({
         cardHeight: 'auto',
@@ -65,10 +64,10 @@ const ItemReviewCard = ({
           <Writer>{userId}님의 후기</Writer>
         </DateWriterWrapper>
 
-        {sizes.reviewHeight == '56px' ? (
+        {sizes.reviewHeight === '56px' ? (
           <>
             <Image src={main_img}></Image>
-            {tag != '' ? <TagWrapper>{tagShow()}</TagWrapper> : <div></div>}
+            {tag !== '' ? <TagWrapper>{tagShow()}</TagWrapper> : <div></div>}
             <ReviewPreview sizes={sizes}>{text}</ReviewPreview>
             <Writer>
               더보기
@@ -81,7 +80,7 @@ const ItemReviewCard = ({
               {photoShow()}
             </ImageContainer>
             <Rated rating={star} />
-            {tag != '' ? (
+            {tag !== '' ? (
               <TagWrapper margin={'30.38px 0px'}>{tagShow()}</TagWrapper>
             ) : (
               <div></div>
@@ -196,7 +195,7 @@ const MoreButton = styled.img`
 
 const ImageContainer = styled.div`
   ${(props) =>
-    props.num == 1
+    props.num === 1
       ? css`
           display: flex;
           justify-content: center;

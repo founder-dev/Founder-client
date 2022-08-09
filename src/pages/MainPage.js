@@ -49,7 +49,7 @@ const MainPage = () => {
 
   //초기 상태 유저를 위해
   var token =
-    localStorage.accesstoken == undefined
+    localStorage.accesstoken === undefined
       ? ``
       : `Bearer ${localStorage.accesstoken}`;
 
@@ -117,7 +117,7 @@ const MainPage = () => {
                   <TagArray tag={content.type_tag_arr} key={content.id} />
                 </RowWrapper>
 
-                {content.type_product != '' && (
+                {content.type_product !== '' && (
                   <GridWrapper>
                     {content.type_product.map(
                       ({

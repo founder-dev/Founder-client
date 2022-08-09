@@ -1,6 +1,5 @@
 import TopBar from '../components/TopBarComponents/TopBar';
 import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
@@ -23,18 +22,13 @@ import { KAKAO_AUTH_URL } from '../components/SharedComponents/KaKaoAuth';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
-  const [username, setUsername] = useState('Username');
-  const [id, setId] = useState('UserId');
   const gender = useRecoilValue(GenderState);
-  const [email, setEmail] = useState('MyEmail@.com');
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
 
   const Logout = () => {
-
     axios
-      .post('https://kapi.kakao.com/v1/user/logout', 
-      {
+      .post('https://kapi.kakao.com/v1/user/logout', {
         headers: {
           Authorization: `Bearer ${localStorage.kakaotoken}`,
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -50,10 +44,9 @@ const MyPage = () => {
         console.log(error.response.data);
         console.log('카카오 로그아웃 실패');
       });
-    
+
     axios
-      .post('https://api.found-er.co.kr/api/auth/kakao/signout', 
-      {
+      .post('https://api.found-er.co.kr/api/auth/kakao/signout', {
         headers: {
           Authorization: `Bearer ${localStorage.accesstoken}`,
         },
