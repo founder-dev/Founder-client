@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { GenderState } from '../../recoil';
+import { fetchUserInfo } from '../../API';
 
 const Survey = () => {
   const [value, setValue] = useState(['', '']); //답한 answer value
@@ -28,27 +29,13 @@ const Survey = () => {
   const [gender, setGender] = useRecoilState(GenderState);
   const answerSend = answerSet;
   const navigate = useNavigate();
+  const [userData, setuserData] = useState(null);
+  const access = localStorage.accesstoken;
+  
+  useEffect(() => {
+    fetchUserInfo({ setuserData, access });
+  }, []);
 
-  /*const answerValue =[
-        " "," "," ",
-    ];
-
-    //백엔드에게 전할 데이터
-    /*var answerSet =[
-        {
-            question_num : "", //질문
-            answer_num:"" //답변
-        },
-        {
-            question_num : "", //질문
-            answer_num:"" //답변
-        },
-        {
-            question_num : "", //질문
-            answer_num:"" //답변
-        },
-    ];
-    */
   const selectAnswer = (num) => (e) => {
     setId(id);
     setValue(e.target.value);
@@ -76,7 +63,7 @@ const Survey = () => {
       .put(
         'https://api.found-er.co.kr/api/survey',
         {
-          answer : answerSend,
+          answer: answerSend,
         },
         {
           headers: {
@@ -107,6 +94,8 @@ const Survey = () => {
     }
   }, [id]);
 
+  if (!userData) return null;
+
   return (
     <SurveyWrapper ref={surveyRef}>
       <StartText width="385px">
@@ -130,7 +119,7 @@ const Survey = () => {
             설문조사가 완료되었습니다
           </StartText>
           <StartText top="8px" width="553px">
-            하린님의 취향에 꼭 맞는 구독 서비스들을 홈 화면에 추천해드립니다.
+            {`${userData.nickname}님의 취향에 꼭 맞는 구독 서비스들을 홈 화면에 추천해드립니다.`}
           </StartText>
           <Button
             onClick={() => {

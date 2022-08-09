@@ -1,4 +1,3 @@
-
 import { useRecoilState } from 'recoil';
 import { loginState } from '../../recoil';
 import axios from 'axios';
@@ -10,15 +9,14 @@ export const KakaoRefresh = async () => {
   const [loggedin, setLoggedIn] = useRecoilState(loginState);
   try {
     const response = await axios.post(
-      'https://found-er.co.kr/api/token/refresh',
-      { refresh: `Bearer ${localStorage.getItem('refreshtoken')}` }
+      'https://api.found-er.co.kr/api/token/refresh',
+      { refresh: `${localStorage.getItem('refreshtoken')}` }
     );
     console.log(response.data);
     console.log('리프레쉬 성공');
 
-    localStorage.setItem('accesstoken', response.data.token.access);
-    localStorage.setItem('refreshtoken', response.data.token.refresh);
-    kakaologin();
+    localStorage.setItem('accesstoken', response.data.access);
+    localStorage.setItem('refreshtoken', response.data.refresh);
     setLoggedIn(true);
   } catch (e) {
     console.log(e);
@@ -27,7 +25,6 @@ export const KakaoRefresh = async () => {
 };
 
 export default KakaoRefresh;
-
 /*
 export const requestAccessToken = async (refresh_token) => {
   return await axios
