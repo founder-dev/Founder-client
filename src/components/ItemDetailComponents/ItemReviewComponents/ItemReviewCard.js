@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import styled from 'styled-components';
-import Review from '../../../assets/json/Review.json';
 import DownArrow from '../../../assets/ItemDetailPageAssets/DownArrow.png';
 import UpArrow from '../../../assets/ItemDetailPageAssets/UpArrow.png';
 import { color, fontsize, fontWeight } from '../../../styles/theme';

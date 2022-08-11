@@ -1,10 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
-import Photo1 from '../../assets/ItemDetailPageAssets/Photo1.png';
-import Photo2 from '../../assets/ItemDetailPageAssets/Photo2.png';
-import Photo3 from '../../assets/ItemDetailPageAssets/Photo3.png';
-import Photo4 from '../../assets/ItemDetailPageAssets/Photo4.png';
-import Photo5 from '../../assets/ItemDetailPageAssets/Photo5.png';
 import Slide from './Slide';
 import Forward from '../../assets/ItemDetailPageAssets/Forward.png';
 import Backward from '../../assets/ItemDetailPageAssets/Backward.png';

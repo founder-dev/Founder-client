@@ -1,6 +1,5 @@
 import TopBar from '../components/TopBarComponents/TopBar';
 import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
-import styled from 'styled-components';
 import { useState, useEffect } from 'react';
 import Founder from '../assets/MyPageAssets/FounderImage.png';
 import Kakaologin from '../assets/MyPageAssets/kakaologin.png';
