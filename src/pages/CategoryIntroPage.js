@@ -13,6 +13,7 @@ import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';
 import BrandCard from '../components/SharedComponents/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
+import comingsoon from '../assets/MainPageAssets/comingsoon.png';
 import { fetchCategoryIntro } from '../API';
 
 const CategoryIntroPage = ({ title }) => {
@@ -21,6 +22,21 @@ const CategoryIntroPage = ({ title }) => {
   useEffect(() => {
     fetchCategoryIntro({ setCategoryIntroData, title });
   }, [title]);
+
+  const nullBrand = (num) => {
+    var array = [];
+    for (var i = 0; i < 5 - num; i++) {
+      array.push(
+        <BrandCard
+          brandName="커밍쑨"
+          brandLogo={comingsoon}
+          comingsoon={true}
+        />
+      );
+    }
+
+    return array;
+  };
 
   if (!categoryIntroData) return null;
 
@@ -91,6 +107,10 @@ const CategoryIntroPage = ({ title }) => {
                             />
                           )
                         )}
+                        {content.type_brand.length < 5 &&
+                          content.type_brand.length > 0 && (
+                            <>{nullBrand(content.type_brand.length)}</>
+                          )}
                       </BrandCardWrapper>
                     </>
                   )}

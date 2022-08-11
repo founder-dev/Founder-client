@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 import Arrow from '../../assets/MagazineDetailPageAssets/Arrow.png';
-import Logo from '../../assets/MagazineDetailPageAssets/Logo.png';
-import { Link } from 'react-router-dom';
 import { fetchBrandDetail } from '../../API';
 import { useState, useEffect } from 'react';
 import React from 'react';

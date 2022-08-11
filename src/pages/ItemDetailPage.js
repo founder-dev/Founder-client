@@ -23,20 +23,17 @@ import ItemReview from '../components/ItemDetailComponents/ItemReview';
 import ItemDetailCategory from '../components/ItemDetailComponents/ItemDetailCategory';
 import Item from '../components/ItemDetailComponents/Item';
 import BrandMovingButton from '../components/SharedComponents/BrandMovingButton';
-import ItemDetaildata from '../assets/json/ItemDetailPage.json';
 import { useState, useEffect } from 'react';
 import { fetchItemDetail } from '../API';
 
 const ItemDetailPage = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [itemDetailData, setItemDetailData] = useState(null);
-  const itemData = ItemDetaildata;
   const params = useParams();
   const title = params.title;
   const product = params.product;
   const id = params.id;
   const [isSelected, setIsSelected] = useState(true);
-  const [brand, setBrand] = useState(true);
 
   useEffect(() => {
     fetchItemDetail({ setItemDetailData, id });

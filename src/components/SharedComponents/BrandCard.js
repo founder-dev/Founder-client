@@ -1,16 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
 import BrandCircle from '../../assets/BrandCircle.png';
-import Meally from '../../assets/Meally.png';
 import { Link } from 'react-router-dom';
-
-const BrandCard = ({ brandName, brandLogo, id }) => {
+import { color } from '../../styles/theme';
+const BrandCard = ({ brandName, brandLogo, id, comingsoon }) => {
   return (
     <Link to={`/branddetail/${id}`}>
       <BrandCardContainer>
         <BrandLogoBackground src={BrandCircle}></BrandLogoBackground>
         <BrandLogo src={brandLogo} loading="lazy" />
-        <BrandName>{brandName}</BrandName>
+        <BrandName comingsoon={comingsoon}>{brandName}</BrandName>
       </BrandCardContainer>
     </Link>
   );
@@ -33,7 +32,7 @@ const BrandLogoBackground = styled.img`
 
 const BrandLogo = styled.img`
   position: absolute;
-  width: 107.69px;
+  width: 108px;
   height: 44.62px;
   top: 57.69px;
   left: 26.15px;
@@ -49,5 +48,5 @@ const BrandName = styled.div`
   align-items: center;
   text-align: center;
 
-  color: #222222;
+  color: ${(props) => (props.comingsoon ? color.grey[3] : '#222222')};
 `;

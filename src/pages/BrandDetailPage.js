@@ -1,8 +1,6 @@
 import TopBar from '../components/TopBarComponents/TopBar';
-import styled from 'styled-components';
 import brandArrow from '../assets/BrandDetailPageAssets/brandArrow.png';
 import { WidthWrapper } from '../components/WidthWrapper';
-import { color, fontWeight, fontsize } from '../styles/theme';
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { fetchBrandDetail } from '../API';
