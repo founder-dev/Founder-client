@@ -14,6 +14,7 @@ import { Link } from 'react-router-dom';
 import TagArray from '../components/SharedComponents/TagArray';
 import axios from 'axios';
 import ItemTitle2 from '../components/SharedComponents/ItemTitle2';
+import comingsoon from '../assets/MainPageAssets/comingsoon.png';
 
 const MainPage = () => {
   const [recommendationData, setRecommendationData] = useState(null);
@@ -71,6 +72,21 @@ const MainPage = () => {
     };
     fetchRecommendation();
   }, []);
+
+  const nullBrand = (num) => {
+    var array = [];
+    for (var i = 0; i < 5 - num; i++) {
+      array.push(
+        <BrandCard
+          brandName="커밍쑨"
+          brandLogo={comingsoon}
+          comingsoon={true}
+        />
+      );
+    }
+
+    return array;
+  };
 
   if (!recommendationData) return null;
 
@@ -166,6 +182,10 @@ const MainPage = () => {
                       />
                     </>
                   ))}
+                  {content.type_brand.length < 5 &&
+                    content.type_brand.length > 0 && (
+                      <>{nullBrand(content.type_brand.length)}</>
+                    )}
                 </BrandCardWrapper>
               </>
             ))}
