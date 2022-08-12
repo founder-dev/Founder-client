@@ -1,5 +1,4 @@
 import React from 'react';
-import Toun from '../../assets/MagazinePageAssets/Toun.png';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import itemImage from '../../assets/ProductCardAssets/itemImage.png';
 import Weekly from '../../assets/ProductCardAssets/Weekly.png';
 import Monthly from '../../assets/ProductCardAssets/Monthly.png';
 import customSticker from '../../assets/ProductCardAssets/customSticker.png';
