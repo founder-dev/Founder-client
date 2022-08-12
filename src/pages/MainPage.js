@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import FounderLogo from '../assets/MainPageAssets/logo.png';
+import FounderLogoVideo from '../assets/MainPageAssets/FounderLogoVideo.mp4';
 import Banner from '../components/MainPageComponents/Banner';
 import styled from 'styled-components';
 import TopBar from '../components/TopBarComponents/TopBar';
@@ -76,7 +76,10 @@ const MainPage = () => {
 
   return (
     <>
-      <Logo src={FounderLogo} />
+      <Logo autoPlay muted loop width="100%">
+        <source src={FounderLogoVideo} type="video/mp4" />
+      </Logo>
+
       <TopBar position={'sticky'} main={'main'} />
       <WidthWrapper>
         <Wrapper>
