@@ -32,7 +32,6 @@ export const TagState = atom({
 export const GenderState = atom({
   key: 'genderState',
   default: true,
-  effects_UNSTABLE: [persistAtom],
 });
 
 export const PreviewState = atom({

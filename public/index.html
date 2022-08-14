@@ -9,7 +9,10 @@
       content="Web site created using create-react-app"
     />
     <meta property="og:title" content="Founder" />
-    <meta property="og:description" content="현물 정기 구독 큐레이션 서비스 Founder">
+    <meta
+      property="og:description"
+      content="현물 정기 구독 큐레이션 서비스 Founder"
+    />
     <meta property="og:image" content="%PUBLIC_URL%/banner.png" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/founder.png" />
     <link
@@ -22,6 +25,13 @@
       src="https://kit.fontawesome.com/3f987a347a.js"
       crossorigin="anonymous"
     ></script>
+    <script type="text/javascript">
+      window.addEventListener('unload', (event) => {
+        event.preventDefault();
+        localStorage.clear();
+        event.returnValue = '';
+      });
+    </script>
     <title>Founder</title>
   </head>
   <body style="margin: 0px; padding: 0px">

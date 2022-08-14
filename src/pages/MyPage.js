@@ -26,7 +26,7 @@ const MyPage = () => {
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
 
-  const Logout = () => {
+  function Logout(){
     axios
       .post('https://api.found-er.co.kr/api/auth/kakao/signout', {
         headers: {

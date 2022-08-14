@@ -22,6 +22,8 @@ export const KakaoRefresh = async () => {
     console.log(e);
     console.log('리프레쉬 불가');
   }
+
+  KakaoRefresh();
 };
 
 export default KakaoRefresh;
