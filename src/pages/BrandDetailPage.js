@@ -24,7 +24,6 @@ const BrandDetailPage = () => {
   }, []);
 
   if (!brandDetaildata) return null;
-  console.log(brandDetaildata);
 
   return (
     <>

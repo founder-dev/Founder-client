@@ -22,10 +22,7 @@ import { KAKAO_AUTH_URL } from '../components/SharedComponents/KaKaoAuth';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
-  const [username, setUsername] = useState('Username');
-  const [id, setId] = useState('UserId');
   const gender = useRecoilValue(GenderState);
-  const [email, setEmail] = useState('MyEmail@.com');
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
 

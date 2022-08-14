@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, useCallback } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import answerSet from '../../assets/json/answerSet.json';
 import answerValue from '../../assets/json/answerValue.json';
 import SurveyPart from './SurveyPart';
@@ -53,7 +53,7 @@ const Survey = () => {
   console.log(localStorage.accesstoken);
 
   function SubmitSurvey() {
-    if (answerSet[0].answer_num == 1) {
+    if (answerSet[0].answer_num === 1) {
       setGender(true);
     } else {
       setGender(false);
