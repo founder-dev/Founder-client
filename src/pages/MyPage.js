@@ -30,29 +30,8 @@ const MyPage = () => {
   const [userData, setuserData] = useState(null);
 
   const Logout = () => {
-
     axios
-      .post('https://kapi.kakao.com/v1/user/logout', 
-      {
-        headers: {
-          Authorization: `Bearer ${localStorage.kakaotoken}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-      })
-      .then((response) => {
-        console.log(response);
-        console.log('카카오 로그아웃 완료');
-      })
-
-      .catch((error) => {
-        console.log(error);
-        console.log(error.response.data);
-        console.log('카카오 로그아웃 실패');
-      });
-    
-    axios
-      .post('https://api.found-er.co.kr/api/auth/kakao/signout', 
-      {
+      .post('https://api.found-er.co.kr/api/auth/kakao/signout', {
         headers: {
           Authorization: `Bearer ${localStorage.accesstoken}`,
         },
@@ -60,9 +39,11 @@ const MyPage = () => {
       .then((response) => {
         console.log(response);
         console.log('로그아웃 완료');
+        setIsLoggedIn(false);
       })
 
       .catch((error) => {
+        console.log(error);
         console.log(error.response.data);
         console.log('로그아웃 실패');
       });
