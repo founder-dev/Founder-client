@@ -9,6 +9,7 @@ import CategoryIntroPage from './pages/CategoryIntroPage';
 import SurveyPage from './pages/SurveyPage';
 import SurveyIntroPage from './pages/SurveyIntroPage';
 import BrandDetailPage from './pages/BrandDetailPage';
+import NotFoundPage from './pages/NotFoundPage';
 import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
 import axios from 'axios';
 
@@ -54,6 +55,7 @@ function App() {
           element={<ItemDetailPage />}
         />
         <Route path="/branddetail/:id" element={<BrandDetailPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );
