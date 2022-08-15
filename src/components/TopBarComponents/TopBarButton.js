@@ -27,6 +27,9 @@ const TopBarButton = ({ color }) => {
           {modalOpen && (
             <Modal setOpenModal={setModalOpen} type="SignUpModal" />
           )}
+          <Link to={`/mypage`}>
+            <Image src={color ? whiteIcon : icon} />
+          </Link>
         </ButtonWrapper>
       )}
 
@@ -67,6 +70,8 @@ const LoginButton = styled.button`
   border-radius: 40px;
   width: 85px;
   height: 32px;
+  margin-right: 1.5rem;
+  cursor: pointer;
 `;
 
 const SurveyButton = styled.button`

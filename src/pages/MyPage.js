@@ -19,24 +19,33 @@ import {
 import { fetchUserInfo } from '../API';
 import axios from 'axios';
 import { KAKAO_AUTH_URL } from '../components/SharedComponents/KaKaoAuth';
+import { useNavigate } from 'react-router-dom';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
   const gender = useRecoilValue(GenderState);
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
+  const navigate = useNavigate();
 
-  function Logout(){
+  function Logout() {
     axios
-      .post('https://api.found-er.co.kr/api/auth/kakao/signout', {
-        headers: {
-          Authorization: `Bearer ${localStorage.accesstoken}`,
-        },
-      })
+      .post(
+        'https://api.found-er.co.kr/api/auth/kakao/signout',
+        {},
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.accesstoken}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         console.log('로그아웃 완료');
         setIsLoggedIn(false);
+        localStorage.clear();
+        navigate('/');
       })
 
       .catch((error) => {
@@ -44,14 +53,14 @@ const MyPage = () => {
         console.log(error.response.data);
         console.log('로그아웃 실패');
       });
-  };
+  }
 
   useEffect(() => {
     fetchUserInfo({ setuserData, access });
   }, [access]);
 
-  if (!userData) return null;
-
+  if (!userData && isLoggedIn) return null;
+ 
   return (
     <>
       <TopBar />

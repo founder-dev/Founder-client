@@ -12,8 +12,31 @@ import BrandDetailPage from './pages/BrandDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { loginState } from './recoil';
 
 function App() {
+  
+  const KakaoRefresh = async () => {
+    const [loggedin, setLoggedIn] = useRecoilState(loginState);
+    try {
+      const response = await axios.post(
+        'https://api.found-er.co.kr/api/token/refresh',
+        { refresh: `${localStorage.getItem('refreshtoken')}` }
+      );
+      console.log(response.data);
+      console.log('리프레쉬 성공');
+  
+      localStorage.setItem('accesstoken', response.data.access);
+      localStorage.setItem('refreshtoken', response.data.refresh);
+      setLoggedIn(true);
+    } catch (e) {
+      console.log(e);
+      console.log('리프레쉬 불가');
+    }
+  
+    setInterval(KakaoRefresh, 1000 * 60 * 4);
+  };
   // checkAccessToken(localStorage.refreshtoken);
 
   //setInterval(KakaoRefresh, 1000 * 60 * 4);
@@ -28,6 +51,11 @@ function App() {
     }
   );*/
 
+/*window.addEventListener('unload', (event) => {
+  event.preventDefault();
+  KakaoRefresh();
+  event.returnValue = '';
+});*/
   return (
     <>
       <Routes>
