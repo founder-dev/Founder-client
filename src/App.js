@@ -10,15 +10,11 @@ import SurveyPage from './pages/SurveyPage';
 import SurveyIntroPage from './pages/SurveyIntroPage';
 import BrandDetailPage from './pages/BrandDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
-import { KakaoRefresh } from './components/SharedComponents/RefreshToken';
 import axios from 'axios';
-import { useRecoilState } from 'recoil';
-import { loginState } from './recoil';
 
 function App() {
   
   const KakaoRefresh = async () => {
-    const [loggedin, setLoggedIn] = useRecoilState(loginState);
     try {
       const response = await axios.post(
         'https://api.found-er.co.kr/api/token/refresh',
@@ -29,13 +25,13 @@ function App() {
   
       localStorage.setItem('accesstoken', response.data.access);
       localStorage.setItem('refreshtoken', response.data.refresh);
-      setLoggedIn(true);
+      setTimeout(KakaoRefresh, 1000 * 60 * 4);
     } catch (e) {
       console.log(e);
       console.log('리프레쉬 불가');
     }
   
-    setInterval(KakaoRefresh, 1000 * 60 * 4);
+    
   };
   // checkAccessToken(localStorage.refreshtoken);
 
@@ -51,11 +47,12 @@ function App() {
     }
   );*/
 
-/*window.addEventListener('unload', (event) => {
-  event.preventDefault();
-  KakaoRefresh();
-  event.returnValue = '';
-});*/
+  if (performance.navigation.type===1){
+    //새로고침하면 바로 로그인 연장(토큰 갱신)
+    if(localStorage.accesstoken)
+    KakaoRefresh();
+  }
+
   return (
     <>
       <Routes>
