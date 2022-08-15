@@ -11,7 +11,6 @@ export const GridWrapper = styled.div`
   grid-template-columns: repeat(3, 1fr);
   column-gap: 28px;
   row-gap: 46px;
-  margin-bottom: 80px;
 `;
 
 export const ItemTitle = styled.div`

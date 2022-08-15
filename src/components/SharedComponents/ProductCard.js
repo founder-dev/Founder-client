@@ -161,7 +161,7 @@ const Container = styled.div`
   flex-direction: row;
 `;
 
-const HoverInfoTitle = styled.text`
+const HoverInfoTitle = styled.span`
   font-style: normal;
   font-weight: 500;
   font-size: 11px;
@@ -171,7 +171,7 @@ const HoverInfoTitle = styled.text`
   margin-right: 41px;
 `;
 
-const HoverInfo = styled.text`
+const HoverInfo = styled.span`
   font-weight: 500;
   font-size: 15.3617px;
   line-height: 27.65px;

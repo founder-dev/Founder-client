@@ -135,7 +135,7 @@ const MainPage = () => {
                   <TagArray tag={content.type_tag_arr} key={content.id} />
                 </RowWrapper>
 
-                {content.type_product !== '' && (
+                {content.type_product != '' && (
                   <GridWrapper>
                     {content.type_product.map(
                       ({
@@ -173,7 +173,7 @@ const MainPage = () => {
                     )}
                   </GridWrapper>
                 )}
-                <BrandCardWrapper>
+                <BrandCardWrapper  top={content.type_product != ''}>
                   {content.type_brand.map((brand) => (
                     <>
                       <BrandCard
@@ -251,16 +251,15 @@ const RowWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin-bottom: 42.75px;
+  margin-bottom: 42px;
 `;
 
 const BrandCardWrapper = styled.div`
   width: 920px;
   display: flex;
   flex-wrap: wrap;
-
-  margin-bottom: 79.82px;
-
+  margin-top: ${(props)=>(props.top) && '80px'};
+  margin-bottom: 80px;
   column-gap: 30px;
   row-gap: 20px;
 `;

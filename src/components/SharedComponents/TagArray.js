@@ -1,5 +1,3 @@
-import styled from 'styled-components';
-import { color } from '../../styles/theme';
 import { ChipWrapper, Chip } from '../SharedComponents/ChipPresenter';
 
 function TagArray({ tag }) {
