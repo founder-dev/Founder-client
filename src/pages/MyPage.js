@@ -19,12 +19,14 @@ import {
 import { fetchUserInfo } from '../API';
 import axios from 'axios';
 import { KAKAO_AUTH_URL } from '../components/SharedComponents/KaKaoAuth';
+import { useNavigate } from 'react-router-dom';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
   const gender = useRecoilValue(GenderState);
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
+  const navigate = useNavigate();
 
   function Logout() {
     axios
@@ -43,7 +45,7 @@ const MyPage = () => {
         console.log('로그아웃 완료');
         setIsLoggedIn(false);
         localStorage.clear();
-        window.location.reload();
+        navigate('/');
       })
 
       .catch((error) => {
@@ -57,7 +59,7 @@ const MyPage = () => {
     fetchUserInfo({ setuserData, access });
   }, [access]);
 
-  if (!userData) return null;
+  if (!userData && isLoggedIn) return null;
  
   return (
     <>

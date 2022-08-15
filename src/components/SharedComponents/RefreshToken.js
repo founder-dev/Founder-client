@@ -23,7 +23,7 @@ export const KakaoRefresh = async () => {
     console.log('리프레쉬 불가');
   }
 
-  KakaoRefresh();
+  setInterval(KakaoRefresh, 1000 * 60 * 4);
 };
 
 export default KakaoRefresh;
