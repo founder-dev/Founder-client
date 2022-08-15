@@ -26,17 +26,24 @@ const MyPage = () => {
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
 
-  function Logout(){
+  function Logout() {
     axios
-      .post('https://api.found-er.co.kr/api/auth/kakao/signout', {
-        headers: {
-          Authorization: `Bearer ${localStorage.accesstoken}`,
-        },
-      })
+      .post(
+        'https://api.found-er.co.kr/api/auth/kakao/signout',
+        {},
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${localStorage.accesstoken}`,
+          },
+        }
+      )
       .then((response) => {
         console.log(response);
         console.log('로그아웃 완료');
         setIsLoggedIn(false);
+        localStorage.clear();
+        window.location.reload();
       })
 
       .catch((error) => {
@@ -44,14 +51,14 @@ const MyPage = () => {
         console.log(error.response.data);
         console.log('로그아웃 실패');
       });
-  };
+  }
 
   useEffect(() => {
     fetchUserInfo({ setuserData, access });
   }, [access]);
 
   if (!userData) return null;
-
+ 
   return (
     <>
       <TopBar />
