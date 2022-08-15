@@ -12,9 +12,6 @@ const BrandMovingButton = ({ top, left, id }) => {
   }, []);
 
   if (!brandDetaildata) return null;
-  console.log(brandDetaildata);
-
-  if (!brandDetaildata) return null;
 
   return (
     <BrandHome top={top} left={left}>

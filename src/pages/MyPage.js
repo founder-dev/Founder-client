@@ -20,6 +20,7 @@ import { fetchUserInfo } from '../API';
 import axios from 'axios';
 import { KAKAO_AUTH_URL } from '../components/SharedComponents/KaKaoAuth';
 import { useNavigate } from 'react-router-dom';
+import { axiosBasic } from '../API';
 
 const MyPage = () => {
   const [isLoggedIn, setIsLoggedIn] = useRecoilState(loginState); //recoil 적용
@@ -27,15 +28,14 @@ const MyPage = () => {
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
   const navigate = useNavigate();
-
+  
   function Logout() {
-    axios
+    axiosBasic
       .post(
         'https://api.found-er.co.kr/api/auth/kakao/signout',
         {},
         {
           headers: {
-            'Content-Type': 'application/json',
             Authorization: `Bearer ${localStorage.accesstoken}`,
           },
         }

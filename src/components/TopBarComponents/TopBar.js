@@ -152,7 +152,7 @@ const MagazineText = styled.div`
   font-size: 16px;
   font-weight: ${fontWeight[2]};
   margin-left: 5rem;
-  margin-right: ${(props) => (props.isLoggedIn ? '16.938rem' : '26.188rem')};
+  margin-right: ${(props) => (props.isLoggedIn ? '17rem' : '20rem')};
 
   width: 42px;
 `;

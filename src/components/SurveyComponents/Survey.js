@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { GenderState } from '../../recoil';
 import { fetchUserInfo } from '../../API';
+import { axiosBasic } from '../../API';
 
 const Survey = () => {
   const [value, setValue] = useState(['', '']); //답한 answer value
@@ -31,7 +32,7 @@ const Survey = () => {
   const navigate = useNavigate();
   const [userData, setuserData] = useState(null);
   const access = localStorage.accesstoken;
-  
+
   useEffect(() => {
     fetchUserInfo({ setuserData, access });
   }, []);
@@ -44,8 +45,6 @@ const Survey = () => {
     answerSet[num].answer_num = String(e.target.id);
     answerValue[num] = e.target.value;
 
-    console.log(answerSet);
-    console.log(answerValue);
     selected[num + 1] = true;
     setId(id + 1);
   };
@@ -59,9 +58,9 @@ const Survey = () => {
       setGender(false);
     }
 
-    axios
+    axiosBasic
       .put(
-        'https://api.found-er.co.kr/api/survey',
+        'api/survey',
         {
           answer: answerSend,
         },

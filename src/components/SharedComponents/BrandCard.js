@@ -32,10 +32,10 @@ const BrandLogoBackground = styled.img`
 
 const BrandLogo = styled.img`
   position: absolute;
-  width: 108px;
-  height: 44.62px;
+  width: 92px;
+  height: 44px;
   top: 57.69px;
-  left: 26.15px;
+  left: 35px;
 `;
 
 const BrandName = styled.div`

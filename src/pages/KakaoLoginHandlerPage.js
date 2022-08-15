@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loginState } from '../recoil';
 import { useRecoilState } from 'recoil';
+import { axiosBasic } from '../API';
 
 function KaKaoLoginHandlerPage() {
   const [loggedin, setLoggedIn] = useRecoilState(loginState);
@@ -12,8 +13,8 @@ function KaKaoLoginHandlerPage() {
 
   const KakaoRefresh = async () => {
     try {
-      const response = await axios.post(
-        'https://api.found-er.co.kr/api/token/refresh',
+      const response = await axiosBasic.post(
+        'api/token/refresh',
         { refresh: `${localStorage.getItem('refreshtoken')}` }
       );
       console.log(response.data);
@@ -32,8 +33,8 @@ function KaKaoLoginHandlerPage() {
 
   const kakaologin = async () => {
     try {
-      const response = await axios.post(
-        `https://api.found-er.co.kr/api/auth/kakao/signin/callback?code=${code}`
+      const response = await axiosBasic.post(
+        `api/auth/kakao/signin/callback?code=${code}`
       );
       console.log(response.data);
       console.log('로그인 성공');
