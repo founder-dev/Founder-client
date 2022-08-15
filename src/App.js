@@ -11,13 +11,14 @@ import SurveyIntroPage from './pages/SurveyIntroPage';
 import BrandDetailPage from './pages/BrandDetailPage';
 import NotFoundPage from './pages/NotFoundPage';
 import axios from 'axios';
+import { axiosBasic } from './API';
 
 function App() {
   
   const KakaoRefresh = async () => {
     try {
-      const response = await axios.post(
-        'https://api.found-er.co.kr/api/token/refresh',
+      const response = await axiosBasic.post(
+        'api/token/refresh',
         { refresh: `${localStorage.getItem('refreshtoken')}` }
       );
       console.log(response.data);
