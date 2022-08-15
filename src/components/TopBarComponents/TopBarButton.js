@@ -80,8 +80,7 @@ const SurveyButton = styled.button`
   align-items: center;
   justify-content: center;
   background-color: ${(props) => (props.color ? 'rgba(0, 0, 0, 0)' : 'white')};
-  border-width: 1px;
-  border-style: solid;
+  border: 1px solid;
   border-color: ${(props) => props.color || 'black'};
   border-radius: 40px;
   width: 149px;
@@ -97,7 +96,7 @@ const Text = styled.div`
 `;
 
 const Image = styled.img`
-  margin-right: 3.188rem;
+  margin-right: 3.2rem;
   width: 32px;
   height: 32px;
 `;
