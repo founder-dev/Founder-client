@@ -13,8 +13,8 @@ import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';
 import BrandCard from '../components/SharedComponents/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
-import comingsoon from '../assets/MainPageAssets/comingsoon.png';
 import { fetchCategoryIntro } from '../API';
+import NullBrand from '../components/SharedComponents/NullBrand';
 
 const CategoryIntroPage = ({ title }) => {
   const [categoryIntroData, setCategoryIntroData] = useState(null);
@@ -22,21 +22,6 @@ const CategoryIntroPage = ({ title }) => {
   useEffect(() => {
     fetchCategoryIntro({ setCategoryIntroData, title });
   }, [title]);
-
-  const nullBrand = (num) => {
-    let array = [];
-    for (let i = 0; i < 5 - num; i++) {
-      array.push(
-        <BrandCard
-          brandName="커밍쑨"
-          brandLogo={comingsoon}
-          comingsoon={true}
-        />
-      );
-    }
-
-    return array;
-  };
 
   if (!categoryIntroData) return null;
 
@@ -105,10 +90,7 @@ const CategoryIntroPage = ({ title }) => {
                             />
                           )
                         )}
-                        {content.type_brand.length < 5 &&
-                          content.type_brand.length > 0 && (
-                            <>{nullBrand(content.type_brand.length)}</>
-                          )}
+                        <NullBrand num={content.type_brand.length}/>
                       </BrandCardWrapper>
                     </>
                   )}
