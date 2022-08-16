@@ -75,7 +75,11 @@ const MainPage = () => {
 
   const nullBrand = (num) => {
     let array = [];
-    for (let i = 0; i < 5 - num; i++) {
+    let lineNum = 1;
+    if (num > 5) {
+      lineNum = 2;
+    }
+    for (let i = 0; i < 5 * lineNum - num; i++) {
       array.push(
         <BrandCard
           brandName="커밍쑨"
@@ -184,8 +188,9 @@ const MainPage = () => {
                       />
                     </>
                   ))}
-                  {content.type_brand.length < 5 &&
-                    content.type_brand.length > 0 && (
+                  {content.type_brand.length > 0 &&
+                    content.type_brand.length < 5 &&
+                    content.type_brand.length < 9 && (
                       <>{nullBrand(content.type_brand.length)}</>
                     )}
                 </BrandCardWrapper>

@@ -80,7 +80,7 @@ const QuestionItem = styled.div`
 const SelectionWrapper = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  width: ${(props) => (props.length == 2 ? '723px' : '423px')};
+  width: ${(props) => (props.length == 2 ? '723px' : '430px')};
   column-gap: ${(props) => (props.length == 2 ? '27px' : '23px')};
   row-gap: 27px;
   padding-left: ${(props) => (props.length == 2 ? '98px' : '200px')};
@@ -106,8 +106,8 @@ const AnswerItem = styled.div`
 `;
 
 const Button = styled.button`
-  width: ${(props) => (props.length == 2 ? '349px' : '210px')};
-  height: ${(props) => (props.length == 2 ? '349px' : '265px')};
+  width: ${(props) => (props.length == 2 ? '349px' : '239px')};
+  height: ${(props) => (props.length == 2 ? '349px' : '270px')};
   object-fit: contain;
   background-image: url(${(props) => props.image});
   background-size: cover;
