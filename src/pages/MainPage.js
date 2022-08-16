@@ -14,7 +14,7 @@ import { Link } from 'react-router-dom';
 import TagArray from '../components/SharedComponents/TagArray';
 import axios from 'axios';
 import ItemTitle2 from '../components/SharedComponents/ItemTitle2';
-import comingsoon from '../assets/MainPageAssets/comingsoon.png';
+import NullBrand from '../components/SharedComponents/NullBrand';
 
 const MainPage = () => {
   const [recommendationData, setRecommendationData] = useState(null);
@@ -72,25 +72,6 @@ const MainPage = () => {
     };
     fetchRecommendation();
   }, []);
-
-  const nullBrand = (num) => {
-    let array = [];
-    let lineNum = 1;
-    if (num > 5) {
-      lineNum = 2;
-    }
-    for (let i = 0; i < 5 * lineNum - num; i++) {
-      array.push(
-        <BrandCard
-          brandName="커밍쑨"
-          brandLogo={comingsoon}
-          comingsoon={true}
-        />
-      );
-    }
-
-    return array;
-  };
 
   if (!recommendationData) return null;
 
@@ -188,11 +169,7 @@ const MainPage = () => {
                       />
                     </>
                   ))}
-                  {content.type_brand.length > 0 &&
-                    content.type_brand.length < 5 &&
-                    content.type_brand.length < 9 && (
-                      <>{nullBrand(content.type_brand.length)}</>
-                    )}
+                  <NullBrand num={content.type_brand.length}/>
                 </BrandCardWrapper>
               </div>
             ))}
