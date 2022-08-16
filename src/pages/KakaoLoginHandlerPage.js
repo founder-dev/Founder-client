@@ -39,8 +39,6 @@ function KaKaoLoginHandlerPage() {
       localStorage.setItem('accesstoken', response.data.token.access);
       localStorage.setItem('refreshtoken', response.data.token.refresh);
       localStorage.setItem('kakaotoken', response.data.token.kakao);
-      console.log(localStorage.accesstoken);
-      console.log(code);
       setLoggedIn(true);
 
       setInterval(KakaoRefresh, 1000 * 60 * 4);

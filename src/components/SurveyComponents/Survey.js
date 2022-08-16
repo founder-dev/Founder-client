@@ -48,8 +48,6 @@ const Survey = () => {
     setId(id + 1);
   };
 
-  console.log(localStorage.accesstoken);
-
   function SubmitSurvey() {
     if (answerSet[0].answer_num === 1) {
       setGender(true);
