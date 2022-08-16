@@ -27,7 +27,7 @@ const MyPage = () => {
   const access = localStorage.getItem('accesstoken');
   const [userData, setuserData] = useState(null);
   const navigate = useNavigate();
-  
+
   function Logout() {
     axiosBasic
       .post(

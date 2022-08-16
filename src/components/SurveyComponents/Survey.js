@@ -49,7 +49,7 @@ const Survey = () => {
   };
 
   function SubmitSurvey() {
-    if (answerSet[0].answer_num === 1) {
+    if (answerSet[0].answer_num == 1) {
       setGender(true);
     } else {
       setGender(false);
