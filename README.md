@@ -69,7 +69,6 @@
 
 ## 😎 사용한 라이브러리
 
-- react-dom
 - react-router-dom
 - styled-components
 - recoil-persist
