@@ -49,7 +49,7 @@ const MainPage = () => {
   };
 
   //초기 상태 유저를 위해
-  var token =
+  let token =
     localStorage.accesstoken === undefined
       ? ``
       : `Bearer ${localStorage.accesstoken}`;
@@ -74,8 +74,8 @@ const MainPage = () => {
   }, []);
 
   const nullBrand = (num) => {
-    var array = [];
-    for (var i = 0; i < 5 - num; i++) {
+    let array = [];
+    for (let i = 0; i < 5 - num; i++) {
       array.push(
         <BrandCard
           brandName="커밍쑨"
@@ -124,7 +124,7 @@ const MainPage = () => {
           )}
           <Container>
             {recommendationData.rec_type.map((content) => (
-              <>
+              <div key={content.id}>
                 <SubTitle>{content.type_desc} </SubTitle>
                 <RowWrapper>
                   <TitleWrapper>
@@ -173,7 +173,7 @@ const MainPage = () => {
                     )}
                   </GridWrapper>
                 )}
-                <BrandCardWrapper  top={content.type_product != ''}>
+                <BrandCardWrapper top={content.type_product != ''}>
                   {content.type_brand.map((brand) => (
                     <>
                       <BrandCard
@@ -189,7 +189,7 @@ const MainPage = () => {
                       <>{nullBrand(content.type_brand.length)}</>
                     )}
                 </BrandCardWrapper>
-              </>
+              </div>
             ))}
           </Container>
         </Wrapper>
@@ -258,7 +258,7 @@ const BrandCardWrapper = styled.div`
   width: 920px;
   display: flex;
   flex-wrap: wrap;
-  margin-top: ${(props)=>(props.top) && '80px'};
+  margin-top: ${(props) => props.top && '80px'};
   margin-bottom: 80px;
   column-gap: 30px;
   row-gap: 20px;

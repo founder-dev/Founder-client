@@ -154,7 +154,7 @@ export const PurchaseText = styled.div`
   color: white;
 `;
 
-export const BoughtText = styled.text`
+export const BoughtText = styled.span`
   width: 116px;
   height: 19px;
   display: flex;
@@ -184,7 +184,7 @@ export const ReviewButton = styled.button`
   border-radius: 4px;
 `;
 
-export const ReviewText = styled.text`
+export const ReviewText = styled.span`
   font-style: normal;
   font-weight: 500;
   font-size: 15.3167px;

@@ -3,11 +3,12 @@ import styled from 'styled-components';
 import BrandCircle from '../../assets/BrandCircle.png';
 import { Link } from 'react-router-dom';
 import { color } from '../../styles/theme';
+
 const BrandCard = ({ brandName, brandLogo, id, comingsoon }) => {
   return (
-    <Link to={`/branddetail/${id}`}>
+    <Link key ={id} to={`/branddetail/${id}`}>
       <BrandCardContainer>
-        <BrandLogoBackground src={BrandCircle}></BrandLogoBackground>
+        <BrandLogoBackground src={BrandCircle}/>
         <BrandLogo src={brandLogo} loading="lazy" />
         <BrandName comingsoon={comingsoon}>{brandName}</BrandName>
       </BrandCardContainer>

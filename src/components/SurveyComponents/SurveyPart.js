@@ -1,10 +1,9 @@
 import styled from 'styled-components';
 import Surveydata from '../../assets/json/Survey.json';
 import answerValue from '../../assets/json/answerValue.json';
-import { color, fontWeight, fontsize } from '../../styles/theme';
-import { useRef, useCallback } from 'react';
+import { color } from '../../styles/theme';
 
-const SurveyPart = ({ selected, selectAnswer, Question, beforeQuestion }) => {
+const SurveyPart = ({ selected, selectAnswer, Question }) => {
   /*
     <button onClick={selectAnswer} id = "1" value ={Surveydata[Question].answer1}>{Surveydata[Question].answer1}</button>
     <button onClick={selectAnswer} id ="2" value ={Surveydata[Question].answer2}>{Surveydata[Question].answer2}</button>
