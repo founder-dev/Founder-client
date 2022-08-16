@@ -4,7 +4,6 @@ import answerValue from '../../assets/json/answerValue.json';
 import SurveyPart from './SurveyPart';
 import styled from 'styled-components';
 import { color } from '../../styles/theme';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { GenderState } from '../../recoil';
@@ -48,8 +47,6 @@ const Survey = () => {
     selected[num + 1] = true;
     setId(id + 1);
   };
-
-  console.log(localStorage.accesstoken);
 
   function SubmitSurvey() {
     if (answerSet[0].answer_num === 1) {

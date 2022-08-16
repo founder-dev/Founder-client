@@ -17,7 +17,6 @@ import {
   Logo,
 } from '../components/MyPageComponents/MyPagePresenter';
 import { fetchUserInfo } from '../API';
-import axios from 'axios';
 import { KAKAO_AUTH_URL } from '../components/SharedComponents/KaKaoAuth';
 import { useNavigate } from 'react-router-dom';
 import { axiosBasic } from '../API';

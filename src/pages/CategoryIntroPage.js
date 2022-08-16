@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
@@ -24,8 +24,8 @@ const CategoryIntroPage = ({ title }) => {
   }, [title]);
 
   const nullBrand = (num) => {
-    var array = [];
-    for (var i = 0; i < 5 - num; i++) {
+    let array = [];
+    for (let i = 0; i < 5 - num; i++) {
       array.push(
         <BrandCard
           brandName="커밍쑨"
@@ -49,47 +49,45 @@ const CategoryIntroPage = ({ title }) => {
           <>
             {categoryIntroData.category_type.map((content) => (
               <>
-                <Container>
-                  <ItemTitle text={content.type_name} key={content.id} />
+                <Container key={content.id}>
+                  <ItemTitle text={content.type_name} />
                   <SubTitle bottom={content.type_product == '' && '0px'}>
-                    {content.type_desc}{' '}
-                    <TagArray tag={content.type_tag_arr} key={content.id} />
+                    {content.type_desc} <TagArray tag={content.type_tag_arr} />
                   </SubTitle>
                   {content.type_product != '' ? (
                     <GridWrapper>
-                      {content.type_product //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
-                        .map(
-                          ({
-                            product_name,
-                            product_img,
-                            min_price,
-                            star_rate_avg,
-                            custom_flag,
-                            delivery_cycle,
-                            product_main_img,
-                            min_std_price,
-                            max_std_price,
-                            delivery_cycle_detail,
-                            id,
-                          }) => (
-                            <Link
-                              to={`/itemdetail/${title}/${content.type_name}/${id}`}
-                            >
-                              <ProductCard
-                                itemName={product_name}
-                                productImg={product_img}
-                                price={min_price}
-                                rating={star_rate_avg}
-                                custom={custom_flag}
-                                schedule={delivery_cycle}
-                                image={product_main_img}
-                                minPrice={min_std_price}
-                                maxPrice={max_std_price}
-                                scheduleKorean={delivery_cycle_detail}
-                              />
-                            </Link>
-                          )
-                        )}
+                      {content.type_product.map(
+                        ({
+                          product_name,
+                          product_img,
+                          min_price,
+                          star_rate_avg,
+                          custom_flag,
+                          delivery_cycle,
+                          product_main_img,
+                          min_std_price,
+                          max_std_price,
+                          delivery_cycle_detail,
+                          id,
+                        }) => (
+                          <Link
+                            to={`/itemdetail/${title}/${content.type_name}/${id}`}
+                          >
+                            <ProductCard
+                              itemName={product_name}
+                              productImg={product_img}
+                              price={min_price}
+                              rating={star_rate_avg}
+                              custom={custom_flag}
+                              schedule={delivery_cycle}
+                              image={product_main_img}
+                              minPrice={min_std_price}
+                              maxPrice={max_std_price}
+                              scheduleKorean={delivery_cycle_detail}
+                            />
+                          </Link>
+                        )
+                      )}
                     </GridWrapper>
                   ) : null}
 
