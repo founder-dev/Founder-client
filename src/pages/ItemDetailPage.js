@@ -90,7 +90,6 @@ const ItemDetailPage = () => {
                     schedule={itemDetailData.product.delivery_cycle}
                     minPrice={itemDetailData.product.min_price}
                     custom={itemDetailData.product.custom_flag}
-                    delivery={itemDetailData.product.delivery_cycle}
                     title={params.title}
                     type="WriterModal"
                   />

@@ -45,7 +45,6 @@ const WriterModal = ({
   schedule,
   minPrice,
   custom,
-  delivery,
   title,
 }) => {
   const [review, setReview] = useState('');
@@ -60,6 +59,7 @@ const WriterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const koreanSchedule = useChangeKorean(schedule);
 
     const accessToken = localStorage.getItem('accesstoken');
     console.log(accessToken);
@@ -118,7 +118,7 @@ const WriterModal = ({
       <ModalBlock>
         {
           <ScheduleSticker
-            src={delivery === 'weekly' ? Weekly : WeeklyMonthly}
+            src={schedule === 'weekly' ? Weekly : WeeklyMonthly}
           />
         }
         {custom && <CustomSticker src={Custom} />}
@@ -147,7 +147,7 @@ const WriterModal = ({
               <DetailWrapper>
                 <DetailBox>
                   <DetailGray>배송주기</DetailGray>
-                  <DetailBlack>{useChangeKorean({ schedule })}</DetailBlack>
+                  <DetailBlack>{koreanSchedule}</DetailBlack>
                 </DetailBox>
                 <DetailBox>
                   <DetailGray>최저가</DetailGray>
