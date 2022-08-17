@@ -111,7 +111,7 @@ const WriterModal = ({
     }
   }, []);
 
-  const koreanSchedule = useChangeKorean(schedule);
+  var koreanSchedule = useChangeKorean(schedule);
 
   return (
     <Container>
