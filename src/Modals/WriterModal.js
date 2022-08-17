@@ -36,6 +36,7 @@ import {
 import RatingContainer from '../components/WriterModalComponents/RatingContainer';
 import axios from 'axios';
 import Weekly from '../assets/ProductCardAssets/Weekly.png';
+import useChangeKorean from '../hooks/useChangeKorean';
 
 const WriterModal = ({
   setOpenModal,
@@ -146,7 +147,7 @@ const WriterModal = ({
               <DetailWrapper>
                 <DetailBox>
                   <DetailGray>배송주기</DetailGray>
-                  <DetailBlack>{schedule}</DetailBlack>
+                  <DetailBlack>{useChangeKorean(schedule)}</DetailBlack>
                 </DetailBox>
                 <DetailBox>
                   <DetailGray>최저가</DetailGray>
