@@ -29,8 +29,6 @@ function useChangeKorean(text) {
     beverage: '음료',
     goods: '생필품',
     health: '건강',
-    weekly: '주간',
-    'weekly/monthly': '주간/월간',
   };
 
   return dicText[text];
