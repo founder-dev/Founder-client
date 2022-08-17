@@ -1,11 +1,10 @@
-import React, { useState, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import coolicon from '../../assets/TopBarAssets/coolicon.png';
 import whiteCoolicon from '../../assets/TopBarAssets/whiteCoolicon.png';
 import TopBarButton from './TopBarButton';
 import { useRecoilState } from 'recoil';
 import { menuOpenState } from '../../recoil';
-import { color, fontsize, fontWeight } from '../../styles/theme';
+import { color, fontWeight } from '../../styles/theme';
 import { Link } from 'react-router-dom';
 import { loginState } from '../../recoil';
 

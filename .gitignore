@@ -5,6 +5,7 @@
 /yarn.lock
 /.pnp
 .pnp.js
+/.env
 src/config.js
 
 # testing

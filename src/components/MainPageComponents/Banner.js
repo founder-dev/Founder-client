@@ -5,7 +5,7 @@ import Banner3 from '../../assets/MainPageAssets/Banner3.png';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import BannerButton from './BannerButton';
-import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
+import SwiperCore, { Pagination, Autoplay } from 'swiper';
 import 'swiper/css/pagination';
 import './Pagination.css';
 import { Link } from 'react-router-dom';

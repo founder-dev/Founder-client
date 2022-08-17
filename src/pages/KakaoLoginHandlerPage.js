@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { loginState } from '../recoil';
@@ -13,10 +12,9 @@ function KaKaoLoginHandlerPage() {
 
   const KakaoRefresh = async () => {
     try {
-      const response = await axiosBasic.post(
-        'api/token/refresh',
-        { refresh: `${localStorage.getItem('refreshtoken')}` }
-      );
+      const response = await axiosBasic.post('api/token/refresh', {
+        refresh: `${localStorage.getItem('refreshtoken')}`,
+      });
       console.log(response.data);
       console.log('리프레쉬 성공');
 
@@ -41,8 +39,6 @@ function KaKaoLoginHandlerPage() {
       localStorage.setItem('accesstoken', response.data.token.access);
       localStorage.setItem('refreshtoken', response.data.token.refresh);
       localStorage.setItem('kakaotoken', response.data.token.kakao);
-      console.log(localStorage.accesstoken);
-      console.log(code);
       setLoggedIn(true);
 
       setInterval(KakaoRefresh, 1000 * 60 * 4);

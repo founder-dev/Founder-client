@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import PageTitleBar from '../components/TopBarComponents/PageTitleBar';
 import TopBar from '../components/TopBarComponents/TopBar';
 import styled from 'styled-components';
@@ -13,8 +13,8 @@ import ItemTitle from '../components/SharedComponents/ItemTitle';
 import BrandTitle from '../components/SharedComponents/BrandTitle';
 import BrandCard from '../components/SharedComponents/BrandCard';
 import TagArray from '../components/SharedComponents/TagArray';
-import comingsoon from '../assets/MainPageAssets/comingsoon.png';
 import { fetchCategoryIntro } from '../API';
+import NullBrand from '../components/SharedComponents/NullBrand';
 
 const CategoryIntroPage = ({ title }) => {
   const [categoryIntroData, setCategoryIntroData] = useState(null);
@@ -22,21 +22,6 @@ const CategoryIntroPage = ({ title }) => {
   useEffect(() => {
     fetchCategoryIntro({ setCategoryIntroData, title });
   }, [title]);
-
-  const nullBrand = (num) => {
-    var array = [];
-    for (var i = 0; i < 5 - num; i++) {
-      array.push(
-        <BrandCard
-          brandName="커밍쑨"
-          brandLogo={comingsoon}
-          comingsoon={true}
-        />
-      );
-    }
-
-    return array;
-  };
 
   if (!categoryIntroData) return null;
 
@@ -49,47 +34,45 @@ const CategoryIntroPage = ({ title }) => {
           <>
             {categoryIntroData.category_type.map((content) => (
               <>
-                <Container>
-                  <ItemTitle text={content.type_name} key={content.id} />
+                <Container key={content.id}>
+                  <ItemTitle text={content.type_name} />
                   <SubTitle bottom={content.type_product == '' && '0px'}>
-                    {content.type_desc}{' '}
-                    <TagArray tag={content.type_tag_arr} key={content.id} />
+                    {content.type_desc} <TagArray tag={content.type_tag_arr} />
                   </SubTitle>
                   {content.type_product != '' ? (
                     <GridWrapper>
-                      {content.type_product //api 호출 후 useEffect 같은 걸로 data를 불러와야됨
-                        .map(
-                          ({
-                            product_name,
-                            product_img,
-                            min_price,
-                            star_rate_avg,
-                            custom_flag,
-                            delivery_cycle,
-                            product_main_img,
-                            min_std_price,
-                            max_std_price,
-                            delivery_cycle_detail,
-                            id,
-                          }) => (
-                            <Link
-                              to={`/itemdetail/${title}/${content.type_name}/${id}`}
-                            >
-                              <ProductCard
-                                itemName={product_name}
-                                productImg={product_img}
-                                price={min_price}
-                                rating={star_rate_avg}
-                                custom={custom_flag}
-                                schedule={delivery_cycle}
-                                image={product_main_img}
-                                minPrice={min_std_price}
-                                maxPrice={max_std_price}
-                                scheduleKorean={delivery_cycle_detail}
-                              />
-                            </Link>
-                          )
-                        )}
+                      {content.type_product.map(
+                        ({
+                          product_name,
+                          product_img,
+                          min_price,
+                          star_rate_avg,
+                          custom_flag,
+                          delivery_cycle,
+                          product_main_img,
+                          min_std_price,
+                          max_std_price,
+                          delivery_cycle_detail,
+                          id,
+                        }) => (
+                          <Link
+                            to={`/itemdetail/${title}/${content.type_name}/${id}`}
+                          >
+                            <ProductCard
+                              itemName={product_name}
+                              productImg={product_img}
+                              price={min_price}
+                              rating={star_rate_avg}
+                              custom={custom_flag}
+                              schedule={delivery_cycle}
+                              image={product_main_img}
+                              minPrice={min_std_price}
+                              maxPrice={max_std_price}
+                              scheduleKorean={delivery_cycle_detail}
+                            />
+                          </Link>
+                        )
+                      )}
                     </GridWrapper>
                   ) : null}
 
@@ -107,10 +90,7 @@ const CategoryIntroPage = ({ title }) => {
                             />
                           )
                         )}
-                        {content.type_brand.length < 5 &&
-                          content.type_brand.length > 0 && (
-                            <>{nullBrand(content.type_brand.length)}</>
-                          )}
+                        <NullBrand num={content.type_brand.length}/>
                       </BrandCardWrapper>
                     </>
                   )}

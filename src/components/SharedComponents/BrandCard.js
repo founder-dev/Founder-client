@@ -1,17 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
 import BrandCircle from '../../assets/BrandCircle.png';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { color } from '../../styles/theme';
+
 const BrandCard = ({ brandName, brandLogo, id, comingsoon }) => {
+  const navigate = useNavigate();
+
+  function clickBrand() {
+    if (id != undefined) {
+      navigate(`/branddetail/${id}`);
+    }
+  }
+  
   return (
-    <Link to={`/branddetail/${id}`}>
-      <BrandCardContainer>
-        <BrandLogoBackground src={BrandCircle}></BrandLogoBackground>
-        <BrandLogo src={brandLogo} loading="lazy" />
-        <BrandName comingsoon={comingsoon}>{brandName}</BrandName>
-      </BrandCardContainer>
-    </Link>
+    <BrandCardContainer onClick={clickBrand}>
+      <BrandLogoBackground src={BrandCircle} />
+      <BrandLogo src={brandLogo} loading="lazy" />
+      <BrandName comingsoon={comingsoon}>{brandName}</BrandName>
+    </BrandCardContainer>
   );
 };
 
@@ -22,6 +29,7 @@ const BrandCardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   position: relative;
+  cursor: pointer;
 `;
 
 const BrandLogoBackground = styled.img`
