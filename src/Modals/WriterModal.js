@@ -59,7 +59,6 @@ const WriterModal = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const koreanSchedule = useChangeKorean(schedule);
 
     const accessToken = localStorage.getItem('accesstoken');
     console.log(accessToken);
@@ -111,6 +110,8 @@ const WriterModal = ({
       setIsFood(true);
     }
   }, []);
+
+  const koreanSchedule = useChangeKorean(schedule);
 
   return (
     <Container>
