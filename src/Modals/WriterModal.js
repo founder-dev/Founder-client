@@ -147,7 +147,7 @@ const WriterModal = ({
               <DetailWrapper>
                 <DetailBox>
                   <DetailGray>배송주기</DetailGray>
-                  <DetailBlack>{useChangeKorean(schedule)}</DetailBlack>
+                  <DetailBlack>{useChangeKorean({ schedule })}</DetailBlack>
                 </DetailBox>
                 <DetailBox>
                   <DetailGray>최저가</DetailGray>
