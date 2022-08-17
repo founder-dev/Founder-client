@@ -87,7 +87,7 @@ const ItemDetailPage = () => {
                     setOpenModal={setModalOpen}
                     id={itemDetailData.product.id}
                     name={itemDetailData.product.product_name}
-                    schedule={itemDetailData.product.delivery_cycle}
+                    schedule={itemDetailData.product.delivery_cycle_detail}
                     minPrice={itemDetailData.product.min_price}
                     custom={itemDetailData.product.custom_flag}
                     title={params.title}
